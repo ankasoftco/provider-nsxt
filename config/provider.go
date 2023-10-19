@@ -9,6 +9,8 @@ import (
 	_ "embed"
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
+
+	dhcp "github.com/ankasoftco/provider-vcd/config/dhcp"
 )
 
 const (
@@ -34,7 +36,7 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-
+		dhcp.Configure,
 	} {
 		configure(pc)
 	}
