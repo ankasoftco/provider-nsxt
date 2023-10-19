@@ -10,7 +10,7 @@ import (
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
-	dhcp "github.com/ankasoftco/provider-vcd/config/dhcp"
+	dhcp "github.com/ankasoftco/provider-nsxt/config/dhcp"
 )
 
 const (

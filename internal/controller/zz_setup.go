@@ -9,6 +9,8 @@ import (
 
 	"github.com/upbound/upjet/pkg/controller"
 
+	policydhcprelay "github.com/ankasoftco/provider-nsxt/internal/controller/dhcp/policydhcprelay"
+	policydhcpserver "github.com/ankasoftco/provider-nsxt/internal/controller/dhcp/policydhcpserver"
 	providerconfig "github.com/ankasoftco/provider-nsxt/internal/controller/providerconfig"
 )
 
@@ -16,6 +18,8 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		policydhcprelay.Setup,
+		policydhcpserver.Setup,
 		providerconfig.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {

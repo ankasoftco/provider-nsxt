@@ -1,4 +1,4 @@
-package apitoken
+package dhcp
 
 import "github.com/upbound/upjet/pkg/config"
 
