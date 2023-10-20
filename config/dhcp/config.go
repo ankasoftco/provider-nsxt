@@ -15,4 +15,16 @@ func Configure(p *config.Provider) {
 		r.Kind = "PolicyDhcpServer"
 		r.Version = "v1alpha1"
 	})
+
+	p.AddResourceConfigurator("nsxt_policy_dhcp_v4_static_binding", func(r *config.Resource) {
+		r.ShortGroup = "dhcp"
+		r.Kind = "PolicyDhcpV4StaticBinding"
+		r.Version = "v1alpha1"
+	})
+	
+	p.AddResourceConfigurator("nsxt_policy_dhcp_v6_static_binding", func(r *config.Resource) {
+		r.ShortGroup = "dhcp"
+		r.Kind = "PolicyDhcpV6StaticBinding"
+		r.Version = "v1alpha1"
+	})
 }
