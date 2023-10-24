@@ -10,6 +10,8 @@ import (
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
+	beta "github.com/ankasoftco/provider-nsxt/config/beta"
+	depcreated "github.com/ankasoftco/provider-nsxt/config/depcreated"
 	dhcp "github.com/ankasoftco/provider-nsxt/config/dhcp"
 	dns "github.com/ankasoftco/provider-nsxt/config/dns"
 	evpn "github.com/ankasoftco/provider-nsxt/config/evpn"
@@ -21,10 +23,7 @@ import (
 	multitenancy "github.com/ankasoftco/provider-nsxt/config/multitenancy"
 	ospf "github.com/ankasoftco/provider-nsxt/config/ospf"
 	segments "github.com/ankasoftco/provider-nsxt/config/segments"
-
-
-
-
+	vpn "github.com/ankasoftco/provider-nsxt/config/vpn"
 )
 
 const (
@@ -55,12 +54,15 @@ func GetProvider() *ujconfig.Provider {
 		evpn.Configure,
 		firewall.Configure,
 		gatewaysandrouting.Configure,
-		gatewaysandrouting.Configure,
+		groupingandtagging.Configure,
 		ipam.Configure,
 		loadbalancer.Configure,
 		multitenancy.Configure,
 		ospf.Configure,
 		segments.Configure,
+		vpn.Configure,
+		beta.Configure,
+		depcreated.Configure,
 	} {
 		configure(pc)
 	}
