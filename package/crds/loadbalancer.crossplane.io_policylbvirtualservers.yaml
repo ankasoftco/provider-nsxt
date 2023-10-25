@@ -1,0 +1,1671 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.3
+  creationTimestamp: null
+  name: policylbvirtualservers.loadbalancer.crossplane.io
+spec:
+  group: loadbalancer.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - nsxt
+    kind: PolicyLbVirtualServer
+    listKind: PolicyLbVirtualServerList
+    plural: policylbvirtualservers
+    singular: policylbvirtualserver
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: PolicyLbVirtualServer is the Schema for the PolicyLbVirtualServers
+          API. <no value>
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: PolicyLbVirtualServerSpec defines the desired state of PolicyLbVirtualServer
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: 'DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource. This field is planned to be deprecated
+                  in favor of the ManagementPolicy field in a future release. Currently,
+                  both could be set independently and non-default values would be
+                  honored if the feature flag is enabled. See the design doc for more
+                  information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  accessListControl:
+                    description: IP access list control for filtering the connections
+                      from clients
+                    items:
+                      properties:
+                        action:
+                          description: Action to apply to connections matching the
+                            group
+                          type: string
+                        enabled:
+                          description: Flag to enable access list control
+                          type: boolean
+                        groupPath:
+                          description: The path of grouping object which defines the
+                            IP addresses or ranges to match the client IP
+                          type: string
+                      required:
+                      - action
+                      - groupPath
+                      type: object
+                    type: array
+                  accessLogEnabled:
+                    description: If enabled, all connections/requests sent to virtual
+                      server are logged to the access log file
+                    type: boolean
+                  applicationProfilePath:
+                    description: Application profile for this virtual server
+                    type: string
+                  clientSsl:
+                    description: This setting is used when load balancer terminates
+                      client SSL connection
+                    items:
+                      properties:
+                        caPaths:
+                          description: If client auth type is REQUIRED, client certificate
+                            must be signed by one Certificate Authorities
+                          items:
+                            type: string
+                          type: array
+                        certificateChainDepth:
+                          description: Certificate chain depth
+                          type: number
+                        clientAuth:
+                          description: Client authentication mode
+                          type: string
+                        crlPaths:
+                          description: Certificate Revocation Lists can be specified
+                            to disallow compromised certificates
+                          items:
+                            type: string
+                          type: array
+                        defaultCertificatePath:
+                          description: Default Certificate Path
+                          type: string
+                        sniPaths:
+                          description: This setting allows multiple certificates,
+                            for different hostnames, to be bound to the same virtual
+                            server
+                          items:
+                            type: string
+                          type: array
+                        sslProfilePath:
+                          description: Client SSL Profile Path
+                          type: string
+                      required:
+                      - defaultCertificatePath
+                      type: object
+                    type: array
+                  defaultPoolMemberPorts:
+                    description: Default pool member ports when member port is not
+                      defined
+                    items:
+                      type: string
+                    type: array
+                  description:
+                    description: Description for this resource
+                    type: string
+                  displayName:
+                    description: Display name for this resource
+                    type: string
+                  enabled:
+                    description: Flag to enable Virtual Server
+                    type: boolean
+                  ipAddress:
+                    description: Virtual Server IP address
+                    type: string
+                  logSignificantEventOnly:
+                    description: Flag to log significant events in access log, if
+                      access log is enabed
+                    type: boolean
+                  maxConcurrentConnections:
+                    description: To ensure one virtual server does not over consume
+                      resources, connections to a virtual server can be capped.
+                    type: number
+                  maxNewConnectionRate:
+                    description: To ensure one virtual server does not over consume
+                      resources, connections to a member can be rate limited.
+                    type: number
+                  nsxId:
+                    description: NSX ID for this resource
+                    type: string
+                  persistenceProfilePath:
+                    description: Path to persistence profile allowing related client
+                      connections to be sent to the same backend server.
+                    type: string
+                  poolPath:
+                    description: Path for Load Balancer Pool
+                    type: string
+                  ports:
+                    description: Virtual Server ports
+                    items:
+                      type: string
+                    type: array
+                  rule:
+                    description: List of load balancer rules for layer 7 virtual servers
+                      with LBHttpProfile
+                    items:
+                      properties:
+                        action:
+                          description: A list of actions to be executed at specified
+                            phase when load balancer rule matches.
+                          items:
+                            properties:
+                              connectionDrop:
+                                description: Action to drop the connection.
+                                items:
+                                  properties:
+                                    Dummy:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRedirect:
+                                description: Action to redirect HTTP request messages
+                                  to a new URL.
+                                items:
+                                  properties:
+                                    redirectStatus:
+                                      type: string
+                                    redirectUrl:
+                                      type: string
+                                  required:
+                                  - redirectStatus
+                                  - redirectUrl
+                                  type: object
+                                type: array
+                              httpReject:
+                                description: Action to reject HTTP request messages
+                                items:
+                                  properties:
+                                    replyMessage:
+                                      type: string
+                                    replyStatus:
+                                      type: string
+                                  required:
+                                  - replyStatus
+                                  type: object
+                                type: array
+                              httpRequestHeaderDelete:
+                                description: Action to delete header fields of HTTP
+                                  request messages at HTTP_REQUEST_REWRITE phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                  required:
+                                  - headerName
+                                  type: object
+                                type: array
+                              httpRequestHeaderRewrite:
+                                description: Action to rewrite header fields of HTTP
+                                  request messages to specified new values at HTTP_REQUEST_REWRITE
+                                  phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                  required:
+                                  - headerName
+                                  - headerValue
+                                  type: object
+                                type: array
+                              httpRequestUriRewrite:
+                                description: Action to rewrite URIs in matched HTTP
+                                  request messages.
+                                items:
+                                  properties:
+                                    uri:
+                                      type: string
+                                    uriArguments:
+                                      type: string
+                                  required:
+                                  - uri
+                                  type: object
+                                type: array
+                              httpResponseHeaderDelete:
+                                description: Action to delete header fields of HTTP
+                                  response messages at HTTP_RESPONSE_REWRITE phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                  required:
+                                  - headerName
+                                  type: object
+                                type: array
+                              httpResponseHeaderRewrite:
+                                description: Action to rewrite header fields of HTTP
+                                  response messages to specified new values at HTTP_RESPONSE_REWRITE
+                                  phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                  required:
+                                  - headerName
+                                  - headerValue
+                                  type: object
+                                type: array
+                              jwtAuth:
+                                description: Action  to control access to backend
+                                  server resources using JSON Web Token(JWT) authentication.
+                                items:
+                                  properties:
+                                    key:
+                                      items:
+                                        properties:
+                                          certificatePath:
+                                            type: string
+                                          publicKeyContent:
+                                            type: string
+                                          symmetricKey:
+                                            type: string
+                                        type: object
+                                      type: array
+                                    passJwtToPool:
+                                      type: boolean
+                                    realm:
+                                      type: string
+                                    tokens:
+                                      description: JWT tokens
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
+                              selectPool:
+                                description: Action to select a pool for matched HTTP
+                                  request messages.
+                                items:
+                                  properties:
+                                    poolId:
+                                      type: string
+                                  required:
+                                  - poolId
+                                  type: object
+                                type: array
+                              sslModeSelection:
+                                description: Action to select SSL mode.
+                                items:
+                                  properties:
+                                    sslMode:
+                                      type: string
+                                  required:
+                                  - sslMode
+                                  type: object
+                                type: array
+                              variableAssignment:
+                                description: Action to create a new variable and assign
+                                  value to it.
+                                items:
+                                  properties:
+                                    variableName:
+                                      type: string
+                                    variableValue:
+                                      type: string
+                                  required:
+                                  - variableName
+                                  - variableValue
+                                  type: object
+                                type: array
+                              variablePersistenceLearn:
+                                description: Action to create a new variable and assign
+                                  value to it.
+                                items:
+                                  properties:
+                                    persistenceProfilePath:
+                                      type: string
+                                    variableHashEnabled:
+                                      type: boolean
+                                    variableName:
+                                      type: string
+                                  required:
+                                  - variableName
+                                  type: object
+                                type: array
+                              variablePersistenceOn:
+                                description: Action to create a new variable and assign
+                                  value to it.
+                                items:
+                                  properties:
+                                    persistenceProfilePath:
+                                      type: string
+                                    variableHashEnabled:
+                                      type: boolean
+                                    variableName:
+                                      type: string
+                                  required:
+                                  - variableName
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        condition:
+                          description: A list of match conditions used to match application
+                            traffic.
+                          items:
+                            properties:
+                              httpRequestBody:
+                                description: Rule condition based on HTTP request
+                                  body
+                                items:
+                                  properties:
+                                    bodyValue:
+                                      type: string
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  required:
+                                  - bodyValue
+                                  - matchType
+                                  type: object
+                                type: array
+                              httpRequestCookie:
+                                description: Rule condition based on HTTP cookie
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    cookieName:
+                                      type: string
+                                    cookieValue:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  required:
+                                  - cookieName
+                                  - cookieValue
+                                  - matchType
+                                  type: object
+                                type: array
+                              httpRequestHeader:
+                                description: Rule condition based on HTTP request
+                                  header
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  required:
+                                  - headerName
+                                  - headerValue
+                                  - matchType
+                                  type: object
+                                type: array
+                              httpRequestMethod:
+                                description: Rule condition based on http request
+                                  method
+                                items:
+                                  properties:
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    method:
+                                      type: string
+                                  required:
+                                  - method
+                                  type: object
+                                type: array
+                              httpRequestUri:
+                                description: Rule condition based on http request
+                                  URI
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    uri:
+                                      type: string
+                                  required:
+                                  - matchType
+                                  - uri
+                                  type: object
+                                type: array
+                              httpRequestUriArguments:
+                                description: Rule condition based on http request
+                                  URI arguments (query string)
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    uriArguments:
+                                      type: string
+                                  required:
+                                  - matchType
+                                  - uriArguments
+                                  type: object
+                                type: array
+                              httpRequestVersion:
+                                description: Rule condition based on http request
+                                  version
+                                items:
+                                  properties:
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    version:
+                                      type: string
+                                  required:
+                                  - version
+                                  type: object
+                                type: array
+                              httpResponseHeader:
+                                description: Rule condition based on HTTP response
+                                  header
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  required:
+                                  - headerName
+                                  - headerValue
+                                  - matchType
+                                  type: object
+                                type: array
+                              httpSsl:
+                                description: Rule condition based on HTTP SSL handshake
+                                  and connection
+                                items:
+                                  properties:
+                                    clientCertificateIssuerDn:
+                                      items:
+                                        properties:
+                                          caseSensitive:
+                                            description: If true, case is significant
+                                              in condition matching
+                                            type: boolean
+                                          issuerDn:
+                                            type: string
+                                          matchType:
+                                            description: Match type (STARTS_WITH,
+                                              ENDS_WITH, EQUALS, CONTAINS, REGEX)
+                                            type: string
+                                        required:
+                                        - issuerDn
+                                        - matchType
+                                        type: object
+                                      type: array
+                                    clientCertificateSubjectDn:
+                                      items:
+                                        properties:
+                                          caseSensitive:
+                                            description: If true, case is significant
+                                              in condition matching
+                                            type: boolean
+                                          matchType:
+                                            description: Match type (STARTS_WITH,
+                                              ENDS_WITH, EQUALS, CONTAINS, REGEX)
+                                            type: string
+                                          subjectDn:
+                                            type: string
+                                        required:
+                                        - matchType
+                                        - subjectDn
+                                        type: object
+                                      type: array
+                                    clientSupportedSslCiphers:
+                                      description: Supported SSL ciphers
+                                      items:
+                                        type: string
+                                      type: array
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    sessionReused:
+                                      type: string
+                                    usedProtocol:
+                                      type: string
+                                    usedSslCipher:
+                                      type: string
+                                  type: object
+                                type: array
+                              ipHeader:
+                                description: Rule condition based on IP settings of
+                                  the message
+                                items:
+                                  properties:
+                                    groupPath:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    sourceAddress:
+                                      type: string
+                                  type: object
+                                type: array
+                              sslSni:
+                                description: Rule condition based on SSL SNI in client
+                                  hello
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    sni:
+                                      type: string
+                                  required:
+                                  - matchType
+                                  - sni
+                                  type: object
+                                type: array
+                              tcpHeader:
+                                description: Rule condition based on TCP settings
+                                  of the message
+                                items:
+                                  properties:
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    sourcePort:
+                                      type: string
+                                  required:
+                                  - sourcePort
+                                  type: object
+                                type: array
+                              variable:
+                                description: Rule condition based on IP header
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    variableName:
+                                      type: string
+                                    variableValue:
+                                      type: string
+                                  required:
+                                  - matchType
+                                  - variableName
+                                  - variableValue
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        displayName:
+                          description: Display name for this resource
+                          type: string
+                        matchStrategy:
+                          description: 'Match strategy for determining match of multiple
+                            conditions (ALL or ANY, default: ANY).'
+                          type: string
+                        phase:
+                          description: Load balancer processing phase, one of HTTP_REQUEST_REWRITE,
+                            HTTP_FORWARDING (Default), HTTP_RESPONSE_REWRITE, HTTP_ACCESS,
+                            TRANSPORT.
+                          type: string
+                      required:
+                      - action
+                      - displayName
+                      type: object
+                    type: array
+                  serverSsl:
+                    description: This setting is used when load balancer establishes
+                      connection to the backend server
+                    items:
+                      properties:
+                        caPaths:
+                          description: If server auth type is REQUIRED, server certificate
+                            must be signed by one Certificate Authorities
+                          items:
+                            type: string
+                          type: array
+                        certificateChainDepth:
+                          description: Certificate chain depth
+                          type: number
+                        clientCertificatePath:
+                          description: Client certificat path for client authentication
+                          type: string
+                        crlPaths:
+                          description: Certificate Revocation Lists can be specified
+                            disallow compromised certificates
+                          items:
+                            type: string
+                          type: array
+                        serverAuth:
+                          description: Server authentication mode
+                          type: string
+                        sslProfilePath:
+                          description: Server SSL Profile Path
+                          type: string
+                      type: object
+                    type: array
+                  servicePath:
+                    description: Virtual Server can be associated with Load Balancer
+                      Service
+                    type: string
+                  sorryPoolPath:
+                    description: When load balancer can not select server in default
+                      pool or pool in rules, the request would be served by sorry
+                      pool
+                    type: string
+                  tag:
+                    description: Set of opaque identifiers meaningful to the user
+                    items:
+                      properties:
+                        scope:
+                          type: string
+                        tag:
+                          type: string
+                      type: object
+                    type: array
+                type: object
+              managementPolicy:
+                default: FullControl
+                description: 'THIS IS AN ALPHA FIELD. Do not use it in production.
+                  It is not honored unless the relevant Crossplane feature flag is
+                  enabled, and may be changed or removed without notice. ManagementPolicy
+                  specifies the level of control Crossplane has over the managed external
+                  resource. This field is planned to replace the DeletionPolicy field
+                  in a future release. Currently, both could be set independently
+                  and non-default values would be honored if the feature flag is enabled.
+                  See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - FullControl
+                - ObserveOnly
+                - OrphanOnDelete
+                type: string
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              publishConnectionDetailsTo:
+                description: PublishConnectionDetailsTo specifies the connection secret
+                  config which contains a name, metadata and a reference to secret
+                  store config to which any connection details for this managed resource
+                  should be written. Connection details frequently include the endpoint,
+                  username, and password required to connect to the managed resource.
+                properties:
+                  configRef:
+                    default:
+                      name: default
+                    description: SecretStoreConfigRef specifies which secret store
+                      config should be used for this ConnectionSecret.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: Resolution specifies whether resolution of
+                              this reference is required. The default is 'Required',
+                              which means the reconcile will fail if the reference
+                              cannot be resolved. 'Optional' means this reference
+                              will be a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: Resolve specifies when this reference should
+                              be resolved. The default is 'IfNotPresent', which will
+                              attempt to resolve the reference only when the corresponding
+                              field is not present. Use 'Always' to resolve the reference
+                              on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  metadata:
+                    description: Metadata is the metadata for connection secret.
+                    properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        description: Annotations are the annotations to be added to
+                          connection secret. - For Kubernetes secrets, this will be
+                          used as "metadata.annotations". - It is up to Secret Store
+                          implementation for others store types.
+                        type: object
+                      labels:
+                        additionalProperties:
+                          type: string
+                        description: Labels are the labels/tags to be added to connection
+                          secret. - For Kubernetes secrets, this will be used as "metadata.labels".
+                          - It is up to Secret Store implementation for others store
+                          types.
+                        type: object
+                      type:
+                        description: Type is the SecretType for the connection secret.
+                          - Only valid for Kubernetes Secret Stores.
+                        type: string
+                    type: object
+                  name:
+                    description: Name is the name of the connection secret.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource. This field is planned to be replaced in a future
+                  release in favor of PublishConnectionDetailsTo. Currently, both
+                  could be set independently and connection details would be published
+                  to both without affecting each other.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+            x-kubernetes-validations:
+            - message: applicationProfilePath is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.applicationProfilePath)
+            - message: displayName is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)
+            - message: ipAddress is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)
+            - message: ports is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ports)
+          status:
+            description: PolicyLbVirtualServerStatus defines the observed state of
+              PolicyLbVirtualServer.
+            properties:
+              atProvider:
+                properties:
+                  accessListControl:
+                    description: IP access list control for filtering the connections
+                      from clients
+                    items:
+                      properties:
+                        action:
+                          description: Action to apply to connections matching the
+                            group
+                          type: string
+                        enabled:
+                          description: Flag to enable access list control
+                          type: boolean
+                        groupPath:
+                          description: The path of grouping object which defines the
+                            IP addresses or ranges to match the client IP
+                          type: string
+                      type: object
+                    type: array
+                  accessLogEnabled:
+                    description: If enabled, all connections/requests sent to virtual
+                      server are logged to the access log file
+                    type: boolean
+                  applicationProfilePath:
+                    description: Application profile for this virtual server
+                    type: string
+                  clientSsl:
+                    description: This setting is used when load balancer terminates
+                      client SSL connection
+                    items:
+                      properties:
+                        caPaths:
+                          description: If client auth type is REQUIRED, client certificate
+                            must be signed by one Certificate Authorities
+                          items:
+                            type: string
+                          type: array
+                        certificateChainDepth:
+                          description: Certificate chain depth
+                          type: number
+                        clientAuth:
+                          description: Client authentication mode
+                          type: string
+                        crlPaths:
+                          description: Certificate Revocation Lists can be specified
+                            to disallow compromised certificates
+                          items:
+                            type: string
+                          type: array
+                        defaultCertificatePath:
+                          description: Default Certificate Path
+                          type: string
+                        sniPaths:
+                          description: This setting allows multiple certificates,
+                            for different hostnames, to be bound to the same virtual
+                            server
+                          items:
+                            type: string
+                          type: array
+                        sslProfilePath:
+                          description: Client SSL Profile Path
+                          type: string
+                      type: object
+                    type: array
+                  defaultPoolMemberPorts:
+                    description: Default pool member ports when member port is not
+                      defined
+                    items:
+                      type: string
+                    type: array
+                  description:
+                    description: Description for this resource
+                    type: string
+                  displayName:
+                    description: Display name for this resource
+                    type: string
+                  enabled:
+                    description: Flag to enable Virtual Server
+                    type: boolean
+                  id:
+                    type: string
+                  ipAddress:
+                    description: Virtual Server IP address
+                    type: string
+                  logSignificantEventOnly:
+                    description: Flag to log significant events in access log, if
+                      access log is enabed
+                    type: boolean
+                  maxConcurrentConnections:
+                    description: To ensure one virtual server does not over consume
+                      resources, connections to a virtual server can be capped.
+                    type: number
+                  maxNewConnectionRate:
+                    description: To ensure one virtual server does not over consume
+                      resources, connections to a member can be rate limited.
+                    type: number
+                  nsxId:
+                    description: NSX ID for this resource
+                    type: string
+                  path:
+                    description: Policy path for this resource
+                    type: string
+                  persistenceProfilePath:
+                    description: Path to persistence profile allowing related client
+                      connections to be sent to the same backend server.
+                    type: string
+                  poolPath:
+                    description: Path for Load Balancer Pool
+                    type: string
+                  ports:
+                    description: Virtual Server ports
+                    items:
+                      type: string
+                    type: array
+                  revision:
+                    description: The _revision property describes the current revision
+                      of the resource. To prevent clients from overwriting each other's
+                      changes, PUT operations must include the current _revision of
+                      the resource, which clients should obtain by issuing a GET operation.
+                      If the _revision provided in a PUT request is missing or stale,
+                      the operation will be rejected
+                    type: number
+                  rule:
+                    description: List of load balancer rules for layer 7 virtual servers
+                      with LBHttpProfile
+                    items:
+                      properties:
+                        action:
+                          description: A list of actions to be executed at specified
+                            phase when load balancer rule matches.
+                          items:
+                            properties:
+                              connectionDrop:
+                                description: Action to drop the connection.
+                                items:
+                                  properties:
+                                    Dummy:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRedirect:
+                                description: Action to redirect HTTP request messages
+                                  to a new URL.
+                                items:
+                                  properties:
+                                    redirectStatus:
+                                      type: string
+                                    redirectUrl:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpReject:
+                                description: Action to reject HTTP request messages
+                                items:
+                                  properties:
+                                    replyMessage:
+                                      type: string
+                                    replyStatus:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestHeaderDelete:
+                                description: Action to delete header fields of HTTP
+                                  request messages at HTTP_REQUEST_REWRITE phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestHeaderRewrite:
+                                description: Action to rewrite header fields of HTTP
+                                  request messages to specified new values at HTTP_REQUEST_REWRITE
+                                  phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestUriRewrite:
+                                description: Action to rewrite URIs in matched HTTP
+                                  request messages.
+                                items:
+                                  properties:
+                                    uri:
+                                      type: string
+                                    uriArguments:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpResponseHeaderDelete:
+                                description: Action to delete header fields of HTTP
+                                  response messages at HTTP_RESPONSE_REWRITE phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpResponseHeaderRewrite:
+                                description: Action to rewrite header fields of HTTP
+                                  response messages to specified new values at HTTP_RESPONSE_REWRITE
+                                  phase.
+                                items:
+                                  properties:
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                  type: object
+                                type: array
+                              jwtAuth:
+                                description: Action  to control access to backend
+                                  server resources using JSON Web Token(JWT) authentication.
+                                items:
+                                  properties:
+                                    key:
+                                      items:
+                                        properties:
+                                          certificatePath:
+                                            type: string
+                                          publicKeyContent:
+                                            type: string
+                                          symmetricKey:
+                                            type: string
+                                        type: object
+                                      type: array
+                                    passJwtToPool:
+                                      type: boolean
+                                    realm:
+                                      type: string
+                                    tokens:
+                                      description: JWT tokens
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
+                              selectPool:
+                                description: Action to select a pool for matched HTTP
+                                  request messages.
+                                items:
+                                  properties:
+                                    poolId:
+                                      type: string
+                                  type: object
+                                type: array
+                              sslModeSelection:
+                                description: Action to select SSL mode.
+                                items:
+                                  properties:
+                                    sslMode:
+                                      type: string
+                                  type: object
+                                type: array
+                              variableAssignment:
+                                description: Action to create a new variable and assign
+                                  value to it.
+                                items:
+                                  properties:
+                                    variableName:
+                                      type: string
+                                    variableValue:
+                                      type: string
+                                  type: object
+                                type: array
+                              variablePersistenceLearn:
+                                description: Action to create a new variable and assign
+                                  value to it.
+                                items:
+                                  properties:
+                                    persistenceProfilePath:
+                                      type: string
+                                    variableHashEnabled:
+                                      type: boolean
+                                    variableName:
+                                      type: string
+                                  type: object
+                                type: array
+                              variablePersistenceOn:
+                                description: Action to create a new variable and assign
+                                  value to it.
+                                items:
+                                  properties:
+                                    persistenceProfilePath:
+                                      type: string
+                                    variableHashEnabled:
+                                      type: boolean
+                                    variableName:
+                                      type: string
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        condition:
+                          description: A list of match conditions used to match application
+                            traffic.
+                          items:
+                            properties:
+                              httpRequestBody:
+                                description: Rule condition based on HTTP request
+                                  body
+                                items:
+                                  properties:
+                                    bodyValue:
+                                      type: string
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestCookie:
+                                description: Rule condition based on HTTP cookie
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    cookieName:
+                                      type: string
+                                    cookieValue:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestHeader:
+                                description: Rule condition based on HTTP request
+                                  header
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestMethod:
+                                description: Rule condition based on http request
+                                  method
+                                items:
+                                  properties:
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    method:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestUri:
+                                description: Rule condition based on http request
+                                  URI
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    uri:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestUriArguments:
+                                description: Rule condition based on http request
+                                  URI arguments (query string)
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    uriArguments:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpRequestVersion:
+                                description: Rule condition based on http request
+                                  version
+                                items:
+                                  properties:
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    version:
+                                      type: string
+                                  type: object
+                                type: array
+                              httpResponseHeader:
+                                description: Rule condition based on HTTP response
+                                  header
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    headerName:
+                                      type: string
+                                    headerValue:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                  type: object
+                                type: array
+                              httpSsl:
+                                description: Rule condition based on HTTP SSL handshake
+                                  and connection
+                                items:
+                                  properties:
+                                    clientCertificateIssuerDn:
+                                      items:
+                                        properties:
+                                          caseSensitive:
+                                            description: If true, case is significant
+                                              in condition matching
+                                            type: boolean
+                                          issuerDn:
+                                            type: string
+                                          matchType:
+                                            description: Match type (STARTS_WITH,
+                                              ENDS_WITH, EQUALS, CONTAINS, REGEX)
+                                            type: string
+                                        type: object
+                                      type: array
+                                    clientCertificateSubjectDn:
+                                      items:
+                                        properties:
+                                          caseSensitive:
+                                            description: If true, case is significant
+                                              in condition matching
+                                            type: boolean
+                                          matchType:
+                                            description: Match type (STARTS_WITH,
+                                              ENDS_WITH, EQUALS, CONTAINS, REGEX)
+                                            type: string
+                                          subjectDn:
+                                            type: string
+                                        type: object
+                                      type: array
+                                    clientSupportedSslCiphers:
+                                      description: Supported SSL ciphers
+                                      items:
+                                        type: string
+                                      type: array
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    sessionReused:
+                                      type: string
+                                    usedProtocol:
+                                      type: string
+                                    usedSslCipher:
+                                      type: string
+                                  type: object
+                                type: array
+                              ipHeader:
+                                description: Rule condition based on IP settings of
+                                  the message
+                                items:
+                                  properties:
+                                    groupPath:
+                                      type: string
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    sourceAddress:
+                                      type: string
+                                  type: object
+                                type: array
+                              sslSni:
+                                description: Rule condition based on SSL SNI in client
+                                  hello
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    sni:
+                                      type: string
+                                  type: object
+                                type: array
+                              tcpHeader:
+                                description: Rule condition based on TCP settings
+                                  of the message
+                                items:
+                                  properties:
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    sourcePort:
+                                      type: string
+                                  type: object
+                                type: array
+                              variable:
+                                description: Rule condition based on IP header
+                                items:
+                                  properties:
+                                    caseSensitive:
+                                      description: If true, case is significant in
+                                        condition matching
+                                      type: boolean
+                                    inverse:
+                                      description: Whether to reverse match result
+                                        of this condition
+                                      type: boolean
+                                    matchType:
+                                      description: Match type (STARTS_WITH, ENDS_WITH,
+                                        EQUALS, CONTAINS, REGEX)
+                                      type: string
+                                    variableName:
+                                      type: string
+                                    variableValue:
+                                      type: string
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        displayName:
+                          description: Display name for this resource
+                          type: string
+                        matchStrategy:
+                          description: 'Match strategy for determining match of multiple
+                            conditions (ALL or ANY, default: ANY).'
+                          type: string
+                        phase:
+                          description: Load balancer processing phase, one of HTTP_REQUEST_REWRITE,
+                            HTTP_FORWARDING (Default), HTTP_RESPONSE_REWRITE, HTTP_ACCESS,
+                            TRANSPORT.
+                          type: string
+                      type: object
+                    type: array
+                  serverSsl:
+                    description: This setting is used when load balancer establishes
+                      connection to the backend server
+                    items:
+                      properties:
+                        caPaths:
+                          description: If server auth type is REQUIRED, server certificate
+                            must be signed by one Certificate Authorities
+                          items:
+                            type: string
+                          type: array
+                        certificateChainDepth:
+                          description: Certificate chain depth
+                          type: number
+                        clientCertificatePath:
+                          description: Client certificat path for client authentication
+                          type: string
+                        crlPaths:
+                          description: Certificate Revocation Lists can be specified
+                            disallow compromised certificates
+                          items:
+                            type: string
+                          type: array
+                        serverAuth:
+                          description: Server authentication mode
+                          type: string
+                        sslProfilePath:
+                          description: Server SSL Profile Path
+                          type: string
+                      type: object
+                    type: array
+                  servicePath:
+                    description: Virtual Server can be associated with Load Balancer
+                      Service
+                    type: string
+                  sorryPoolPath:
+                    description: When load balancer can not select server in default
+                      pool or pool in rules, the request would be served by sorry
+                      pool
+                    type: string
+                  tag:
+                    description: Set of opaque identifiers meaningful to the user
+                    items:
+                      properties:
+                        scope:
+                          type: string
+                        tag:
+                          type: string
+                      type: object
+                    type: array
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

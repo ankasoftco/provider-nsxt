@@ -11,7 +11,7 @@ import (
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
 	beta "github.com/ankasoftco/provider-nsxt/config/beta"
-	depcreated "github.com/ankasoftco/provider-nsxt/config/depcreated"
+	deprecated "github.com/ankasoftco/provider-nsxt/config/deprecated"
 	dhcp "github.com/ankasoftco/provider-nsxt/config/dhcp"
 	dns "github.com/ankasoftco/provider-nsxt/config/dns"
 	evpn "github.com/ankasoftco/provider-nsxt/config/evpn"
@@ -62,7 +62,7 @@ func GetProvider() *ujconfig.Provider {
 		segments.Configure,
 		vpn.Configure,
 		beta.Configure,
-		depcreated.Configure,
+		deprecated.Configure,
 	} {
 		configure(pc)
 	}
