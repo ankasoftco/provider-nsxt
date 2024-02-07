@@ -11,121 +11,133 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbHttpApplicationProfileObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// A URL that incoming requests for that virtual server can be temporarily redirected to, If a website is temporarily down or has moved
-	HTTPRedirectTo *string `json:"httpRedirectTo,omitempty" tf:"http_redirect_to,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// A boolean flag which reflects whether the client will automatically be redirected to use SSL
-	HTTPRedirectToHTTPS *bool `json:"httpRedirectToHttps,omitempty" tf:"http_redirect_to_https,omitempty"`
+// A URL that incoming requests for that virtual server can be temporarily redirected to, If a website is temporarily down or has moved
+HTTPRedirectTo *string `json:"httpRedirectTo,omitempty" tf:"http_redirect_to,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// A boolean flag which reflects whether the client will automatically be redirected to use SSL
+HTTPRedirectToHTTPS *bool `json:"httpRedirectToHttps,omitempty" tf:"http_redirect_to_https,omitempty"`
 
-	// Timeout in seconds to specify how long an HTTP application can remain idle
-	IdleTimeout *float64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// A boolean flag which reflects whether NTLM challenge/response methodology will be used over HTTP
-	Ntlm *bool `json:"ntlm,omitempty" tf:"ntlm,omitempty"`
+// Timeout in seconds to specify how long an HTTP application can remain idle
+IdleTimeout *float64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
 
-	// Maximum request body size in bytes (Unlimited if not specified)
-	RequestBodySize *float64 `json:"requestBodySize,omitempty" tf:"request_body_size,omitempty"`
+// A boolean flag which reflects whether NTLM challenge/response methodology will be used over HTTP
+Ntlm *bool `json:"ntlm,omitempty" tf:"ntlm,omitempty"`
 
-	// Maximum request header size in bytes. Requests with larger header size will be processed as best effort whereas a request with header below this specified size is guaranteed to be processed
-	RequestHeaderSize *float64 `json:"requestHeaderSize,omitempty" tf:"request_header_size,omitempty"`
+// Maximum request body size in bytes (Unlimited if not specified)
+RequestBodySize *float64 `json:"requestBodySize,omitempty" tf:"request_body_size,omitempty"`
 
-	// Number of seconds waiting for the server response before the connection is closed
-	ResponseTimeout *float64 `json:"responseTimeout,omitempty" tf:"response_timeout,omitempty"`
+// Maximum request header size in bytes. Requests with larger header size will be processed as best effort whereas a request with header below this specified size is guaranteed to be processed
+RequestHeaderSize *float64 `json:"requestHeaderSize,omitempty" tf:"request_header_size,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Number of seconds waiting for the server response before the connection is closed
+ResponseTimeout *float64 `json:"responseTimeout,omitempty" tf:"response_timeout,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// When this value is set, the x_forwarded_for header in the incoming request will be inserted or replaced
-	XForwardedFor *string `json:"xForwardedFor,omitempty" tf:"x_forwarded_for,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// When this value is set, the x_forwarded_for header in the incoming request will be inserted or replaced
+XForwardedFor *string `json:"xForwardedFor,omitempty" tf:"x_forwarded_for,omitempty"`
 }
+
 
 type LbHttpApplicationProfileParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// A URL that incoming requests for that virtual server can be temporarily redirected to, If a website is temporarily down or has moved
-	// +kubebuilder:validation:Optional
-	HTTPRedirectTo *string `json:"httpRedirectTo,omitempty" tf:"http_redirect_to,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// A boolean flag which reflects whether the client will automatically be redirected to use SSL
-	// +kubebuilder:validation:Optional
-	HTTPRedirectToHTTPS *bool `json:"httpRedirectToHttps,omitempty" tf:"http_redirect_to_https,omitempty"`
+// A URL that incoming requests for that virtual server can be temporarily redirected to, If a website is temporarily down or has moved
+// +kubebuilder:validation:Optional
+HTTPRedirectTo *string `json:"httpRedirectTo,omitempty" tf:"http_redirect_to,omitempty"`
 
-	// Timeout in seconds to specify how long an HTTP application can remain idle
-	// +kubebuilder:validation:Optional
-	IdleTimeout *float64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
+// A boolean flag which reflects whether the client will automatically be redirected to use SSL
+// +kubebuilder:validation:Optional
+HTTPRedirectToHTTPS *bool `json:"httpRedirectToHttps,omitempty" tf:"http_redirect_to_https,omitempty"`
 
-	// A boolean flag which reflects whether NTLM challenge/response methodology will be used over HTTP
-	// +kubebuilder:validation:Optional
-	Ntlm *bool `json:"ntlm,omitempty" tf:"ntlm,omitempty"`
+// Timeout in seconds to specify how long an HTTP application can remain idle
+// +kubebuilder:validation:Optional
+IdleTimeout *float64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
 
-	// Maximum request body size in bytes (Unlimited if not specified)
-	// +kubebuilder:validation:Optional
-	RequestBodySize *float64 `json:"requestBodySize,omitempty" tf:"request_body_size,omitempty"`
+// A boolean flag which reflects whether NTLM challenge/response methodology will be used over HTTP
+// +kubebuilder:validation:Optional
+Ntlm *bool `json:"ntlm,omitempty" tf:"ntlm,omitempty"`
 
-	// Maximum request header size in bytes. Requests with larger header size will be processed as best effort whereas a request with header below this specified size is guaranteed to be processed
-	// +kubebuilder:validation:Optional
-	RequestHeaderSize *float64 `json:"requestHeaderSize,omitempty" tf:"request_header_size,omitempty"`
+// Maximum request body size in bytes (Unlimited if not specified)
+// +kubebuilder:validation:Optional
+RequestBodySize *float64 `json:"requestBodySize,omitempty" tf:"request_body_size,omitempty"`
 
-	// Number of seconds waiting for the server response before the connection is closed
-	// +kubebuilder:validation:Optional
-	ResponseTimeout *float64 `json:"responseTimeout,omitempty" tf:"response_timeout,omitempty"`
+// Maximum request header size in bytes. Requests with larger header size will be processed as best effort whereas a request with header below this specified size is guaranteed to be processed
+// +kubebuilder:validation:Optional
+RequestHeaderSize *float64 `json:"requestHeaderSize,omitempty" tf:"request_header_size,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Number of seconds waiting for the server response before the connection is closed
+// +kubebuilder:validation:Optional
+ResponseTimeout *float64 `json:"responseTimeout,omitempty" tf:"response_timeout,omitempty"`
 
-	// When this value is set, the x_forwarded_for header in the incoming request will be inserted or replaced
-	// +kubebuilder:validation:Optional
-	XForwardedFor *string `json:"xForwardedFor,omitempty" tf:"x_forwarded_for,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// When this value is set, the x_forwarded_for header in the incoming request will be inserted or replaced
+// +kubebuilder:validation:Optional
+XForwardedFor *string `json:"xForwardedFor,omitempty" tf:"x_forwarded_for,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbHttpApplicationProfileSpec defines the desired state of LbHttpApplicationProfile
 type LbHttpApplicationProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbHttpApplicationProfileParameters `json:"forProvider"`
+	ForProvider       LbHttpApplicationProfileParameters `json:"forProvider"`
 }
 
 // LbHttpApplicationProfileStatus defines the observed state of LbHttpApplicationProfile.
 type LbHttpApplicationProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbHttpApplicationProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          LbHttpApplicationProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

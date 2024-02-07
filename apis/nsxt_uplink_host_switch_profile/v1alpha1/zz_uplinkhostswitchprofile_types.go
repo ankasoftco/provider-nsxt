@@ -11,317 +11,362 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type ActiveObservation struct {
 
-	// Name of this uplink
-	UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
+// Name of this uplink
+UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
 }
+
 
 type ActiveParameters struct {
 
-	// Name of this uplink
-	// +kubebuilder:validation:Required
-	UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	// +kubebuilder:validation:Required
-	UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
+// Name of this uplink
+// +kubebuilder:validation:Required
+UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+// +kubebuilder:validation:Required
+UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
 }
+
 
 type LagObservation struct {
 
-	// unique id
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// LACP load balance Algorithm
-	LoadBalanceAlgorithm *string `json:"loadBalanceAlgorithm,omitempty" tf:"load_balance_algorithm,omitempty"`
+// unique id
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// LACP group mode
-	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+// LACP load balance Algorithm
+LoadBalanceAlgorithm *string `json:"loadBalanceAlgorithm,omitempty" tf:"load_balance_algorithm,omitempty"`
 
-	// Lag name
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// LACP group mode
+Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
-	// Number of uplinks
-	NumberOfUplinks *float64 `json:"numberOfUplinks,omitempty" tf:"number_of_uplinks,omitempty"`
+// Lag name
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// LACP timeout type
-	TimeoutType *string `json:"timeoutType,omitempty" tf:"timeout_type,omitempty"`
+// Number of uplinks
+NumberOfUplinks *float64 `json:"numberOfUplinks,omitempty" tf:"number_of_uplinks,omitempty"`
 
-	// uplink names
-	Uplink []UplinkObservation `json:"uplink,omitempty" tf:"uplink,omitempty"`
+// LACP timeout type
+TimeoutType *string `json:"timeoutType,omitempty" tf:"timeout_type,omitempty"`
+
+// uplink names
+Uplink []UplinkObservation `json:"uplink,omitempty" tf:"uplink,omitempty"`
 }
+
 
 type LagParameters struct {
 
-	// LACP load balance Algorithm
-	// +kubebuilder:validation:Required
-	LoadBalanceAlgorithm *string `json:"loadBalanceAlgorithm" tf:"load_balance_algorithm,omitempty"`
 
-	// LACP group mode
-	// +kubebuilder:validation:Required
-	Mode *string `json:"mode" tf:"mode,omitempty"`
+// LACP load balance Algorithm
+// +kubebuilder:validation:Required
+LoadBalanceAlgorithm *string `json:"loadBalanceAlgorithm" tf:"load_balance_algorithm,omitempty"`
 
-	// Lag name
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
+// LACP group mode
+// +kubebuilder:validation:Required
+Mode *string `json:"mode" tf:"mode,omitempty"`
 
-	// Number of uplinks
-	// +kubebuilder:validation:Required
-	NumberOfUplinks *float64 `json:"numberOfUplinks" tf:"number_of_uplinks,omitempty"`
+// Lag name
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
 
-	// LACP timeout type
-	// +kubebuilder:validation:Optional
-	TimeoutType *string `json:"timeoutType,omitempty" tf:"timeout_type,omitempty"`
+// Number of uplinks
+// +kubebuilder:validation:Required
+NumberOfUplinks *float64 `json:"numberOfUplinks" tf:"number_of_uplinks,omitempty"`
+
+// LACP timeout type
+// +kubebuilder:validation:Optional
+TimeoutType *string `json:"timeoutType,omitempty" tf:"timeout_type,omitempty"`
 }
+
 
 type NamedTeamingObservation struct {
 
-	// List of Uplinks used in active list
-	Active []ActiveObservation `json:"active,omitempty" tf:"active,omitempty"`
 
-	// The name of the uplink teaming policy
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// List of Uplinks used in active list
+Active []ActiveObservation `json:"active,omitempty" tf:"active,omitempty"`
 
-	// Teaming policy
-	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
+// The name of the uplink teaming policy
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// List of Uplinks used in standby list
-	Standby []StandbyObservation `json:"standby,omitempty" tf:"standby,omitempty"`
+// Teaming policy
+Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
+
+// List of Uplinks used in standby list
+Standby []StandbyObservation `json:"standby,omitempty" tf:"standby,omitempty"`
 }
+
 
 type NamedTeamingParameters struct {
 
-	// List of Uplinks used in active list
-	// +kubebuilder:validation:Required
-	Active []ActiveParameters `json:"active" tf:"active,omitempty"`
 
-	// The name of the uplink teaming policy
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
+// List of Uplinks used in active list
+// +kubebuilder:validation:Required
+Active []ActiveParameters `json:"active" tf:"active,omitempty"`
 
-	// Teaming policy
-	// +kubebuilder:validation:Required
-	Policy *string `json:"policy" tf:"policy,omitempty"`
+// The name of the uplink teaming policy
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
 
-	// List of Uplinks used in standby list
-	// +kubebuilder:validation:Optional
-	Standby []StandbyParameters `json:"standby,omitempty" tf:"standby,omitempty"`
+// Teaming policy
+// +kubebuilder:validation:Required
+Policy *string `json:"policy" tf:"policy,omitempty"`
+
+// List of Uplinks used in standby list
+// +kubebuilder:validation:Optional
+Standby []StandbyParameters `json:"standby,omitempty" tf:"standby,omitempty"`
 }
+
 
 type StandbyObservation struct {
 
-	// Name of this uplink
-	UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
+// Name of this uplink
+UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
 }
+
 
 type StandbyParameters struct {
 
-	// Name of this uplink
-	// +kubebuilder:validation:Required
-	UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	// +kubebuilder:validation:Required
-	UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
+// Name of this uplink
+// +kubebuilder:validation:Required
+UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+// +kubebuilder:validation:Required
+UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TeamingActiveObservation struct {
 
-	// Name of this uplink
-	UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
+// Name of this uplink
+UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
 }
+
 
 type TeamingActiveParameters struct {
 
-	// Name of this uplink
-	// +kubebuilder:validation:Required
-	UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	// +kubebuilder:validation:Required
-	UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
+// Name of this uplink
+// +kubebuilder:validation:Required
+UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+// +kubebuilder:validation:Required
+UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
 }
+
 
 type TeamingObservation struct {
 
-	// List of Uplinks used in active list
-	Active []TeamingActiveObservation `json:"active,omitempty" tf:"active,omitempty"`
 
-	// Teaming policy
-	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
+// List of Uplinks used in active list
+Active []TeamingActiveObservation `json:"active,omitempty" tf:"active,omitempty"`
 
-	// List of Uplinks used in standby list
-	Standby []TeamingStandbyObservation `json:"standby,omitempty" tf:"standby,omitempty"`
+// Teaming policy
+Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
+
+// List of Uplinks used in standby list
+Standby []TeamingStandbyObservation `json:"standby,omitempty" tf:"standby,omitempty"`
 }
+
 
 type TeamingParameters struct {
 
-	// List of Uplinks used in active list
-	// +kubebuilder:validation:Required
-	Active []TeamingActiveParameters `json:"active" tf:"active,omitempty"`
 
-	// Teaming policy
-	// +kubebuilder:validation:Required
-	Policy *string `json:"policy" tf:"policy,omitempty"`
+// List of Uplinks used in active list
+// +kubebuilder:validation:Required
+Active []TeamingActiveParameters `json:"active" tf:"active,omitempty"`
 
-	// List of Uplinks used in standby list
-	// +kubebuilder:validation:Optional
-	Standby []TeamingStandbyParameters `json:"standby,omitempty" tf:"standby,omitempty"`
+// Teaming policy
+// +kubebuilder:validation:Required
+Policy *string `json:"policy" tf:"policy,omitempty"`
+
+// List of Uplinks used in standby list
+// +kubebuilder:validation:Optional
+Standby []TeamingStandbyParameters `json:"standby,omitempty" tf:"standby,omitempty"`
 }
+
 
 type TeamingStandbyObservation struct {
 
-	// Name of this uplink
-	UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
+// Name of this uplink
+UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
 }
+
 
 type TeamingStandbyParameters struct {
 
-	// Name of this uplink
-	// +kubebuilder:validation:Required
-	UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
 
-	// Type of the uplink
-	// +kubebuilder:validation:Required
-	UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
+// Name of this uplink
+// +kubebuilder:validation:Required
+UplinkName *string `json:"uplinkName" tf:"uplink_name,omitempty"`
+
+// Type of the uplink
+// +kubebuilder:validation:Required
+UplinkType *string `json:"uplinkType" tf:"uplink_type,omitempty"`
 }
+
 
 type UplinkHostSwitchProfileObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// List of LACP group
-	Lag []LagObservation `json:"lag,omitempty" tf:"lag,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Maximum Transmission Unit used for uplinks
-	Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
+// List of LACP group
+Lag []LagObservation `json:"lag,omitempty" tf:"lag,omitempty"`
 
-	// List of named uplink teaming policies that can be used by logical switches
-	NamedTeaming []NamedTeamingObservation `json:"namedTeaming,omitempty" tf:"named_teaming,omitempty"`
+// Maximum Transmission Unit used for uplinks
+Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// List of named uplink teaming policies that can be used by logical switches
+NamedTeaming []NamedTeamingObservation `json:"namedTeaming,omitempty" tf:"named_teaming,omitempty"`
 
-	// The protocol used to encapsulate overlay traffic
-	OverlayEncap *string `json:"overlayEncap,omitempty" tf:"overlay_encap,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// The protocol used to encapsulate overlay traffic
+OverlayEncap *string `json:"overlayEncap,omitempty" tf:"overlay_encap,omitempty"`
 
-	// Computed ID of the realized object
-	RealizedID *string `json:"realizedId,omitempty" tf:"realized_id,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Computed ID of the realized object
+RealizedID *string `json:"realizedId,omitempty" tf:"realized_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Default TeamingPolicy associated with this UplinkProfile
-	Teaming []TeamingObservation `json:"teaming,omitempty" tf:"teaming,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// VLAN used for tagging Overlay traffic of associated HostSwitch
-	TransportVlan *float64 `json:"transportVlan,omitempty" tf:"transport_vlan,omitempty"`
+// Default TeamingPolicy associated with this UplinkProfile
+Teaming []TeamingObservation `json:"teaming,omitempty" tf:"teaming,omitempty"`
+
+// VLAN used for tagging Overlay traffic of associated HostSwitch
+TransportVlan *float64 `json:"transportVlan,omitempty" tf:"transport_vlan,omitempty"`
 }
+
 
 type UplinkHostSwitchProfileParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// List of LACP group
-	// +kubebuilder:validation:Optional
-	Lag []LagParameters `json:"lag,omitempty" tf:"lag,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Maximum Transmission Unit used for uplinks
-	// +kubebuilder:validation:Optional
-	Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
+// List of LACP group
+// +kubebuilder:validation:Optional
+Lag []LagParameters `json:"lag,omitempty" tf:"lag,omitempty"`
 
-	// List of named uplink teaming policies that can be used by logical switches
-	// +kubebuilder:validation:Optional
-	NamedTeaming []NamedTeamingParameters `json:"namedTeaming,omitempty" tf:"named_teaming,omitempty"`
+// Maximum Transmission Unit used for uplinks
+// +kubebuilder:validation:Optional
+Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// List of named uplink teaming policies that can be used by logical switches
+// +kubebuilder:validation:Optional
+NamedTeaming []NamedTeamingParameters `json:"namedTeaming,omitempty" tf:"named_teaming,omitempty"`
 
-	// The protocol used to encapsulate overlay traffic
-	// +kubebuilder:validation:Optional
-	OverlayEncap *string `json:"overlayEncap,omitempty" tf:"overlay_encap,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// The protocol used to encapsulate overlay traffic
+// +kubebuilder:validation:Optional
+OverlayEncap *string `json:"overlayEncap,omitempty" tf:"overlay_encap,omitempty"`
 
-	// Default TeamingPolicy associated with this UplinkProfile
-	// +kubebuilder:validation:Optional
-	Teaming []TeamingParameters `json:"teaming,omitempty" tf:"teaming,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// VLAN used for tagging Overlay traffic of associated HostSwitch
-	// +kubebuilder:validation:Optional
-	TransportVlan *float64 `json:"transportVlan,omitempty" tf:"transport_vlan,omitempty"`
+// Default TeamingPolicy associated with this UplinkProfile
+// +kubebuilder:validation:Optional
+Teaming []TeamingParameters `json:"teaming,omitempty" tf:"teaming,omitempty"`
+
+// VLAN used for tagging Overlay traffic of associated HostSwitch
+// +kubebuilder:validation:Optional
+TransportVlan *float64 `json:"transportVlan,omitempty" tf:"transport_vlan,omitempty"`
 }
+
 
 type UplinkObservation struct {
-	UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
 
-	UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
+
+UplinkName *string `json:"uplinkName,omitempty" tf:"uplink_name,omitempty"`
+
+UplinkType *string `json:"uplinkType,omitempty" tf:"uplink_type,omitempty"`
 }
 
+
 type UplinkParameters struct {
+
 }
 
 // UplinkHostSwitchProfileSpec defines the desired state of UplinkHostSwitchProfile
 type UplinkHostSwitchProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     UplinkHostSwitchProfileParameters `json:"forProvider"`
+	ForProvider       UplinkHostSwitchProfileParameters `json:"forProvider"`
 }
 
 // UplinkHostSwitchProfileStatus defines the observed state of UplinkHostSwitchProfile.
 type UplinkHostSwitchProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        UplinkHostSwitchProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          UplinkHostSwitchProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -336,10 +381,10 @@ type UplinkHostSwitchProfileStatus struct {
 type UplinkHostSwitchProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.teaming)",message="teaming is a required parameter"
-	Spec   UplinkHostSwitchProfileSpec   `json:"spec"`
-	Status UplinkHostSwitchProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.teaming)",message="teaming is a required parameter"
+	Spec              UplinkHostSwitchProfileSpec   `json:"spec"`
+	Status            UplinkHostSwitchProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

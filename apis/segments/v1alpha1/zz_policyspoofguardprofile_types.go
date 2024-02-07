@@ -11,99 +11,116 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicySpoofGuardProfileContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicySpoofGuardProfileContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicySpoofGuardProfileObservation struct {
-	AddressBindingAllowlist *bool `json:"addressBindingAllowlist,omitempty" tf:"address_binding_allowlist,omitempty"`
 
-	// Resource context
-	Context []PolicySpoofGuardProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+AddressBindingAllowlist *bool `json:"addressBindingAllowlist,omitempty" tf:"address_binding_allowlist,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Resource context
+Context []PolicySpoofGuardProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicySpoofGuardProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
+
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicySpoofGuardProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicySpoofGuardProfileParameters struct {
 
-	// +kubebuilder:validation:Optional
-	AddressBindingAllowlist *bool `json:"addressBindingAllowlist,omitempty" tf:"address_binding_allowlist,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicySpoofGuardProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// +kubebuilder:validation:Optional
+AddressBindingAllowlist *bool `json:"addressBindingAllowlist,omitempty" tf:"address_binding_allowlist,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicySpoofGuardProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicySpoofGuardProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicySpoofGuardProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicySpoofGuardProfileTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicySpoofGuardProfileTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicySpoofGuardProfileSpec defines the desired state of PolicySpoofGuardProfile
 type PolicySpoofGuardProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicySpoofGuardProfileParameters `json:"forProvider"`
+	ForProvider       PolicySpoofGuardProfileParameters `json:"forProvider"`
 }
 
 // PolicySpoofGuardProfileStatus defines the observed state of PolicySpoofGuardProfile.
 type PolicySpoofGuardProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicySpoofGuardProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicySpoofGuardProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -118,9 +135,9 @@ type PolicySpoofGuardProfileStatus struct {
 type PolicySpoofGuardProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicySpoofGuardProfileSpec   `json:"spec"`
-	Status PolicySpoofGuardProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicySpoofGuardProfileSpec   `json:"spec"`
+	Status            PolicySpoofGuardProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

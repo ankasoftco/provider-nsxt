@@ -11,143 +11,163 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type NextHopObservation struct {
 
-	// Cost associated with next hop route
-	AdminDistance *float64 `json:"adminDistance,omitempty" tf:"admin_distance,omitempty"`
 
-	// Next hop gateway IP address
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// Cost associated with next hop route
+AdminDistance *float64 `json:"adminDistance,omitempty" tf:"admin_distance,omitempty"`
 
-	// Interface path associated with current route
-	Interface *string `json:"interface,omitempty" tf:"interface,omitempty"`
+// Next hop gateway IP address
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+
+// Interface path associated with current route
+Interface *string `json:"interface,omitempty" tf:"interface,omitempty"`
 }
+
 
 type NextHopParameters struct {
 
-	// Cost associated with next hop route
-	// +kubebuilder:validation:Optional
-	AdminDistance *float64 `json:"adminDistance,omitempty" tf:"admin_distance,omitempty"`
 
-	// Next hop gateway IP address
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// Cost associated with next hop route
+// +kubebuilder:validation:Optional
+AdminDistance *float64 `json:"adminDistance,omitempty" tf:"admin_distance,omitempty"`
 
-	// Interface path associated with current route
-	// +kubebuilder:validation:Optional
-	Interface *string `json:"interface,omitempty" tf:"interface,omitempty"`
+// Next hop gateway IP address
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+
+// Interface path associated with current route
+// +kubebuilder:validation:Optional
+Interface *string `json:"interface,omitempty" tf:"interface,omitempty"`
 }
+
 
 type PolicyStaticRouteContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyStaticRouteContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyStaticRouteObservation struct {
 
-	// Resource context
-	Context []PolicyStaticRouteContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+Context []PolicyStaticRouteContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The NSX-T Policy path to the Tier0 or Tier1 Gateway for this resource
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The NSX-T Policy path to the Tier0 or Tier1 Gateway for this resource
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// Network address in CIDR format
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Next hop routes for network
-	NextHop []NextHopObservation `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// Network address in CIDR format
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Next hop routes for network
+NextHop []NextHopObservation `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyStaticRouteTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyStaticRouteTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyStaticRouteParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyStaticRouteContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyStaticRouteContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The NSX-T Policy path to the Tier0 or Tier1 Gateway for this resource
-	// +kubebuilder:validation:Optional
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Network address in CIDR format
-	// +kubebuilder:validation:Optional
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
+// The NSX-T Policy path to the Tier0 or Tier1 Gateway for this resource
+// +kubebuilder:validation:Optional
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// Next hop routes for network
-	// +kubebuilder:validation:Optional
-	NextHop []NextHopParameters `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// Network address in CIDR format
+// +kubebuilder:validation:Optional
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Next hop routes for network
+// +kubebuilder:validation:Optional
+NextHop []NextHopParameters `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyStaticRouteTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyStaticRouteTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyStaticRouteTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyStaticRouteTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyStaticRouteSpec defines the desired state of PolicyStaticRoute
 type PolicyStaticRouteSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyStaticRouteParameters `json:"forProvider"`
+	ForProvider       PolicyStaticRouteParameters `json:"forProvider"`
 }
 
 // PolicyStaticRouteStatus defines the observed state of PolicyStaticRoute.
 type PolicyStaticRouteStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyStaticRouteObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyStaticRouteObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -162,12 +182,12 @@ type PolicyStaticRouteStatus struct {
 type PolicyStaticRoute struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.network)",message="network is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.nextHop)",message="nextHop is a required parameter"
-	Spec   PolicyStaticRouteSpec   `json:"spec"`
-	Status PolicyStaticRouteStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.network)",message="network is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.nextHop)",message="nextHop is a required parameter"
+	Spec              PolicyStaticRouteSpec   `json:"spec"`
+	Status            PolicyStaticRouteStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,153 +11,173 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type CriteriaObservation struct {
 
-	// List of attack target criteria
-	AttackTargets []*string `json:"attackTargets,omitempty" tf:"attack_targets,omitempty"`
 
-	// List of attack type criteria
-	AttackTypes []*string `json:"attackTypes,omitempty" tf:"attack_types,omitempty"`
+// List of attack target criteria
+AttackTargets []*string `json:"attackTargets,omitempty" tf:"attack_targets,omitempty"`
 
-	// Common Vulnerability Scoring System Ranges
-	Cvss []*string `json:"cvss,omitempty" tf:"cvss,omitempty"`
+// List of attack type criteria
+AttackTypes []*string `json:"attackTypes,omitempty" tf:"attack_types,omitempty"`
 
-	// List of products affected
-	ProductsAffected []*string `json:"productsAffected,omitempty" tf:"products_affected,omitempty"`
+// Common Vulnerability Scoring System Ranges
+Cvss []*string `json:"cvss,omitempty" tf:"cvss,omitempty"`
+
+// List of products affected
+ProductsAffected []*string `json:"productsAffected,omitempty" tf:"products_affected,omitempty"`
 }
+
 
 type CriteriaParameters struct {
 
-	// List of attack target criteria
-	// +kubebuilder:validation:Optional
-	AttackTargets []*string `json:"attackTargets,omitempty" tf:"attack_targets,omitempty"`
 
-	// List of attack type criteria
-	// +kubebuilder:validation:Optional
-	AttackTypes []*string `json:"attackTypes,omitempty" tf:"attack_types,omitempty"`
+// List of attack target criteria
+// +kubebuilder:validation:Optional
+AttackTargets []*string `json:"attackTargets,omitempty" tf:"attack_targets,omitempty"`
 
-	// Common Vulnerability Scoring System Ranges
-	// +kubebuilder:validation:Optional
-	Cvss []*string `json:"cvss,omitempty" tf:"cvss,omitempty"`
+// List of attack type criteria
+// +kubebuilder:validation:Optional
+AttackTypes []*string `json:"attackTypes,omitempty" tf:"attack_types,omitempty"`
 
-	// List of products affected
-	// +kubebuilder:validation:Optional
-	ProductsAffected []*string `json:"productsAffected,omitempty" tf:"products_affected,omitempty"`
+// Common Vulnerability Scoring System Ranges
+// +kubebuilder:validation:Optional
+Cvss []*string `json:"cvss,omitempty" tf:"cvss,omitempty"`
+
+// List of products affected
+// +kubebuilder:validation:Optional
+ProductsAffected []*string `json:"productsAffected,omitempty" tf:"products_affected,omitempty"`
 }
+
 
 type OverriddenSignatureObservation struct {
 
-	// This will take precedence over IDS signature action
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// This will take precedence over IDS signature action
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	SignatureID *string `json:"signatureId,omitempty" tf:"signature_id,omitempty"`
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+SignatureID *string `json:"signatureId,omitempty" tf:"signature_id,omitempty"`
 }
+
 
 type OverriddenSignatureParameters struct {
 
-	// This will take precedence over IDS signature action
-	// +kubebuilder:validation:Optional
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// This will take precedence over IDS signature action
+// +kubebuilder:validation:Optional
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// +kubebuilder:validation:Required
-	SignatureID *string `json:"signatureId" tf:"signature_id,omitempty"`
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// +kubebuilder:validation:Required
+SignatureID *string `json:"signatureId" tf:"signature_id,omitempty"`
 }
+
 
 type PolicyInstrusionServiceProfileObservation struct {
 
-	// Filtering criteria for the IDS Profile
-	Criteria []CriteriaObservation `json:"criteria,omitempty" tf:"criteria,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Filtering criteria for the IDS Profile
+Criteria []CriteriaObservation `json:"criteria,omitempty" tf:"criteria,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Signatures that has been overridden for this Profile
-	OverriddenSignature []OverriddenSignatureObservation `json:"overriddenSignature,omitempty" tf:"overridden_signature,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// Signatures that has been overridden for this Profile
+OverriddenSignature []OverriddenSignatureObservation `json:"overriddenSignature,omitempty" tf:"overridden_signature,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Severities of signatures which are part of this profile
-	Severities []*string `json:"severities,omitempty" tf:"severities,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyInstrusionServiceProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Severities of signatures which are part of this profile
+Severities []*string `json:"severities,omitempty" tf:"severities,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyInstrusionServiceProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServiceProfileParameters struct {
 
-	// Filtering criteria for the IDS Profile
-	// +kubebuilder:validation:Optional
-	Criteria []CriteriaParameters `json:"criteria,omitempty" tf:"criteria,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Filtering criteria for the IDS Profile
+// +kubebuilder:validation:Optional
+Criteria []CriteriaParameters `json:"criteria,omitempty" tf:"criteria,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Signatures that has been overridden for this Profile
-	// +kubebuilder:validation:Optional
-	OverriddenSignature []OverriddenSignatureParameters `json:"overriddenSignature,omitempty" tf:"overridden_signature,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Severities of signatures which are part of this profile
-	// +kubebuilder:validation:Optional
-	Severities []*string `json:"severities,omitempty" tf:"severities,omitempty"`
+// Signatures that has been overridden for this Profile
+// +kubebuilder:validation:Optional
+OverriddenSignature []OverriddenSignatureParameters `json:"overriddenSignature,omitempty" tf:"overridden_signature,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyInstrusionServiceProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Severities of signatures which are part of this profile
+// +kubebuilder:validation:Optional
+Severities []*string `json:"severities,omitempty" tf:"severities,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyInstrusionServiceProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServiceProfileTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServiceProfileTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyInstrusionServiceProfileSpec defines the desired state of PolicyInstrusionServiceProfile
 type PolicyInstrusionServiceProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyInstrusionServiceProfileParameters `json:"forProvider"`
+	ForProvider       PolicyInstrusionServiceProfileParameters `json:"forProvider"`
 }
 
 // PolicyInstrusionServiceProfileStatus defines the observed state of PolicyInstrusionServiceProfile.
 type PolicyInstrusionServiceProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyInstrusionServiceProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyInstrusionServiceProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -172,10 +192,10 @@ type PolicyInstrusionServiceProfileStatus struct {
 type PolicyInstrusionServiceProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.severities)",message="severities is a required parameter"
-	Spec   PolicyInstrusionServiceProfileSpec   `json:"spec"`
-	Status PolicyInstrusionServiceProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.severities)",message="severities is a required parameter"
+	Spec              PolicyInstrusionServiceProfileSpec   `json:"spec"`
+	Status            PolicyInstrusionServiceProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

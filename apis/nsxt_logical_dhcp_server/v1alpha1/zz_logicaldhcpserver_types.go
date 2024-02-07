@@ -11,157 +11,177 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type DHCPGenericOptionObservation struct {
 
-	// DHCP option code, [0-255]
-	Code *float64 `json:"code,omitempty" tf:"code,omitempty"`
 
-	// DHCP option values
-	Values []*string `json:"values,omitempty" tf:"values,omitempty"`
+// DHCP option code, [0-255]
+Code *float64 `json:"code,omitempty" tf:"code,omitempty"`
+
+// DHCP option values
+Values []*string `json:"values,omitempty" tf:"values,omitempty"`
 }
+
 
 type DHCPGenericOptionParameters struct {
 
-	// DHCP option code, [0-255]
-	// +kubebuilder:validation:Required
-	Code *float64 `json:"code" tf:"code,omitempty"`
 
-	// DHCP option values
-	// +kubebuilder:validation:Required
-	Values []*string `json:"values" tf:"values,omitempty"`
+// DHCP option code, [0-255]
+// +kubebuilder:validation:Required
+Code *float64 `json:"code" tf:"code,omitempty"`
+
+// DHCP option values
+// +kubebuilder:validation:Required
+Values []*string `json:"values" tf:"values,omitempty"`
 }
+
 
 type DHCPOption121Observation struct {
 
-	// Destination in cidr
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// Next hop IP
-	NextHop *string `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// Destination in cidr
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
+
+// Next hop IP
+NextHop *string `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
 }
+
 
 type DHCPOption121Parameters struct {
 
-	// Destination in cidr
-	// +kubebuilder:validation:Required
-	Network *string `json:"network" tf:"network,omitempty"`
 
-	// Next hop IP
-	// +kubebuilder:validation:Required
-	NextHop *string `json:"nextHop" tf:"next_hop,omitempty"`
+// Destination in cidr
+// +kubebuilder:validation:Required
+Network *string `json:"network" tf:"network,omitempty"`
+
+// Next hop IP
+// +kubebuilder:validation:Required
+NextHop *string `json:"nextHop" tf:"next_hop,omitempty"`
 }
+
 
 type LogicalDhcpServerObservation struct {
 
-	// Id of attached logical port
-	AttachedLogicalPortID *string `json:"attachedLogicalPortId,omitempty" tf:"attached_logical_port_id,omitempty"`
 
-	// Generic DHCP options
-	DHCPGenericOption []DHCPGenericOptionObservation `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
+// Id of attached logical port
+AttachedLogicalPortID *string `json:"attachedLogicalPortId,omitempty" tf:"attached_logical_port_id,omitempty"`
 
-	// DHCP classless static routes
-	DHCPOption121 []DHCPOption121Observation `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
+// Generic DHCP options
+DHCPGenericOption []DHCPGenericOptionObservation `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// DHCP profile uuid
-	DHCPProfileID *string `json:"dhcpProfileId,omitempty" tf:"dhcp_profile_id,omitempty"`
+// DHCP classless static routes
+DHCPOption121 []DHCPOption121Observation `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
 
-	// DHCP server ip in cidr format
-	DHCPServerIP *string `json:"dhcpServerIp,omitempty" tf:"dhcp_server_ip,omitempty"`
+// DHCP profile uuid
+DHCPProfileID *string `json:"dhcpProfileId,omitempty" tf:"dhcp_profile_id,omitempty"`
 
-	// DNS IPs
-	DNSNameServers []*string `json:"dnsNameServers,omitempty" tf:"dns_name_servers,omitempty"`
+// DHCP server ip in cidr format
+DHCPServerIP *string `json:"dhcpServerIp,omitempty" tf:"dhcp_server_ip,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DNS IPs
+DNSNameServers []*string `json:"dnsNameServers,omitempty" tf:"dns_name_servers,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Domain name
-	DomainName *string `json:"domainName,omitempty" tf:"domain_name,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Gateway IP
-	GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+// Domain name
+DomainName *string `json:"domainName,omitempty" tf:"domain_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Gateway IP
+GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LogicalDhcpServerParameters struct {
 
-	// Generic DHCP options
-	// +kubebuilder:validation:Optional
-	DHCPGenericOption []DHCPGenericOptionParameters `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// DHCP classless static routes
-	// +kubebuilder:validation:Optional
-	DHCPOption121 []DHCPOption121Parameters `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
+// Generic DHCP options
+// +kubebuilder:validation:Optional
+DHCPGenericOption []DHCPGenericOptionParameters `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// DHCP profile uuid
-	// +kubebuilder:validation:Optional
-	DHCPProfileID *string `json:"dhcpProfileId,omitempty" tf:"dhcp_profile_id,omitempty"`
+// DHCP classless static routes
+// +kubebuilder:validation:Optional
+DHCPOption121 []DHCPOption121Parameters `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
 
-	// DHCP server ip in cidr format
-	// +kubebuilder:validation:Optional
-	DHCPServerIP *string `json:"dhcpServerIp,omitempty" tf:"dhcp_server_ip,omitempty"`
+// DHCP profile uuid
+// +kubebuilder:validation:Optional
+DHCPProfileID *string `json:"dhcpProfileId,omitempty" tf:"dhcp_profile_id,omitempty"`
 
-	// DNS IPs
-	// +kubebuilder:validation:Optional
-	DNSNameServers []*string `json:"dnsNameServers,omitempty" tf:"dns_name_servers,omitempty"`
+// DHCP server ip in cidr format
+// +kubebuilder:validation:Optional
+DHCPServerIP *string `json:"dhcpServerIp,omitempty" tf:"dhcp_server_ip,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DNS IPs
+// +kubebuilder:validation:Optional
+DNSNameServers []*string `json:"dnsNameServers,omitempty" tf:"dns_name_servers,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Domain name
-	// +kubebuilder:validation:Optional
-	DomainName *string `json:"domainName,omitempty" tf:"domain_name,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Gateway IP
-	// +kubebuilder:validation:Optional
-	GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+// Domain name
+// +kubebuilder:validation:Optional
+DomainName *string `json:"domainName,omitempty" tf:"domain_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Gateway IP
+// +kubebuilder:validation:Optional
+GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LogicalDhcpServerSpec defines the desired state of LogicalDhcpServer
 type LogicalDhcpServerSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LogicalDhcpServerParameters `json:"forProvider"`
+	ForProvider       LogicalDhcpServerParameters `json:"forProvider"`
 }
 
 // LogicalDhcpServerStatus defines the observed state of LogicalDhcpServer.
 type LogicalDhcpServerStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LogicalDhcpServerObservation `json:"atProvider,omitempty"`
+	AtProvider          LogicalDhcpServerObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -176,10 +196,10 @@ type LogicalDhcpServerStatus struct {
 type LogicalDhcpServer struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpProfileId)",message="dhcpProfileId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpServerIp)",message="dhcpServerIp is a required parameter"
-	Spec   LogicalDhcpServerSpec   `json:"spec"`
-	Status LogicalDhcpServerStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpProfileId)",message="dhcpProfileId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpServerIp)",message="dhcpServerIp is a required parameter"
+	Spec              LogicalDhcpServerSpec   `json:"spec"`
+	Status            LogicalDhcpServerStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

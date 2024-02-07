@@ -11,131 +11,143 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyL2VpnSessionObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The traffic direction apply to the MSS clamping
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// The traffic direction apply to the MSS clamping
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Enable/Disable IPSec VPN session.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Enable/Disable IPSec VPN session.
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// IP Address of the local tunnel port. This property only applies in CLIENT mode
-	LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Maximum amount of data the host will accept in a Tcp segment.
-	MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
+// IP Address of the local tunnel port. This property only applies in CLIENT mode
+LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Maximum amount of data the host will accept in a Tcp segment.
+MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// IP Address of the peer tunnel port. This property only applies in CLIENT mode
-	PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Encapsulation protocol used by the tunnel.
-	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
+// IP Address of the peer tunnel port. This property only applies in CLIENT mode
+PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Encapsulation protocol used by the tunnel.
+Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// Policy path for L2 VPN service
-	ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for L2 VPN service
+ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
 
-	// List of transport tunnels(vpn sessions path) for redundancy
-	TransportTunnels []*string `json:"transportTunnels,omitempty" tf:"transport_tunnels,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// List of transport tunnels(vpn sessions path) for redundancy
+TransportTunnels []*string `json:"transportTunnels,omitempty" tf:"transport_tunnels,omitempty"`
 }
+
 
 type PolicyL2VpnSessionParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The traffic direction apply to the MSS clamping
-	// +kubebuilder:validation:Optional
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// The traffic direction apply to the MSS clamping
+// +kubebuilder:validation:Optional
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Enable/Disable IPSec VPN session.
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// IP Address of the local tunnel port. This property only applies in CLIENT mode
-	// +kubebuilder:validation:Optional
-	LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
+// Enable/Disable IPSec VPN session.
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Maximum amount of data the host will accept in a Tcp segment.
-	// +kubebuilder:validation:Optional
-	MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
+// IP Address of the local tunnel port. This property only applies in CLIENT mode
+// +kubebuilder:validation:Optional
+LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Maximum amount of data the host will accept in a Tcp segment.
+// +kubebuilder:validation:Optional
+MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
 
-	// IP Address of the peer tunnel port. This property only applies in CLIENT mode
-	// +kubebuilder:validation:Optional
-	PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Encapsulation protocol used by the tunnel.
-	// +kubebuilder:validation:Optional
-	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
+// IP Address of the peer tunnel port. This property only applies in CLIENT mode
+// +kubebuilder:validation:Optional
+PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
 
-	// Policy path for L2 VPN service
-	// +kubebuilder:validation:Optional
-	ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
+// Encapsulation protocol used by the tunnel.
+// +kubebuilder:validation:Optional
+Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for L2 VPN service
+// +kubebuilder:validation:Optional
+ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
 
-	// List of transport tunnels(vpn sessions path) for redundancy
-	// +kubebuilder:validation:Optional
-	TransportTunnels []*string `json:"transportTunnels,omitempty" tf:"transport_tunnels,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// List of transport tunnels(vpn sessions path) for redundancy
+// +kubebuilder:validation:Optional
+TransportTunnels []*string `json:"transportTunnels,omitempty" tf:"transport_tunnels,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyL2VpnSessionSpec defines the desired state of PolicyL2VpnSession
 type PolicyL2VpnSessionSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyL2VpnSessionParameters `json:"forProvider"`
+	ForProvider       PolicyL2VpnSessionParameters `json:"forProvider"`
 }
 
 // PolicyL2VpnSessionStatus defines the observed state of PolicyL2VpnSession.
 type PolicyL2VpnSessionStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyL2VpnSessionObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyL2VpnSessionObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -150,11 +162,11 @@ type PolicyL2VpnSessionStatus struct {
 type PolicyL2VpnSession struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.servicePath)",message="servicePath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.transportTunnels)",message="transportTunnels is a required parameter"
-	Spec   PolicyL2VpnSessionSpec   `json:"spec"`
-	Status PolicyL2VpnSessionStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.servicePath)",message="servicePath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.transportTunnels)",message="transportTunnels is a required parameter"
+	Spec              PolicyL2VpnSessionSpec   `json:"spec"`
+	Status            PolicyL2VpnSessionStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

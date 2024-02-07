@@ -11,94 +11,111 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
 
-type AllocationRangesObservation struct {
-	End *string `json:"end,omitempty" tf:"end,omitempty"`
 
-	Start *string `json:"start,omitempty" tf:"start,omitempty"`
+
+
+type AllocationRangesObservation struct {
+
+
+End *string `json:"end,omitempty" tf:"end,omitempty"`
+
+Start *string `json:"start,omitempty" tf:"start,omitempty"`
 }
+
 
 type AllocationRangesParameters struct {
+
 }
+
 
 type IpBlockSubnetObservation struct {
 
-	// A collection of IPv4 Pool Ranges
-	AllocationRanges []AllocationRangesObservation `json:"allocationRanges,omitempty" tf:"allocation_ranges,omitempty"`
 
-	// Block id for which the subnet is created
-	BlockID *string `json:"blockId,omitempty" tf:"block_id,omitempty"`
+// A collection of IPv4 Pool Ranges
+AllocationRanges []AllocationRangesObservation `json:"allocationRanges,omitempty" tf:"allocation_ranges,omitempty"`
 
-	// Represents network address and the prefix length which will be associated with a layer-2 broadcast domain
-	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
+// Block id for which the subnet is created
+BlockID *string `json:"blockId,omitempty" tf:"block_id,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Represents network address and the prefix length which will be associated with a layer-2 broadcast domain
+Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Represents the size or number of ip addresses in the subnet
-	Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Represents the size or number of ip addresses in the subnet
+Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type IpBlockSubnetParameters struct {
 
-	// Block id for which the subnet is created
-	// +kubebuilder:validation:Optional
-	BlockID *string `json:"blockId,omitempty" tf:"block_id,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Block id for which the subnet is created
+// +kubebuilder:validation:Optional
+BlockID *string `json:"blockId,omitempty" tf:"block_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Represents the size or number of ip addresses in the subnet
-	// +kubebuilder:validation:Optional
-	Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Represents the size or number of ip addresses in the subnet
+// +kubebuilder:validation:Optional
+Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // IpBlockSubnetSpec defines the desired state of IpBlockSubnet
 type IpBlockSubnetSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     IpBlockSubnetParameters `json:"forProvider"`
+	ForProvider       IpBlockSubnetParameters `json:"forProvider"`
 }
 
 // IpBlockSubnetStatus defines the observed state of IpBlockSubnet.
 type IpBlockSubnetStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        IpBlockSubnetObservation `json:"atProvider,omitempty"`
+	AtProvider          IpBlockSubnetObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -113,10 +130,10 @@ type IpBlockSubnetStatus struct {
 type IpBlockSubnet struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.blockId)",message="blockId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.size)",message="size is a required parameter"
-	Spec   IpBlockSubnetSpec   `json:"spec"`
-	Status IpBlockSubnetStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.blockId)",message="blockId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.size)",message="size is a required parameter"
+	Spec              IpBlockSubnetSpec   `json:"spec"`
+	Status            IpBlockSubnetStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

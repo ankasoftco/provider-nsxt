@@ -11,233 +11,261 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type EgressRateShaperObservation struct {
 
-	// Average Bandwidth in mbps
-	AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Burst size in bytes
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
+// Average Bandwidth in mbps
+AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Whether this rate shaper is enabled
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Burst size in bytes
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Peak Bandwidth in mbps
-	PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
+// Whether this rate shaper is enabled
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// Peak Bandwidth in mbps
+PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
 }
+
 
 type EgressRateShaperParameters struct {
 
-	// Average Bandwidth in mbps
-	// +kubebuilder:validation:Optional
-	AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Burst size in bytes
-	// +kubebuilder:validation:Optional
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
+// Average Bandwidth in mbps
+// +kubebuilder:validation:Optional
+AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Whether this rate shaper is enabled
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Burst size in bytes
+// +kubebuilder:validation:Optional
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Peak Bandwidth in mbps
-	// +kubebuilder:validation:Optional
-	PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
+// Whether this rate shaper is enabled
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// Peak Bandwidth in mbps
+// +kubebuilder:validation:Optional
+PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
 }
+
 
 type IngressBroadcastRateShaperObservation struct {
 
-	// Average Bandwidth in kbps
-	AverageBwKbps *float64 `json:"averageBwKbps,omitempty" tf:"average_bw_kbps,omitempty"`
 
-	// Burst size in bytes
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
+// Average Bandwidth in kbps
+AverageBwKbps *float64 `json:"averageBwKbps,omitempty" tf:"average_bw_kbps,omitempty"`
 
-	// Whether this rate shaper is enabled
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Burst size in bytes
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Peak Bandwidth in kbps
-	PeakBwKbps *float64 `json:"peakBwKbps,omitempty" tf:"peak_bw_kbps,omitempty"`
+// Whether this rate shaper is enabled
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// Peak Bandwidth in kbps
+PeakBwKbps *float64 `json:"peakBwKbps,omitempty" tf:"peak_bw_kbps,omitempty"`
 }
+
 
 type IngressBroadcastRateShaperParameters struct {
 
-	// Average Bandwidth in kbps
-	// +kubebuilder:validation:Optional
-	AverageBwKbps *float64 `json:"averageBwKbps,omitempty" tf:"average_bw_kbps,omitempty"`
 
-	// Burst size in bytes
-	// +kubebuilder:validation:Optional
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
+// Average Bandwidth in kbps
+// +kubebuilder:validation:Optional
+AverageBwKbps *float64 `json:"averageBwKbps,omitempty" tf:"average_bw_kbps,omitempty"`
 
-	// Whether this rate shaper is enabled
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Burst size in bytes
+// +kubebuilder:validation:Optional
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Peak Bandwidth in kbps
-	// +kubebuilder:validation:Optional
-	PeakBwKbps *float64 `json:"peakBwKbps,omitempty" tf:"peak_bw_kbps,omitempty"`
+// Whether this rate shaper is enabled
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// Peak Bandwidth in kbps
+// +kubebuilder:validation:Optional
+PeakBwKbps *float64 `json:"peakBwKbps,omitempty" tf:"peak_bw_kbps,omitempty"`
 }
+
 
 type IngressRateShaperObservation struct {
 
-	// Average Bandwidth in mbps
-	AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Burst size in bytes
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
+// Average Bandwidth in mbps
+AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Whether this rate shaper is enabled
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Burst size in bytes
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Peak Bandwidth in mbps
-	PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
+// Whether this rate shaper is enabled
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// Peak Bandwidth in mbps
+PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
 }
+
 
 type IngressRateShaperParameters struct {
 
-	// Average Bandwidth in mbps
-	// +kubebuilder:validation:Optional
-	AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Burst size in bytes
-	// +kubebuilder:validation:Optional
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
+// Average Bandwidth in mbps
+// +kubebuilder:validation:Optional
+AverageBwMbps *float64 `json:"averageBwMbps,omitempty" tf:"average_bw_mbps,omitempty"`
 
-	// Whether this rate shaper is enabled
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Burst size in bytes
+// +kubebuilder:validation:Optional
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Peak Bandwidth in mbps
-	// +kubebuilder:validation:Optional
-	PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
+// Whether this rate shaper is enabled
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+// Peak Bandwidth in mbps
+// +kubebuilder:validation:Optional
+PeakBwMbps *float64 `json:"peakBwMbps,omitempty" tf:"peak_bw_mbps,omitempty"`
 }
+
 
 type PolicyQosProfileContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyQosProfileContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyQosProfileObservation struct {
 
-	// Class of service
-	ClassOfService *float64 `json:"classOfService,omitempty" tf:"class_of_service,omitempty"`
 
-	// Resource context
-	Context []PolicyQosProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
+// Class of service
+ClassOfService *float64 `json:"classOfService,omitempty" tf:"class_of_service,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+Context []PolicyQosProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// DSCP Priority
-	DscpPriority *float64 `json:"dscpPriority,omitempty" tf:"dscp_priority,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Trust mode for DSCP
-	DscpTrusted *bool `json:"dscpTrusted,omitempty" tf:"dscp_trusted,omitempty"`
+// DSCP Priority
+DscpPriority *float64 `json:"dscpPriority,omitempty" tf:"dscp_priority,omitempty"`
 
-	EgressRateShaper []EgressRateShaperObservation `json:"egressRateShaper,omitempty" tf:"egress_rate_shaper,omitempty"`
+// Trust mode for DSCP
+DscpTrusted *bool `json:"dscpTrusted,omitempty" tf:"dscp_trusted,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+EgressRateShaper []EgressRateShaperObservation `json:"egressRateShaper,omitempty" tf:"egress_rate_shaper,omitempty"`
 
-	IngressBroadcastRateShaper []IngressBroadcastRateShaperObservation `json:"ingressBroadcastRateShaper,omitempty" tf:"ingress_broadcast_rate_shaper,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	IngressRateShaper []IngressRateShaperObservation `json:"ingressRateShaper,omitempty" tf:"ingress_rate_shaper,omitempty"`
+IngressBroadcastRateShaper []IngressBroadcastRateShaperObservation `json:"ingressBroadcastRateShaper,omitempty" tf:"ingress_broadcast_rate_shaper,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+IngressRateShaper []IngressRateShaperObservation `json:"ingressRateShaper,omitempty" tf:"ingress_rate_shaper,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyQosProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyQosProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyQosProfileParameters struct {
 
-	// Class of service
-	// +kubebuilder:validation:Optional
-	ClassOfService *float64 `json:"classOfService,omitempty" tf:"class_of_service,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyQosProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// Class of service
+// +kubebuilder:validation:Optional
+ClassOfService *float64 `json:"classOfService,omitempty" tf:"class_of_service,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyQosProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// DSCP Priority
-	// +kubebuilder:validation:Optional
-	DscpPriority *float64 `json:"dscpPriority,omitempty" tf:"dscp_priority,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Trust mode for DSCP
-	// +kubebuilder:validation:Optional
-	DscpTrusted *bool `json:"dscpTrusted,omitempty" tf:"dscp_trusted,omitempty"`
+// DSCP Priority
+// +kubebuilder:validation:Optional
+DscpPriority *float64 `json:"dscpPriority,omitempty" tf:"dscp_priority,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	EgressRateShaper []EgressRateShaperParameters `json:"egressRateShaper,omitempty" tf:"egress_rate_shaper,omitempty"`
+// Trust mode for DSCP
+// +kubebuilder:validation:Optional
+DscpTrusted *bool `json:"dscpTrusted,omitempty" tf:"dscp_trusted,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	IngressBroadcastRateShaper []IngressBroadcastRateShaperParameters `json:"ingressBroadcastRateShaper,omitempty" tf:"ingress_broadcast_rate_shaper,omitempty"`
+// +kubebuilder:validation:Optional
+EgressRateShaper []EgressRateShaperParameters `json:"egressRateShaper,omitempty" tf:"egress_rate_shaper,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	IngressRateShaper []IngressRateShaperParameters `json:"ingressRateShaper,omitempty" tf:"ingress_rate_shaper,omitempty"`
+// +kubebuilder:validation:Optional
+IngressBroadcastRateShaper []IngressBroadcastRateShaperParameters `json:"ingressBroadcastRateShaper,omitempty" tf:"ingress_broadcast_rate_shaper,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// +kubebuilder:validation:Optional
+IngressRateShaper []IngressRateShaperParameters `json:"ingressRateShaper,omitempty" tf:"ingress_rate_shaper,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyQosProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyQosProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyQosProfileTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyQosProfileTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyQosProfileSpec defines the desired state of PolicyQosProfile
 type PolicyQosProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyQosProfileParameters `json:"forProvider"`
+	ForProvider       PolicyQosProfileParameters `json:"forProvider"`
 }
 
 // PolicyQosProfileStatus defines the observed state of PolicyQosProfile.
 type PolicyQosProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyQosProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyQosProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -252,9 +280,9 @@ type PolicyQosProfileStatus struct {
 type PolicyQosProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyQosProfileSpec   `json:"spec"`
-	Status PolicyQosProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyQosProfileSpec   `json:"spec"`
+	Status            PolicyQosProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

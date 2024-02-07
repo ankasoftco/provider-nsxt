@@ -11,60 +11,71 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyContextProfileCustomAttributeContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyContextProfileCustomAttributeContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyContextProfileCustomAttributeObservation struct {
 
-	// Custom Attribute
-	Attribute *string `json:"attribute,omitempty" tf:"attribute,omitempty"`
 
-	// Resource context
-	Context []PolicyContextProfileCustomAttributeContextObservation `json:"context,omitempty" tf:"context,omitempty"`
+// Custom Attribute
+Attribute *string `json:"attribute,omitempty" tf:"attribute,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Resource context
+Context []PolicyContextProfileCustomAttributeContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Key for attribute
-	Key *string `json:"key,omitempty" tf:"key,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+// Key for attribute
+Key *string `json:"key,omitempty" tf:"key,omitempty"`
 }
+
 
 type PolicyContextProfileCustomAttributeParameters struct {
 
-	// Custom Attribute
-	// +kubebuilder:validation:Optional
-	Attribute *string `json:"attribute,omitempty" tf:"attribute,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyContextProfileCustomAttributeContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// Custom Attribute
+// +kubebuilder:validation:Optional
+Attribute *string `json:"attribute,omitempty" tf:"attribute,omitempty"`
 
-	// Key for attribute
-	// +kubebuilder:validation:Optional
-	Key *string `json:"key,omitempty" tf:"key,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyContextProfileCustomAttributeContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+
+// Key for attribute
+// +kubebuilder:validation:Optional
+Key *string `json:"key,omitempty" tf:"key,omitempty"`
 }
 
 // PolicyContextProfileCustomAttributeSpec defines the desired state of PolicyContextProfileCustomAttribute
 type PolicyContextProfileCustomAttributeSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyContextProfileCustomAttributeParameters `json:"forProvider"`
+	ForProvider       PolicyContextProfileCustomAttributeParameters `json:"forProvider"`
 }
 
 // PolicyContextProfileCustomAttributeStatus defines the observed state of PolicyContextProfileCustomAttribute.
 type PolicyContextProfileCustomAttributeStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyContextProfileCustomAttributeObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyContextProfileCustomAttributeObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -79,10 +90,10 @@ type PolicyContextProfileCustomAttributeStatus struct {
 type PolicyContextProfileCustomAttribute struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.attribute)",message="attribute is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.key)",message="key is a required parameter"
-	Spec   PolicyContextProfileCustomAttributeSpec   `json:"spec"`
-	Status PolicyContextProfileCustomAttributeStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.attribute)",message="attribute is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.key)",message="key is a required parameter"
+	Spec              PolicyContextProfileCustomAttributeSpec   `json:"spec"`
+	Status            PolicyContextProfileCustomAttributeStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

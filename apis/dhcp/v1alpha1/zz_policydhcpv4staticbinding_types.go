@@ -11,191 +11,215 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type DHCPGenericOptionObservation struct {
 
-	// DHCP option code, [0-255]
-	Code *float64 `json:"code,omitempty" tf:"code,omitempty"`
 
-	// DHCP option values
-	Values []*string `json:"values,omitempty" tf:"values,omitempty"`
+// DHCP option code, [0-255]
+Code *float64 `json:"code,omitempty" tf:"code,omitempty"`
+
+// DHCP option values
+Values []*string `json:"values,omitempty" tf:"values,omitempty"`
 }
+
 
 type DHCPGenericOptionParameters struct {
 
-	// DHCP option code, [0-255]
-	// +kubebuilder:validation:Required
-	Code *float64 `json:"code" tf:"code,omitempty"`
 
-	// DHCP option values
-	// +kubebuilder:validation:Required
-	Values []*string `json:"values" tf:"values,omitempty"`
+// DHCP option code, [0-255]
+// +kubebuilder:validation:Required
+Code *float64 `json:"code" tf:"code,omitempty"`
+
+// DHCP option values
+// +kubebuilder:validation:Required
+Values []*string `json:"values" tf:"values,omitempty"`
 }
+
 
 type DHCPOption121Observation struct {
 
-	// Destination in cidr
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// Next hop IP
-	NextHop *string `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// Destination in cidr
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
+
+// Next hop IP
+NextHop *string `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
 }
+
 
 type DHCPOption121Parameters struct {
 
-	// Destination in cidr
-	// +kubebuilder:validation:Required
-	Network *string `json:"network" tf:"network,omitempty"`
 
-	// Next hop IP
-	// +kubebuilder:validation:Required
-	NextHop *string `json:"nextHop" tf:"next_hop,omitempty"`
+// Destination in cidr
+// +kubebuilder:validation:Required
+Network *string `json:"network" tf:"network,omitempty"`
+
+// Next hop IP
+// +kubebuilder:validation:Required
+NextHop *string `json:"nextHop" tf:"next_hop,omitempty"`
 }
+
 
 type PolicyDhcpV4StaticBindingContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyDhcpV4StaticBindingContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyDhcpV4StaticBindingObservation struct {
 
-	// Resource context
-	Context []PolicyDhcpV4StaticBindingContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Generic DHCP options
-	DHCPGenericOption []DHCPGenericOptionObservation `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
+// Resource context
+Context []PolicyDhcpV4StaticBindingContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// DHCP classless static routes
-	DHCPOption121 []DHCPOption121Observation `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
+// Generic DHCP options
+DHCPGenericOption []DHCPGenericOptionObservation `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DHCP classless static routes
+DHCPOption121 []DHCPOption121Observation `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// When not specified, gateway address is auto-assigned from segment configuration
-	GatewayAddress *string `json:"gatewayAddress,omitempty" tf:"gateway_address,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Hostname to assign to the host
-	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+// When not specified, gateway address is auto-assigned from segment configuration
+GatewayAddress *string `json:"gatewayAddress,omitempty" tf:"gateway_address,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Hostname to assign to the host
+Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
 
-	// IP assigned to host. The IP address must belong to the subnetconfigured on segment
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// DHCP lease time in seconds
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// IP assigned to host. The IP address must belong to the subnetconfigured on segment
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// MAC address of the host
-	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+// DHCP lease time in seconds
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// MAC address of the host
+MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// segment path
-	SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyDhcpV4StaticBindingTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// segment path
+SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyDhcpV4StaticBindingTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpV4StaticBindingParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyDhcpV4StaticBindingContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Generic DHCP options
-	// +kubebuilder:validation:Optional
-	DHCPGenericOption []DHCPGenericOptionParameters `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyDhcpV4StaticBindingContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// DHCP classless static routes
-	// +kubebuilder:validation:Optional
-	DHCPOption121 []DHCPOption121Parameters `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
+// Generic DHCP options
+// +kubebuilder:validation:Optional
+DHCPGenericOption []DHCPGenericOptionParameters `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DHCP classless static routes
+// +kubebuilder:validation:Optional
+DHCPOption121 []DHCPOption121Parameters `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// When not specified, gateway address is auto-assigned from segment configuration
-	// +kubebuilder:validation:Optional
-	GatewayAddress *string `json:"gatewayAddress,omitempty" tf:"gateway_address,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Hostname to assign to the host
-	// +kubebuilder:validation:Optional
-	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+// When not specified, gateway address is auto-assigned from segment configuration
+// +kubebuilder:validation:Optional
+GatewayAddress *string `json:"gatewayAddress,omitempty" tf:"gateway_address,omitempty"`
 
-	// IP assigned to host. The IP address must belong to the subnetconfigured on segment
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// Hostname to assign to the host
+// +kubebuilder:validation:Optional
+Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
 
-	// DHCP lease time in seconds
-	// +kubebuilder:validation:Optional
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// IP assigned to host. The IP address must belong to the subnetconfigured on segment
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// MAC address of the host
-	// +kubebuilder:validation:Optional
-	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+// DHCP lease time in seconds
+// +kubebuilder:validation:Optional
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// MAC address of the host
+// +kubebuilder:validation:Optional
+MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
 
-	// segment path
-	// +kubebuilder:validation:Optional
-	SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyDhcpV4StaticBindingTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// segment path
+// +kubebuilder:validation:Optional
+SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyDhcpV4StaticBindingTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpV4StaticBindingTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpV4StaticBindingTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyDhcpV4StaticBindingSpec defines the desired state of PolicyDhcpV4StaticBinding
 type PolicyDhcpV4StaticBindingSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyDhcpV4StaticBindingParameters `json:"forProvider"`
+	ForProvider       PolicyDhcpV4StaticBindingParameters `json:"forProvider"`
 }
 
 // PolicyDhcpV4StaticBindingStatus defines the observed state of PolicyDhcpV4StaticBinding.
 type PolicyDhcpV4StaticBindingStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyDhcpV4StaticBindingObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyDhcpV4StaticBindingObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -210,12 +234,12 @@ type PolicyDhcpV4StaticBindingStatus struct {
 type PolicyDhcpV4StaticBinding struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)",message="ipAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.macAddress)",message="macAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.segmentPath)",message="segmentPath is a required parameter"
-	Spec   PolicyDhcpV4StaticBindingSpec   `json:"spec"`
-	Status PolicyDhcpV4StaticBindingStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)",message="ipAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.macAddress)",message="macAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.segmentPath)",message="segmentPath is a required parameter"
+	Spec              PolicyDhcpV4StaticBindingSpec   `json:"spec"`
+	Status            PolicyDhcpV4StaticBindingStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

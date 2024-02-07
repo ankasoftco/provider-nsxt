@@ -11,169 +11,191 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicySegmentSecurityProfileContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicySegmentSecurityProfileContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicySegmentSecurityProfileObservation struct {
-	BpduFilterAllow []*string `json:"bpduFilterAllow,omitempty" tf:"bpdu_filter_allow,omitempty"`
 
-	BpduFilterEnable *bool `json:"bpduFilterEnable,omitempty" tf:"bpdu_filter_enable,omitempty"`
 
-	// Resource context
-	Context []PolicySegmentSecurityProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
+BpduFilterAllow []*string `json:"bpduFilterAllow,omitempty" tf:"bpdu_filter_allow,omitempty"`
 
-	DHCPClientBlockEnabled *bool `json:"dhcpClientBlockEnabled,omitempty" tf:"dhcp_client_block_enabled,omitempty"`
+BpduFilterEnable *bool `json:"bpduFilterEnable,omitempty" tf:"bpdu_filter_enable,omitempty"`
 
-	DHCPClientBlockV6Enabled *bool `json:"dhcpClientBlockV6Enabled,omitempty" tf:"dhcp_client_block_v6_enabled,omitempty"`
+// Resource context
+Context []PolicySegmentSecurityProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	DHCPServerBlockEnabled *bool `json:"dhcpServerBlockEnabled,omitempty" tf:"dhcp_server_block_enabled,omitempty"`
+DHCPClientBlockEnabled *bool `json:"dhcpClientBlockEnabled,omitempty" tf:"dhcp_client_block_enabled,omitempty"`
 
-	DHCPServerBlockV6Enabled *bool `json:"dhcpServerBlockV6Enabled,omitempty" tf:"dhcp_server_block_v6_enabled,omitempty"`
+DHCPClientBlockV6Enabled *bool `json:"dhcpClientBlockV6Enabled,omitempty" tf:"dhcp_client_block_v6_enabled,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+DHCPServerBlockEnabled *bool `json:"dhcpServerBlockEnabled,omitempty" tf:"dhcp_server_block_enabled,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+DHCPServerBlockV6Enabled *bool `json:"dhcpServerBlockV6Enabled,omitempty" tf:"dhcp_server_block_v6_enabled,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	NonIPTrafficBlockEnabled *bool `json:"nonIpTrafficBlockEnabled,omitempty" tf:"non_ip_traffic_block_enabled,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+NonIPTrafficBlockEnabled *bool `json:"nonIpTrafficBlockEnabled,omitempty" tf:"non_ip_traffic_block_enabled,omitempty"`
 
-	RaGuardEnabled *bool `json:"raGuardEnabled,omitempty" tf:"ra_guard_enabled,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	RateLimit []RateLimitObservation `json:"rateLimit,omitempty" tf:"rate_limit,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	RateLimitsEnabled *bool `json:"rateLimitsEnabled,omitempty" tf:"rate_limits_enabled,omitempty"`
+RaGuardEnabled *bool `json:"raGuardEnabled,omitempty" tf:"ra_guard_enabled,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+RateLimit []RateLimitObservation `json:"rateLimit,omitempty" tf:"rate_limit,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicySegmentSecurityProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+RateLimitsEnabled *bool `json:"rateLimitsEnabled,omitempty" tf:"rate_limits_enabled,omitempty"`
+
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicySegmentSecurityProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicySegmentSecurityProfileParameters struct {
 
-	// +kubebuilder:validation:Optional
-	BpduFilterAllow []*string `json:"bpduFilterAllow,omitempty" tf:"bpdu_filter_allow,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	BpduFilterEnable *bool `json:"bpduFilterEnable,omitempty" tf:"bpdu_filter_enable,omitempty"`
+// +kubebuilder:validation:Optional
+BpduFilterAllow []*string `json:"bpduFilterAllow,omitempty" tf:"bpdu_filter_allow,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicySegmentSecurityProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// +kubebuilder:validation:Optional
+BpduFilterEnable *bool `json:"bpduFilterEnable,omitempty" tf:"bpdu_filter_enable,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DHCPClientBlockEnabled *bool `json:"dhcpClientBlockEnabled,omitempty" tf:"dhcp_client_block_enabled,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicySegmentSecurityProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DHCPClientBlockV6Enabled *bool `json:"dhcpClientBlockV6Enabled,omitempty" tf:"dhcp_client_block_v6_enabled,omitempty"`
+// +kubebuilder:validation:Optional
+DHCPClientBlockEnabled *bool `json:"dhcpClientBlockEnabled,omitempty" tf:"dhcp_client_block_enabled,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DHCPServerBlockEnabled *bool `json:"dhcpServerBlockEnabled,omitempty" tf:"dhcp_server_block_enabled,omitempty"`
+// +kubebuilder:validation:Optional
+DHCPClientBlockV6Enabled *bool `json:"dhcpClientBlockV6Enabled,omitempty" tf:"dhcp_client_block_v6_enabled,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DHCPServerBlockV6Enabled *bool `json:"dhcpServerBlockV6Enabled,omitempty" tf:"dhcp_server_block_v6_enabled,omitempty"`
+// +kubebuilder:validation:Optional
+DHCPServerBlockEnabled *bool `json:"dhcpServerBlockEnabled,omitempty" tf:"dhcp_server_block_enabled,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// +kubebuilder:validation:Optional
+DHCPServerBlockV6Enabled *bool `json:"dhcpServerBlockV6Enabled,omitempty" tf:"dhcp_server_block_v6_enabled,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	NonIPTrafficBlockEnabled *bool `json:"nonIpTrafficBlockEnabled,omitempty" tf:"non_ip_traffic_block_enabled,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// +kubebuilder:validation:Optional
+NonIPTrafficBlockEnabled *bool `json:"nonIpTrafficBlockEnabled,omitempty" tf:"non_ip_traffic_block_enabled,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RaGuardEnabled *bool `json:"raGuardEnabled,omitempty" tf:"ra_guard_enabled,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RateLimit []RateLimitParameters `json:"rateLimit,omitempty" tf:"rate_limit,omitempty"`
+// +kubebuilder:validation:Optional
+RaGuardEnabled *bool `json:"raGuardEnabled,omitempty" tf:"ra_guard_enabled,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RateLimitsEnabled *bool `json:"rateLimitsEnabled,omitempty" tf:"rate_limits_enabled,omitempty"`
+// +kubebuilder:validation:Optional
+RateLimit []RateLimitParameters `json:"rateLimit,omitempty" tf:"rate_limit,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicySegmentSecurityProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+RateLimitsEnabled *bool `json:"rateLimitsEnabled,omitempty" tf:"rate_limits_enabled,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicySegmentSecurityProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicySegmentSecurityProfileTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicySegmentSecurityProfileTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type RateLimitObservation struct {
-	RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
 
-	RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
 
-	TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
 
-	TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
+RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
+
+TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+
+TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
 }
+
 
 type RateLimitParameters struct {
 
-	// +kubebuilder:validation:Optional
-	RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
+// +kubebuilder:validation:Optional
+RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+// +kubebuilder:validation:Optional
+RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
+// +kubebuilder:validation:Optional
+TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+
+// +kubebuilder:validation:Optional
+TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
 }
 
 // PolicySegmentSecurityProfileSpec defines the desired state of PolicySegmentSecurityProfile
 type PolicySegmentSecurityProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicySegmentSecurityProfileParameters `json:"forProvider"`
+	ForProvider       PolicySegmentSecurityProfileParameters `json:"forProvider"`
 }
 
 // PolicySegmentSecurityProfileStatus defines the observed state of PolicySegmentSecurityProfile.
 type PolicySegmentSecurityProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicySegmentSecurityProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicySegmentSecurityProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -188,9 +210,9 @@ type PolicySegmentSecurityProfileStatus struct {
 type PolicySegmentSecurityProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicySegmentSecurityProfileSpec   `json:"spec"`
-	Status PolicySegmentSecurityProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicySegmentSecurityProfileSpec   `json:"spec"`
+	Status            PolicySegmentSecurityProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

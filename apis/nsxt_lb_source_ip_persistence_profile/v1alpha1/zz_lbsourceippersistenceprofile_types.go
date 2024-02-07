@@ -11,93 +11,105 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbSourceIpPersistenceProfileObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// A boolean flag which reflects whether persistence entries will be synchronized to the HA peer
-	HaPersistenceMirroring *bool `json:"haPersistenceMirroring,omitempty" tf:"ha_persistence_mirroring,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// A boolean flag which reflects whether persistence entries will be synchronized to the HA peer
+HaPersistenceMirroring *bool `json:"haPersistenceMirroring,omitempty" tf:"ha_persistence_mirroring,omitempty"`
 
-	// A boolean flag which reflects whether the cookie persistence is private or shared
-	PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// A boolean flag which reflects whether entries will be purged when the persistence table is full
-	PurgeWhenFull *bool `json:"purgeWhenFull,omitempty" tf:"purge_when_full,omitempty"`
+// A boolean flag which reflects whether the cookie persistence is private or shared
+PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// A boolean flag which reflects whether entries will be purged when the persistence table is full
+PurgeWhenFull *bool `json:"purgeWhenFull,omitempty" tf:"purge_when_full,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Persistence expiration time in seconds, counted from the time all the connections are completed
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Persistence expiration time in seconds, counted from the time all the connections are completed
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type LbSourceIpPersistenceProfileParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// A boolean flag which reflects whether persistence entries will be synchronized to the HA peer
-	// +kubebuilder:validation:Optional
-	HaPersistenceMirroring *bool `json:"haPersistenceMirroring,omitempty" tf:"ha_persistence_mirroring,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// A boolean flag which reflects whether the cookie persistence is private or shared
-	// +kubebuilder:validation:Optional
-	PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
+// A boolean flag which reflects whether persistence entries will be synchronized to the HA peer
+// +kubebuilder:validation:Optional
+HaPersistenceMirroring *bool `json:"haPersistenceMirroring,omitempty" tf:"ha_persistence_mirroring,omitempty"`
 
-	// A boolean flag which reflects whether entries will be purged when the persistence table is full
-	// +kubebuilder:validation:Optional
-	PurgeWhenFull *bool `json:"purgeWhenFull,omitempty" tf:"purge_when_full,omitempty"`
+// A boolean flag which reflects whether the cookie persistence is private or shared
+// +kubebuilder:validation:Optional
+PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// A boolean flag which reflects whether entries will be purged when the persistence table is full
+// +kubebuilder:validation:Optional
+PurgeWhenFull *bool `json:"purgeWhenFull,omitempty" tf:"purge_when_full,omitempty"`
 
-	// Persistence expiration time in seconds, counted from the time all the connections are completed
-	// +kubebuilder:validation:Optional
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Persistence expiration time in seconds, counted from the time all the connections are completed
+// +kubebuilder:validation:Optional
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbSourceIpPersistenceProfileSpec defines the desired state of LbSourceIpPersistenceProfile
 type LbSourceIpPersistenceProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbSourceIpPersistenceProfileParameters `json:"forProvider"`
+	ForProvider       LbSourceIpPersistenceProfileParameters `json:"forProvider"`
 }
 
 // LbSourceIpPersistenceProfileStatus defines the observed state of LbSourceIpPersistenceProfile.
 type LbSourceIpPersistenceProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbSourceIpPersistenceProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          LbSourceIpPersistenceProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

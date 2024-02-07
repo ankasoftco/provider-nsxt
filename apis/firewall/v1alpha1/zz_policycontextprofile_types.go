@@ -11,236 +11,273 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type AppIDObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Whether the app_id value is ALG type or not
-	IsAlgType *bool `json:"isAlgType,omitempty" tf:"is_alg_type,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	SubAttribute []SubAttributeObservation `json:"subAttribute,omitempty" tf:"sub_attribute,omitempty"`
+// Whether the app_id value is ALG type or not
+IsAlgType *bool `json:"isAlgType,omitempty" tf:"is_alg_type,omitempty"`
 
-	// Values for attribute key
-	Value []*string `json:"value,omitempty" tf:"value,omitempty"`
+SubAttribute []SubAttributeObservation `json:"subAttribute,omitempty" tf:"sub_attribute,omitempty"`
+
+// Values for attribute key
+Value []*string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type AppIDParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	SubAttribute []SubAttributeParameters `json:"subAttribute,omitempty" tf:"sub_attribute,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Values for attribute key
-	// +kubebuilder:validation:Required
-	Value []*string `json:"value" tf:"value,omitempty"`
+// +kubebuilder:validation:Optional
+SubAttribute []SubAttributeParameters `json:"subAttribute,omitempty" tf:"sub_attribute,omitempty"`
+
+// Values for attribute key
+// +kubebuilder:validation:Required
+Value []*string `json:"value" tf:"value,omitempty"`
 }
+
 
 type ContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type ContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type CustomURLObservation struct {
 
-	// True value for this flag will be treated as a partial match for custom url
-	CustomURLPartialMatch *bool `json:"customUrlPartialMatch,omitempty" tf:"custom_url_partial_match,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// True value for this flag will be treated as a partial match for custom url
+CustomURLPartialMatch *bool `json:"customUrlPartialMatch,omitempty" tf:"custom_url_partial_match,omitempty"`
 
-	// Values for attribute key
-	Value []*string `json:"value,omitempty" tf:"value,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+// Values for attribute key
+Value []*string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type CustomURLParameters struct {
 
-	// True value for this flag will be treated as a partial match for custom url
-	// +kubebuilder:validation:Optional
-	CustomURLPartialMatch *bool `json:"customUrlPartialMatch,omitempty" tf:"custom_url_partial_match,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// True value for this flag will be treated as a partial match for custom url
+// +kubebuilder:validation:Optional
+CustomURLPartialMatch *bool `json:"customUrlPartialMatch,omitempty" tf:"custom_url_partial_match,omitempty"`
 
-	// Values for attribute key
-	// +kubebuilder:validation:Required
-	Value []*string `json:"value" tf:"value,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+// Values for attribute key
+// +kubebuilder:validation:Required
+Value []*string `json:"value" tf:"value,omitempty"`
 }
+
 
 type DomainNameObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Values for attribute key
-	Value []*string `json:"value,omitempty" tf:"value,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+// Values for attribute key
+Value []*string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type DomainNameParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Values for attribute key
-	// +kubebuilder:validation:Required
-	Value []*string `json:"value" tf:"value,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+// Values for attribute key
+// +kubebuilder:validation:Required
+Value []*string `json:"value" tf:"value,omitempty"`
 }
+
 
 type PolicyContextProfileObservation struct {
-	AppID []AppIDObservation `json:"appId,omitempty" tf:"app_id,omitempty"`
 
-	// Resource context
-	Context []ContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	CustomURL []CustomURLObservation `json:"customUrl,omitempty" tf:"custom_url,omitempty"`
+AppID []AppIDObservation `json:"appId,omitempty" tf:"app_id,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+Context []ContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+CustomURL []CustomURLObservation `json:"customUrl,omitempty" tf:"custom_url,omitempty"`
 
-	DomainName []DomainNameObservation `json:"domainName,omitempty" tf:"domain_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+DomainName []DomainNameObservation `json:"domainName,omitempty" tf:"domain_name,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	URLCategory []URLCategoryObservation `json:"urlCategory,omitempty" tf:"url_category,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+URLCategory []URLCategoryObservation `json:"urlCategory,omitempty" tf:"url_category,omitempty"`
 }
+
 
 type PolicyContextProfileParameters struct {
 
-	// +kubebuilder:validation:Optional
-	AppID []AppIDParameters `json:"appId,omitempty" tf:"app_id,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []ContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// +kubebuilder:validation:Optional
+AppID []AppIDParameters `json:"appId,omitempty" tf:"app_id,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	CustomURL []CustomURLParameters `json:"customUrl,omitempty" tf:"custom_url,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []ContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// +kubebuilder:validation:Optional
+CustomURL []CustomURLParameters `json:"customUrl,omitempty" tf:"custom_url,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DomainName []DomainNameParameters `json:"domainName,omitempty" tf:"domain_name,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// +kubebuilder:validation:Optional
+DomainName []DomainNameParameters `json:"domainName,omitempty" tf:"domain_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	URLCategory []URLCategoryParameters `json:"urlCategory,omitempty" tf:"url_category,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// +kubebuilder:validation:Optional
+URLCategory []URLCategoryParameters `json:"urlCategory,omitempty" tf:"url_category,omitempty"`
 }
+
 
 type SubAttributeObservation struct {
 
-	// Values for sub attribute key cifs_smb_version
-	CifsSMBVersion []*string `json:"cifsSmbVersion,omitempty" tf:"cifs_smb_version,omitempty"`
 
-	// Values for sub attribute key tls_cipher_suite
-	TLSCipherSuite []*string `json:"tlsCipherSuite,omitempty" tf:"tls_cipher_suite,omitempty"`
+// Values for sub attribute key cifs_smb_version
+CifsSMBVersion []*string `json:"cifsSmbVersion,omitempty" tf:"cifs_smb_version,omitempty"`
 
-	// Values for sub attribute key tls_version
-	TLSVersion []*string `json:"tlsVersion,omitempty" tf:"tls_version,omitempty"`
+// Values for sub attribute key tls_cipher_suite
+TLSCipherSuite []*string `json:"tlsCipherSuite,omitempty" tf:"tls_cipher_suite,omitempty"`
+
+// Values for sub attribute key tls_version
+TLSVersion []*string `json:"tlsVersion,omitempty" tf:"tls_version,omitempty"`
 }
+
 
 type SubAttributeParameters struct {
 
-	// Values for sub attribute key cifs_smb_version
-	// +kubebuilder:validation:Optional
-	CifsSMBVersion []*string `json:"cifsSmbVersion,omitempty" tf:"cifs_smb_version,omitempty"`
 
-	// Values for sub attribute key tls_cipher_suite
-	// +kubebuilder:validation:Optional
-	TLSCipherSuite []*string `json:"tlsCipherSuite,omitempty" tf:"tls_cipher_suite,omitempty"`
+// Values for sub attribute key cifs_smb_version
+// +kubebuilder:validation:Optional
+CifsSMBVersion []*string `json:"cifsSmbVersion,omitempty" tf:"cifs_smb_version,omitempty"`
 
-	// Values for sub attribute key tls_version
-	// +kubebuilder:validation:Optional
-	TLSVersion []*string `json:"tlsVersion,omitempty" tf:"tls_version,omitempty"`
+// Values for sub attribute key tls_cipher_suite
+// +kubebuilder:validation:Optional
+TLSCipherSuite []*string `json:"tlsCipherSuite,omitempty" tf:"tls_cipher_suite,omitempty"`
+
+// Values for sub attribute key tls_version
+// +kubebuilder:validation:Optional
+TLSVersion []*string `json:"tlsVersion,omitempty" tf:"tls_version,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type URLCategoryObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Values for attribute key
-	Value []*string `json:"value,omitempty" tf:"value,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+// Values for attribute key
+Value []*string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type URLCategoryParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Values for attribute key
-	// +kubebuilder:validation:Required
-	Value []*string `json:"value" tf:"value,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+// Values for attribute key
+// +kubebuilder:validation:Required
+Value []*string `json:"value" tf:"value,omitempty"`
 }
 
 // PolicyContextProfileSpec defines the desired state of PolicyContextProfile
 type PolicyContextProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyContextProfileParameters `json:"forProvider"`
+	ForProvider       PolicyContextProfileParameters `json:"forProvider"`
 }
 
 // PolicyContextProfileStatus defines the observed state of PolicyContextProfile.
 type PolicyContextProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyContextProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyContextProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -255,9 +292,9 @@ type PolicyContextProfileStatus struct {
 type PolicyContextProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyContextProfileSpec   `json:"spec"`
-	Status PolicyContextProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyContextProfileSpec   `json:"spec"`
+	Status            PolicyContextProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

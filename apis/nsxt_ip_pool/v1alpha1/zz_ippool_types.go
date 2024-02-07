@@ -11,113 +11,129 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type IpPoolObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// List of IPv4 subnets
-	Subnet []SubnetObservation `json:"subnet,omitempty" tf:"subnet,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// List of IPv4 subnets
+Subnet []SubnetObservation `json:"subnet,omitempty" tf:"subnet,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type IpPoolParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// List of IPv4 subnets
-	// +kubebuilder:validation:Optional
-	Subnet []SubnetParameters `json:"subnet,omitempty" tf:"subnet,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// List of IPv4 subnets
+// +kubebuilder:validation:Optional
+Subnet []SubnetParameters `json:"subnet,omitempty" tf:"subnet,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type SubnetObservation struct {
 
-	// A collection of IPv4 Pool Ranges
-	AllocationRanges []*string `json:"allocationRanges,omitempty" tf:"allocation_ranges,omitempty"`
 
-	// Network address and the prefix length which will be associated with a layer-2 broadcast domain
-	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
+// A collection of IPv4 Pool Ranges
+AllocationRanges []*string `json:"allocationRanges,omitempty" tf:"allocation_ranges,omitempty"`
 
-	// A collection of DNS servers for the subnet
-	DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
+// Network address and the prefix length which will be associated with a layer-2 broadcast domain
+Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
-	// The DNS suffix for the DNS server
-	DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
+// A collection of DNS servers for the subnet
+DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
 
-	// The default gateway address on a layer-3 router
-	GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+// The DNS suffix for the DNS server
+DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
+
+// The default gateway address on a layer-3 router
+GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
 }
+
 
 type SubnetParameters struct {
 
-	// A collection of IPv4 Pool Ranges
-	// +kubebuilder:validation:Required
-	AllocationRanges []*string `json:"allocationRanges" tf:"allocation_ranges,omitempty"`
 
-	// Network address and the prefix length which will be associated with a layer-2 broadcast domain
-	// +kubebuilder:validation:Required
-	Cidr *string `json:"cidr" tf:"cidr,omitempty"`
+// A collection of IPv4 Pool Ranges
+// +kubebuilder:validation:Required
+AllocationRanges []*string `json:"allocationRanges" tf:"allocation_ranges,omitempty"`
 
-	// A collection of DNS servers for the subnet
-	// +kubebuilder:validation:Optional
-	DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
+// Network address and the prefix length which will be associated with a layer-2 broadcast domain
+// +kubebuilder:validation:Required
+Cidr *string `json:"cidr" tf:"cidr,omitempty"`
 
-	// The DNS suffix for the DNS server
-	// +kubebuilder:validation:Optional
-	DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
+// A collection of DNS servers for the subnet
+// +kubebuilder:validation:Optional
+DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
 
-	// The default gateway address on a layer-3 router
-	// +kubebuilder:validation:Optional
-	GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+// The DNS suffix for the DNS server
+// +kubebuilder:validation:Optional
+DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
+
+// The default gateway address on a layer-3 router
+// +kubebuilder:validation:Optional
+GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // IpPoolSpec defines the desired state of IpPool
 type IpPoolSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     IpPoolParameters `json:"forProvider"`
+	ForProvider       IpPoolParameters `json:"forProvider"`
 }
 
 // IpPoolStatus defines the observed state of IpPool.
 type IpPoolStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        IpPoolObservation `json:"atProvider,omitempty"`
+	AtProvider          IpPoolObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

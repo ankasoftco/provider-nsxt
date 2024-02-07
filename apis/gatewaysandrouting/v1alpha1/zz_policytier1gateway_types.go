@@ -11,325 +11,353 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyTier1GatewayContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyTier1GatewayContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyTier1GatewayIntersiteConfigObservation struct {
 
-	// Fallback sites to be used as new primary site on current primary site failure
-	FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// Primary egress site for gateway
-	PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+// Fallback sites to be used as new primary site on current primary site failure
+FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
-	TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
+// Primary egress site for gateway
+PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+
+// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
+TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
 }
+
 
 type PolicyTier1GatewayIntersiteConfigParameters struct {
 
-	// Fallback sites to be used as new primary site on current primary site failure
-	// +kubebuilder:validation:Optional
-	FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// Primary egress site for gateway
-	// +kubebuilder:validation:Optional
-	PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+// Fallback sites to be used as new primary site on current primary site failure
+// +kubebuilder:validation:Optional
+FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
-	// +kubebuilder:validation:Optional
-	TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
+// Primary egress site for gateway
+// +kubebuilder:validation:Optional
+PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+
+// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
+// +kubebuilder:validation:Optional
+TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
 }
+
 
 type PolicyTier1GatewayLocaleServiceObservation struct {
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The path of the edge cluster connected to this gateway
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// The path of the edge cluster connected to this gateway
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// Paths of specific edge nodes
-	PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Paths of specific edge nodes
+PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 }
+
 
 type PolicyTier1GatewayLocaleServiceParameters struct {
 
-	// The path of the edge cluster connected to this gateway
-	// +kubebuilder:validation:Required
-	EdgeClusterPath *string `json:"edgeClusterPath" tf:"edge_cluster_path,omitempty"`
 
-	// Paths of specific edge nodes
-	// +kubebuilder:validation:Optional
-	PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+// The path of the edge cluster connected to this gateway
+// +kubebuilder:validation:Required
+EdgeClusterPath *string `json:"edgeClusterPath" tf:"edge_cluster_path,omitempty"`
+
+// Paths of specific edge nodes
+// +kubebuilder:validation:Optional
+PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
 }
+
 
 type PolicyTier1GatewayObservation struct {
 
-	// Resource context
-	Context []PolicyTier1GatewayContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Policy path to DHCP server or relay configuration to use for this Tier1
-	DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
+// Resource context
+Context []PolicyTier1GatewayContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Default rule logging
-	DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
+// Policy path to DHCP server or relay configuration to use for this Tier1
+DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Default rule logging
+DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The path of the edge cluster connected to this gateway
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path to gateway QoS profile in egress direction
-	EgressQosProfilePath *string `json:"egressQosProfilePath,omitempty" tf:"egress_qos_profile_path,omitempty"`
+// The path of the edge cluster connected to this gateway
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// Enable edge firewall
-	EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
+// Policy path to gateway QoS profile in egress direction
+EgressQosProfilePath *string `json:"egressQosProfilePath,omitempty" tf:"egress_qos_profile_path,omitempty"`
 
-	// Enable standby relocation
-	EnableStandbyRelocation *bool `json:"enableStandbyRelocation,omitempty" tf:"enable_standby_relocation,omitempty"`
+// Enable edge firewall
+EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
 
-	// Failover mode
-	FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
+// Enable standby relocation
+EnableStandbyRelocation *bool `json:"enableStandbyRelocation,omitempty" tf:"enable_standby_relocation,omitempty"`
 
-	// Force whitelisting
-	ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
+// Failover mode
+FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
 
-	// High-availability Mode for Tier-1
-	HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
+// Force whitelisting
+ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// High-availability Mode for Tier-1
+HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
 
-	// The path of an IPv6 DAD profile
-	IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The path of an IPv6 NDRA profile
-	IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
+// The path of an IPv6 DAD profile
+IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
 
-	// Policy path to gateway QoS profile in ingress direction
-	IngressQosProfilePath *string `json:"ingressQosProfilePath,omitempty" tf:"ingress_qos_profile_path,omitempty"`
+// The path of an IPv6 NDRA profile
+IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
 
-	// Locale Service for the gateway
-	IntersiteConfig []PolicyTier1GatewayIntersiteConfigObservation `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
+// Policy path to gateway QoS profile in ingress direction
+IngressQosProfilePath *string `json:"ingressQosProfilePath,omitempty" tf:"ingress_qos_profile_path,omitempty"`
 
-	// Locale Service for the gateway
-	LocaleService []PolicyTier1GatewayLocaleServiceObservation `json:"localeService,omitempty" tf:"locale_service,omitempty"`
+// Locale Service for the gateway
+IntersiteConfig []PolicyTier1GatewayIntersiteConfigObservation `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Locale Service for the gateway
+LocaleService []PolicyTier1GatewayLocaleServiceObservation `json:"localeService,omitempty" tf:"locale_service,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Edge node allocation at different sizes for routing and load balancer service to meet performance and scalability requirements
-	PoolAllocation *string `json:"poolAllocation,omitempty" tf:"pool_allocation,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Edge node allocation at different sizes for routing and load balancer service to meet performance and scalability requirements
+PoolAllocation *string `json:"poolAllocation,omitempty" tf:"pool_allocation,omitempty"`
 
-	// List of route advertisement rules
-	RouteAdvertisementRule []RouteAdvertisementRuleObservation `json:"routeAdvertisementRule,omitempty" tf:"route_advertisement_rule,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Enable different types of route advertisements
-	RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
+// List of route advertisement rules
+RouteAdvertisementRule []RouteAdvertisementRuleObservation `json:"routeAdvertisementRule,omitempty" tf:"route_advertisement_rule,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyTier1GatewayTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Enable different types of route advertisements
+RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
 
-	// The path of the connected Tier0
-	Tier0Path *string `json:"tier0Path,omitempty" tf:"tier0_path,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyTier1GatewayTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// Tier-1 Type
-	Type *string `json:"type,omitempty" tf:"type,omitempty"`
+// The path of the connected Tier0
+Tier0Path *string `json:"tier0Path,omitempty" tf:"tier0_path,omitempty"`
+
+// Tier-1 Type
+Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
+
 
 type PolicyTier1GatewayParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyTier1GatewayContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Policy path to DHCP server or relay configuration to use for this Tier1
-	// +kubebuilder:validation:Optional
-	DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyTier1GatewayContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Default rule logging
-	// +kubebuilder:validation:Optional
-	DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
+// Policy path to DHCP server or relay configuration to use for this Tier1
+// +kubebuilder:validation:Optional
+DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Default rule logging
+// +kubebuilder:validation:Optional
+DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The path of the edge cluster connected to this gateway
-	// +kubebuilder:validation:Optional
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path to gateway QoS profile in egress direction
-	// +kubebuilder:validation:Optional
-	EgressQosProfilePath *string `json:"egressQosProfilePath,omitempty" tf:"egress_qos_profile_path,omitempty"`
+// The path of the edge cluster connected to this gateway
+// +kubebuilder:validation:Optional
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// Enable edge firewall
-	// +kubebuilder:validation:Optional
-	EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
+// Policy path to gateway QoS profile in egress direction
+// +kubebuilder:validation:Optional
+EgressQosProfilePath *string `json:"egressQosProfilePath,omitempty" tf:"egress_qos_profile_path,omitempty"`
 
-	// Enable standby relocation
-	// +kubebuilder:validation:Optional
-	EnableStandbyRelocation *bool `json:"enableStandbyRelocation,omitempty" tf:"enable_standby_relocation,omitempty"`
+// Enable edge firewall
+// +kubebuilder:validation:Optional
+EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
 
-	// Failover mode
-	// +kubebuilder:validation:Optional
-	FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
+// Enable standby relocation
+// +kubebuilder:validation:Optional
+EnableStandbyRelocation *bool `json:"enableStandbyRelocation,omitempty" tf:"enable_standby_relocation,omitempty"`
 
-	// Force whitelisting
-	// +kubebuilder:validation:Optional
-	ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
+// Failover mode
+// +kubebuilder:validation:Optional
+FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
 
-	// High-availability Mode for Tier-1
-	// +kubebuilder:validation:Optional
-	HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
+// Force whitelisting
+// +kubebuilder:validation:Optional
+ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
 
-	// The path of an IPv6 DAD profile
-	// +kubebuilder:validation:Optional
-	IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
+// High-availability Mode for Tier-1
+// +kubebuilder:validation:Optional
+HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
 
-	// The path of an IPv6 NDRA profile
-	// +kubebuilder:validation:Optional
-	IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
+// The path of an IPv6 DAD profile
+// +kubebuilder:validation:Optional
+IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
 
-	// Policy path to gateway QoS profile in ingress direction
-	// +kubebuilder:validation:Optional
-	IngressQosProfilePath *string `json:"ingressQosProfilePath,omitempty" tf:"ingress_qos_profile_path,omitempty"`
+// The path of an IPv6 NDRA profile
+// +kubebuilder:validation:Optional
+IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
 
-	// Locale Service for the gateway
-	// +kubebuilder:validation:Optional
-	IntersiteConfig []PolicyTier1GatewayIntersiteConfigParameters `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
+// Policy path to gateway QoS profile in ingress direction
+// +kubebuilder:validation:Optional
+IngressQosProfilePath *string `json:"ingressQosProfilePath,omitempty" tf:"ingress_qos_profile_path,omitempty"`
 
-	// Locale Service for the gateway
-	// +kubebuilder:validation:Optional
-	LocaleService []PolicyTier1GatewayLocaleServiceParameters `json:"localeService,omitempty" tf:"locale_service,omitempty"`
+// Locale Service for the gateway
+// +kubebuilder:validation:Optional
+IntersiteConfig []PolicyTier1GatewayIntersiteConfigParameters `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Locale Service for the gateway
+// +kubebuilder:validation:Optional
+LocaleService []PolicyTier1GatewayLocaleServiceParameters `json:"localeService,omitempty" tf:"locale_service,omitempty"`
 
-	// Edge node allocation at different sizes for routing and load balancer service to meet performance and scalability requirements
-	// +kubebuilder:validation:Optional
-	PoolAllocation *string `json:"poolAllocation,omitempty" tf:"pool_allocation,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// List of route advertisement rules
-	// +kubebuilder:validation:Optional
-	RouteAdvertisementRule []RouteAdvertisementRuleParameters `json:"routeAdvertisementRule,omitempty" tf:"route_advertisement_rule,omitempty"`
+// Edge node allocation at different sizes for routing and load balancer service to meet performance and scalability requirements
+// +kubebuilder:validation:Optional
+PoolAllocation *string `json:"poolAllocation,omitempty" tf:"pool_allocation,omitempty"`
 
-	// Enable different types of route advertisements
-	// +kubebuilder:validation:Optional
-	RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
+// List of route advertisement rules
+// +kubebuilder:validation:Optional
+RouteAdvertisementRule []RouteAdvertisementRuleParameters `json:"routeAdvertisementRule,omitempty" tf:"route_advertisement_rule,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyTier1GatewayTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Enable different types of route advertisements
+// +kubebuilder:validation:Optional
+RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
 
-	// The path of the connected Tier0
-	// +kubebuilder:validation:Optional
-	Tier0Path *string `json:"tier0Path,omitempty" tf:"tier0_path,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyTier1GatewayTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// Tier-1 Type
-	// +kubebuilder:validation:Optional
-	Type *string `json:"type,omitempty" tf:"type,omitempty"`
+// The path of the connected Tier0
+// +kubebuilder:validation:Optional
+Tier0Path *string `json:"tier0Path,omitempty" tf:"tier0_path,omitempty"`
+
+// Tier-1 Type
+// +kubebuilder:validation:Optional
+Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
+
 
 type PolicyTier1GatewayTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyTier1GatewayTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type RouteAdvertisementRuleObservation struct {
 
-	// Action to advertise filtered routes to the connected Tier0 gateway
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Name of this rule
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// Action to advertise filtered routes to the connected Tier0 gateway
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Prefix operator to apply on networks
-	PrefixOperator *string `json:"prefixOperator,omitempty" tf:"prefix_operator,omitempty"`
+// Name of this rule
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Enable different types of route advertisements
-	RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
+// Prefix operator to apply on networks
+PrefixOperator *string `json:"prefixOperator,omitempty" tf:"prefix_operator,omitempty"`
 
-	// List of network CIDRs to be routed
-	Subnets []*string `json:"subnets,omitempty" tf:"subnets,omitempty"`
+// Enable different types of route advertisements
+RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
+
+// List of network CIDRs to be routed
+Subnets []*string `json:"subnets,omitempty" tf:"subnets,omitempty"`
 }
+
 
 type RouteAdvertisementRuleParameters struct {
 
-	// Action to advertise filtered routes to the connected Tier0 gateway
-	// +kubebuilder:validation:Optional
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Name of this rule
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
+// Action to advertise filtered routes to the connected Tier0 gateway
+// +kubebuilder:validation:Optional
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Prefix operator to apply on networks
-	// +kubebuilder:validation:Optional
-	PrefixOperator *string `json:"prefixOperator,omitempty" tf:"prefix_operator,omitempty"`
+// Name of this rule
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
 
-	// Enable different types of route advertisements
-	// +kubebuilder:validation:Optional
-	RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
+// Prefix operator to apply on networks
+// +kubebuilder:validation:Optional
+PrefixOperator *string `json:"prefixOperator,omitempty" tf:"prefix_operator,omitempty"`
 
-	// List of network CIDRs to be routed
-	// +kubebuilder:validation:Required
-	Subnets []*string `json:"subnets" tf:"subnets,omitempty"`
+// Enable different types of route advertisements
+// +kubebuilder:validation:Optional
+RouteAdvertisementTypes []*string `json:"routeAdvertisementTypes,omitempty" tf:"route_advertisement_types,omitempty"`
+
+// List of network CIDRs to be routed
+// +kubebuilder:validation:Required
+Subnets []*string `json:"subnets" tf:"subnets,omitempty"`
 }
 
 // PolicyTier1GatewaySpec defines the desired state of PolicyTier1Gateway
 type PolicyTier1GatewaySpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyTier1GatewayParameters `json:"forProvider"`
+	ForProvider       PolicyTier1GatewayParameters `json:"forProvider"`
 }
 
 // PolicyTier1GatewayStatus defines the observed state of PolicyTier1Gateway.
 type PolicyTier1GatewayStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyTier1GatewayObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyTier1GatewayObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -344,9 +372,9 @@ type PolicyTier1GatewayStatus struct {
 type PolicyTier1Gateway struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyTier1GatewaySpec   `json:"spec"`
-	Status PolicyTier1GatewayStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyTier1GatewaySpec   `json:"spec"`
+	Status            PolicyTier1GatewayStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

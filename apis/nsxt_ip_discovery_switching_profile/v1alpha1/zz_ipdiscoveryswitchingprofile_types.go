@@ -11,93 +11,105 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type IpDiscoverySwitchingProfileObservation struct {
 
-	// Limit for the amount of ARP bindings
-	ArpBindingsLimit *float64 `json:"arpBindingsLimit,omitempty" tf:"arp_bindings_limit,omitempty"`
 
-	// Indicates whether ARP snooping is enabled
-	ArpSnoopingEnabled *bool `json:"arpSnoopingEnabled,omitempty" tf:"arp_snooping_enabled,omitempty"`
+// Limit for the amount of ARP bindings
+ArpBindingsLimit *float64 `json:"arpBindingsLimit,omitempty" tf:"arp_bindings_limit,omitempty"`
 
-	// Indicates whether DHCP snooping is enabled
-	DHCPSnoopingEnabled *bool `json:"dhcpSnoopingEnabled,omitempty" tf:"dhcp_snooping_enabled,omitempty"`
+// Indicates whether ARP snooping is enabled
+ArpSnoopingEnabled *bool `json:"arpSnoopingEnabled,omitempty" tf:"arp_snooping_enabled,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Indicates whether DHCP snooping is enabled
+DHCPSnoopingEnabled *bool `json:"dhcpSnoopingEnabled,omitempty" tf:"dhcp_snooping_enabled,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Indicating whether VM tools will be enabled. This option is only supported on ESX where vm-tools is installed
-	VMToolsEnabled *bool `json:"vmToolsEnabled,omitempty" tf:"vm_tools_enabled,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Indicating whether VM tools will be enabled. This option is only supported on ESX where vm-tools is installed
+VMToolsEnabled *bool `json:"vmToolsEnabled,omitempty" tf:"vm_tools_enabled,omitempty"`
 }
+
 
 type IpDiscoverySwitchingProfileParameters struct {
 
-	// Limit for the amount of ARP bindings
-	// +kubebuilder:validation:Optional
-	ArpBindingsLimit *float64 `json:"arpBindingsLimit,omitempty" tf:"arp_bindings_limit,omitempty"`
 
-	// Indicates whether ARP snooping is enabled
-	// +kubebuilder:validation:Optional
-	ArpSnoopingEnabled *bool `json:"arpSnoopingEnabled,omitempty" tf:"arp_snooping_enabled,omitempty"`
+// Limit for the amount of ARP bindings
+// +kubebuilder:validation:Optional
+ArpBindingsLimit *float64 `json:"arpBindingsLimit,omitempty" tf:"arp_bindings_limit,omitempty"`
 
-	// Indicates whether DHCP snooping is enabled
-	// +kubebuilder:validation:Optional
-	DHCPSnoopingEnabled *bool `json:"dhcpSnoopingEnabled,omitempty" tf:"dhcp_snooping_enabled,omitempty"`
+// Indicates whether ARP snooping is enabled
+// +kubebuilder:validation:Optional
+ArpSnoopingEnabled *bool `json:"arpSnoopingEnabled,omitempty" tf:"arp_snooping_enabled,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Indicates whether DHCP snooping is enabled
+// +kubebuilder:validation:Optional
+DHCPSnoopingEnabled *bool `json:"dhcpSnoopingEnabled,omitempty" tf:"dhcp_snooping_enabled,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Indicating whether VM tools will be enabled. This option is only supported on ESX where vm-tools is installed
-	// +kubebuilder:validation:Optional
-	VMToolsEnabled *bool `json:"vmToolsEnabled,omitempty" tf:"vm_tools_enabled,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Indicating whether VM tools will be enabled. This option is only supported on ESX where vm-tools is installed
+// +kubebuilder:validation:Optional
+VMToolsEnabled *bool `json:"vmToolsEnabled,omitempty" tf:"vm_tools_enabled,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // IpDiscoverySwitchingProfileSpec defines the desired state of IpDiscoverySwitchingProfile
 type IpDiscoverySwitchingProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     IpDiscoverySwitchingProfileParameters `json:"forProvider"`
+	ForProvider       IpDiscoverySwitchingProfileParameters `json:"forProvider"`
 }
 
 // IpDiscoverySwitchingProfileStatus defines the observed state of IpDiscoverySwitchingProfile.
 type IpDiscoverySwitchingProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        IpDiscoverySwitchingProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          IpDiscoverySwitchingProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,109 +11,121 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyEvpnTunnelEndPointObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge Node Path
-	EdgeNodePath *string `json:"edgeNodePath,omitempty" tf:"edge_node_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Path External Interfaceon Tier0 Gateway
-	ExternalInterfacePath *string `json:"externalInterfacePath,omitempty" tf:"external_interface_path,omitempty"`
+// Edge Node Path
+EdgeNodePath *string `json:"edgeNodePath,omitempty" tf:"edge_node_path,omitempty"`
 
-	// Id of associated Tier0 Gateway on NSX
-	GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id,omitempty"`
+// Path External Interfaceon Tier0 Gateway
+ExternalInterfacePath *string `json:"externalInterfacePath,omitempty" tf:"external_interface_path,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Id of associated Tier0 Gateway on NSX
+GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id,omitempty"`
 
-	// Local IPv4 IP address
-	LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Id of associated Gateway Locale Service on NSX
-	LocaleServiceID *string `json:"localeServiceId,omitempty" tf:"locale_service_id,omitempty"`
+// Local IPv4 IP address
+LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
-	// Maximum transmission unit specifies the size of the largest packet that a network protocol can transmit
-	Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
+// Id of associated Gateway Locale Service on NSX
+LocaleServiceID *string `json:"localeServiceId,omitempty" tf:"locale_service_id,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Maximum transmission unit specifies the size of the largest packet that a network protocol can transmit
+Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyEvpnTunnelEndPointTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyEvpnTunnelEndPointTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyEvpnTunnelEndPointParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge Node Path
-	// +kubebuilder:validation:Optional
-	EdgeNodePath *string `json:"edgeNodePath,omitempty" tf:"edge_node_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Path External Interfaceon Tier0 Gateway
-	// +kubebuilder:validation:Optional
-	ExternalInterfacePath *string `json:"externalInterfacePath,omitempty" tf:"external_interface_path,omitempty"`
+// Edge Node Path
+// +kubebuilder:validation:Optional
+EdgeNodePath *string `json:"edgeNodePath,omitempty" tf:"edge_node_path,omitempty"`
 
-	// Local IPv4 IP address
-	// +kubebuilder:validation:Optional
-	LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
+// Path External Interfaceon Tier0 Gateway
+// +kubebuilder:validation:Optional
+ExternalInterfacePath *string `json:"externalInterfacePath,omitempty" tf:"external_interface_path,omitempty"`
 
-	// Maximum transmission unit specifies the size of the largest packet that a network protocol can transmit
-	// +kubebuilder:validation:Optional
-	Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
+// Local IPv4 IP address
+// +kubebuilder:validation:Optional
+LocalAddress *string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Maximum transmission unit specifies the size of the largest packet that a network protocol can transmit
+// +kubebuilder:validation:Optional
+Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyEvpnTunnelEndPointTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyEvpnTunnelEndPointTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyEvpnTunnelEndPointTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyEvpnTunnelEndPointTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyEvpnTunnelEndPointSpec defines the desired state of PolicyEvpnTunnelEndPoint
 type PolicyEvpnTunnelEndPointSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyEvpnTunnelEndPointParameters `json:"forProvider"`
+	ForProvider       PolicyEvpnTunnelEndPointParameters `json:"forProvider"`
 }
 
 // PolicyEvpnTunnelEndPointStatus defines the observed state of PolicyEvpnTunnelEndPoint.
 type PolicyEvpnTunnelEndPointStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyEvpnTunnelEndPointObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyEvpnTunnelEndPointObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -128,12 +140,12 @@ type PolicyEvpnTunnelEndPointStatus struct {
 type PolicyEvpnTunnelEndPoint struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeNodePath)",message="edgeNodePath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.externalInterfacePath)",message="externalInterfacePath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.localAddress)",message="localAddress is a required parameter"
-	Spec   PolicyEvpnTunnelEndPointSpec   `json:"spec"`
-	Status PolicyEvpnTunnelEndPointStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeNodePath)",message="edgeNodePath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.externalInterfacePath)",message="externalInterfacePath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.localAddress)",message="localAddress is a required parameter"
+	Spec              PolicyEvpnTunnelEndPointSpec   `json:"spec"`
+	Status            PolicyEvpnTunnelEndPointStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

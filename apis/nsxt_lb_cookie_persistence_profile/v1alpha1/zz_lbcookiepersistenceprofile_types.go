@@ -11,148 +11,164 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type InsertModeParamsObservation struct {
 
-	// HTTP cookie domain
-	CookieDomain *string `json:"cookieDomain,omitempty" tf:"cookie_domain,omitempty"`
 
-	// Type of cookie expiration timing
-	CookieExpiryType *string `json:"cookieExpiryType,omitempty" tf:"cookie_expiry_type,omitempty"`
+// HTTP cookie domain
+CookieDomain *string `json:"cookieDomain,omitempty" tf:"cookie_domain,omitempty"`
 
-	// HTTP cookie path
-	CookiePath *string `json:"cookiePath,omitempty" tf:"cookie_path,omitempty"`
+// Type of cookie expiration timing
+CookieExpiryType *string `json:"cookieExpiryType,omitempty" tf:"cookie_expiry_type,omitempty"`
 
-	// Maximum interval (in seconds) the cookie is valid for from the last time it was seen in a request (required if cookie_expiry_type is set)
-	MaxIdleTime *float64 `json:"maxIdleTime,omitempty" tf:"max_idle_time,omitempty"`
+// HTTP cookie path
+CookiePath *string `json:"cookiePath,omitempty" tf:"cookie_path,omitempty"`
 
-	// Maximum interval (in seconds) the cookie is valid for from the first time the cookie was seen in a request (required if cookie_expiry_type is SESSION_COOKIE_TIME expiration)
-	MaxLifeTime *float64 `json:"maxLifeTime,omitempty" tf:"max_life_time,omitempty"`
+// Maximum interval (in seconds) the cookie is valid for from the last time it was seen in a request (required if cookie_expiry_type is set)
+MaxIdleTime *float64 `json:"maxIdleTime,omitempty" tf:"max_idle_time,omitempty"`
+
+// Maximum interval (in seconds) the cookie is valid for from the first time the cookie was seen in a request (required if cookie_expiry_type is SESSION_COOKIE_TIME expiration)
+MaxLifeTime *float64 `json:"maxLifeTime,omitempty" tf:"max_life_time,omitempty"`
 }
+
 
 type InsertModeParamsParameters struct {
 
-	// HTTP cookie domain
-	// +kubebuilder:validation:Optional
-	CookieDomain *string `json:"cookieDomain,omitempty" tf:"cookie_domain,omitempty"`
 
-	// Type of cookie expiration timing
-	// +kubebuilder:validation:Optional
-	CookieExpiryType *string `json:"cookieExpiryType,omitempty" tf:"cookie_expiry_type,omitempty"`
+// HTTP cookie domain
+// +kubebuilder:validation:Optional
+CookieDomain *string `json:"cookieDomain,omitempty" tf:"cookie_domain,omitempty"`
 
-	// HTTP cookie path
-	// +kubebuilder:validation:Optional
-	CookiePath *string `json:"cookiePath,omitempty" tf:"cookie_path,omitempty"`
+// Type of cookie expiration timing
+// +kubebuilder:validation:Optional
+CookieExpiryType *string `json:"cookieExpiryType,omitempty" tf:"cookie_expiry_type,omitempty"`
 
-	// Maximum interval (in seconds) the cookie is valid for from the last time it was seen in a request (required if cookie_expiry_type is set)
-	// +kubebuilder:validation:Optional
-	MaxIdleTime *float64 `json:"maxIdleTime,omitempty" tf:"max_idle_time,omitempty"`
+// HTTP cookie path
+// +kubebuilder:validation:Optional
+CookiePath *string `json:"cookiePath,omitempty" tf:"cookie_path,omitempty"`
 
-	// Maximum interval (in seconds) the cookie is valid for from the first time the cookie was seen in a request (required if cookie_expiry_type is SESSION_COOKIE_TIME expiration)
-	// +kubebuilder:validation:Optional
-	MaxLifeTime *float64 `json:"maxLifeTime,omitempty" tf:"max_life_time,omitempty"`
+// Maximum interval (in seconds) the cookie is valid for from the last time it was seen in a request (required if cookie_expiry_type is set)
+// +kubebuilder:validation:Optional
+MaxIdleTime *float64 `json:"maxIdleTime,omitempty" tf:"max_idle_time,omitempty"`
+
+// Maximum interval (in seconds) the cookie is valid for from the first time the cookie was seen in a request (required if cookie_expiry_type is SESSION_COOKIE_TIME expiration)
+// +kubebuilder:validation:Optional
+MaxLifeTime *float64 `json:"maxLifeTime,omitempty" tf:"max_life_time,omitempty"`
 }
+
 
 type LbCookiePersistenceProfileObservation struct {
 
-	// A boolean flag which reflects whether once the server points by this cookie is down, a new server is selected, or the requests will be rejected
-	CookieFallback *bool `json:"cookieFallback,omitempty" tf:"cookie_fallback,omitempty"`
 
-	// A boolean flag which reflects whether the cookie value (server IP and port) would be encrypted or in plain text
-	CookieGarble *bool `json:"cookieGarble,omitempty" tf:"cookie_garble,omitempty"`
+// A boolean flag which reflects whether once the server points by this cookie is down, a new server is selected, or the requests will be rejected
+CookieFallback *bool `json:"cookieFallback,omitempty" tf:"cookie_fallback,omitempty"`
 
-	// The cookie persistence mode
-	CookieMode *string `json:"cookieMode,omitempty" tf:"cookie_mode,omitempty"`
+// A boolean flag which reflects whether the cookie value (server IP and port) would be encrypted or in plain text
+CookieGarble *bool `json:"cookieGarble,omitempty" tf:"cookie_garble,omitempty"`
 
-	// The name of the cookie
-	CookieName *string `json:"cookieName,omitempty" tf:"cookie_name,omitempty"`
+// The cookie persistence mode
+CookieMode *string `json:"cookieMode,omitempty" tf:"cookie_mode,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// The name of the cookie
+CookieName *string `json:"cookieName,omitempty" tf:"cookie_name,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Additional parameters for the INSERT cookie mode
-	InsertModeParams []InsertModeParamsObservation `json:"insertModeParams,omitempty" tf:"insert_mode_params,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// A boolean flag which reflects whether the cookie persistence is private or shared
-	PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
+// Additional parameters for the INSERT cookie mode
+InsertModeParams []InsertModeParamsObservation `json:"insertModeParams,omitempty" tf:"insert_mode_params,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// A boolean flag which reflects whether the cookie persistence is private or shared
+PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LbCookiePersistenceProfileParameters struct {
 
-	// A boolean flag which reflects whether once the server points by this cookie is down, a new server is selected, or the requests will be rejected
-	// +kubebuilder:validation:Optional
-	CookieFallback *bool `json:"cookieFallback,omitempty" tf:"cookie_fallback,omitempty"`
 
-	// A boolean flag which reflects whether the cookie value (server IP and port) would be encrypted or in plain text
-	// +kubebuilder:validation:Optional
-	CookieGarble *bool `json:"cookieGarble,omitempty" tf:"cookie_garble,omitempty"`
+// A boolean flag which reflects whether once the server points by this cookie is down, a new server is selected, or the requests will be rejected
+// +kubebuilder:validation:Optional
+CookieFallback *bool `json:"cookieFallback,omitempty" tf:"cookie_fallback,omitempty"`
 
-	// The cookie persistence mode
-	// +kubebuilder:validation:Optional
-	CookieMode *string `json:"cookieMode,omitempty" tf:"cookie_mode,omitempty"`
+// A boolean flag which reflects whether the cookie value (server IP and port) would be encrypted or in plain text
+// +kubebuilder:validation:Optional
+CookieGarble *bool `json:"cookieGarble,omitempty" tf:"cookie_garble,omitempty"`
 
-	// The name of the cookie
-	// +kubebuilder:validation:Optional
-	CookieName *string `json:"cookieName,omitempty" tf:"cookie_name,omitempty"`
+// The cookie persistence mode
+// +kubebuilder:validation:Optional
+CookieMode *string `json:"cookieMode,omitempty" tf:"cookie_mode,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// The name of the cookie
+// +kubebuilder:validation:Optional
+CookieName *string `json:"cookieName,omitempty" tf:"cookie_name,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Additional parameters for the INSERT cookie mode
-	// +kubebuilder:validation:Optional
-	InsertModeParams []InsertModeParamsParameters `json:"insertModeParams,omitempty" tf:"insert_mode_params,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// A boolean flag which reflects whether the cookie persistence is private or shared
-	// +kubebuilder:validation:Optional
-	PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
+// Additional parameters for the INSERT cookie mode
+// +kubebuilder:validation:Optional
+InsertModeParams []InsertModeParamsParameters `json:"insertModeParams,omitempty" tf:"insert_mode_params,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// A boolean flag which reflects whether the cookie persistence is private or shared
+// +kubebuilder:validation:Optional
+PersistenceShared *bool `json:"persistenceShared,omitempty" tf:"persistence_shared,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbCookiePersistenceProfileSpec defines the desired state of LbCookiePersistenceProfile
 type LbCookiePersistenceProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbCookiePersistenceProfileParameters `json:"forProvider"`
+	ForProvider       LbCookiePersistenceProfileParameters `json:"forProvider"`
 }
 
 // LbCookiePersistenceProfileStatus defines the observed state of LbCookiePersistenceProfile.
 type LbCookiePersistenceProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbCookiePersistenceProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          LbCookiePersistenceProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -167,9 +183,9 @@ type LbCookiePersistenceProfileStatus struct {
 type LbCookiePersistenceProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.cookieName)",message="cookieName is a required parameter"
-	Spec   LbCookiePersistenceProfileSpec   `json:"spec"`
-	Status LbCookiePersistenceProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.cookieName)",message="cookieName is a required parameter"
+	Spec              LbCookiePersistenceProfileSpec   `json:"spec"`
+	Status            LbCookiePersistenceProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

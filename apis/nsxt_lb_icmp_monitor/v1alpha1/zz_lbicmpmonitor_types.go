@@ -11,107 +11,119 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbIcmpMonitorObservation struct {
 
-	// The data size (in bytes) of the ICMP healthcheck packet
-	DataLength *float64 `json:"dataLength,omitempty" tf:"data_length,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// The data size (in bytes) of the ICMP healthcheck packet
+DataLength *float64 `json:"dataLength,omitempty" tf:"data_length,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Number of consecutive checks that must fail before marking it down
-	FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Number of consecutive checks that must fail before marking it down
+FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
 
-	// The frequency at which the system issues the monitor check (in seconds)
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
-	MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
+// The frequency at which the system issues the monitor check (in seconds)
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
+MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
 
-	// Number of consecutive checks that must pass before marking it up
-	RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Number of consecutive checks that must pass before marking it up
+RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
 
-	// Number of seconds the target has to respond to the monitor request
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Number of seconds the target has to respond to the monitor request
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type LbIcmpMonitorParameters struct {
 
-	// The data size (in bytes) of the ICMP healthcheck packet
-	// +kubebuilder:validation:Optional
-	DataLength *float64 `json:"dataLength,omitempty" tf:"data_length,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// The data size (in bytes) of the ICMP healthcheck packet
+// +kubebuilder:validation:Optional
+DataLength *float64 `json:"dataLength,omitempty" tf:"data_length,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Number of consecutive checks that must fail before marking it down
-	// +kubebuilder:validation:Optional
-	FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The frequency at which the system issues the monitor check (in seconds)
-	// +kubebuilder:validation:Optional
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+// Number of consecutive checks that must fail before marking it down
+// +kubebuilder:validation:Optional
+FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
 
-	// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
-	// +kubebuilder:validation:Optional
-	MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
+// The frequency at which the system issues the monitor check (in seconds)
+// +kubebuilder:validation:Optional
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
-	// Number of consecutive checks that must pass before marking it up
-	// +kubebuilder:validation:Optional
-	RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
+// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
+// +kubebuilder:validation:Optional
+MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Number of consecutive checks that must pass before marking it up
+// +kubebuilder:validation:Optional
+RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
 
-	// Number of seconds the target has to respond to the monitor request
-	// +kubebuilder:validation:Optional
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Number of seconds the target has to respond to the monitor request
+// +kubebuilder:validation:Optional
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbIcmpMonitorSpec defines the desired state of LbIcmpMonitor
 type LbIcmpMonitorSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbIcmpMonitorParameters `json:"forProvider"`
+	ForProvider       LbIcmpMonitorParameters `json:"forProvider"`
 }
 
 // LbIcmpMonitorStatus defines the observed state of LbIcmpMonitor.
 type LbIcmpMonitorStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbIcmpMonitorObservation `json:"atProvider,omitempty"`
+	AtProvider          LbIcmpMonitorObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

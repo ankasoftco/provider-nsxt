@@ -11,421 +11,479 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type BodyConditionObservation struct {
 
-	// If true, case is significant in condition matching
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type BodyConditionParameters struct {
 
-	// If true, case is significant in condition matching
-	// +kubebuilder:validation:Optional
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+// +kubebuilder:validation:Optional
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	// +kubebuilder:validation:Required
-	MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+// +kubebuilder:validation:Required
+MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+
+// +kubebuilder:validation:Required
+Value *string `json:"value" tf:"value,omitempty"`
 }
+
 
 type CookieConditionObservation struct {
 
-	// If true, case is significant in condition matching
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
 
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type CookieConditionParameters struct {
 
-	// If true, case is significant in condition matching
-	// +kubebuilder:validation:Optional
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+// +kubebuilder:validation:Optional
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	// +kubebuilder:validation:Required
-	MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+// +kubebuilder:validation:Required
+MatchType *string `json:"matchType" tf:"match_type,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value,omitempty"`
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
+
+// +kubebuilder:validation:Required
+Value *string `json:"value" tf:"value,omitempty"`
 }
+
 
 type HeaderConditionObservation struct {
 
-	// If true, case is significant in condition matching
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
 
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type HeaderConditionParameters struct {
 
-	// If true, case is significant in condition matching
-	// +kubebuilder:validation:Optional
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+// +kubebuilder:validation:Optional
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	// +kubebuilder:validation:Required
-	MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+// +kubebuilder:validation:Required
+MatchType *string `json:"matchType" tf:"match_type,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value,omitempty"`
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
+
+// +kubebuilder:validation:Required
+Value *string `json:"value" tf:"value,omitempty"`
 }
+
 
 type HeaderRewriteActionObservation struct {
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type HeaderRewriteActionParameters struct {
 
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
+
+// +kubebuilder:validation:Optional
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type IPConditionObservation struct {
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	SourceAddress *string `json:"sourceAddress,omitempty" tf:"source_address,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+SourceAddress *string `json:"sourceAddress,omitempty" tf:"source_address,omitempty"`
 }
+
 
 type IPConditionParameters struct {
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	SourceAddress *string `json:"sourceAddress" tf:"source_address,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+// +kubebuilder:validation:Required
+SourceAddress *string `json:"sourceAddress" tf:"source_address,omitempty"`
 }
+
 
 type LbHttpRequestRewriteRuleObservation struct {
 
-	// Rule condition based on http request body
-	BodyCondition []BodyConditionObservation `json:"bodyCondition,omitempty" tf:"body_condition,omitempty"`
 
-	// Rule condition based on http header
-	CookieCondition []CookieConditionObservation `json:"cookieCondition,omitempty" tf:"cookie_condition,omitempty"`
+// Rule condition based on http request body
+BodyCondition []BodyConditionObservation `json:"bodyCondition,omitempty" tf:"body_condition,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Rule condition based on http header
+CookieCondition []CookieConditionObservation `json:"cookieCondition,omitempty" tf:"cookie_condition,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Rule condition based on http header
-	HeaderCondition []HeaderConditionObservation `json:"headerCondition,omitempty" tf:"header_condition,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Header to replace original header in outgoing message
-	HeaderRewriteAction []HeaderRewriteActionObservation `json:"headerRewriteAction,omitempty" tf:"header_rewrite_action,omitempty"`
+// Rule condition based on http header
+HeaderCondition []HeaderConditionObservation `json:"headerCondition,omitempty" tf:"header_condition,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Header to replace original header in outgoing message
+HeaderRewriteAction []HeaderRewriteActionObservation `json:"headerRewriteAction,omitempty" tf:"header_rewrite_action,omitempty"`
 
-	// Rule condition based on IP settings of the message
-	IPCondition []IPConditionObservation `json:"ipCondition,omitempty" tf:"ip_condition,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Strategy when multiple match conditions are specified in one rule (ANY vs ALL)
-	MatchStrategy *string `json:"matchStrategy,omitempty" tf:"match_strategy,omitempty"`
+// Rule condition based on IP settings of the message
+IPCondition []IPConditionObservation `json:"ipCondition,omitempty" tf:"ip_condition,omitempty"`
 
-	// Rule condition based on http request method
-	MethodCondition []MethodConditionObservation `json:"methodCondition,omitempty" tf:"method_condition,omitempty"`
+// Strategy when multiple match conditions are specified in one rule (ANY vs ALL)
+MatchStrategy *string `json:"matchStrategy,omitempty" tf:"match_strategy,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Rule condition based on http request method
+MethodCondition []MethodConditionObservation `json:"methodCondition,omitempty" tf:"method_condition,omitempty"`
 
-	// Rule condition based on TCP settings of the message
-	TCPCondition []TCPConditionObservation `json:"tcpCondition,omitempty" tf:"tcp_condition,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Rule condition based on TCP settings of the message
+TCPCondition []TCPConditionObservation `json:"tcpCondition,omitempty" tf:"tcp_condition,omitempty"`
 
-	// Rule condition based on http request URI arguments (query string)
-	URIArgumentsCondition []URIArgumentsConditionObservation `json:"uriArgumentsCondition,omitempty" tf:"uri_arguments_condition,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// Rule condition based on http request URI
-	URICondition []URIConditionObservation `json:"uriCondition,omitempty" tf:"uri_condition,omitempty"`
+// Rule condition based on http request URI arguments (query string)
+URIArgumentsCondition []URIArgumentsConditionObservation `json:"uriArgumentsCondition,omitempty" tf:"uri_arguments_condition,omitempty"`
 
-	// Uri to replace original URI in outgoing request
-	URIRewriteAction []URIRewriteActionObservation `json:"uriRewriteAction,omitempty" tf:"uri_rewrite_action,omitempty"`
+// Rule condition based on http request URI
+URICondition []URIConditionObservation `json:"uriCondition,omitempty" tf:"uri_condition,omitempty"`
 
-	// Rule condition based on http request version
-	VersionCondition []VersionConditionObservation `json:"versionCondition,omitempty" tf:"version_condition,omitempty"`
+// Uri to replace original URI in outgoing request
+URIRewriteAction []URIRewriteActionObservation `json:"uriRewriteAction,omitempty" tf:"uri_rewrite_action,omitempty"`
+
+// Rule condition based on http request version
+VersionCondition []VersionConditionObservation `json:"versionCondition,omitempty" tf:"version_condition,omitempty"`
 }
+
 
 type LbHttpRequestRewriteRuleParameters struct {
 
-	// Rule condition based on http request body
-	// +kubebuilder:validation:Optional
-	BodyCondition []BodyConditionParameters `json:"bodyCondition,omitempty" tf:"body_condition,omitempty"`
 
-	// Rule condition based on http header
-	// +kubebuilder:validation:Optional
-	CookieCondition []CookieConditionParameters `json:"cookieCondition,omitempty" tf:"cookie_condition,omitempty"`
+// Rule condition based on http request body
+// +kubebuilder:validation:Optional
+BodyCondition []BodyConditionParameters `json:"bodyCondition,omitempty" tf:"body_condition,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Rule condition based on http header
+// +kubebuilder:validation:Optional
+CookieCondition []CookieConditionParameters `json:"cookieCondition,omitempty" tf:"cookie_condition,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Rule condition based on http header
-	// +kubebuilder:validation:Optional
-	HeaderCondition []HeaderConditionParameters `json:"headerCondition,omitempty" tf:"header_condition,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Header to replace original header in outgoing message
-	// +kubebuilder:validation:Optional
-	HeaderRewriteAction []HeaderRewriteActionParameters `json:"headerRewriteAction,omitempty" tf:"header_rewrite_action,omitempty"`
+// Rule condition based on http header
+// +kubebuilder:validation:Optional
+HeaderCondition []HeaderConditionParameters `json:"headerCondition,omitempty" tf:"header_condition,omitempty"`
 
-	// Rule condition based on IP settings of the message
-	// +kubebuilder:validation:Optional
-	IPCondition []IPConditionParameters `json:"ipCondition,omitempty" tf:"ip_condition,omitempty"`
+// Header to replace original header in outgoing message
+// +kubebuilder:validation:Optional
+HeaderRewriteAction []HeaderRewriteActionParameters `json:"headerRewriteAction,omitempty" tf:"header_rewrite_action,omitempty"`
 
-	// Strategy when multiple match conditions are specified in one rule (ANY vs ALL)
-	// +kubebuilder:validation:Optional
-	MatchStrategy *string `json:"matchStrategy,omitempty" tf:"match_strategy,omitempty"`
+// Rule condition based on IP settings of the message
+// +kubebuilder:validation:Optional
+IPCondition []IPConditionParameters `json:"ipCondition,omitempty" tf:"ip_condition,omitempty"`
 
-	// Rule condition based on http request method
-	// +kubebuilder:validation:Optional
-	MethodCondition []MethodConditionParameters `json:"methodCondition,omitempty" tf:"method_condition,omitempty"`
+// Strategy when multiple match conditions are specified in one rule (ANY vs ALL)
+// +kubebuilder:validation:Optional
+MatchStrategy *string `json:"matchStrategy,omitempty" tf:"match_strategy,omitempty"`
 
-	// Rule condition based on TCP settings of the message
-	// +kubebuilder:validation:Optional
-	TCPCondition []TCPConditionParameters `json:"tcpCondition,omitempty" tf:"tcp_condition,omitempty"`
+// Rule condition based on http request method
+// +kubebuilder:validation:Optional
+MethodCondition []MethodConditionParameters `json:"methodCondition,omitempty" tf:"method_condition,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Rule condition based on TCP settings of the message
+// +kubebuilder:validation:Optional
+TCPCondition []TCPConditionParameters `json:"tcpCondition,omitempty" tf:"tcp_condition,omitempty"`
 
-	// Rule condition based on http request URI arguments (query string)
-	// +kubebuilder:validation:Optional
-	URIArgumentsCondition []URIArgumentsConditionParameters `json:"uriArgumentsCondition,omitempty" tf:"uri_arguments_condition,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// Rule condition based on http request URI
-	// +kubebuilder:validation:Optional
-	URICondition []URIConditionParameters `json:"uriCondition,omitempty" tf:"uri_condition,omitempty"`
+// Rule condition based on http request URI arguments (query string)
+// +kubebuilder:validation:Optional
+URIArgumentsCondition []URIArgumentsConditionParameters `json:"uriArgumentsCondition,omitempty" tf:"uri_arguments_condition,omitempty"`
 
-	// Uri to replace original URI in outgoing request
-	// +kubebuilder:validation:Optional
-	URIRewriteAction []URIRewriteActionParameters `json:"uriRewriteAction,omitempty" tf:"uri_rewrite_action,omitempty"`
+// Rule condition based on http request URI
+// +kubebuilder:validation:Optional
+URICondition []URIConditionParameters `json:"uriCondition,omitempty" tf:"uri_condition,omitempty"`
 
-	// Rule condition based on http request version
-	// +kubebuilder:validation:Optional
-	VersionCondition []VersionConditionParameters `json:"versionCondition,omitempty" tf:"version_condition,omitempty"`
+// Uri to replace original URI in outgoing request
+// +kubebuilder:validation:Optional
+URIRewriteAction []URIRewriteActionParameters `json:"uriRewriteAction,omitempty" tf:"uri_rewrite_action,omitempty"`
+
+// Rule condition based on http request version
+// +kubebuilder:validation:Optional
+VersionCondition []VersionConditionParameters `json:"versionCondition,omitempty" tf:"version_condition,omitempty"`
 }
+
 
 type MethodConditionObservation struct {
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	Method *string `json:"method,omitempty" tf:"method,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+Method *string `json:"method,omitempty" tf:"method,omitempty"`
 }
+
 
 type MethodConditionParameters struct {
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Method *string `json:"method" tf:"method,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+// +kubebuilder:validation:Required
+Method *string `json:"method" tf:"method,omitempty"`
 }
+
 
 type TCPConditionObservation struct {
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	SourcePort *string `json:"sourcePort,omitempty" tf:"source_port,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+SourcePort *string `json:"sourcePort,omitempty" tf:"source_port,omitempty"`
 }
+
 
 type TCPConditionParameters struct {
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	SourcePort *string `json:"sourcePort" tf:"source_port,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+// +kubebuilder:validation:Required
+SourcePort *string `json:"sourcePort" tf:"source_port,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type URIArgumentsConditionObservation struct {
 
-	// If true, case is significant in condition matching
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	URIArguments *string `json:"uriArguments,omitempty" tf:"uri_arguments,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+
+URIArguments *string `json:"uriArguments,omitempty" tf:"uri_arguments,omitempty"`
 }
+
 
 type URIArgumentsConditionParameters struct {
 
-	// If true, case is significant in condition matching
-	// +kubebuilder:validation:Optional
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+// +kubebuilder:validation:Optional
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	// +kubebuilder:validation:Required
-	MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	URIArguments *string `json:"uriArguments" tf:"uri_arguments,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+// +kubebuilder:validation:Required
+MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+
+// +kubebuilder:validation:Required
+URIArguments *string `json:"uriArguments" tf:"uri_arguments,omitempty"`
 }
+
 
 type URIConditionObservation struct {
 
-	// If true, case is significant in condition matching
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	URI *string `json:"uri,omitempty" tf:"uri,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
+
+URI *string `json:"uri,omitempty" tf:"uri,omitempty"`
 }
+
 
 type URIConditionParameters struct {
 
-	// If true, case is significant in condition matching
-	// +kubebuilder:validation:Optional
-	CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+// If true, case is significant in condition matching
+// +kubebuilder:validation:Optional
+CaseSensitive *bool `json:"caseSensitive,omitempty" tf:"case_sensitive,omitempty"`
 
-	// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
-	// +kubebuilder:validation:Required
-	MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	URI *string `json:"uri" tf:"uri,omitempty"`
+// Match type (STARTS_WITH, ENDS_WITH, EQUALS, CONTAINS, REGEX)
+// +kubebuilder:validation:Required
+MatchType *string `json:"matchType" tf:"match_type,omitempty"`
+
+// +kubebuilder:validation:Required
+URI *string `json:"uri" tf:"uri,omitempty"`
 }
+
 
 type URIRewriteActionObservation struct {
-	URI *string `json:"uri,omitempty" tf:"uri,omitempty"`
 
-	URIArguments *string `json:"uriArguments,omitempty" tf:"uri_arguments,omitempty"`
+
+URI *string `json:"uri,omitempty" tf:"uri,omitempty"`
+
+URIArguments *string `json:"uriArguments,omitempty" tf:"uri_arguments,omitempty"`
 }
+
 
 type URIRewriteActionParameters struct {
 
-	// +kubebuilder:validation:Required
-	URI *string `json:"uri" tf:"uri,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	URIArguments *string `json:"uriArguments,omitempty" tf:"uri_arguments,omitempty"`
+// +kubebuilder:validation:Required
+URI *string `json:"uri" tf:"uri,omitempty"`
+
+// +kubebuilder:validation:Optional
+URIArguments *string `json:"uriArguments,omitempty" tf:"uri_arguments,omitempty"`
 }
+
 
 type VersionConditionObservation struct {
 
-	// Whether to reverse match result of this condition
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	Version *string `json:"version,omitempty" tf:"version,omitempty"`
+// Whether to reverse match result of this condition
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+Version *string `json:"version,omitempty" tf:"version,omitempty"`
 }
+
 
 type VersionConditionParameters struct {
 
-	// Whether to reverse match result of this condition
-	// +kubebuilder:validation:Optional
-	Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Version *string `json:"version" tf:"version,omitempty"`
+// Whether to reverse match result of this condition
+// +kubebuilder:validation:Optional
+Inverse *bool `json:"inverse,omitempty" tf:"inverse,omitempty"`
+
+// +kubebuilder:validation:Required
+Version *string `json:"version" tf:"version,omitempty"`
 }
 
 // LbHttpRequestRewriteRuleSpec defines the desired state of LbHttpRequestRewriteRule
 type LbHttpRequestRewriteRuleSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbHttpRequestRewriteRuleParameters `json:"forProvider"`
+	ForProvider       LbHttpRequestRewriteRuleParameters `json:"forProvider"`
 }
 
 // LbHttpRequestRewriteRuleStatus defines the observed state of LbHttpRequestRewriteRule.
 type LbHttpRequestRewriteRuleStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbHttpRequestRewriteRuleObservation `json:"atProvider,omitempty"`
+	AtProvider          LbHttpRequestRewriteRuleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

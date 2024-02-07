@@ -11,224 +11,244 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type BfdConfigObservation struct {
 
-	// Flag to enable/disable BFD configuration
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Time interval between heartbeat packets in milliseconds
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+// Flag to enable/disable BFD configuration
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Number of times heartbeat packet is missed before BFD declares the neighbor is down
-	Multiple *float64 `json:"multiple,omitempty" tf:"multiple,omitempty"`
+// Time interval between heartbeat packets in milliseconds
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+
+// Number of times heartbeat packet is missed before BFD declares the neighbor is down
+Multiple *float64 `json:"multiple,omitempty" tf:"multiple,omitempty"`
 }
+
 
 type BfdConfigParameters struct {
 
-	// Flag to enable/disable BFD configuration
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Time interval between heartbeat packets in milliseconds
-	// +kubebuilder:validation:Optional
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+// Flag to enable/disable BFD configuration
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Number of times heartbeat packet is missed before BFD declares the neighbor is down
-	// +kubebuilder:validation:Optional
-	Multiple *float64 `json:"multiple,omitempty" tf:"multiple,omitempty"`
+// Time interval between heartbeat packets in milliseconds
+// +kubebuilder:validation:Optional
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+
+// Number of times heartbeat packet is missed before BFD declares the neighbor is down
+// +kubebuilder:validation:Optional
+Multiple *float64 `json:"multiple,omitempty" tf:"multiple,omitempty"`
 }
+
 
 type PolicyBgpMeighborObservation struct {
 
-	// Flag to enable allowas_in option for BGP neighbor
-	AllowAsIn *bool `json:"allowAsIn,omitempty" tf:"allow_as_in,omitempty"`
 
-	// Policy path to the BGP for this neighbor
-	BGPPath *string `json:"bgpPath,omitempty" tf:"bgp_path,omitempty"`
+// Flag to enable allowas_in option for BGP neighbor
+AllowAsIn *bool `json:"allowAsIn,omitempty" tf:"allow_as_in,omitempty"`
 
-	// BFD configuration for failure detection
-	BfdConfig []BfdConfigObservation `json:"bfdConfig,omitempty" tf:"bfd_config,omitempty"`
+// Policy path to the BGP for this neighbor
+BGPPath *string `json:"bgpPath,omitempty" tf:"bgp_path,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// BFD configuration for failure detection
+BfdConfig []BfdConfigObservation `json:"bfdConfig,omitempty" tf:"bfd_config,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// BGP Graceful Restart Configuration Mode
-	GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Wait time in seconds before declaring peer dead
-	HoldDownTime *float64 `json:"holdDownTime,omitempty" tf:"hold_down_time,omitempty"`
+// BGP Graceful Restart Configuration Mode
+GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Wait time in seconds before declaring peer dead
+HoldDownTime *float64 `json:"holdDownTime,omitempty" tf:"hold_down_time,omitempty"`
 
-	// Interval between keep alive messages sent to peer
-	KeepAliveTime *float64 `json:"keepAliveTime,omitempty" tf:"keep_alive_time,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Maximum number of hops allowed to reach BGP neighbor
-	MaximumHopLimit *float64 `json:"maximumHopLimit,omitempty" tf:"maximum_hop_limit,omitempty"`
+// Interval between keep alive messages sent to peer
+KeepAliveTime *float64 `json:"keepAliveTime,omitempty" tf:"keep_alive_time,omitempty"`
 
-	// Neighbor IP Address
-	NeighborAddress *string `json:"neighborAddress,omitempty" tf:"neighbor_address,omitempty"`
+// Maximum number of hops allowed to reach BGP neighbor
+MaximumHopLimit *float64 `json:"maximumHopLimit,omitempty" tf:"maximum_hop_limit,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Neighbor IP Address
+NeighborAddress *string `json:"neighborAddress,omitempty" tf:"neighbor_address,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// ASN of the neighbor in ASPLAIN or ASDOT Format
-	RemoteAsNum *string `json:"remoteAsNum,omitempty" tf:"remote_as_num,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// ASN of the neighbor in ASPLAIN or ASDOT Format
+RemoteAsNum *string `json:"remoteAsNum,omitempty" tf:"remote_as_num,omitempty"`
 
-	// Enable address families and route filtering in each direction
-	RouteFiltering []RouteFilteringObservation `json:"routeFiltering,omitempty" tf:"route_filtering,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Source IP Addresses for BGP peering
-	SourceAddresses []*string `json:"sourceAddresses,omitempty" tf:"source_addresses,omitempty"`
+// Enable address families and route filtering in each direction
+RouteFiltering []RouteFilteringObservation `json:"routeFiltering,omitempty" tf:"route_filtering,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyBgpMeighborTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Source IP Addresses for BGP peering
+SourceAddresses []*string `json:"sourceAddresses,omitempty" tf:"source_addresses,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyBgpMeighborTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyBgpMeighborParameters struct {
 
-	// Flag to enable allowas_in option for BGP neighbor
-	// +kubebuilder:validation:Optional
-	AllowAsIn *bool `json:"allowAsIn,omitempty" tf:"allow_as_in,omitempty"`
 
-	// Policy path to the BGP for this neighbor
-	// +kubebuilder:validation:Optional
-	BGPPath *string `json:"bgpPath,omitempty" tf:"bgp_path,omitempty"`
+// Flag to enable allowas_in option for BGP neighbor
+// +kubebuilder:validation:Optional
+AllowAsIn *bool `json:"allowAsIn,omitempty" tf:"allow_as_in,omitempty"`
 
-	// BFD configuration for failure detection
-	// +kubebuilder:validation:Optional
-	BfdConfig []BfdConfigParameters `json:"bfdConfig,omitempty" tf:"bfd_config,omitempty"`
+// Policy path to the BGP for this neighbor
+// +kubebuilder:validation:Optional
+BGPPath *string `json:"bgpPath,omitempty" tf:"bgp_path,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// BFD configuration for failure detection
+// +kubebuilder:validation:Optional
+BfdConfig []BfdConfigParameters `json:"bfdConfig,omitempty" tf:"bfd_config,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// BGP Graceful Restart Configuration Mode
-	// +kubebuilder:validation:Optional
-	GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Wait time in seconds before declaring peer dead
-	// +kubebuilder:validation:Optional
-	HoldDownTime *float64 `json:"holdDownTime,omitempty" tf:"hold_down_time,omitempty"`
+// BGP Graceful Restart Configuration Mode
+// +kubebuilder:validation:Optional
+GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
 
-	// Interval between keep alive messages sent to peer
-	// +kubebuilder:validation:Optional
-	KeepAliveTime *float64 `json:"keepAliveTime,omitempty" tf:"keep_alive_time,omitempty"`
+// Wait time in seconds before declaring peer dead
+// +kubebuilder:validation:Optional
+HoldDownTime *float64 `json:"holdDownTime,omitempty" tf:"hold_down_time,omitempty"`
 
-	// Maximum number of hops allowed to reach BGP neighbor
-	// +kubebuilder:validation:Optional
-	MaximumHopLimit *float64 `json:"maximumHopLimit,omitempty" tf:"maximum_hop_limit,omitempty"`
+// Interval between keep alive messages sent to peer
+// +kubebuilder:validation:Optional
+KeepAliveTime *float64 `json:"keepAliveTime,omitempty" tf:"keep_alive_time,omitempty"`
 
-	// Neighbor IP Address
-	// +kubebuilder:validation:Optional
-	NeighborAddress *string `json:"neighborAddress,omitempty" tf:"neighbor_address,omitempty"`
+// Maximum number of hops allowed to reach BGP neighbor
+// +kubebuilder:validation:Optional
+MaximumHopLimit *float64 `json:"maximumHopLimit,omitempty" tf:"maximum_hop_limit,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Neighbor IP Address
+// +kubebuilder:validation:Optional
+NeighborAddress *string `json:"neighborAddress,omitempty" tf:"neighbor_address,omitempty"`
 
-	// Password for BGP neighbor authentication
-	// +kubebuilder:validation:Optional
-	PasswordSecretRef *v1.SecretKeySelector `json:"passwordSecretRef,omitempty" tf:"-"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// ASN of the neighbor in ASPLAIN or ASDOT Format
-	// +kubebuilder:validation:Optional
-	RemoteAsNum *string `json:"remoteAsNum,omitempty" tf:"remote_as_num,omitempty"`
+// Password for BGP neighbor authentication
+// +kubebuilder:validation:Optional
+PasswordSecretRef *v1.SecretKeySelector `json:"passwordSecretRef,omitempty" tf:"-"`
 
-	// Enable address families and route filtering in each direction
-	// +kubebuilder:validation:Optional
-	RouteFiltering []RouteFilteringParameters `json:"routeFiltering,omitempty" tf:"route_filtering,omitempty"`
+// ASN of the neighbor in ASPLAIN or ASDOT Format
+// +kubebuilder:validation:Optional
+RemoteAsNum *string `json:"remoteAsNum,omitempty" tf:"remote_as_num,omitempty"`
 
-	// Source IP Addresses for BGP peering
-	// +kubebuilder:validation:Optional
-	SourceAddresses []*string `json:"sourceAddresses,omitempty" tf:"source_addresses,omitempty"`
+// Enable address families and route filtering in each direction
+// +kubebuilder:validation:Optional
+RouteFiltering []RouteFilteringParameters `json:"routeFiltering,omitempty" tf:"route_filtering,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyBgpMeighborTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Source IP Addresses for BGP peering
+// +kubebuilder:validation:Optional
+SourceAddresses []*string `json:"sourceAddresses,omitempty" tf:"source_addresses,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyBgpMeighborTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyBgpMeighborTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyBgpMeighborTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type RouteFilteringObservation struct {
 
-	// Address family type
-	AddressFamily *string `json:"addressFamily,omitempty" tf:"address_family,omitempty"`
 
-	// Flag to enable/disable address family
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Address family type
+AddressFamily *string `json:"addressFamily,omitempty" tf:"address_family,omitempty"`
 
-	// Prefix-list or route map path for IN direction
-	InRouteFilter *string `json:"inRouteFilter,omitempty" tf:"in_route_filter,omitempty"`
+// Flag to enable/disable address family
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Maximum number of routes for the address family
-	MaximumRoutes *float64 `json:"maximumRoutes,omitempty" tf:"maximum_routes,omitempty"`
+// Prefix-list or route map path for IN direction
+InRouteFilter *string `json:"inRouteFilter,omitempty" tf:"in_route_filter,omitempty"`
 
-	// Prefix-list or route map path for OUT direction
-	OutRouteFilter *string `json:"outRouteFilter,omitempty" tf:"out_route_filter,omitempty"`
+// Maximum number of routes for the address family
+MaximumRoutes *float64 `json:"maximumRoutes,omitempty" tf:"maximum_routes,omitempty"`
+
+// Prefix-list or route map path for OUT direction
+OutRouteFilter *string `json:"outRouteFilter,omitempty" tf:"out_route_filter,omitempty"`
 }
+
 
 type RouteFilteringParameters struct {
 
-	// Address family type
-	// +kubebuilder:validation:Required
-	AddressFamily *string `json:"addressFamily" tf:"address_family,omitempty"`
 
-	// Flag to enable/disable address family
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Address family type
+// +kubebuilder:validation:Required
+AddressFamily *string `json:"addressFamily" tf:"address_family,omitempty"`
 
-	// Prefix-list or route map path for IN direction
-	// +kubebuilder:validation:Optional
-	InRouteFilter *string `json:"inRouteFilter,omitempty" tf:"in_route_filter,omitempty"`
+// Flag to enable/disable address family
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Maximum number of routes for the address family
-	// +kubebuilder:validation:Optional
-	MaximumRoutes *float64 `json:"maximumRoutes,omitempty" tf:"maximum_routes,omitempty"`
+// Prefix-list or route map path for IN direction
+// +kubebuilder:validation:Optional
+InRouteFilter *string `json:"inRouteFilter,omitempty" tf:"in_route_filter,omitempty"`
 
-	// Prefix-list or route map path for OUT direction
-	// +kubebuilder:validation:Optional
-	OutRouteFilter *string `json:"outRouteFilter,omitempty" tf:"out_route_filter,omitempty"`
+// Maximum number of routes for the address family
+// +kubebuilder:validation:Optional
+MaximumRoutes *float64 `json:"maximumRoutes,omitempty" tf:"maximum_routes,omitempty"`
+
+// Prefix-list or route map path for OUT direction
+// +kubebuilder:validation:Optional
+OutRouteFilter *string `json:"outRouteFilter,omitempty" tf:"out_route_filter,omitempty"`
 }
 
 // PolicyBgpMeighborSpec defines the desired state of PolicyBgpMeighbor
 type PolicyBgpMeighborSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyBgpMeighborParameters `json:"forProvider"`
+	ForProvider       PolicyBgpMeighborParameters `json:"forProvider"`
 }
 
 // PolicyBgpMeighborStatus defines the observed state of PolicyBgpMeighbor.
 type PolicyBgpMeighborStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyBgpMeighborObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyBgpMeighborObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -243,12 +263,12 @@ type PolicyBgpMeighborStatus struct {
 type PolicyBgpMeighbor struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.bgpPath)",message="bgpPath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.neighborAddress)",message="neighborAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.remoteAsNum)",message="remoteAsNum is a required parameter"
-	Spec   PolicyBgpMeighborSpec   `json:"spec"`
-	Status PolicyBgpMeighborStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.bgpPath)",message="bgpPath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.neighborAddress)",message="neighborAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.remoteAsNum)",message="remoteAsNum is a required parameter"
+	Spec              PolicyBgpMeighborSpec   `json:"spec"`
+	Status            PolicyBgpMeighborStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,89 +11,102 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
 
+
+
+
 type PolicyGatewayQosProfileObservation struct {
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	CommittedBandwidth *float64 `json:"committedBandwidth,omitempty" tf:"committed_bandwidth,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+CommittedBandwidth *float64 `json:"committedBandwidth,omitempty" tf:"committed_bandwidth,omitempty"`
 
-	ExcessAction *string `json:"excessAction,omitempty" tf:"excess_action,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ExcessAction *string `json:"excessAction,omitempty" tf:"excess_action,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyGatewayQosProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
+
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyGatewayQosProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayQosProfileParameters struct {
 
-	// +kubebuilder:validation:Optional
-	BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	CommittedBandwidth *float64 `json:"committedBandwidth,omitempty" tf:"committed_bandwidth,omitempty"`
+// +kubebuilder:validation:Optional
+BurstSize *float64 `json:"burstSize,omitempty" tf:"burst_size,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// +kubebuilder:validation:Optional
+CommittedBandwidth *float64 `json:"committedBandwidth,omitempty" tf:"committed_bandwidth,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	ExcessAction *string `json:"excessAction,omitempty" tf:"excess_action,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// +kubebuilder:validation:Optional
+ExcessAction *string `json:"excessAction,omitempty" tf:"excess_action,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyGatewayQosProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyGatewayQosProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayQosProfileTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayQosProfileTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyGatewayQosProfileSpec defines the desired state of PolicyGatewayQosProfile
 type PolicyGatewayQosProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyGatewayQosProfileParameters `json:"forProvider"`
+	ForProvider       PolicyGatewayQosProfileParameters `json:"forProvider"`
 }
 
 // PolicyGatewayQosProfileStatus defines the observed state of PolicyGatewayQosProfile.
 type PolicyGatewayQosProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyGatewayQosProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyGatewayQosProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -108,9 +121,9 @@ type PolicyGatewayQosProfileStatus struct {
 type PolicyGatewayQosProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyGatewayQosProfileSpec   `json:"spec"`
-	Status PolicyGatewayQosProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyGatewayQosProfileSpec   `json:"spec"`
+	Status            PolicyGatewayQosProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

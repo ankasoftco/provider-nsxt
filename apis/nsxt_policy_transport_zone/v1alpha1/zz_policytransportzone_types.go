@@ -11,113 +11,125 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyTransportZoneObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name of this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// ID of the enforcement point this Transport Zone belongs to
-	EnforcementPoint *string `json:"enforcementPoint,omitempty" tf:"enforcement_point,omitempty"`
+// Display name of this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// ID of the enforcement point this Transport Zone belongs to
+EnforcementPoint *string `json:"enforcementPoint,omitempty" tf:"enforcement_point,omitempty"`
 
-	// Indicates whether the transport zone is default
-	IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Indicates whether the transport zone is default
+IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Computed ID of the realized object
-	RealizedID *string `json:"realizedId,omitempty" tf:"realized_id,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Computed ID of the realized object
+RealizedID *string `json:"realizedId,omitempty" tf:"realized_id,omitempty"`
 
-	// Path to the site this Transport Zone belongs to
-	SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Path to the site this Transport Zone belongs to
+SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
 
-	// Type of Transport Zone
-	TransportType *string `json:"transportType,omitempty" tf:"transport_type,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// Names of the switching uplink teaming policies that are supported by this transport zone.
-	UplinkTeamingPolicyNames []*string `json:"uplinkTeamingPolicyNames,omitempty" tf:"uplink_teaming_policy_names,omitempty"`
+// Type of Transport Zone
+TransportType *string `json:"transportType,omitempty" tf:"transport_type,omitempty"`
+
+// Names of the switching uplink teaming policies that are supported by this transport zone.
+UplinkTeamingPolicyNames []*string `json:"uplinkTeamingPolicyNames,omitempty" tf:"uplink_teaming_policy_names,omitempty"`
 }
+
 
 type PolicyTransportZoneParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name of this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// ID of the enforcement point this Transport Zone belongs to
-	// +kubebuilder:validation:Optional
-	EnforcementPoint *string `json:"enforcementPoint,omitempty" tf:"enforcement_point,omitempty"`
+// Display name of this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Indicates whether the transport zone is default
-	// +kubebuilder:validation:Optional
-	IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
+// ID of the enforcement point this Transport Zone belongs to
+// +kubebuilder:validation:Optional
+EnforcementPoint *string `json:"enforcementPoint,omitempty" tf:"enforcement_point,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Indicates whether the transport zone is default
+// +kubebuilder:validation:Optional
+IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
 
-	// Path to the site this Transport Zone belongs to
-	// +kubebuilder:validation:Optional
-	SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Path to the site this Transport Zone belongs to
+// +kubebuilder:validation:Optional
+SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
 
-	// Type of Transport Zone
-	// +kubebuilder:validation:Optional
-	TransportType *string `json:"transportType,omitempty" tf:"transport_type,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// Names of the switching uplink teaming policies that are supported by this transport zone.
-	// +kubebuilder:validation:Optional
-	UplinkTeamingPolicyNames []*string `json:"uplinkTeamingPolicyNames,omitempty" tf:"uplink_teaming_policy_names,omitempty"`
+// Type of Transport Zone
+// +kubebuilder:validation:Optional
+TransportType *string `json:"transportType,omitempty" tf:"transport_type,omitempty"`
+
+// Names of the switching uplink teaming policies that are supported by this transport zone.
+// +kubebuilder:validation:Optional
+UplinkTeamingPolicyNames []*string `json:"uplinkTeamingPolicyNames,omitempty" tf:"uplink_teaming_policy_names,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyTransportZoneSpec defines the desired state of PolicyTransportZone
 type PolicyTransportZoneSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyTransportZoneParameters `json:"forProvider"`
+	ForProvider       PolicyTransportZoneParameters `json:"forProvider"`
 }
 
 // PolicyTransportZoneStatus defines the observed state of PolicyTransportZone.
 type PolicyTransportZoneStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyTransportZoneObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyTransportZoneObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -132,9 +144,9 @@ type PolicyTransportZoneStatus struct {
 type PolicyTransportZone struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.transportType)",message="transportType is a required parameter"
-	Spec   PolicyTransportZoneSpec   `json:"spec"`
-	Status PolicyTransportZoneStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.transportType)",message="transportType is a required parameter"
+	Spec              PolicyTransportZoneSpec   `json:"spec"`
+	Status            PolicyTransportZoneStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

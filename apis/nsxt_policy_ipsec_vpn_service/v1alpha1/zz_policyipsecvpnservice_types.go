@@ -11,147 +11,163 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type BypassRuleObservation struct {
 
-	// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of remote subnets
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// List of remote subnets
+Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
 
-	// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
-	Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
+Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
 }
+
 
 type BypassRuleParameters struct {
 
-	// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
-	// +kubebuilder:validation:Optional
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of remote subnets
-	// +kubebuilder:validation:Optional
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
+// +kubebuilder:validation:Optional
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
-	// +kubebuilder:validation:Optional
-	Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
+// List of remote subnets
+// +kubebuilder:validation:Optional
+Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+
+// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
+// +kubebuilder:validation:Optional
+Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
 }
+
 
 type PolicyIpsecVpnServiceObservation struct {
 
-	// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
-	BypassRule []BypassRuleObservation `json:"bypassRule,omitempty" tf:"bypass_rule,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
+BypassRule []BypassRuleObservation `json:"bypassRule,omitempty" tf:"bypass_rule,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Enable/Disable IPSec VPN service.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for the gateway.
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Enable/Disable IPSec VPN service.
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Enable/Disable IPSec VPN service HA state sync.
-	HaSync *bool `json:"haSync,omitempty" tf:"ha_sync,omitempty"`
+// Policy path for the gateway.
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Enable/Disable IPSec VPN service HA state sync.
+HaSync *bool `json:"haSync,omitempty" tf:"ha_sync,omitempty"`
 
-	// Log level for internet key exchange (IKE).
-	IkeLogLevel *string `json:"ikeLogLevel,omitempty" tf:"ike_log_level,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Polciy path for the locale service.
-	LocaleServicePath *string `json:"localeServicePath,omitempty" tf:"locale_service_path,omitempty"`
+// Log level for internet key exchange (IKE).
+IkeLogLevel *string `json:"ikeLogLevel,omitempty" tf:"ike_log_level,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Polciy path for the locale service.
+LocaleServicePath *string `json:"localeServicePath,omitempty" tf:"locale_service_path,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyIpsecVpnServiceParameters struct {
 
-	// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
-	// +kubebuilder:validation:Optional
-	BypassRule []BypassRuleParameters `json:"bypassRule,omitempty" tf:"bypass_rule,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
+// +kubebuilder:validation:Optional
+BypassRule []BypassRuleParameters `json:"bypassRule,omitempty" tf:"bypass_rule,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Enable/Disable IPSec VPN service.
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for the gateway.
-	// +kubebuilder:validation:Optional
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Enable/Disable IPSec VPN service.
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Enable/Disable IPSec VPN service HA state sync.
-	// +kubebuilder:validation:Optional
-	HaSync *bool `json:"haSync,omitempty" tf:"ha_sync,omitempty"`
+// Policy path for the gateway.
+// +kubebuilder:validation:Optional
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// Log level for internet key exchange (IKE).
-	// +kubebuilder:validation:Optional
-	IkeLogLevel *string `json:"ikeLogLevel,omitempty" tf:"ike_log_level,omitempty"`
+// Enable/Disable IPSec VPN service HA state sync.
+// +kubebuilder:validation:Optional
+HaSync *bool `json:"haSync,omitempty" tf:"ha_sync,omitempty"`
 
-	// Polciy path for the locale service.
-	// +kubebuilder:validation:Optional
-	LocaleServicePath *string `json:"localeServicePath,omitempty" tf:"locale_service_path,omitempty"`
+// Log level for internet key exchange (IKE).
+// +kubebuilder:validation:Optional
+IkeLogLevel *string `json:"ikeLogLevel,omitempty" tf:"ike_log_level,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Polciy path for the locale service.
+// +kubebuilder:validation:Optional
+LocaleServicePath *string `json:"localeServicePath,omitempty" tf:"locale_service_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyIpsecVpnServiceSpec defines the desired state of PolicyIpsecVpnService
 type PolicyIpsecVpnServiceSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyIpsecVpnServiceParameters `json:"forProvider"`
+	ForProvider       PolicyIpsecVpnServiceParameters `json:"forProvider"`
 }
 
 // PolicyIpsecVpnServiceStatus defines the observed state of PolicyIpsecVpnService.
 type PolicyIpsecVpnServiceStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyIpsecVpnServiceObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyIpsecVpnServiceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -166,9 +182,9 @@ type PolicyIpsecVpnServiceStatus struct {
 type PolicyIpsecVpnService struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyIpsecVpnServiceSpec   `json:"spec"`
-	Status PolicyIpsecVpnServiceStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyIpsecVpnServiceSpec   `json:"spec"`
+	Status            PolicyIpsecVpnServiceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

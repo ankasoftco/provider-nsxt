@@ -11,79 +11,91 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type DhcpServerProfileObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge cluster uuid
-	EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Edge nodes from the given cluster
-	EdgeClusterMemberIndexes []*float64 `json:"edgeClusterMemberIndexes,omitempty" tf:"edge_cluster_member_indexes,omitempty"`
+// Edge cluster uuid
+EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Edge nodes from the given cluster
+EdgeClusterMemberIndexes []*float64 `json:"edgeClusterMemberIndexes,omitempty" tf:"edge_cluster_member_indexes,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type DhcpServerProfileParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge cluster uuid
-	// +kubebuilder:validation:Optional
-	EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Edge nodes from the given cluster
-	// +kubebuilder:validation:Optional
-	EdgeClusterMemberIndexes []*float64 `json:"edgeClusterMemberIndexes,omitempty" tf:"edge_cluster_member_indexes,omitempty"`
+// Edge cluster uuid
+// +kubebuilder:validation:Optional
+EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Edge nodes from the given cluster
+// +kubebuilder:validation:Optional
+EdgeClusterMemberIndexes []*float64 `json:"edgeClusterMemberIndexes,omitempty" tf:"edge_cluster_member_indexes,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // DhcpServerProfileSpec defines the desired state of DhcpServerProfile
 type DhcpServerProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     DhcpServerProfileParameters `json:"forProvider"`
+	ForProvider       DhcpServerProfileParameters `json:"forProvider"`
 }
 
 // DhcpServerProfileStatus defines the observed state of DhcpServerProfile.
 type DhcpServerProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        DhcpServerProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          DhcpServerProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -98,9 +110,9 @@ type DhcpServerProfileStatus struct {
 type DhcpServerProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeClusterId)",message="edgeClusterId is a required parameter"
-	Spec   DhcpServerProfileSpec   `json:"spec"`
-	Status DhcpServerProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeClusterId)",message="edgeClusterId is a required parameter"
+	Spec              DhcpServerProfileSpec   `json:"spec"`
+	Status            DhcpServerProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

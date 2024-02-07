@@ -11,78 +11,81 @@ import (
 
 	"github.com/upbound/upjet/pkg/resource"
 	"github.com/upbound/upjet/pkg/resource/json"
+	
 )
 
-// GetTerraformResourceType returns Terraform resource type for this LbFastTcpApplicationProfile
-func (mg *LbFastTcpApplicationProfile) GetTerraformResourceType() string {
-	return "nsxt_lb_fast_tcp_application_profile"
-}
+    // GetTerraformResourceType returns Terraform resource type for this LbFastTcpApplicationProfile
+    func (mg *LbFastTcpApplicationProfile) GetTerraformResourceType() string {
+        return "nsxt_lb_fast_tcp_application_profile"
+    }
 
-// GetConnectionDetailsMapping for this LbFastTcpApplicationProfile
-func (tr *LbFastTcpApplicationProfile) GetConnectionDetailsMapping() map[string]string {
-	return nil
-}
+    // GetConnectionDetailsMapping for this LbFastTcpApplicationProfile
+    func (tr *LbFastTcpApplicationProfile) GetConnectionDetailsMapping() map[string]string {
+      return nil
+    }
 
-// GetObservation of this LbFastTcpApplicationProfile
-func (tr *LbFastTcpApplicationProfile) GetObservation() (map[string]any, error) {
-	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
-	if err != nil {
-		return nil, err
-	}
-	base := map[string]any{}
-	return base, json.TFParser.Unmarshal(o, &base)
-}
+    // GetObservation of this LbFastTcpApplicationProfile
+    func (tr *LbFastTcpApplicationProfile) GetObservation() (map[string]any, error) {
+        o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+        if err != nil {
+            return nil, err
+        }
+        base := map[string]any{}
+        return base, json.TFParser.Unmarshal(o, &base)
+    }
 
-// SetObservation for this LbFastTcpApplicationProfile
-func (tr *LbFastTcpApplicationProfile) SetObservation(obs map[string]any) error {
-	p, err := json.TFParser.Marshal(obs)
-	if err != nil {
-		return err
-	}
-	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
-}
+    // SetObservation for this LbFastTcpApplicationProfile
+    func (tr *LbFastTcpApplicationProfile) SetObservation(obs map[string]any) error {
+        p, err := json.TFParser.Marshal(obs)
+        if err != nil {
+            return err
+        }
+        return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+    }
 
-// GetID returns ID of underlying Terraform resource of this LbFastTcpApplicationProfile
-func (tr *LbFastTcpApplicationProfile) GetID() string {
-	if tr.Status.AtProvider.ID == nil {
-		return ""
-	}
-	return *tr.Status.AtProvider.ID
-}
+    // GetID returns ID of underlying Terraform resource of this LbFastTcpApplicationProfile
+    func (tr *LbFastTcpApplicationProfile) GetID() string {
+        if tr.Status.AtProvider.ID == nil {
+            return ""
+        }
+        return *tr.Status.AtProvider.ID
+    }
 
-// GetParameters of this LbFastTcpApplicationProfile
-func (tr *LbFastTcpApplicationProfile) GetParameters() (map[string]any, error) {
-	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
-	if err != nil {
-		return nil, err
-	}
-	base := map[string]any{}
-	return base, json.TFParser.Unmarshal(p, &base)
-}
+    // GetParameters of this LbFastTcpApplicationProfile
+    func (tr *LbFastTcpApplicationProfile) GetParameters() (map[string]any, error) {
+        p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+        if err != nil {
+            return nil, err
+        }
+        base := map[string]any{}
+        return base, json.TFParser.Unmarshal(p, &base)
+    }
 
-// SetParameters for this LbFastTcpApplicationProfile
-func (tr *LbFastTcpApplicationProfile) SetParameters(params map[string]any) error {
-	p, err := json.TFParser.Marshal(params)
-	if err != nil {
-		return err
-	}
-	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
-}
+    // SetParameters for this LbFastTcpApplicationProfile
+    func (tr *LbFastTcpApplicationProfile) SetParameters(params map[string]any) error {
+        p, err := json.TFParser.Marshal(params)
+        if err != nil {
+            return err
+        }
+        return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+    }
 
-// LateInitialize this LbFastTcpApplicationProfile using its observed tfState.
-// returns True if there are any spec changes for the resource.
-func (tr *LbFastTcpApplicationProfile) LateInitialize(attrs []byte) (bool, error) {
-	params := &LbFastTcpApplicationProfileParameters{}
-	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
-		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
-	}
-	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+    // LateInitialize this LbFastTcpApplicationProfile using its observed tfState.
+    // returns True if there are any spec changes for the resource.
+    func (tr *LbFastTcpApplicationProfile) LateInitialize(attrs []byte) (bool, error) {
+        params := &LbFastTcpApplicationProfileParameters{}
+        if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+            return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+        }
+        opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+        
 
-	li := resource.NewGenericLateInitializer(opts...)
-	return li.LateInitialize(&tr.Spec.ForProvider, params)
-}
+        li := resource.NewGenericLateInitializer(opts...)
+        return li.LateInitialize(&tr.Spec.ForProvider, params)
+    }
 
-// GetTerraformSchemaVersion returns the associated Terraform schema version
-func (tr *LbFastTcpApplicationProfile) GetTerraformSchemaVersion() int {
-	return 0
-}
+    // GetTerraformSchemaVersion returns the associated Terraform schema version
+    func (tr *LbFastTcpApplicationProfile) GetTerraformSchemaVersion() int {
+        return 0
+    }
+

@@ -11,93 +11,105 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LogicalRouterCentralizedServicePortObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Logical router port subnet (ipAddress / prefix length)
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Identifier for port on logical switch to connect to
-	LinkedLogicalSwitchPortID *string `json:"linkedLogicalSwitchPortId,omitempty" tf:"linked_logical_switch_port_id,omitempty"`
+// Logical router port subnet (ipAddress / prefix length)
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// Identifier for logical router on which this port is created
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+// Identifier for port on logical switch to connect to
+LinkedLogicalSwitchPortID *string `json:"linkedLogicalSwitchPortId,omitempty" tf:"linked_logical_switch_port_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Identifier for logical router on which this port is created
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Unicast Reverse Path Forwarding mode
-	UrpfMode *string `json:"urpfMode,omitempty" tf:"urpf_mode,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Unicast Reverse Path Forwarding mode
+UrpfMode *string `json:"urpfMode,omitempty" tf:"urpf_mode,omitempty"`
 }
+
 
 type LogicalRouterCentralizedServicePortParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Logical router port subnet (ipAddress / prefix length)
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Identifier for port on logical switch to connect to
-	// +kubebuilder:validation:Optional
-	LinkedLogicalSwitchPortID *string `json:"linkedLogicalSwitchPortId,omitempty" tf:"linked_logical_switch_port_id,omitempty"`
+// Logical router port subnet (ipAddress / prefix length)
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// Identifier for logical router on which this port is created
-	// +kubebuilder:validation:Optional
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+// Identifier for port on logical switch to connect to
+// +kubebuilder:validation:Optional
+LinkedLogicalSwitchPortID *string `json:"linkedLogicalSwitchPortId,omitempty" tf:"linked_logical_switch_port_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Identifier for logical router on which this port is created
+// +kubebuilder:validation:Optional
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// Unicast Reverse Path Forwarding mode
-	// +kubebuilder:validation:Optional
-	UrpfMode *string `json:"urpfMode,omitempty" tf:"urpf_mode,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Unicast Reverse Path Forwarding mode
+// +kubebuilder:validation:Optional
+UrpfMode *string `json:"urpfMode,omitempty" tf:"urpf_mode,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LogicalRouterCentralizedServicePortSpec defines the desired state of LogicalRouterCentralizedServicePort
 type LogicalRouterCentralizedServicePortSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LogicalRouterCentralizedServicePortParameters `json:"forProvider"`
+	ForProvider       LogicalRouterCentralizedServicePortParameters `json:"forProvider"`
 }
 
 // LogicalRouterCentralizedServicePortStatus defines the observed state of LogicalRouterCentralizedServicePort.
 type LogicalRouterCentralizedServicePortStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LogicalRouterCentralizedServicePortObservation `json:"atProvider,omitempty"`
+	AtProvider          LogicalRouterCentralizedServicePortObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -112,11 +124,11 @@ type LogicalRouterCentralizedServicePortStatus struct {
 type LogicalRouterCentralizedServicePort struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)",message="ipAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.linkedLogicalSwitchPortId)",message="linkedLogicalSwitchPortId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
-	Spec   LogicalRouterCentralizedServicePortSpec   `json:"spec"`
-	Status LogicalRouterCentralizedServicePortStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)",message="ipAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.linkedLogicalSwitchPortId)",message="linkedLogicalSwitchPortId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
+	Spec              LogicalRouterCentralizedServicePortSpec   `json:"spec"`
+	Status            LogicalRouterCentralizedServicePortStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

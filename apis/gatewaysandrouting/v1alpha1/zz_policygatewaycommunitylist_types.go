@@ -11,89 +11,101 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyGatewayCommunityListObservation struct {
 
-	// List of BGP community entries
-	Communities []*string `json:"communities,omitempty" tf:"communities,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// List of BGP community entries
+Communities []*string `json:"communities,omitempty" tf:"communities,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Policy path for Tier0 gateway
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Policy path for Tier0 gateway
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyGatewayCommunityListTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyGatewayCommunityListTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayCommunityListParameters struct {
 
-	// List of BGP community entries
-	// +kubebuilder:validation:Optional
-	Communities []*string `json:"communities,omitempty" tf:"communities,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// List of BGP community entries
+// +kubebuilder:validation:Optional
+Communities []*string `json:"communities,omitempty" tf:"communities,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Policy path for Tier0 gateway
-	// +kubebuilder:validation:Optional
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Policy path for Tier0 gateway
+// +kubebuilder:validation:Optional
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyGatewayCommunityListTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyGatewayCommunityListTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayCommunityListTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayCommunityListTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyGatewayCommunityListSpec defines the desired state of PolicyGatewayCommunityList
 type PolicyGatewayCommunityListSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyGatewayCommunityListParameters `json:"forProvider"`
+	ForProvider       PolicyGatewayCommunityListParameters `json:"forProvider"`
 }
 
 // PolicyGatewayCommunityListStatus defines the observed state of PolicyGatewayCommunityList.
 type PolicyGatewayCommunityListStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyGatewayCommunityListObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyGatewayCommunityListObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -108,11 +120,11 @@ type PolicyGatewayCommunityListStatus struct {
 type PolicyGatewayCommunityList struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.communities)",message="communities is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
-	Spec   PolicyGatewayCommunityListSpec   `json:"spec"`
-	Status PolicyGatewayCommunityListStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.communities)",message="communities is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
+	Spec              PolicyGatewayCommunityListSpec   `json:"spec"`
+	Status            PolicyGatewayCommunityListStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

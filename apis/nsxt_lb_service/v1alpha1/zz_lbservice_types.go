@@ -11,100 +11,112 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbServiceObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Whether the load balancer service is enabled
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Load balancer engine writes information about encountered issues of different severity levels to the error log. This setting is used to define the severity level of the error log
-	ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
+// Whether the load balancer service is enabled
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Load balancer engine writes information about encountered issues of different severity levels to the error log. This setting is used to define the severity level of the error log
+ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
 
-	// Logical Tier1 Router to which the Load Balancer is to be attached
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Logical Tier1 Router to which the Load Balancer is to be attached
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// Size of load balancer service
-	Size *string `json:"size,omitempty" tf:"size,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Size of load balancer service
+Size *string `json:"size,omitempty" tf:"size,omitempty"`
 
-	// Virtual servers associated with this Load Balancer
-	VirtualServerIds []*string `json:"virtualServerIds,omitempty" tf:"virtual_server_ids,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Virtual servers associated with this Load Balancer
+VirtualServerIds []*string `json:"virtualServerIds,omitempty" tf:"virtual_server_ids,omitempty"`
 }
+
 
 type LbServiceParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Whether the load balancer service is enabled
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Load balancer engine writes information about encountered issues of different severity levels to the error log. This setting is used to define the severity level of the error log
-	// +kubebuilder:validation:Optional
-	ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
+// Whether the load balancer service is enabled
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Logical Tier1 Router to which the Load Balancer is to be attached
-	// +kubebuilder:validation:Optional
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+// Load balancer engine writes information about encountered issues of different severity levels to the error log. This setting is used to define the severity level of the error log
+// +kubebuilder:validation:Optional
+ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
 
-	// Size of load balancer service
-	// +kubebuilder:validation:Optional
-	Size *string `json:"size,omitempty" tf:"size,omitempty"`
+// Logical Tier1 Router to which the Load Balancer is to be attached
+// +kubebuilder:validation:Optional
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Size of load balancer service
+// +kubebuilder:validation:Optional
+Size *string `json:"size,omitempty" tf:"size,omitempty"`
 
-	// Virtual servers associated with this Load Balancer
-	// +kubebuilder:validation:Optional
-	VirtualServerIds []*string `json:"virtualServerIds,omitempty" tf:"virtual_server_ids,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Virtual servers associated with this Load Balancer
+// +kubebuilder:validation:Optional
+VirtualServerIds []*string `json:"virtualServerIds,omitempty" tf:"virtual_server_ids,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbServiceSpec defines the desired state of LbService
 type LbServiceSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbServiceParameters `json:"forProvider"`
+	ForProvider       LbServiceParameters `json:"forProvider"`
 }
 
 // LbServiceStatus defines the observed state of LbService.
 type LbServiceStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbServiceObservation `json:"atProvider,omitempty"`
+	AtProvider          LbServiceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -119,9 +131,9 @@ type LbServiceStatus struct {
 type LbService struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
-	Spec   LbServiceSpec   `json:"spec"`
-	Status LbServiceStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
+	Spec              LbServiceSpec   `json:"spec"`
+	Status            LbServiceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

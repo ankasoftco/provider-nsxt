@@ -11,89 +11,101 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type IcmpTypeNsServiceObservation struct {
 
-	// A boolean flag which reflects whether this is a default NSServices which can't be modified/deleted
-	DefaultService *bool `json:"defaultService,omitempty" tf:"default_service,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// A boolean flag which reflects whether this is a default NSServices which can't be modified/deleted
+DefaultService *bool `json:"defaultService,omitempty" tf:"default_service,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// ICMP message code
-	IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// ICMP message type
-	IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
+// ICMP message code
+IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
 
-	// Version of ICMP protocol (ICMPv4/ICMPv6)
-	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
+// ICMP message type
+IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Version of ICMP protocol (ICMPv4/ICMPv6)
+Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type IcmpTypeNsServiceParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// ICMP message code
-	// +kubebuilder:validation:Optional
-	IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// ICMP message type
-	// +kubebuilder:validation:Optional
-	IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
+// ICMP message code
+// +kubebuilder:validation:Optional
+IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
 
-	// Version of ICMP protocol (ICMPv4/ICMPv6)
-	// +kubebuilder:validation:Optional
-	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
+// ICMP message type
+// +kubebuilder:validation:Optional
+IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Version of ICMP protocol (ICMPv4/ICMPv6)
+// +kubebuilder:validation:Optional
+Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // IcmpTypeNsServiceSpec defines the desired state of IcmpTypeNsService
 type IcmpTypeNsServiceSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     IcmpTypeNsServiceParameters `json:"forProvider"`
+	ForProvider       IcmpTypeNsServiceParameters `json:"forProvider"`
 }
 
 // IcmpTypeNsServiceStatus defines the observed state of IcmpTypeNsService.
 type IcmpTypeNsServiceStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        IcmpTypeNsServiceObservation `json:"atProvider,omitempty"`
+	AtProvider          IcmpTypeNsServiceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -108,9 +120,9 @@ type IcmpTypeNsServiceStatus struct {
 type IcmpTypeNsService struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.protocol)",message="protocol is a required parameter"
-	Spec   IcmpTypeNsServiceSpec   `json:"spec"`
-	Status IcmpTypeNsServiceStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.protocol)",message="protocol is a required parameter"
+	Spec              IcmpTypeNsServiceSpec   `json:"spec"`
+	Status            IcmpTypeNsServiceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

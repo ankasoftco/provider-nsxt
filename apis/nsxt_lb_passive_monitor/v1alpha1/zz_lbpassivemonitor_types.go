@@ -11,79 +11,91 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbPassiveMonitorObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// When the consecutive failures reach this value, then the member is considered temporarily unavailable for a configurable period
-	MaxFails *float64 `json:"maxFails,omitempty" tf:"max_fails,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// When the consecutive failures reach this value, then the member is considered temporarily unavailable for a configurable period
+MaxFails *float64 `json:"maxFails,omitempty" tf:"max_fails,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// After this timeout period, the member is tried again for a new connection to see if it is available
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// After this timeout period, the member is tried again for a new connection to see if it is available
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type LbPassiveMonitorParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// When the consecutive failures reach this value, then the member is considered temporarily unavailable for a configurable period
-	// +kubebuilder:validation:Optional
-	MaxFails *float64 `json:"maxFails,omitempty" tf:"max_fails,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// When the consecutive failures reach this value, then the member is considered temporarily unavailable for a configurable period
+// +kubebuilder:validation:Optional
+MaxFails *float64 `json:"maxFails,omitempty" tf:"max_fails,omitempty"`
 
-	// After this timeout period, the member is tried again for a new connection to see if it is available
-	// +kubebuilder:validation:Optional
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// After this timeout period, the member is tried again for a new connection to see if it is available
+// +kubebuilder:validation:Optional
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbPassiveMonitorSpec defines the desired state of LbPassiveMonitor
 type LbPassiveMonitorSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbPassiveMonitorParameters `json:"forProvider"`
+	ForProvider       LbPassiveMonitorParameters `json:"forProvider"`
 }
 
 // LbPassiveMonitorStatus defines the observed state of LbPassiveMonitor.
 type LbPassiveMonitorStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbPassiveMonitorObservation `json:"atProvider,omitempty"`
+	AtProvider          LbPassiveMonitorObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

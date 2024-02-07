@@ -11,100 +11,112 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyIpsecVpnIkeProfileObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	DhGroups []*string `json:"dhGroups,omitempty" tf:"dh_groups,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	DigestAlgorithms []*string `json:"digestAlgorithms,omitempty" tf:"digest_algorithms,omitempty"`
+DhGroups []*string `json:"dhGroups,omitempty" tf:"dh_groups,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+DigestAlgorithms []*string `json:"digestAlgorithms,omitempty" tf:"digest_algorithms,omitempty"`
 
-	EncryptionAlgorithms []*string `json:"encryptionAlgorithms,omitempty" tf:"encryption_algorithms,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+EncryptionAlgorithms []*string `json:"encryptionAlgorithms,omitempty" tf:"encryption_algorithms,omitempty"`
 
-	IkeVersion *string `json:"ikeVersion,omitempty" tf:"ike_version,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+IkeVersion *string `json:"ikeVersion,omitempty" tf:"ike_version,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	SaLifeTime *float64 `json:"saLifeTime,omitempty" tf:"sa_life_time,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+SaLifeTime *float64 `json:"saLifeTime,omitempty" tf:"sa_life_time,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyIpsecVpnIkeProfileParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DhGroups []*string `json:"dhGroups,omitempty" tf:"dh_groups,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	DigestAlgorithms []*string `json:"digestAlgorithms,omitempty" tf:"digest_algorithms,omitempty"`
+// +kubebuilder:validation:Optional
+DhGroups []*string `json:"dhGroups,omitempty" tf:"dh_groups,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// +kubebuilder:validation:Optional
+DigestAlgorithms []*string `json:"digestAlgorithms,omitempty" tf:"digest_algorithms,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	EncryptionAlgorithms []*string `json:"encryptionAlgorithms,omitempty" tf:"encryption_algorithms,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	IkeVersion *string `json:"ikeVersion,omitempty" tf:"ike_version,omitempty"`
+// +kubebuilder:validation:Optional
+EncryptionAlgorithms []*string `json:"encryptionAlgorithms,omitempty" tf:"encryption_algorithms,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// +kubebuilder:validation:Optional
+IkeVersion *string `json:"ikeVersion,omitempty" tf:"ike_version,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	SaLifeTime *float64 `json:"saLifeTime,omitempty" tf:"sa_life_time,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+SaLifeTime *float64 `json:"saLifeTime,omitempty" tf:"sa_life_time,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyIpsecVpnIkeProfileSpec defines the desired state of PolicyIpsecVpnIkeProfile
 type PolicyIpsecVpnIkeProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyIpsecVpnIkeProfileParameters `json:"forProvider"`
+	ForProvider       PolicyIpsecVpnIkeProfileParameters `json:"forProvider"`
 }
 
 // PolicyIpsecVpnIkeProfileStatus defines the observed state of PolicyIpsecVpnIkeProfile.
 type PolicyIpsecVpnIkeProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyIpsecVpnIkeProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyIpsecVpnIkeProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -119,11 +131,11 @@ type PolicyIpsecVpnIkeProfileStatus struct {
 type PolicyIpsecVpnIkeProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhGroups)",message="dhGroups is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.encryptionAlgorithms)",message="encryptionAlgorithms is a required parameter"
-	Spec   PolicyIpsecVpnIkeProfileSpec   `json:"spec"`
-	Status PolicyIpsecVpnIkeProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhGroups)",message="dhGroups is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.encryptionAlgorithms)",message="encryptionAlgorithms is a required parameter"
+	Spec              PolicyIpsecVpnIkeProfileSpec   `json:"spec"`
+	Status            PolicyIpsecVpnIkeProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,597 +11,660 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type BGPConfigObservation struct {
 
-	// Flag to enable ECMP
-	Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// Flag to enable BGP configuration
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Flag to enable ECMP
+Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// BGP Graceful Restart Configuration Mode
-	GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
+// Flag to enable BGP configuration
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// BGP Stale Route Timer
-	GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
+// BGP Graceful Restart Configuration Mode
+GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
 
-	// BGP Graceful Restart Timer
-	GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
+// BGP Stale Route Timer
+GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
 
-	// Enable inter SR IBGP configuration
-	InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
+// BGP Graceful Restart Timer
+GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
 
-	// BGP AS number in ASPLAIN/ASDOT Format
-	LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
+// Enable inter SR IBGP configuration
+InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
 
-	// Flag to enable BGP multipath relax option
-	MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
+// BGP AS number in ASPLAIN/ASDOT Format
+LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// Flag to enable BGP multipath relax option
+MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// List of routes to be aggregated
-	RouteAggregation []BGPConfigRouteAggregationObservation `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []BGPConfigTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// List of routes to be aggregated
+RouteAggregation []BGPConfigRouteAggregationObservation `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []BGPConfigTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type BGPConfigParameters struct {
 
-	// Flag to enable ECMP
-	// +kubebuilder:validation:Optional
-	Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// Flag to enable BGP configuration
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Flag to enable ECMP
+// +kubebuilder:validation:Optional
+Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// BGP Graceful Restart Configuration Mode
-	// +kubebuilder:validation:Optional
-	GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
+// Flag to enable BGP configuration
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// BGP Stale Route Timer
-	// +kubebuilder:validation:Optional
-	GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
+// BGP Graceful Restart Configuration Mode
+// +kubebuilder:validation:Optional
+GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
 
-	// BGP Graceful Restart Timer
-	// +kubebuilder:validation:Optional
-	GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
+// BGP Stale Route Timer
+// +kubebuilder:validation:Optional
+GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
 
-	// Enable inter SR IBGP configuration
-	// +kubebuilder:validation:Optional
-	InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
+// BGP Graceful Restart Timer
+// +kubebuilder:validation:Optional
+GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
 
-	// BGP AS number in ASPLAIN/ASDOT Format
-	// +kubebuilder:validation:Optional
-	LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
+// Enable inter SR IBGP configuration
+// +kubebuilder:validation:Optional
+InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
 
-	// Flag to enable BGP multipath relax option
-	// +kubebuilder:validation:Optional
-	MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
+// BGP AS number in ASPLAIN/ASDOT Format
+// +kubebuilder:validation:Optional
+LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
 
-	// List of routes to be aggregated
-	// +kubebuilder:validation:Optional
-	RouteAggregation []BGPConfigRouteAggregationParameters `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
+// Flag to enable BGP multipath relax option
+// +kubebuilder:validation:Optional
+MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []BGPConfigTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// List of routes to be aggregated
+// +kubebuilder:validation:Optional
+RouteAggregation []BGPConfigRouteAggregationParameters `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []BGPConfigTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type BGPConfigRouteAggregationObservation struct {
 
-	// CIDR of aggregate address
-	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
-	// Send only summarized route
-	SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
+// CIDR of aggregate address
+Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
+
+// Send only summarized route
+SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
 }
+
 
 type BGPConfigRouteAggregationParameters struct {
 
-	// CIDR of aggregate address
-	// +kubebuilder:validation:Optional
-	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
-	// Send only summarized route
-	// +kubebuilder:validation:Optional
-	SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
+// CIDR of aggregate address
+// +kubebuilder:validation:Optional
+Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
+
+// Send only summarized route
+// +kubebuilder:validation:Optional
+SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
 }
+
 
 type BGPConfigTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type BGPConfigTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type IntersiteConfigObservation struct {
 
-	// Fallback sites to be used as new primary site on current primary site failure
-	FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// Primary egress site for gateway
-	PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+// Fallback sites to be used as new primary site on current primary site failure
+FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
-	TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
+// Primary egress site for gateway
+PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+
+// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
+TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
 }
+
 
 type IntersiteConfigParameters struct {
 
-	// Fallback sites to be used as new primary site on current primary site failure
-	// +kubebuilder:validation:Optional
-	FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// Primary egress site for gateway
-	// +kubebuilder:validation:Optional
-	PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+// Fallback sites to be used as new primary site on current primary site failure
+// +kubebuilder:validation:Optional
+FallbackSitePaths []*string `json:"fallbackSitePaths,omitempty" tf:"fallback_site_paths,omitempty"`
 
-	// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
-	// +kubebuilder:validation:Optional
-	TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
+// Primary egress site for gateway
+// +kubebuilder:validation:Optional
+PrimarySitePath *string `json:"primarySitePath,omitempty" tf:"primary_site_path,omitempty"`
+
+// IPv4 subnet for inter-site transit segment connecting service routers across sites for stretched gateway. For IPv6 link local subnet is auto configured
+// +kubebuilder:validation:Optional
+TransitSubnet *string `json:"transitSubnet,omitempty" tf:"transit_subnet,omitempty"`
 }
+
 
 type LocaleServiceObservation struct {
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The path of the edge cluster connected to this gateway
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// The path of the edge cluster connected to this gateway
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// Paths of specific edge nodes
-	PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Route Redistribution configuration
-	RedistributionConfig []RedistributionConfigObservation `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
+// Paths of specific edge nodes
+PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Route Redistribution configuration
+RedistributionConfig []RedistributionConfigObservation `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
+
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 }
+
 
 type LocaleServiceParameters struct {
 
-	// The path of the edge cluster connected to this gateway
-	// +kubebuilder:validation:Required
-	EdgeClusterPath *string `json:"edgeClusterPath" tf:"edge_cluster_path,omitempty"`
 
-	// Paths of specific edge nodes
-	// +kubebuilder:validation:Optional
-	PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+// The path of the edge cluster connected to this gateway
+// +kubebuilder:validation:Required
+EdgeClusterPath *string `json:"edgeClusterPath" tf:"edge_cluster_path,omitempty"`
 
-	// Route Redistribution configuration
-	// +kubebuilder:validation:Optional
-	RedistributionConfig []RedistributionConfigParameters `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
+// Paths of specific edge nodes
+// +kubebuilder:validation:Optional
+PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+
+// Route Redistribution configuration
+// +kubebuilder:validation:Optional
+RedistributionConfig []RedistributionConfigParameters `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
 }
+
 
 type PolicyTier0GatewayObservation struct {
 
-	// BGP routing configuration
-	BGPConfig []BGPConfigObservation `json:"bgpConfig,omitempty" tf:"bgp_config,omitempty"`
 
-	// Policy path to DHCP server or relay configuration to use for this Tier0
-	DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
+// BGP routing configuration
+BGPConfig []BGPConfigObservation `json:"bgpConfig,omitempty" tf:"bgp_config,omitempty"`
 
-	// Default rule logging
-	DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
+// Policy path to DHCP server or relay configuration to use for this Tier0
+DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Default rule logging
+DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The path of the edge cluster connected to this gateway
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Enable edge firewall
-	EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
+// The path of the edge cluster connected to this gateway
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// Failover mode
-	FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
+// Enable edge firewall
+EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
 
-	// Force whitelisting
-	ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
+// Failover mode
+FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
 
-	// High-availability Mode for Tier-0
-	HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
+// Force whitelisting
+ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// High-availability Mode for Tier-0
+HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
 
-	// The path of an IPv6 DAD profile
-	IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The path of an IPv6 NDRA profile
-	IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
+// The path of an IPv6 DAD profile
+IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
 
-	// Internal transit subnets in CIDR format
-	InternalTransitSubnets []*string `json:"internalTransitSubnets,omitempty" tf:"internal_transit_subnets,omitempty"`
+// The path of an IPv6 NDRA profile
+IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
 
-	// Locale Service for the gateway
-	IntersiteConfig []IntersiteConfigObservation `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
+// Internal transit subnets in CIDR format
+InternalTransitSubnets []*string `json:"internalTransitSubnets,omitempty" tf:"internal_transit_subnets,omitempty"`
 
-	// Locale Service for the gateway
-	LocaleService []LocaleServiceObservation `json:"localeService,omitempty" tf:"locale_service,omitempty"`
+// Locale Service for the gateway
+IntersiteConfig []IntersiteConfigObservation `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Locale Service for the gateway
+LocaleService []LocaleServiceObservation `json:"localeService,omitempty" tf:"locale_service,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Route distinguisher administrator address
-	RdAdminAddress *string `json:"rdAdminAddress,omitempty" tf:"rd_admin_address,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Route Redistribution configuration
-	RedistributionConfig []PolicyTier0GatewayRedistributionConfigObservation `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
+// Route distinguisher administrator address
+RdAdminAddress *string `json:"rdAdminAddress,omitempty" tf:"rd_admin_address,omitempty"`
 
-	// Internal flag to indicate whether legacy redistribution config is used
-	RedistributionSet *bool `json:"redistributionSet,omitempty" tf:"redistribution_set,omitempty"`
+// Route Redistribution configuration
+RedistributionConfig []PolicyTier0GatewayRedistributionConfigObservation `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Internal flag to indicate whether legacy redistribution config is used
+RedistributionSet *bool `json:"redistributionSet,omitempty" tf:"redistribution_set,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyTier0GatewayTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Transit subnets in CIDR format
-	TransitSubnets []*string `json:"transitSubnets,omitempty" tf:"transit_subnets,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyTier0GatewayTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// VRF configuration
-	VrfConfig []VrfConfigObservation `json:"vrfConfig,omitempty" tf:"vrf_config,omitempty"`
+// Transit subnets in CIDR format
+TransitSubnets []*string `json:"transitSubnets,omitempty" tf:"transit_subnets,omitempty"`
+
+// VRF configuration
+VrfConfig []VrfConfigObservation `json:"vrfConfig,omitempty" tf:"vrf_config,omitempty"`
 }
+
 
 type PolicyTier0GatewayParameters struct {
 
-	// BGP routing configuration
-	// +kubebuilder:validation:Optional
-	BGPConfig []BGPConfigParameters `json:"bgpConfig,omitempty" tf:"bgp_config,omitempty"`
 
-	// Policy path to DHCP server or relay configuration to use for this Tier0
-	// +kubebuilder:validation:Optional
-	DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
+// BGP routing configuration
+// +kubebuilder:validation:Optional
+BGPConfig []BGPConfigParameters `json:"bgpConfig,omitempty" tf:"bgp_config,omitempty"`
 
-	// Default rule logging
-	// +kubebuilder:validation:Optional
-	DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
+// Policy path to DHCP server or relay configuration to use for this Tier0
+// +kubebuilder:validation:Optional
+DHCPConfigPath *string `json:"dhcpConfigPath,omitempty" tf:"dhcp_config_path,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Default rule logging
+// +kubebuilder:validation:Optional
+DefaultRuleLogging *bool `json:"defaultRuleLogging,omitempty" tf:"default_rule_logging,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The path of the edge cluster connected to this gateway
-	// +kubebuilder:validation:Optional
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Enable edge firewall
-	// +kubebuilder:validation:Optional
-	EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
+// The path of the edge cluster connected to this gateway
+// +kubebuilder:validation:Optional
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// Failover mode
-	// +kubebuilder:validation:Optional
-	FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
+// Enable edge firewall
+// +kubebuilder:validation:Optional
+EnableFirewall *bool `json:"enableFirewall,omitempty" tf:"enable_firewall,omitempty"`
 
-	// Force whitelisting
-	// +kubebuilder:validation:Optional
-	ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
+// Failover mode
+// +kubebuilder:validation:Optional
+FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
 
-	// High-availability Mode for Tier-0
-	// +kubebuilder:validation:Optional
-	HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
+// Force whitelisting
+// +kubebuilder:validation:Optional
+ForceWhitelisting *bool `json:"forceWhitelisting,omitempty" tf:"force_whitelisting,omitempty"`
 
-	// The path of an IPv6 DAD profile
-	// +kubebuilder:validation:Optional
-	IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
+// High-availability Mode for Tier-0
+// +kubebuilder:validation:Optional
+HaMode *string `json:"haMode,omitempty" tf:"ha_mode,omitempty"`
 
-	// The path of an IPv6 NDRA profile
-	// +kubebuilder:validation:Optional
-	IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
+// The path of an IPv6 DAD profile
+// +kubebuilder:validation:Optional
+IPv6DadProfilePath *string `json:"ipv6DadProfilePath,omitempty" tf:"ipv6_dad_profile_path,omitempty"`
 
-	// Internal transit subnets in CIDR format
-	// +kubebuilder:validation:Optional
-	InternalTransitSubnets []*string `json:"internalTransitSubnets,omitempty" tf:"internal_transit_subnets,omitempty"`
+// The path of an IPv6 NDRA profile
+// +kubebuilder:validation:Optional
+IPv6NdraProfilePath *string `json:"ipv6NdraProfilePath,omitempty" tf:"ipv6_ndra_profile_path,omitempty"`
 
-	// Locale Service for the gateway
-	// +kubebuilder:validation:Optional
-	IntersiteConfig []IntersiteConfigParameters `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
+// Internal transit subnets in CIDR format
+// +kubebuilder:validation:Optional
+InternalTransitSubnets []*string `json:"internalTransitSubnets,omitempty" tf:"internal_transit_subnets,omitempty"`
 
-	// Locale Service for the gateway
-	// +kubebuilder:validation:Optional
-	LocaleService []LocaleServiceParameters `json:"localeService,omitempty" tf:"locale_service,omitempty"`
+// Locale Service for the gateway
+// +kubebuilder:validation:Optional
+IntersiteConfig []IntersiteConfigParameters `json:"intersiteConfig,omitempty" tf:"intersite_config,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Locale Service for the gateway
+// +kubebuilder:validation:Optional
+LocaleService []LocaleServiceParameters `json:"localeService,omitempty" tf:"locale_service,omitempty"`
 
-	// Route distinguisher administrator address
-	// +kubebuilder:validation:Optional
-	RdAdminAddress *string `json:"rdAdminAddress,omitempty" tf:"rd_admin_address,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Route Redistribution configuration
-	// +kubebuilder:validation:Optional
-	RedistributionConfig []PolicyTier0GatewayRedistributionConfigParameters `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
+// Route distinguisher administrator address
+// +kubebuilder:validation:Optional
+RdAdminAddress *string `json:"rdAdminAddress,omitempty" tf:"rd_admin_address,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyTier0GatewayTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Route Redistribution configuration
+// +kubebuilder:validation:Optional
+RedistributionConfig []PolicyTier0GatewayRedistributionConfigParameters `json:"redistributionConfig,omitempty" tf:"redistribution_config,omitempty"`
 
-	// Transit subnets in CIDR format
-	// +kubebuilder:validation:Optional
-	TransitSubnets []*string `json:"transitSubnets,omitempty" tf:"transit_subnets,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyTier0GatewayTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// VRF configuration
-	// +kubebuilder:validation:Optional
-	VrfConfig []VrfConfigParameters `json:"vrfConfig,omitempty" tf:"vrf_config,omitempty"`
+// Transit subnets in CIDR format
+// +kubebuilder:validation:Optional
+TransitSubnets []*string `json:"transitSubnets,omitempty" tf:"transit_subnets,omitempty"`
+
+// VRF configuration
+// +kubebuilder:validation:Optional
+VrfConfig []VrfConfigParameters `json:"vrfConfig,omitempty" tf:"vrf_config,omitempty"`
 }
+
 
 type PolicyTier0GatewayRedistributionConfigObservation struct {
 
-	// Flag to enable route redistribution for BGP
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Flag to enable route redistribution for OSPF
-	OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+// Flag to enable route redistribution for BGP
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// List of routes to be aggregated
-	Rule []PolicyTier0GatewayRedistributionConfigRuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
+// Flag to enable route redistribution for OSPF
+OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+
+// List of routes to be aggregated
+Rule []PolicyTier0GatewayRedistributionConfigRuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
 }
+
 
 type PolicyTier0GatewayRedistributionConfigParameters struct {
 
-	// Flag to enable route redistribution for BGP
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Flag to enable route redistribution for OSPF
-	// +kubebuilder:validation:Optional
-	OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+// Flag to enable route redistribution for BGP
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// List of routes to be aggregated
-	// +kubebuilder:validation:Optional
-	Rule []PolicyTier0GatewayRedistributionConfigRuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
+// Flag to enable route redistribution for OSPF
+// +kubebuilder:validation:Optional
+OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+
+// List of routes to be aggregated
+// +kubebuilder:validation:Optional
+Rule []PolicyTier0GatewayRedistributionConfigRuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
 }
+
 
 type PolicyTier0GatewayRedistributionConfigRuleObservation struct {
 
-	// BGP destination for this rule
-	BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// Rule name
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// BGP destination for this rule
+BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// OSPF destination for this rule
-	Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
+// Rule name
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Route map to be associated with the redistribution rule
-	RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+// OSPF destination for this rule
+Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
 
-	// List of redistribution types
-	Types []*string `json:"types,omitempty" tf:"types,omitempty"`
+// Route map to be associated with the redistribution rule
+RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+
+// List of redistribution types
+Types []*string `json:"types,omitempty" tf:"types,omitempty"`
 }
+
 
 type PolicyTier0GatewayRedistributionConfigRuleParameters struct {
 
-	// BGP destination for this rule
-	// +kubebuilder:validation:Optional
-	BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// Rule name
-	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// BGP destination for this rule
+// +kubebuilder:validation:Optional
+BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// OSPF destination for this rule
-	// +kubebuilder:validation:Optional
-	Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
+// Rule name
+// +kubebuilder:validation:Optional
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Route map to be associated with the redistribution rule
-	// +kubebuilder:validation:Optional
-	RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+// OSPF destination for this rule
+// +kubebuilder:validation:Optional
+Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
 
-	// List of redistribution types
-	// +kubebuilder:validation:Optional
-	Types []*string `json:"types,omitempty" tf:"types,omitempty"`
+// Route map to be associated with the redistribution rule
+// +kubebuilder:validation:Optional
+RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+
+// List of redistribution types
+// +kubebuilder:validation:Optional
+Types []*string `json:"types,omitempty" tf:"types,omitempty"`
 }
+
 
 type PolicyTier0GatewayTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyTier0GatewayTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type RedistributionConfigObservation struct {
 
-	// Flag to enable route redistribution for BGP
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Flag to enable route redistribution for OSPF
-	OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+// Flag to enable route redistribution for BGP
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// List of routes to be aggregated
-	Rule []RedistributionConfigRuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
+// Flag to enable route redistribution for OSPF
+OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+
+// List of routes to be aggregated
+Rule []RedistributionConfigRuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
 }
+
 
 type RedistributionConfigParameters struct {
 
-	// Flag to enable route redistribution for BGP
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Flag to enable route redistribution for OSPF
-	// +kubebuilder:validation:Optional
-	OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+// Flag to enable route redistribution for BGP
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// List of routes to be aggregated
-	// +kubebuilder:validation:Optional
-	Rule []RedistributionConfigRuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
+// Flag to enable route redistribution for OSPF
+// +kubebuilder:validation:Optional
+OspfEnabled *bool `json:"ospfEnabled,omitempty" tf:"ospf_enabled,omitempty"`
+
+// List of routes to be aggregated
+// +kubebuilder:validation:Optional
+Rule []RedistributionConfigRuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
 }
+
 
 type RedistributionConfigRuleObservation struct {
 
-	// BGP destination for this rule
-	BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// Rule name
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// BGP destination for this rule
+BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// OSPF destination for this rule
-	Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
+// Rule name
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Route map to be associated with the redistribution rule
-	RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+// OSPF destination for this rule
+Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
 
-	// List of redistribution types
-	Types []*string `json:"types,omitempty" tf:"types,omitempty"`
+// Route map to be associated with the redistribution rule
+RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+
+// List of redistribution types
+Types []*string `json:"types,omitempty" tf:"types,omitempty"`
 }
+
 
 type RedistributionConfigRuleParameters struct {
 
-	// BGP destination for this rule
-	// +kubebuilder:validation:Optional
-	BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// Rule name
-	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+// BGP destination for this rule
+// +kubebuilder:validation:Optional
+BGP *bool `json:"bgp,omitempty" tf:"bgp,omitempty"`
 
-	// OSPF destination for this rule
-	// +kubebuilder:validation:Optional
-	Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
+// Rule name
+// +kubebuilder:validation:Optional
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Route map to be associated with the redistribution rule
-	// +kubebuilder:validation:Optional
-	RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+// OSPF destination for this rule
+// +kubebuilder:validation:Optional
+Ospf *bool `json:"ospf,omitempty" tf:"ospf,omitempty"`
 
-	// List of redistribution types
-	// +kubebuilder:validation:Optional
-	Types []*string `json:"types,omitempty" tf:"types,omitempty"`
+// Route map to be associated with the redistribution rule
+// +kubebuilder:validation:Optional
+RouteMapPath *string `json:"routeMapPath,omitempty" tf:"route_map_path,omitempty"`
+
+// List of redistribution types
+// +kubebuilder:validation:Optional
+Types []*string `json:"types,omitempty" tf:"types,omitempty"`
 }
+
 
 type RouteTargetObservation struct {
-	AddressFamily *string `json:"addressFamily,omitempty" tf:"address_family,omitempty"`
 
-	// When set to false, targets should be configured
-	AutoMode *bool `json:"autoMode,omitempty" tf:"auto_mode,omitempty"`
 
-	ExportTargets []*string `json:"exportTargets,omitempty" tf:"export_targets,omitempty"`
+AddressFamily *string `json:"addressFamily,omitempty" tf:"address_family,omitempty"`
 
-	ImportTargets []*string `json:"importTargets,omitempty" tf:"import_targets,omitempty"`
+// When set to false, targets should be configured
+AutoMode *bool `json:"autoMode,omitempty" tf:"auto_mode,omitempty"`
+
+ExportTargets []*string `json:"exportTargets,omitempty" tf:"export_targets,omitempty"`
+
+ImportTargets []*string `json:"importTargets,omitempty" tf:"import_targets,omitempty"`
 }
+
 
 type RouteTargetParameters struct {
 
-	// +kubebuilder:validation:Optional
-	AddressFamily *string `json:"addressFamily,omitempty" tf:"address_family,omitempty"`
 
-	// When set to false, targets should be configured
-	// +kubebuilder:validation:Optional
-	AutoMode *bool `json:"autoMode,omitempty" tf:"auto_mode,omitempty"`
+// +kubebuilder:validation:Optional
+AddressFamily *string `json:"addressFamily,omitempty" tf:"address_family,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	ExportTargets []*string `json:"exportTargets,omitempty" tf:"export_targets,omitempty"`
+// When set to false, targets should be configured
+// +kubebuilder:validation:Optional
+AutoMode *bool `json:"autoMode,omitempty" tf:"auto_mode,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	ImportTargets []*string `json:"importTargets,omitempty" tf:"import_targets,omitempty"`
+// +kubebuilder:validation:Optional
+ExportTargets []*string `json:"exportTargets,omitempty" tf:"export_targets,omitempty"`
+
+// +kubebuilder:validation:Optional
+ImportTargets []*string `json:"importTargets,omitempty" tf:"import_targets,omitempty"`
 }
+
 
 type VrfConfigObservation struct {
 
-	// L3 VNI associated with the VRF for overlay traffic. VNI must be unique and belong to configured VNI pool
-	EvpnTransitVni *float64 `json:"evpnTransitVni,omitempty" tf:"evpn_transit_vni,omitempty"`
 
-	// Default tier0 path
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// L3 VNI associated with the VRF for overlay traffic. VNI must be unique and belong to configured VNI pool
+EvpnTransitVni *float64 `json:"evpnTransitVni,omitempty" tf:"evpn_transit_vni,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// Default tier0 path
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	RouteDistinguisher *string `json:"routeDistinguisher,omitempty" tf:"route_distinguisher,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Route targets
-	RouteTarget []RouteTargetObservation `json:"routeTarget,omitempty" tf:"route_target,omitempty"`
+RouteDistinguisher *string `json:"routeDistinguisher,omitempty" tf:"route_distinguisher,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []VrfConfigTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Route targets
+RouteTarget []RouteTargetObservation `json:"routeTarget,omitempty" tf:"route_target,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []VrfConfigTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type VrfConfigParameters struct {
 
-	// L3 VNI associated with the VRF for overlay traffic. VNI must be unique and belong to configured VNI pool
-	// +kubebuilder:validation:Optional
-	EvpnTransitVni *float64 `json:"evpnTransitVni,omitempty" tf:"evpn_transit_vni,omitempty"`
 
-	// Default tier0 path
-	// +kubebuilder:validation:Required
-	GatewayPath *string `json:"gatewayPath" tf:"gateway_path,omitempty"`
+// L3 VNI associated with the VRF for overlay traffic. VNI must be unique and belong to configured VNI pool
+// +kubebuilder:validation:Optional
+EvpnTransitVni *float64 `json:"evpnTransitVni,omitempty" tf:"evpn_transit_vni,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RouteDistinguisher *string `json:"routeDistinguisher,omitempty" tf:"route_distinguisher,omitempty"`
+// Default tier0 path
+// +kubebuilder:validation:Required
+GatewayPath *string `json:"gatewayPath" tf:"gateway_path,omitempty"`
 
-	// Route targets
-	// +kubebuilder:validation:Optional
-	RouteTarget []RouteTargetParameters `json:"routeTarget,omitempty" tf:"route_target,omitempty"`
+// +kubebuilder:validation:Optional
+RouteDistinguisher *string `json:"routeDistinguisher,omitempty" tf:"route_distinguisher,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []VrfConfigTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Route targets
+// +kubebuilder:validation:Optional
+RouteTarget []RouteTargetParameters `json:"routeTarget,omitempty" tf:"route_target,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []VrfConfigTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type VrfConfigTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type VrfConfigTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyTier0GatewaySpec defines the desired state of PolicyTier0Gateway
 type PolicyTier0GatewaySpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyTier0GatewayParameters `json:"forProvider"`
+	ForProvider       PolicyTier0GatewayParameters `json:"forProvider"`
 }
 
 // PolicyTier0GatewayStatus defines the observed state of PolicyTier0Gateway.
 type PolicyTier0GatewayStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyTier0GatewayObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyTier0GatewayObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -616,9 +679,9 @@ type PolicyTier0GatewayStatus struct {
 type PolicyTier0Gateway struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyTier0GatewaySpec   `json:"spec"`
-	Status PolicyTier0GatewayStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyTier0GatewaySpec   `json:"spec"`
+	Status            PolicyTier0GatewayStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

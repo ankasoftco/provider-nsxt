@@ -11,105 +11,122 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyProjectObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	ShortID *string `json:"shortId,omitempty" tf:"short_id,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	SiteInfo []SiteInfoObservation `json:"siteInfo,omitempty" tf:"site_info,omitempty"`
+ShortID *string `json:"shortId,omitempty" tf:"short_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+SiteInfo []SiteInfoObservation `json:"siteInfo,omitempty" tf:"site_info,omitempty"`
 
-	Tier0GatewayPaths []*string `json:"tier0GatewayPaths,omitempty" tf:"tier0_gateway_paths,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Tier0GatewayPaths []*string `json:"tier0GatewayPaths,omitempty" tf:"tier0_gateway_paths,omitempty"`
 }
+
 
 type PolicyProjectParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	ShortID *string `json:"shortId,omitempty" tf:"short_id,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	SiteInfo []SiteInfoParameters `json:"siteInfo,omitempty" tf:"site_info,omitempty"`
+// +kubebuilder:validation:Optional
+ShortID *string `json:"shortId,omitempty" tf:"short_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+SiteInfo []SiteInfoParameters `json:"siteInfo,omitempty" tf:"site_info,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tier0GatewayPaths []*string `json:"tier0GatewayPaths,omitempty" tf:"tier0_gateway_paths,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tier0GatewayPaths []*string `json:"tier0GatewayPaths,omitempty" tf:"tier0_gateway_paths,omitempty"`
 }
+
 
 type SiteInfoObservation struct {
-	EdgeClusterPaths []*string `json:"edgeClusterPaths,omitempty" tf:"edge_cluster_paths,omitempty"`
 
-	SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+
+EdgeClusterPaths []*string `json:"edgeClusterPaths,omitempty" tf:"edge_cluster_paths,omitempty"`
+
+SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
 }
+
 
 type SiteInfoParameters struct {
 
-	// +kubebuilder:validation:Optional
-	EdgeClusterPaths []*string `json:"edgeClusterPaths,omitempty" tf:"edge_cluster_paths,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+// +kubebuilder:validation:Optional
+EdgeClusterPaths []*string `json:"edgeClusterPaths,omitempty" tf:"edge_cluster_paths,omitempty"`
+
+// +kubebuilder:validation:Optional
+SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyProjectSpec defines the desired state of PolicyProject
 type PolicyProjectSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyProjectParameters `json:"forProvider"`
+	ForProvider       PolicyProjectParameters `json:"forProvider"`
 }
 
 // PolicyProjectStatus defines the observed state of PolicyProject.
 type PolicyProjectStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyProjectObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyProjectObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -124,9 +141,9 @@ type PolicyProjectStatus struct {
 type PolicyProject struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyProjectSpec   `json:"spec"`
-	Status PolicyProjectStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyProjectSpec   `json:"spec"`
+	Status            PolicyProjectStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

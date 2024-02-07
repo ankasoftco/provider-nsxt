@@ -11,40 +11,47 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type IpPoolAllocationIpAddressObservation struct {
 
-	// IP Address that is allocated from the pool
-	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// IP Address that is allocated from the pool
+AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id,omitempty"`
 
-	// ID of IP pool that allocation belongs to
-	IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+// ID of IP pool that allocation belongs to
+IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
 }
+
 
 type IpPoolAllocationIpAddressParameters struct {
 
-	// IP Address that is allocated from the pool
-	// +kubebuilder:validation:Optional
-	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id,omitempty"`
 
-	// ID of IP pool that allocation belongs to
-	// +kubebuilder:validation:Optional
-	IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
+// IP Address that is allocated from the pool
+// +kubebuilder:validation:Optional
+AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id,omitempty"`
+
+// ID of IP pool that allocation belongs to
+// +kubebuilder:validation:Optional
+IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
 }
 
 // IpPoolAllocationIpAddressSpec defines the desired state of IpPoolAllocationIpAddress
 type IpPoolAllocationIpAddressSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     IpPoolAllocationIpAddressParameters `json:"forProvider"`
+	ForProvider       IpPoolAllocationIpAddressParameters `json:"forProvider"`
 }
 
 // IpPoolAllocationIpAddressStatus defines the observed state of IpPoolAllocationIpAddress.
 type IpPoolAllocationIpAddressStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        IpPoolAllocationIpAddressObservation `json:"atProvider,omitempty"`
+	AtProvider          IpPoolAllocationIpAddressObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -59,9 +66,9 @@ type IpPoolAllocationIpAddressStatus struct {
 type IpPoolAllocationIpAddress struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipPoolId)",message="ipPoolId is a required parameter"
-	Spec   IpPoolAllocationIpAddressSpec   `json:"spec"`
-	Status IpPoolAllocationIpAddressStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipPoolId)",message="ipPoolId is a required parameter"
+	Spec              IpPoolAllocationIpAddressSpec   `json:"spec"`
+	Status            IpPoolAllocationIpAddressStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

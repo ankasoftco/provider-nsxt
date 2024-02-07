@@ -11,89 +11,101 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type AlgorithmTypeNsServiceObservation struct {
 
-	// Algorithm
-	Algorithm *string `json:"algorithm,omitempty" tf:"algorithm,omitempty"`
 
-	// A boolean flag which reflects whether this is a default NSServices which can't be modified/deleted
-	DefaultService *bool `json:"defaultService,omitempty" tf:"default_service,omitempty"`
+// Algorithm
+Algorithm *string `json:"algorithm,omitempty" tf:"algorithm,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// A boolean flag which reflects whether this is a default NSServices which can't be modified/deleted
+DefaultService *bool `json:"defaultService,omitempty" tf:"default_service,omitempty"`
 
-	// A single destination port
-	DestinationPort *string `json:"destinationPort,omitempty" tf:"destination_port,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// A single destination port
+DestinationPort *string `json:"destinationPort,omitempty" tf:"destination_port,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of source ports or ranges
-	SourcePorts []*string `json:"sourcePorts,omitempty" tf:"source_ports,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Set of source ports or ranges
+SourcePorts []*string `json:"sourcePorts,omitempty" tf:"source_ports,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type AlgorithmTypeNsServiceParameters struct {
 
-	// Algorithm
-	// +kubebuilder:validation:Optional
-	Algorithm *string `json:"algorithm,omitempty" tf:"algorithm,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Algorithm
+// +kubebuilder:validation:Optional
+Algorithm *string `json:"algorithm,omitempty" tf:"algorithm,omitempty"`
 
-	// A single destination port
-	// +kubebuilder:validation:Optional
-	DestinationPort *string `json:"destinationPort,omitempty" tf:"destination_port,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// A single destination port
+// +kubebuilder:validation:Optional
+DestinationPort *string `json:"destinationPort,omitempty" tf:"destination_port,omitempty"`
 
-	// Set of source ports or ranges
-	// +kubebuilder:validation:Optional
-	SourcePorts []*string `json:"sourcePorts,omitempty" tf:"source_ports,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Set of source ports or ranges
+// +kubebuilder:validation:Optional
+SourcePorts []*string `json:"sourcePorts,omitempty" tf:"source_ports,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // AlgorithmTypeNsServiceSpec defines the desired state of AlgorithmTypeNsService
 type AlgorithmTypeNsServiceSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     AlgorithmTypeNsServiceParameters `json:"forProvider"`
+	ForProvider       AlgorithmTypeNsServiceParameters `json:"forProvider"`
 }
 
 // AlgorithmTypeNsServiceStatus defines the observed state of AlgorithmTypeNsService.
 type AlgorithmTypeNsServiceStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        AlgorithmTypeNsServiceObservation `json:"atProvider,omitempty"`
+	AtProvider          AlgorithmTypeNsServiceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -108,10 +120,10 @@ type AlgorithmTypeNsServiceStatus struct {
 type AlgorithmTypeNsService struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.algorithm)",message="algorithm is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.destinationPort)",message="destinationPort is a required parameter"
-	Spec   AlgorithmTypeNsServiceSpec   `json:"spec"`
-	Status AlgorithmTypeNsServiceStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.algorithm)",message="algorithm is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.destinationPort)",message="destinationPort is a required parameter"
+	Spec              AlgorithmTypeNsServiceSpec   `json:"spec"`
+	Status            AlgorithmTypeNsServiceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

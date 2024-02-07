@@ -11,161 +11,181 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type AddressBindingObservation struct {
 
-	// A single IP address or a subnet cidr
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// A single MAC address
-	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+// A single IP address or a subnet cidr
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// A single vlan tag value
-	Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
+// A single MAC address
+MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+
+// A single vlan tag value
+Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
 }
+
 
 type AddressBindingParameters struct {
 
-	// A single IP address or a subnet cidr
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// A single MAC address
-	// +kubebuilder:validation:Optional
-	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+// A single IP address or a subnet cidr
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// A single vlan tag value
-	// +kubebuilder:validation:Optional
-	Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
+// A single MAC address
+// +kubebuilder:validation:Optional
+MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+
+// A single vlan tag value
+// +kubebuilder:validation:Optional
+Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
 }
+
 
 type SwitchingProfileIDObservation struct {
 
-	// The resource type of this profile
-	Key *string `json:"key,omitempty" tf:"key,omitempty"`
 
-	// The ID of this profile
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+// The resource type of this profile
+Key *string `json:"key,omitempty" tf:"key,omitempty"`
+
+// The ID of this profile
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type SwitchingProfileIDParameters struct {
 
-	// The resource type of this profile
-	// +kubebuilder:validation:Required
-	Key *string `json:"key" tf:"key,omitempty"`
 
-	// The ID of this profile
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value,omitempty"`
+// The resource type of this profile
+// +kubebuilder:validation:Required
+Key *string `json:"key" tf:"key,omitempty"`
+
+// The ID of this profile
+// +kubebuilder:validation:Required
+Value *string `json:"value" tf:"value,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type VlanLogicalSwitchObservation struct {
 
-	// Address bindings for the Logical switch
-	AddressBinding []AddressBindingObservation `json:"addressBinding,omitempty" tf:"address_binding,omitempty"`
 
-	// Represents Desired state of the object
-	AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
+// Address bindings for the Logical switch
+AddressBinding []AddressBindingObservation `json:"addressBinding,omitempty" tf:"address_binding,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Represents Desired state of the object
+AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// IP pool id that associated with a LogicalSwitch
-	IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Mac pool id that associated with a LogicalSwitch
-	MacPoolID *string `json:"macPoolId,omitempty" tf:"mac_pool_id,omitempty"`
+// IP pool id that associated with a LogicalSwitch
+IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Mac pool id that associated with a LogicalSwitch
+MacPoolID *string `json:"macPoolId,omitempty" tf:"mac_pool_id,omitempty"`
 
-	// List of IDs of switching profiles (of various types) to be associated with this object. Default switching profiles will be used if not specified
-	SwitchingProfileID []SwitchingProfileIDObservation `json:"switchingProfileId,omitempty" tf:"switching_profile_id,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// List of IDs of switching profiles (of various types) to be associated with this object. Default switching profiles will be used if not specified
+SwitchingProfileID []SwitchingProfileIDObservation `json:"switchingProfileId,omitempty" tf:"switching_profile_id,omitempty"`
 
-	// Id of the TransportZone to which this LogicalSwitch is associated
-	TransportZoneID *string `json:"transportZoneId,omitempty" tf:"transport_zone_id,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// VLAN Id
-	Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
+// Id of the TransportZone to which this LogicalSwitch is associated
+TransportZoneID *string `json:"transportZoneId,omitempty" tf:"transport_zone_id,omitempty"`
+
+// VLAN Id
+Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
 }
+
 
 type VlanLogicalSwitchParameters struct {
 
-	// Address bindings for the Logical switch
-	// +kubebuilder:validation:Optional
-	AddressBinding []AddressBindingParameters `json:"addressBinding,omitempty" tf:"address_binding,omitempty"`
 
-	// Represents Desired state of the object
-	// +kubebuilder:validation:Optional
-	AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
+// Address bindings for the Logical switch
+// +kubebuilder:validation:Optional
+AddressBinding []AddressBindingParameters `json:"addressBinding,omitempty" tf:"address_binding,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Represents Desired state of the object
+// +kubebuilder:validation:Optional
+AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// IP pool id that associated with a LogicalSwitch
-	// +kubebuilder:validation:Optional
-	IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Mac pool id that associated with a LogicalSwitch
-	// +kubebuilder:validation:Optional
-	MacPoolID *string `json:"macPoolId,omitempty" tf:"mac_pool_id,omitempty"`
+// IP pool id that associated with a LogicalSwitch
+// +kubebuilder:validation:Optional
+IPPoolID *string `json:"ipPoolId,omitempty" tf:"ip_pool_id,omitempty"`
 
-	// List of IDs of switching profiles (of various types) to be associated with this object. Default switching profiles will be used if not specified
-	// +kubebuilder:validation:Optional
-	SwitchingProfileID []SwitchingProfileIDParameters `json:"switchingProfileId,omitempty" tf:"switching_profile_id,omitempty"`
+// Mac pool id that associated with a LogicalSwitch
+// +kubebuilder:validation:Optional
+MacPoolID *string `json:"macPoolId,omitempty" tf:"mac_pool_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// List of IDs of switching profiles (of various types) to be associated with this object. Default switching profiles will be used if not specified
+// +kubebuilder:validation:Optional
+SwitchingProfileID []SwitchingProfileIDParameters `json:"switchingProfileId,omitempty" tf:"switching_profile_id,omitempty"`
 
-	// Id of the TransportZone to which this LogicalSwitch is associated
-	// +kubebuilder:validation:Optional
-	TransportZoneID *string `json:"transportZoneId,omitempty" tf:"transport_zone_id,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// VLAN Id
-	// +kubebuilder:validation:Optional
-	Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
+// Id of the TransportZone to which this LogicalSwitch is associated
+// +kubebuilder:validation:Optional
+TransportZoneID *string `json:"transportZoneId,omitempty" tf:"transport_zone_id,omitempty"`
+
+// VLAN Id
+// +kubebuilder:validation:Optional
+Vlan *float64 `json:"vlan,omitempty" tf:"vlan,omitempty"`
 }
 
 // VlanLogicalSwitchSpec defines the desired state of VlanLogicalSwitch
 type VlanLogicalSwitchSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VlanLogicalSwitchParameters `json:"forProvider"`
+	ForProvider       VlanLogicalSwitchParameters `json:"forProvider"`
 }
 
 // VlanLogicalSwitchStatus defines the observed state of VlanLogicalSwitch.
 type VlanLogicalSwitchStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VlanLogicalSwitchObservation `json:"atProvider,omitempty"`
+	AtProvider          VlanLogicalSwitchObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -180,10 +200,10 @@ type VlanLogicalSwitchStatus struct {
 type VlanLogicalSwitch struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.transportZoneId)",message="transportZoneId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.vlan)",message="vlan is a required parameter"
-	Spec   VlanLogicalSwitchSpec   `json:"spec"`
-	Status VlanLogicalSwitchStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.transportZoneId)",message="transportZoneId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.vlan)",message="vlan is a required parameter"
+	Spec              VlanLogicalSwitchSpec   `json:"spec"`
+	Status            VlanLogicalSwitchStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,126 +11,147 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type EdgeClusterObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge high availability cluster profile Id
-	EdgeHaProfileID *string `json:"edgeHaProfileId,omitempty" tf:"edge_ha_profile_id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Edge high availability cluster profile Id
+EdgeHaProfileID *string `json:"edgeHaProfileId,omitempty" tf:"edge_ha_profile_id,omitempty"`
 
-	// Edge cluster members
-	Member []MemberObservation `json:"member,omitempty" tf:"member,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Node type of the cluster members
-	MemberNodeType *string `json:"memberNodeType,omitempty" tf:"member_node_type,omitempty"`
+// Edge cluster members
+Member []MemberObservation `json:"member,omitempty" tf:"member,omitempty"`
 
-	// Remote tunnel endpoint ip address
-	NodeRtepIps []NodeRtepIpsObservation `json:"nodeRtepIps,omitempty" tf:"node_rtep_ips,omitempty"`
+// Node type of the cluster members
+MemberNodeType *string `json:"memberNodeType,omitempty" tf:"member_node_type,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Remote tunnel endpoint ip address
+NodeRtepIps []NodeRtepIpsObservation `json:"nodeRtepIps,omitempty" tf:"node_rtep_ips,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type EdgeClusterParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge high availability cluster profile Id
-	// +kubebuilder:validation:Optional
-	EdgeHaProfileID *string `json:"edgeHaProfileId,omitempty" tf:"edge_ha_profile_id,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Edge cluster members
-	// +kubebuilder:validation:Optional
-	Member []MemberParameters `json:"member,omitempty" tf:"member,omitempty"`
+// Edge high availability cluster profile Id
+// +kubebuilder:validation:Optional
+EdgeHaProfileID *string `json:"edgeHaProfileId,omitempty" tf:"edge_ha_profile_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Edge cluster members
+// +kubebuilder:validation:Optional
+Member []MemberParameters `json:"member,omitempty" tf:"member,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type MemberObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// System generated index for cluster member
-	MemberIndex *float64 `json:"memberIndex,omitempty" tf:"member_index,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// UUID of edge transport node
-	TransportNodeID *string `json:"transportNodeId,omitempty" tf:"transport_node_id,omitempty"`
+// System generated index for cluster member
+MemberIndex *float64 `json:"memberIndex,omitempty" tf:"member_index,omitempty"`
+
+// UUID of edge transport node
+TransportNodeID *string `json:"transportNodeId,omitempty" tf:"transport_node_id,omitempty"`
 }
+
 
 type MemberParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// UUID of edge transport node
-	// +kubebuilder:validation:Required
-	TransportNodeID *string `json:"transportNodeId" tf:"transport_node_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+
+// UUID of edge transport node
+// +kubebuilder:validation:Required
+TransportNodeID *string `json:"transportNodeId" tf:"transport_node_id,omitempty"`
 }
+
 
 type NodeRtepIpsObservation struct {
-	MemberIndex *float64 `json:"memberIndex,omitempty" tf:"member_index,omitempty"`
 
-	RtepIps []*string `json:"rtepIps,omitempty" tf:"rtep_ips,omitempty"`
 
-	TransportNodeID *string `json:"transportNodeId,omitempty" tf:"transport_node_id,omitempty"`
+MemberIndex *float64 `json:"memberIndex,omitempty" tf:"member_index,omitempty"`
+
+RtepIps []*string `json:"rtepIps,omitempty" tf:"rtep_ips,omitempty"`
+
+TransportNodeID *string `json:"transportNodeId,omitempty" tf:"transport_node_id,omitempty"`
 }
+
 
 type NodeRtepIpsParameters struct {
+
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // EdgeClusterSpec defines the desired state of EdgeCluster
 type EdgeClusterSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     EdgeClusterParameters `json:"forProvider"`
+	ForProvider       EdgeClusterParameters `json:"forProvider"`
 }
 
 // EdgeClusterStatus defines the observed state of EdgeCluster.
 type EdgeClusterStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        EdgeClusterObservation `json:"atProvider,omitempty"`
+	AtProvider          EdgeClusterObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -145,9 +166,9 @@ type EdgeClusterStatus struct {
 type EdgeCluster struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   EdgeClusterSpec   `json:"spec"`
-	Status EdgeClusterStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              EdgeClusterSpec   `json:"spec"`
+	Status            EdgeClusterStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

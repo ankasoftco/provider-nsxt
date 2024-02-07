@@ -11,157 +11,177 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type AllocationRangeObservation struct {
 
-	// The end IP Address for the range
-	End *string `json:"end,omitempty" tf:"end,omitempty"`
 
-	// The start IP Address for the range
-	Start *string `json:"start,omitempty" tf:"start,omitempty"`
+// The end IP Address for the range
+End *string `json:"end,omitempty" tf:"end,omitempty"`
+
+// The start IP Address for the range
+Start *string `json:"start,omitempty" tf:"start,omitempty"`
 }
+
 
 type AllocationRangeParameters struct {
 
-	// The end IP Address for the range
-	// +kubebuilder:validation:Required
-	End *string `json:"end" tf:"end,omitempty"`
 
-	// The start IP Address for the range
-	// +kubebuilder:validation:Required
-	Start *string `json:"start" tf:"start,omitempty"`
+// The end IP Address for the range
+// +kubebuilder:validation:Required
+End *string `json:"end" tf:"end,omitempty"`
+
+// The start IP Address for the range
+// +kubebuilder:validation:Required
+Start *string `json:"start" tf:"start,omitempty"`
 }
+
 
 type PolicyIpPoolStaticSubnetContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyIpPoolStaticSubnetContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyIpPoolStaticSubnetObservation struct {
 
-	// A collection of IPv4 or IPv6 IP ranges
-	AllocationRange []AllocationRangeObservation `json:"allocationRange,omitempty" tf:"allocation_range,omitempty"`
 
-	// Network address and prefix length
-	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
+// A collection of IPv4 or IPv6 IP ranges
+AllocationRange []AllocationRangeObservation `json:"allocationRange,omitempty" tf:"allocation_range,omitempty"`
 
-	// Resource context
-	Context []PolicyIpPoolStaticSubnetContextObservation `json:"context,omitempty" tf:"context,omitempty"`
+// Network address and prefix length
+Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
-	// The collection of up to 3 DNS servers for the subnet
-	DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
+// Resource context
+Context []PolicyIpPoolStaticSubnetContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// DNS suffix for the nameserver
-	DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
+// The collection of up to 3 DNS servers for the subnet
+DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DNS suffix for the nameserver
+DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The default gateway address
-	Gateway *string `json:"gateway,omitempty" tf:"gateway,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The default gateway address
+Gateway *string `json:"gateway,omitempty" tf:"gateway,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Policy path to the IP Pool for this Subnet
-	PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path to the IP Pool for this Subnet
+PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyIpPoolStaticSubnetTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyIpPoolStaticSubnetTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyIpPoolStaticSubnetParameters struct {
 
-	// A collection of IPv4 or IPv6 IP ranges
-	// +kubebuilder:validation:Optional
-	AllocationRange []AllocationRangeParameters `json:"allocationRange,omitempty" tf:"allocation_range,omitempty"`
 
-	// Network address and prefix length
-	// +kubebuilder:validation:Optional
-	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
+// A collection of IPv4 or IPv6 IP ranges
+// +kubebuilder:validation:Optional
+AllocationRange []AllocationRangeParameters `json:"allocationRange,omitempty" tf:"allocation_range,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyIpPoolStaticSubnetContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// Network address and prefix length
+// +kubebuilder:validation:Optional
+Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
-	// The collection of up to 3 DNS servers for the subnet
-	// +kubebuilder:validation:Optional
-	DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyIpPoolStaticSubnetContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// DNS suffix for the nameserver
-	// +kubebuilder:validation:Optional
-	DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
+// The collection of up to 3 DNS servers for the subnet
+// +kubebuilder:validation:Optional
+DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DNS suffix for the nameserver
+// +kubebuilder:validation:Optional
+DNSSuffix *string `json:"dnsSuffix,omitempty" tf:"dns_suffix,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The default gateway address
-	// +kubebuilder:validation:Optional
-	Gateway *string `json:"gateway,omitempty" tf:"gateway,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// The default gateway address
+// +kubebuilder:validation:Optional
+Gateway *string `json:"gateway,omitempty" tf:"gateway,omitempty"`
 
-	// Policy path to the IP Pool for this Subnet
-	// +kubebuilder:validation:Optional
-	PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyIpPoolStaticSubnetTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path to the IP Pool for this Subnet
+// +kubebuilder:validation:Optional
+PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyIpPoolStaticSubnetTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyIpPoolStaticSubnetTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyIpPoolStaticSubnetTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyIpPoolStaticSubnetSpec defines the desired state of PolicyIpPoolStaticSubnet
 type PolicyIpPoolStaticSubnetSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyIpPoolStaticSubnetParameters `json:"forProvider"`
+	ForProvider       PolicyIpPoolStaticSubnetParameters `json:"forProvider"`
 }
 
 // PolicyIpPoolStaticSubnetStatus defines the observed state of PolicyIpPoolStaticSubnet.
 type PolicyIpPoolStaticSubnetStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyIpPoolStaticSubnetObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyIpPoolStaticSubnetObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -176,12 +196,12 @@ type PolicyIpPoolStaticSubnetStatus struct {
 type PolicyIpPoolStaticSubnet struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.allocationRange)",message="allocationRange is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.cidr)",message="cidr is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.poolPath)",message="poolPath is a required parameter"
-	Spec   PolicyIpPoolStaticSubnetSpec   `json:"spec"`
-	Status PolicyIpPoolStaticSubnetStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.allocationRange)",message="allocationRange is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.cidr)",message="cidr is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.poolPath)",message="poolPath is a required parameter"
+	Spec              PolicyIpPoolStaticSubnetSpec   `json:"spec"`
+	Status            PolicyIpPoolStaticSubnetStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

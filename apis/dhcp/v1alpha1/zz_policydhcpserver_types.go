@@ -11,123 +11,139 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyDhcpServerContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyDhcpServerContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyDhcpServerObservation struct {
 
-	// Resource context
-	Context []PolicyDhcpServerContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+Context []PolicyDhcpServerContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge Cluster path
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Edge Cluster path
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// IP Address lease time in seconds
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// IP Address lease time in seconds
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The first edge node is assigned as active edge, and second one as standby edge
-	PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// The first edge node is assigned as active edge, and second one as standby edge
+PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
 
-	// DHCP server address in CIDR format
-	ServerAddresses []*string `json:"serverAddresses,omitempty" tf:"server_addresses,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyDhcpServerTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// DHCP server address in CIDR format
+ServerAddresses []*string `json:"serverAddresses,omitempty" tf:"server_addresses,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyDhcpServerTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpServerParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyDhcpServerContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyDhcpServerContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge Cluster path
-	// +kubebuilder:validation:Optional
-	EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// IP Address lease time in seconds
-	// +kubebuilder:validation:Optional
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// Edge Cluster path
+// +kubebuilder:validation:Optional
+EdgeClusterPath *string `json:"edgeClusterPath,omitempty" tf:"edge_cluster_path,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// IP Address lease time in seconds
+// +kubebuilder:validation:Optional
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// The first edge node is assigned as active edge, and second one as standby edge
-	// +kubebuilder:validation:Optional
-	PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// DHCP server address in CIDR format
-	// +kubebuilder:validation:Optional
-	ServerAddresses []*string `json:"serverAddresses,omitempty" tf:"server_addresses,omitempty"`
+// The first edge node is assigned as active edge, and second one as standby edge
+// +kubebuilder:validation:Optional
+PreferredEdgePaths []*string `json:"preferredEdgePaths,omitempty" tf:"preferred_edge_paths,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyDhcpServerTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// DHCP server address in CIDR format
+// +kubebuilder:validation:Optional
+ServerAddresses []*string `json:"serverAddresses,omitempty" tf:"server_addresses,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyDhcpServerTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpServerTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpServerTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyDhcpServerSpec defines the desired state of PolicyDhcpServer
 type PolicyDhcpServerSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyDhcpServerParameters `json:"forProvider"`
+	ForProvider       PolicyDhcpServerParameters `json:"forProvider"`
 }
 
 // PolicyDhcpServerStatus defines the observed state of PolicyDhcpServer.
 type PolicyDhcpServerStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyDhcpServerObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyDhcpServerObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -142,9 +158,9 @@ type PolicyDhcpServerStatus struct {
 type PolicyDhcpServer struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyDhcpServerSpec   `json:"spec"`
-	Status PolicyDhcpServerStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyDhcpServerSpec   `json:"spec"`
+	Status            PolicyDhcpServerStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,228 +11,244 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyIpsecVpnSessionObservation struct {
 
-	// Peer authentication mode. PSK - In this mode a secret key shared between local and peer sites is to be used for authentication. The secret key can be a string with a maximum length of 128 characters. CERTIFICATE - In this mode a certificate defined at the global level is to be used for authentication.
-	AuthenticationMode *string `json:"authenticationMode,omitempty" tf:"authentication_mode,omitempty"`
 
-	// Compliance suite.
-	ComplianceSuite *string `json:"complianceSuite,omitempty" tf:"compliance_suite,omitempty"`
+// Peer authentication mode. PSK - In this mode a secret key shared between local and peer sites is to be used for authentication. The secret key can be a string with a maximum length of 128 characters. CERTIFICATE - In this mode a certificate defined at the global level is to be used for authentication.
+AuthenticationMode *string `json:"authenticationMode,omitempty" tf:"authentication_mode,omitempty"`
 
-	// Connection initiation mode used by local endpoint to establish ike connection with peer site. INITIATOR - In this mode local endpoint initiates tunnel setup and will also respond to incoming tunnel setup requests from peer gateway. RESPOND_ONLY - In this mode, local endpoint shall only respond to incoming tunnel setup requests. It shall not initiate the tunnel setup. ON_DEMAND - In this mode local endpoint will initiate tunnel creation once first packet matching the policy rule is received and will also respond to incoming initiation request.
-	ConnectionInitiationMode *string `json:"connectionInitiationMode,omitempty" tf:"connection_initiation_mode,omitempty"`
+// Compliance suite.
+ComplianceSuite *string `json:"complianceSuite,omitempty" tf:"compliance_suite,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Connection initiation mode used by local endpoint to establish ike connection with peer site. INITIATOR - In this mode local endpoint initiates tunnel setup and will also respond to incoming tunnel setup requests from peer gateway. RESPOND_ONLY - In this mode, local endpoint shall only respond to incoming tunnel setup requests. It shall not initiate the tunnel setup. ON_DEMAND - In this mode local endpoint will initiate tunnel creation once first packet matching the policy rule is received and will also respond to incoming initiation request.
+ConnectionInitiationMode *string `json:"connectionInitiationMode,omitempty" tf:"connection_initiation_mode,omitempty"`
 
-	// The traffic direction apply to the MSS clamping
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// The traffic direction apply to the MSS clamping
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Policy path referencing dpd profile.
-	DpdProfilePath *string `json:"dpdProfilePath,omitempty" tf:"dpd_profile_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Enable/Disable IPSec VPN session.
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Policy path referencing dpd profile.
+DpdProfilePath *string `json:"dpdProfilePath,omitempty" tf:"dpd_profile_path,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Enable/Disable IPSec VPN session.
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// IP Tunnel interface (commonly referred as VTI) ip addresses.
-	IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path referencing Ike profile.
-	IkeProfilePath *string `json:"ikeProfilePath,omitempty" tf:"ike_profile_path,omitempty"`
+// IP Tunnel interface (commonly referred as VTI) ip addresses.
+IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
 
-	// Policy path referencing Local endpoint.
-	LocalEndpointPath *string `json:"localEndpointPath,omitempty" tf:"local_endpoint_path,omitempty"`
+// Policy path referencing Ike profile.
+IkeProfilePath *string `json:"ikeProfilePath,omitempty" tf:"ike_profile_path,omitempty"`
 
-	// Maximum amount of data the host will accept in a Tcp segment.
-	MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
+// Policy path referencing Local endpoint.
+LocalEndpointPath *string `json:"localEndpointPath,omitempty" tf:"local_endpoint_path,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Maximum amount of data the host will accept in a Tcp segment.
+MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Public IPV4 address of the remote device terminating the VPN connection.
-	PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Peer ID to uniquely identify the peer site. The peer ID is the public IP address of the remote device terminating the VPN tunnel. When NAT is configured for the peer, enter the private IP address of the peer.
-	PeerID *string `json:"peerId,omitempty" tf:"peer_id,omitempty"`
+// Public IPV4 address of the remote device terminating the VPN connection.
+PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
 
-	// Subnet Prefix Length.
-	PrefixLength *float64 `json:"prefixLength,omitempty" tf:"prefix_length,omitempty"`
+// Peer ID to uniquely identify the peer site. The peer ID is the public IP address of the remote device terminating the VPN tunnel. When NAT is configured for the peer, enter the private IP address of the peer.
+PeerID *string `json:"peerId,omitempty" tf:"peer_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Subnet Prefix Length.
+PrefixLength *float64 `json:"prefixLength,omitempty" tf:"prefix_length,omitempty"`
 
-	// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
-	Rule []RuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Policy path for IPSec VPN service
-	ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
+// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
+Rule []RuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for IPSec VPN service
+ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
 
-	// Policy path referencing tunnel profile.
-	TunnelProfilePath *string `json:"tunnelProfilePath,omitempty" tf:"tunnel_profile_path,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// A Policy Based VPN requires to define protect rules that match local and peer subnets. IPSec security associations is negotiated for each pair of local and peer subnet. A Route Based VPN is more flexible, more powerful and recommended over policy based VPN. IP Tunnel port is created and all traffic routed via tunnel port is protected. Routes can be configured statically or can be learned through BGP. A route based VPN is must for establishing redundant VPN session to remote site.
-	VPNType *string `json:"vpnType,omitempty" tf:"vpn_type,omitempty"`
+// Policy path referencing tunnel profile.
+TunnelProfilePath *string `json:"tunnelProfilePath,omitempty" tf:"tunnel_profile_path,omitempty"`
+
+// A Policy Based VPN requires to define protect rules that match local and peer subnets. IPSec security associations is negotiated for each pair of local and peer subnet. A Route Based VPN is more flexible, more powerful and recommended over policy based VPN. IP Tunnel port is created and all traffic routed via tunnel port is protected. Routes can be configured statically or can be learned through BGP. A route based VPN is must for establishing redundant VPN session to remote site.
+VPNType *string `json:"vpnType,omitempty" tf:"vpn_type,omitempty"`
 }
+
 
 type PolicyIpsecVpnSessionParameters struct {
 
-	// Peer authentication mode. PSK - In this mode a secret key shared between local and peer sites is to be used for authentication. The secret key can be a string with a maximum length of 128 characters. CERTIFICATE - In this mode a certificate defined at the global level is to be used for authentication.
-	// +kubebuilder:validation:Optional
-	AuthenticationMode *string `json:"authenticationMode,omitempty" tf:"authentication_mode,omitempty"`
 
-	// Compliance suite.
-	// +kubebuilder:validation:Optional
-	ComplianceSuite *string `json:"complianceSuite,omitempty" tf:"compliance_suite,omitempty"`
+// Peer authentication mode. PSK - In this mode a secret key shared between local and peer sites is to be used for authentication. The secret key can be a string with a maximum length of 128 characters. CERTIFICATE - In this mode a certificate defined at the global level is to be used for authentication.
+// +kubebuilder:validation:Optional
+AuthenticationMode *string `json:"authenticationMode,omitempty" tf:"authentication_mode,omitempty"`
 
-	// Connection initiation mode used by local endpoint to establish ike connection with peer site. INITIATOR - In this mode local endpoint initiates tunnel setup and will also respond to incoming tunnel setup requests from peer gateway. RESPOND_ONLY - In this mode, local endpoint shall only respond to incoming tunnel setup requests. It shall not initiate the tunnel setup. ON_DEMAND - In this mode local endpoint will initiate tunnel creation once first packet matching the policy rule is received and will also respond to incoming initiation request.
-	// +kubebuilder:validation:Optional
-	ConnectionInitiationMode *string `json:"connectionInitiationMode,omitempty" tf:"connection_initiation_mode,omitempty"`
+// Compliance suite.
+// +kubebuilder:validation:Optional
+ComplianceSuite *string `json:"complianceSuite,omitempty" tf:"compliance_suite,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Connection initiation mode used by local endpoint to establish ike connection with peer site. INITIATOR - In this mode local endpoint initiates tunnel setup and will also respond to incoming tunnel setup requests from peer gateway. RESPOND_ONLY - In this mode, local endpoint shall only respond to incoming tunnel setup requests. It shall not initiate the tunnel setup. ON_DEMAND - In this mode local endpoint will initiate tunnel creation once first packet matching the policy rule is received and will also respond to incoming initiation request.
+// +kubebuilder:validation:Optional
+ConnectionInitiationMode *string `json:"connectionInitiationMode,omitempty" tf:"connection_initiation_mode,omitempty"`
 
-	// The traffic direction apply to the MSS clamping
-	// +kubebuilder:validation:Optional
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// The traffic direction apply to the MSS clamping
+// +kubebuilder:validation:Optional
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Policy path referencing dpd profile.
-	// +kubebuilder:validation:Optional
-	DpdProfilePath *string `json:"dpdProfilePath,omitempty" tf:"dpd_profile_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Enable/Disable IPSec VPN session.
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Policy path referencing dpd profile.
+// +kubebuilder:validation:Optional
+DpdProfilePath *string `json:"dpdProfilePath,omitempty" tf:"dpd_profile_path,omitempty"`
 
-	// IP Tunnel interface (commonly referred as VTI) ip addresses.
-	// +kubebuilder:validation:Optional
-	IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
+// Enable/Disable IPSec VPN session.
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Policy path referencing Ike profile.
-	// +kubebuilder:validation:Optional
-	IkeProfilePath *string `json:"ikeProfilePath,omitempty" tf:"ike_profile_path,omitempty"`
+// IP Tunnel interface (commonly referred as VTI) ip addresses.
+// +kubebuilder:validation:Optional
+IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
 
-	// Policy path referencing Local endpoint.
-	// +kubebuilder:validation:Optional
-	LocalEndpointPath *string `json:"localEndpointPath,omitempty" tf:"local_endpoint_path,omitempty"`
+// Policy path referencing Ike profile.
+// +kubebuilder:validation:Optional
+IkeProfilePath *string `json:"ikeProfilePath,omitempty" tf:"ike_profile_path,omitempty"`
 
-	// Maximum amount of data the host will accept in a Tcp segment.
-	// +kubebuilder:validation:Optional
-	MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
+// Policy path referencing Local endpoint.
+// +kubebuilder:validation:Optional
+LocalEndpointPath *string `json:"localEndpointPath,omitempty" tf:"local_endpoint_path,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Maximum amount of data the host will accept in a Tcp segment.
+// +kubebuilder:validation:Optional
+MaxSegmentSize *float64 `json:"maxSegmentSize,omitempty" tf:"max_segment_size,omitempty"`
 
-	// Public IPV4 address of the remote device terminating the VPN connection.
-	// +kubebuilder:validation:Optional
-	PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Peer ID to uniquely identify the peer site. The peer ID is the public IP address of the remote device terminating the VPN tunnel. When NAT is configured for the peer, enter the private IP address of the peer.
-	// +kubebuilder:validation:Optional
-	PeerID *string `json:"peerId,omitempty" tf:"peer_id,omitempty"`
+// Public IPV4 address of the remote device terminating the VPN connection.
+// +kubebuilder:validation:Optional
+PeerAddress *string `json:"peerAddress,omitempty" tf:"peer_address,omitempty"`
 
-	// Subnet Prefix Length.
-	// +kubebuilder:validation:Optional
-	PrefixLength *float64 `json:"prefixLength,omitempty" tf:"prefix_length,omitempty"`
+// Peer ID to uniquely identify the peer site. The peer ID is the public IP address of the remote device terminating the VPN tunnel. When NAT is configured for the peer, enter the private IP address of the peer.
+// +kubebuilder:validation:Optional
+PeerID *string `json:"peerId,omitempty" tf:"peer_id,omitempty"`
 
-	// IPSec Pre-shared key. Maximum length of this field is 128 characters.
-	// +kubebuilder:validation:Optional
-	PskSecretRef *v1.SecretKeySelector `json:"pskSecretRef,omitempty" tf:"-"`
+// Subnet Prefix Length.
+// +kubebuilder:validation:Optional
+PrefixLength *float64 `json:"prefixLength,omitempty" tf:"prefix_length,omitempty"`
 
-	// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
-	// +kubebuilder:validation:Optional
-	Rule []RuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
+// IPSec Pre-shared key. Maximum length of this field is 128 characters.
+// +kubebuilder:validation:Optional
+PskSecretRef *v1.SecretKeySelector `json:"pskSecretRef,omitempty" tf:"-"`
 
-	// Policy path for IPSec VPN service
-	// +kubebuilder:validation:Optional
-	ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
+// For policy-based IPsec VPNs, a security policy specifies as its action the VPN tunnel to be used for transit traffic that meets the policy match criteria
+// +kubebuilder:validation:Optional
+Rule []RuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Policy path for IPSec VPN service
+// +kubebuilder:validation:Optional
+ServicePath *string `json:"servicePath,omitempty" tf:"service_path,omitempty"`
 
-	// Policy path referencing tunnel profile.
-	// +kubebuilder:validation:Optional
-	TunnelProfilePath *string `json:"tunnelProfilePath,omitempty" tf:"tunnel_profile_path,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// A Policy Based VPN requires to define protect rules that match local and peer subnets. IPSec security associations is negotiated for each pair of local and peer subnet. A Route Based VPN is more flexible, more powerful and recommended over policy based VPN. IP Tunnel port is created and all traffic routed via tunnel port is protected. Routes can be configured statically or can be learned through BGP. A route based VPN is must for establishing redundant VPN session to remote site.
-	// +kubebuilder:validation:Optional
-	VPNType *string `json:"vpnType,omitempty" tf:"vpn_type,omitempty"`
+// Policy path referencing tunnel profile.
+// +kubebuilder:validation:Optional
+TunnelProfilePath *string `json:"tunnelProfilePath,omitempty" tf:"tunnel_profile_path,omitempty"`
+
+// A Policy Based VPN requires to define protect rules that match local and peer subnets. IPSec security associations is negotiated for each pair of local and peer subnet. A Route Based VPN is more flexible, more powerful and recommended over policy based VPN. IP Tunnel port is created and all traffic routed via tunnel port is protected. Routes can be configured statically or can be learned through BGP. A route based VPN is must for establishing redundant VPN session to remote site.
+// +kubebuilder:validation:Optional
+VPNType *string `json:"vpnType,omitempty" tf:"vpn_type,omitempty"`
 }
+
 
 type RuleObservation struct {
 
-	// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of remote subnets
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// List of remote subnets
+Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
 
-	// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
-	Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+
+// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
+Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
 }
+
 
 type RuleParameters struct {
 
-	// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
-	// +kubebuilder:validation:Optional
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of remote subnets
-	// +kubebuilder:validation:Optional
-	Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+// PROTECT - Protect rules are defined per policy based IPSec VPN session. BYPASS - Bypass rules are defined per IPSec VPN service and affects all policy based IPSec VPN sessions. Bypass rules are prioritized over protect rules.
+// +kubebuilder:validation:Optional
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
-	// +kubebuilder:validation:Optional
-	Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
+// List of remote subnets
+// +kubebuilder:validation:Optional
+Destinations []*string `json:"destinations,omitempty" tf:"destinations,omitempty"`
+
+// List of local subnets. Specifying no value is interpreted as 0.0.0.0/0.
+// +kubebuilder:validation:Optional
+Sources []*string `json:"sources,omitempty" tf:"sources,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyIpsecVpnSessionSpec defines the desired state of PolicyIpsecVpnSession
 type PolicyIpsecVpnSessionSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyIpsecVpnSessionParameters `json:"forProvider"`
+	ForProvider       PolicyIpsecVpnSessionParameters `json:"forProvider"`
 }
 
 // PolicyIpsecVpnSessionStatus defines the observed state of PolicyIpsecVpnSession.
 type PolicyIpsecVpnSessionStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyIpsecVpnSessionObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyIpsecVpnSessionObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -247,14 +263,14 @@ type PolicyIpsecVpnSessionStatus struct {
 type PolicyIpsecVpnSession struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.localEndpointPath)",message="localEndpointPath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.peerAddress)",message="peerAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.peerId)",message="peerId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.servicePath)",message="servicePath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.vpnType)",message="vpnType is a required parameter"
-	Spec   PolicyIpsecVpnSessionSpec   `json:"spec"`
-	Status PolicyIpsecVpnSessionStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.localEndpointPath)",message="localEndpointPath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.peerAddress)",message="peerAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.peerId)",message="peerId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.servicePath)",message="servicePath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.vpnType)",message="vpnType is a required parameter"
+	Spec              PolicyIpsecVpnSessionSpec   `json:"spec"`
+	Status            PolicyIpsecVpnSessionStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

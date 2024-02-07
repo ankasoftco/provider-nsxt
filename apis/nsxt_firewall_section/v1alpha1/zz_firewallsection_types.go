@@ -11,350 +11,386 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type AppliedToObservation struct {
 
-	// A boolean flag which will be set to false if the referenced NSX resource has been deleted
-	IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Display name of the NSX resource
-	TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
+// A boolean flag which will be set to false if the referenced NSX resource has been deleted
+IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Identifier of the NSX resource
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+// Display name of the NSX resource
+TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
 
-	// Type of the NSX resource
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type AppliedToParameters struct {
 
-	// Identifier of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
 
-	// Type of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+// +kubebuilder:validation:Optional
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+// +kubebuilder:validation:Optional
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type DestinationObservation struct {
 
-	// A boolean flag which will be set to false if the referenced NSX resource has been deleted
-	IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Display name of the NSX resource
-	TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
+// A boolean flag which will be set to false if the referenced NSX resource has been deleted
+IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Identifier of the NSX resource
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+// Display name of the NSX resource
+TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
 
-	// Type of the NSX resource
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type DestinationParameters struct {
 
-	// Identifier of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
 
-	// Type of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+// +kubebuilder:validation:Optional
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+// +kubebuilder:validation:Optional
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type FirewallSectionObservation struct {
 
-	// List of objects where the rules in this section will be enforced. This will take precedence over rule level appliedTo
-	AppliedTo []AppliedToObservation `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// List of objects where the rules in this section will be enforced. This will take precedence over rule level appliedTo
+AppliedTo []AppliedToObservation `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Id of section that should come after this one
-	InsertBefore *string `json:"insertBefore,omitempty" tf:"insert_before,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// A boolean flag which reflects whether a firewall section is default section or not
-	IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
+// Id of section that should come after this one
+InsertBefore *string `json:"insertBefore,omitempty" tf:"insert_before,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// A boolean flag which reflects whether a firewall section is default section or not
+IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
 
-	// List of firewall rules in the section. Only homogeneous rules are supported
-	Rule []RuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Type of the rules which a section can contain. Only homogeneous sections are supported
-	SectionType *string `json:"sectionType,omitempty" tf:"section_type,omitempty"`
+// List of firewall rules in the section. Only homogeneous rules are supported
+Rule []RuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
 
-	// Stateful or Stateless nature of firewall section is enforced on all rules inside the section
-	Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+// Type of the rules which a section can contain. Only homogeneous sections are supported
+SectionType *string `json:"sectionType,omitempty" tf:"section_type,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Stateful or Stateless nature of firewall section is enforced on all rules inside the section
+Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type FirewallSectionParameters struct {
 
-	// List of objects where the rules in this section will be enforced. This will take precedence over rule level appliedTo
-	// +kubebuilder:validation:Optional
-	AppliedTo []AppliedToParameters `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// List of objects where the rules in this section will be enforced. This will take precedence over rule level appliedTo
+// +kubebuilder:validation:Optional
+AppliedTo []AppliedToParameters `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Id of section that should come after this one
-	// +kubebuilder:validation:Optional
-	InsertBefore *string `json:"insertBefore,omitempty" tf:"insert_before,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// List of firewall rules in the section. Only homogeneous rules are supported
-	// +kubebuilder:validation:Optional
-	Rule []RuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
+// Id of section that should come after this one
+// +kubebuilder:validation:Optional
+InsertBefore *string `json:"insertBefore,omitempty" tf:"insert_before,omitempty"`
 
-	// Type of the rules which a section can contain. Only homogeneous sections are supported
-	// +kubebuilder:validation:Optional
-	SectionType *string `json:"sectionType,omitempty" tf:"section_type,omitempty"`
+// List of firewall rules in the section. Only homogeneous rules are supported
+// +kubebuilder:validation:Optional
+Rule []RuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
 
-	// Stateful or Stateless nature of firewall section is enforced on all rules inside the section
-	// +kubebuilder:validation:Optional
-	Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+// Type of the rules which a section can contain. Only homogeneous sections are supported
+// +kubebuilder:validation:Optional
+SectionType *string `json:"sectionType,omitempty" tf:"section_type,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Stateful or Stateless nature of firewall section is enforced on all rules inside the section
+// +kubebuilder:validation:Optional
+Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type RuleAppliedToObservation struct {
 
-	// A boolean flag which will be set to false if the referenced NSX resource has been deleted
-	IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Display name of the NSX resource
-	TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
+// A boolean flag which will be set to false if the referenced NSX resource has been deleted
+IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Identifier of the NSX resource
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+// Display name of the NSX resource
+TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
 
-	// Type of the NSX resource
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type RuleAppliedToParameters struct {
 
-	// Identifier of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
 
-	// Type of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+// +kubebuilder:validation:Optional
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+// +kubebuilder:validation:Optional
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type RuleObservation struct {
 
-	// Action enforced on the packets which matches the firewall rule
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of objects where rule will be enforced. The section level field overrides this one. Null will be treated as any
-	AppliedTo []RuleAppliedToObservation `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
+// Action enforced on the packets which matches the firewall rule
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// List of objects where rule will be enforced. The section level field overrides this one. Null will be treated as any
+AppliedTo []RuleAppliedToObservation `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
 
-	// List of the destinations. Null will be treated as any
-	Destination []DestinationObservation `json:"destination,omitempty" tf:"destination,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// When this boolean flag is set to true, the rule destinations will be negated
-	DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
+// List of the destinations. Null will be treated as any
+Destination []DestinationObservation `json:"destination,omitempty" tf:"destination,omitempty"`
 
-	// Rule direction in case of stateless firewall rules. This will only be considered if section level parameter is set to stateless. Default to IN_OUT if not specified
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// When this boolean flag is set to true, the rule destinations will be negated
+DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
 
-	// Flag to disable rule. Disabled will only be persisted but never provisioned/realized
-	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
+// Rule direction in case of stateless firewall rules. This will only be considered if section level parameter is set to stateless. Default to IN_OUT if not specified
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Flag to disable rule. Disabled will only be persisted but never provisioned/realized
+Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
-	// ID of this resource
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Type of IP packet that should be matched while enforcing the rule (IPV4, IPV6, IPV4_IPV6)
-	IPProtocol *string `json:"ipProtocol,omitempty" tf:"ip_protocol,omitempty"`
+// ID of this resource
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Flag to enable packet logging. Default is disabled
-	Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
+// Type of IP packet that should be matched while enforcing the rule (IPV4, IPV6, IPV4_IPV6)
+IPProtocol *string `json:"ipProtocol,omitempty" tf:"ip_protocol,omitempty"`
 
-	// User notes specific to the rule
-	Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
+// Flag to enable packet logging. Default is disabled
+Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// User notes specific to the rule
+Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
 
-	// User level field which will be printed in CLI and packet logs
-	RuleTag *string `json:"ruleTag,omitempty" tf:"rule_tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// List of the services. Null will be treated as any
-	Service []ServiceObservation `json:"service,omitempty" tf:"service,omitempty"`
+// User level field which will be printed in CLI and packet logs
+RuleTag *string `json:"ruleTag,omitempty" tf:"rule_tag,omitempty"`
 
-	// List of sources. Null will be treated as any
-	Source []SourceObservation `json:"source,omitempty" tf:"source,omitempty"`
+// List of the services. Null will be treated as any
+Service []ServiceObservation `json:"service,omitempty" tf:"service,omitempty"`
 
-	// When this boolean flag is set to true, the rule sources will be negated
-	SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
+// List of sources. Null will be treated as any
+Source []SourceObservation `json:"source,omitempty" tf:"source,omitempty"`
+
+// When this boolean flag is set to true, the rule sources will be negated
+SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
 }
+
 
 type RuleParameters struct {
 
-	// Action enforced on the packets which matches the firewall rule
-	// +kubebuilder:validation:Required
-	Action *string `json:"action" tf:"action,omitempty"`
 
-	// List of objects where rule will be enforced. The section level field overrides this one. Null will be treated as any
-	// +kubebuilder:validation:Optional
-	AppliedTo []RuleAppliedToParameters `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
+// Action enforced on the packets which matches the firewall rule
+// +kubebuilder:validation:Required
+Action *string `json:"action" tf:"action,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// List of objects where rule will be enforced. The section level field overrides this one. Null will be treated as any
+// +kubebuilder:validation:Optional
+AppliedTo []RuleAppliedToParameters `json:"appliedTo,omitempty" tf:"applied_to,omitempty"`
 
-	// List of the destinations. Null will be treated as any
-	// +kubebuilder:validation:Optional
-	Destination []DestinationParameters `json:"destination,omitempty" tf:"destination,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// When this boolean flag is set to true, the rule destinations will be negated
-	// +kubebuilder:validation:Optional
-	DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
+// List of the destinations. Null will be treated as any
+// +kubebuilder:validation:Optional
+Destination []DestinationParameters `json:"destination,omitempty" tf:"destination,omitempty"`
 
-	// Rule direction in case of stateless firewall rules. This will only be considered if section level parameter is set to stateless. Default to IN_OUT if not specified
-	// +kubebuilder:validation:Optional
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// When this boolean flag is set to true, the rule destinations will be negated
+// +kubebuilder:validation:Optional
+DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
 
-	// Flag to disable rule. Disabled will only be persisted but never provisioned/realized
-	// +kubebuilder:validation:Optional
-	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
+// Rule direction in case of stateless firewall rules. This will only be considered if section level parameter is set to stateless. Default to IN_OUT if not specified
+// +kubebuilder:validation:Optional
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Flag to disable rule. Disabled will only be persisted but never provisioned/realized
+// +kubebuilder:validation:Optional
+Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
-	// Type of IP packet that should be matched while enforcing the rule (IPV4, IPV6, IPV4_IPV6)
-	// +kubebuilder:validation:Optional
-	IPProtocol *string `json:"ipProtocol,omitempty" tf:"ip_protocol,omitempty"`
+// Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Flag to enable packet logging. Default is disabled
-	// +kubebuilder:validation:Optional
-	Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
+// Type of IP packet that should be matched while enforcing the rule (IPV4, IPV6, IPV4_IPV6)
+// +kubebuilder:validation:Optional
+IPProtocol *string `json:"ipProtocol,omitempty" tf:"ip_protocol,omitempty"`
 
-	// User notes specific to the rule
-	// +kubebuilder:validation:Optional
-	Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
+// Flag to enable packet logging. Default is disabled
+// +kubebuilder:validation:Optional
+Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
 
-	// User level field which will be printed in CLI and packet logs
-	// +kubebuilder:validation:Optional
-	RuleTag *string `json:"ruleTag,omitempty" tf:"rule_tag,omitempty"`
+// User notes specific to the rule
+// +kubebuilder:validation:Optional
+Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
 
-	// List of the services. Null will be treated as any
-	// +kubebuilder:validation:Optional
-	Service []ServiceParameters `json:"service,omitempty" tf:"service,omitempty"`
+// User level field which will be printed in CLI and packet logs
+// +kubebuilder:validation:Optional
+RuleTag *string `json:"ruleTag,omitempty" tf:"rule_tag,omitempty"`
 
-	// List of sources. Null will be treated as any
-	// +kubebuilder:validation:Optional
-	Source []SourceParameters `json:"source,omitempty" tf:"source,omitempty"`
+// List of the services. Null will be treated as any
+// +kubebuilder:validation:Optional
+Service []ServiceParameters `json:"service,omitempty" tf:"service,omitempty"`
 
-	// When this boolean flag is set to true, the rule sources will be negated
-	// +kubebuilder:validation:Optional
-	SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
+// List of sources. Null will be treated as any
+// +kubebuilder:validation:Optional
+Source []SourceParameters `json:"source,omitempty" tf:"source,omitempty"`
+
+// When this boolean flag is set to true, the rule sources will be negated
+// +kubebuilder:validation:Optional
+SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
 }
+
 
 type ServiceObservation struct {
 
-	// A boolean flag which will be set to false if the referenced NSX resource has been deleted
-	IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Display name of the NSX resource
-	TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
+// A boolean flag which will be set to false if the referenced NSX resource has been deleted
+IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Identifier of the NSX resource
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+// Display name of the NSX resource
+TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
 
-	// Type of the NSX resource
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type ServiceParameters struct {
 
-	// Identifier of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
 
-	// Type of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+// +kubebuilder:validation:Optional
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+// +kubebuilder:validation:Optional
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type SourceObservation struct {
 
-	// A boolean flag which will be set to false if the referenced NSX resource has been deleted
-	IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Display name of the NSX resource
-	TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
+// A boolean flag which will be set to false if the referenced NSX resource has been deleted
+IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Identifier of the NSX resource
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+// Display name of the NSX resource
+TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
 
-	// Type of the NSX resource
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type SourceParameters struct {
 
-	// Identifier of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
 
-	// Type of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+// +kubebuilder:validation:Optional
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+// +kubebuilder:validation:Optional
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // FirewallSectionSpec defines the desired state of FirewallSection
 type FirewallSectionSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     FirewallSectionParameters `json:"forProvider"`
+	ForProvider       FirewallSectionParameters `json:"forProvider"`
 }
 
 // FirewallSectionStatus defines the observed state of FirewallSection.
 type FirewallSectionStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        FirewallSectionObservation `json:"atProvider,omitempty"`
+	AtProvider          FirewallSectionObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -369,10 +405,10 @@ type FirewallSectionStatus struct {
 type FirewallSection struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.sectionType)",message="sectionType is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.stateful)",message="stateful is a required parameter"
-	Spec   FirewallSectionSpec   `json:"spec"`
-	Status FirewallSectionStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.sectionType)",message="sectionType is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.stateful)",message="stateful is a required parameter"
+	Spec              FirewallSectionSpec   `json:"spec"`
+	Status            FirewallSectionStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,176 +11,201 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type DHCPGenericOptionObservation struct {
 
-	// DHCP option code, [0-255]
-	Code *float64 `json:"code,omitempty" tf:"code,omitempty"`
 
-	// DHCP option values
-	Values []*string `json:"values,omitempty" tf:"values,omitempty"`
+// DHCP option code, [0-255]
+Code *float64 `json:"code,omitempty" tf:"code,omitempty"`
+
+// DHCP option values
+Values []*string `json:"values,omitempty" tf:"values,omitempty"`
 }
+
 
 type DHCPGenericOptionParameters struct {
 
-	// DHCP option code, [0-255]
-	// +kubebuilder:validation:Required
-	Code *float64 `json:"code" tf:"code,omitempty"`
 
-	// DHCP option values
-	// +kubebuilder:validation:Required
-	Values []*string `json:"values" tf:"values,omitempty"`
+// DHCP option code, [0-255]
+// +kubebuilder:validation:Required
+Code *float64 `json:"code" tf:"code,omitempty"`
+
+// DHCP option values
+// +kubebuilder:validation:Required
+Values []*string `json:"values" tf:"values,omitempty"`
 }
+
 
 type DHCPOption121Observation struct {
 
-	// Destination in cidr
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// Next hop IP
-	NextHop *string `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// Destination in cidr
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
+
+// Next hop IP
+NextHop *string `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
 }
+
 
 type DHCPOption121Parameters struct {
 
-	// Destination in cidr
-	// +kubebuilder:validation:Required
-	Network *string `json:"network" tf:"network,omitempty"`
 
-	// Next hop IP
-	// +kubebuilder:validation:Required
-	NextHop *string `json:"nextHop" tf:"next_hop,omitempty"`
+// Destination in cidr
+// +kubebuilder:validation:Required
+Network *string `json:"network" tf:"network,omitempty"`
+
+// Next hop IP
+// +kubebuilder:validation:Required
+NextHop *string `json:"nextHop" tf:"next_hop,omitempty"`
 }
+
 
 type DhcpServerIpPoolObservation struct {
 
-	// Generic DHCP options
-	DHCPGenericOption []DHCPGenericOptionObservation `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// DHCP classless static routes
-	DHCPOption121 []DHCPOption121Observation `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
+// Generic DHCP options
+DHCPGenericOption []DHCPGenericOptionObservation `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DHCP classless static routes
+DHCPOption121 []DHCPOption121Observation `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Error threshold
-	ErrorThreshold *float64 `json:"errorThreshold,omitempty" tf:"error_threshold,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Gateway ip
-	GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+// Error threshold
+ErrorThreshold *float64 `json:"errorThreshold,omitempty" tf:"error_threshold,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Gateway ip
+GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
 
-	// List of IP Ranges
-	IPRange []IPRangeObservation `json:"ipRange,omitempty" tf:"ip_range,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Lease time, in seconds
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// List of IP Ranges
+IPRange []IPRangeObservation `json:"ipRange,omitempty" tf:"ip_range,omitempty"`
 
-	// Id of dhcp server this pool is serving
-	LogicalDHCPServerID *string `json:"logicalDhcpServerId,omitempty" tf:"logical_dhcp_server_id,omitempty"`
+// Lease time, in seconds
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Id of dhcp server this pool is serving
+LogicalDHCPServerID *string `json:"logicalDhcpServerId,omitempty" tf:"logical_dhcp_server_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Warning threshold
-	WarningThreshold *float64 `json:"warningThreshold,omitempty" tf:"warning_threshold,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Warning threshold
+WarningThreshold *float64 `json:"warningThreshold,omitempty" tf:"warning_threshold,omitempty"`
 }
+
 
 type DhcpServerIpPoolParameters struct {
 
-	// Generic DHCP options
-	// +kubebuilder:validation:Optional
-	DHCPGenericOption []DHCPGenericOptionParameters `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// DHCP classless static routes
-	// +kubebuilder:validation:Optional
-	DHCPOption121 []DHCPOption121Parameters `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
+// Generic DHCP options
+// +kubebuilder:validation:Optional
+DHCPGenericOption []DHCPGenericOptionParameters `json:"dhcpGenericOption,omitempty" tf:"dhcp_generic_option,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DHCP classless static routes
+// +kubebuilder:validation:Optional
+DHCPOption121 []DHCPOption121Parameters `json:"dhcpOption121,omitempty" tf:"dhcp_option_121,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Error threshold
-	// +kubebuilder:validation:Optional
-	ErrorThreshold *float64 `json:"errorThreshold,omitempty" tf:"error_threshold,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Gateway ip
-	// +kubebuilder:validation:Optional
-	GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
+// Error threshold
+// +kubebuilder:validation:Optional
+ErrorThreshold *float64 `json:"errorThreshold,omitempty" tf:"error_threshold,omitempty"`
 
-	// List of IP Ranges
-	// +kubebuilder:validation:Optional
-	IPRange []IPRangeParameters `json:"ipRange,omitempty" tf:"ip_range,omitempty"`
+// Gateway ip
+// +kubebuilder:validation:Optional
+GatewayIP *string `json:"gatewayIp,omitempty" tf:"gateway_ip,omitempty"`
 
-	// Lease time, in seconds
-	// +kubebuilder:validation:Optional
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// List of IP Ranges
+// +kubebuilder:validation:Optional
+IPRange []IPRangeParameters `json:"ipRange,omitempty" tf:"ip_range,omitempty"`
 
-	// Id of dhcp server this pool is serving
-	// +kubebuilder:validation:Optional
-	LogicalDHCPServerID *string `json:"logicalDhcpServerId,omitempty" tf:"logical_dhcp_server_id,omitempty"`
+// Lease time, in seconds
+// +kubebuilder:validation:Optional
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Id of dhcp server this pool is serving
+// +kubebuilder:validation:Optional
+LogicalDHCPServerID *string `json:"logicalDhcpServerId,omitempty" tf:"logical_dhcp_server_id,omitempty"`
 
-	// Warning threshold
-	// +kubebuilder:validation:Optional
-	WarningThreshold *float64 `json:"warningThreshold,omitempty" tf:"warning_threshold,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Warning threshold
+// +kubebuilder:validation:Optional
+WarningThreshold *float64 `json:"warningThreshold,omitempty" tf:"warning_threshold,omitempty"`
 }
+
 
 type IPRangeObservation struct {
-	End *string `json:"end,omitempty" tf:"end,omitempty"`
 
-	Start *string `json:"start,omitempty" tf:"start,omitempty"`
+
+End *string `json:"end,omitempty" tf:"end,omitempty"`
+
+Start *string `json:"start,omitempty" tf:"start,omitempty"`
 }
+
 
 type IPRangeParameters struct {
 
-	// +kubebuilder:validation:Required
-	End *string `json:"end" tf:"end,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Start *string `json:"start" tf:"start,omitempty"`
+// +kubebuilder:validation:Required
+End *string `json:"end" tf:"end,omitempty"`
+
+// +kubebuilder:validation:Required
+Start *string `json:"start" tf:"start,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // DhcpServerIpPoolSpec defines the desired state of DhcpServerIpPool
 type DhcpServerIpPoolSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     DhcpServerIpPoolParameters `json:"forProvider"`
+	ForProvider       DhcpServerIpPoolParameters `json:"forProvider"`
 }
 
 // DhcpServerIpPoolStatus defines the observed state of DhcpServerIpPool.
 type DhcpServerIpPoolStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        DhcpServerIpPoolObservation `json:"atProvider,omitempty"`
+	AtProvider          DhcpServerIpPoolObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -195,9 +220,9 @@ type DhcpServerIpPoolStatus struct {
 type DhcpServerIpPool struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalDhcpServerId)",message="logicalDhcpServerId is a required parameter"
-	Spec   DhcpServerIpPoolSpec   `json:"spec"`
-	Status DhcpServerIpPoolStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalDhcpServerId)",message="logicalDhcpServerId is a required parameter"
+	Spec              DhcpServerIpPoolSpec   `json:"spec"`
+	Status            DhcpServerIpPoolStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

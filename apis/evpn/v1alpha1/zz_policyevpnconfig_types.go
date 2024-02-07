@@ -11,96 +11,108 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyEvpnConfigObservation struct {
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Policy path for EVPN Tenant
-	EvpnTenantPath *string `json:"evpnTenantPath,omitempty" tf:"evpn_tenant_path,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for the Gateway
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Policy path for EVPN Tenant
+EvpnTenantPath *string `json:"evpnTenantPath,omitempty" tf:"evpn_tenant_path,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Policy path for the Gateway
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// EVPN Mode
-	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// EVPN Mode
+Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Policy path for VNI Pool
-	VniPoolPath *string `json:"vniPoolPath,omitempty" tf:"vni_pool_path,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Policy path for VNI Pool
+VniPoolPath *string `json:"vniPoolPath,omitempty" tf:"vni_pool_path,omitempty"`
 }
+
 
 type PolicyEvpnConfigParameters struct {
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Policy path for EVPN Tenant
-	// +kubebuilder:validation:Optional
-	EvpnTenantPath *string `json:"evpnTenantPath,omitempty" tf:"evpn_tenant_path,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for the Gateway
-	// +kubebuilder:validation:Optional
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Policy path for EVPN Tenant
+// +kubebuilder:validation:Optional
+EvpnTenantPath *string `json:"evpnTenantPath,omitempty" tf:"evpn_tenant_path,omitempty"`
 
-	// EVPN Mode
-	// +kubebuilder:validation:Optional
-	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+// Policy path for the Gateway
+// +kubebuilder:validation:Optional
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// EVPN Mode
+// +kubebuilder:validation:Optional
+Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
-	// Policy path for VNI Pool
-	// +kubebuilder:validation:Optional
-	VniPoolPath *string `json:"vniPoolPath,omitempty" tf:"vni_pool_path,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Policy path for VNI Pool
+// +kubebuilder:validation:Optional
+VniPoolPath *string `json:"vniPoolPath,omitempty" tf:"vni_pool_path,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyEvpnConfigSpec defines the desired state of PolicyEvpnConfig
 type PolicyEvpnConfigSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyEvpnConfigParameters `json:"forProvider"`
+	ForProvider       PolicyEvpnConfigParameters `json:"forProvider"`
 }
 
 // PolicyEvpnConfigStatus defines the observed state of PolicyEvpnConfig.
 type PolicyEvpnConfigStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyEvpnConfigObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyEvpnConfigObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -115,11 +127,11 @@ type PolicyEvpnConfigStatus struct {
 type PolicyEvpnConfig struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.mode)",message="mode is a required parameter"
-	Spec   PolicyEvpnConfigSpec   `json:"spec"`
-	Status PolicyEvpnConfigStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.mode)",message="mode is a required parameter"
+	Spec              PolicyEvpnConfigSpec   `json:"spec"`
+	Status            PolicyEvpnConfigStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,135 +11,151 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyGatewayDnsForwarderContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyGatewayDnsForwarderContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyGatewayDnsForwarderObservation struct {
 
-	// Cache size in KB
-	CacheSize *float64 `json:"cacheSize,omitempty" tf:"cache_size,omitempty"`
 
-	// List of conditional (FQDN) forwarder zone paths
-	ConditionalForwarderZonePaths []*string `json:"conditionalForwarderZonePaths,omitempty" tf:"conditional_forwarder_zone_paths,omitempty"`
+// Cache size in KB
+CacheSize *float64 `json:"cacheSize,omitempty" tf:"cache_size,omitempty"`
 
-	// Resource context
-	Context []PolicyGatewayDnsForwarderContextObservation `json:"context,omitempty" tf:"context,omitempty"`
+// List of conditional (FQDN) forwarder zone paths
+ConditionalForwarderZonePaths []*string `json:"conditionalForwarderZonePaths,omitempty" tf:"conditional_forwarder_zone_paths,omitempty"`
 
-	// Zone to which DNS requests are forwarded by default
-	DefaultForwarderZonePath *string `json:"defaultForwarderZonePath,omitempty" tf:"default_forwarder_zone_path,omitempty"`
+// Resource context
+Context []PolicyGatewayDnsForwarderContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Zone to which DNS requests are forwarded by default
+DefaultForwarderZonePath *string `json:"defaultForwarderZonePath,omitempty" tf:"default_forwarder_zone_path,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for the Gateway
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Policy path for the Gateway
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// IP on which the DNS Forwarder listens
-	ListenerIP *string `json:"listenerIp,omitempty" tf:"listener_ip,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Log level
-	LogLevel *string `json:"logLevel,omitempty" tf:"log_level,omitempty"`
+// IP on which the DNS Forwarder listens
+ListenerIP *string `json:"listenerIp,omitempty" tf:"listener_ip,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// Log level
+LogLevel *string `json:"logLevel,omitempty" tf:"log_level,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyGatewayDnsForwarderTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyGatewayDnsForwarderTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayDnsForwarderParameters struct {
 
-	// Cache size in KB
-	// +kubebuilder:validation:Optional
-	CacheSize *float64 `json:"cacheSize,omitempty" tf:"cache_size,omitempty"`
 
-	// List of conditional (FQDN) forwarder zone paths
-	// +kubebuilder:validation:Optional
-	ConditionalForwarderZonePaths []*string `json:"conditionalForwarderZonePaths,omitempty" tf:"conditional_forwarder_zone_paths,omitempty"`
+// Cache size in KB
+// +kubebuilder:validation:Optional
+CacheSize *float64 `json:"cacheSize,omitempty" tf:"cache_size,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyGatewayDnsForwarderContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// List of conditional (FQDN) forwarder zone paths
+// +kubebuilder:validation:Optional
+ConditionalForwarderZonePaths []*string `json:"conditionalForwarderZonePaths,omitempty" tf:"conditional_forwarder_zone_paths,omitempty"`
 
-	// Zone to which DNS requests are forwarded by default
-	// +kubebuilder:validation:Optional
-	DefaultForwarderZonePath *string `json:"defaultForwarderZonePath,omitempty" tf:"default_forwarder_zone_path,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyGatewayDnsForwarderContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Zone to which DNS requests are forwarded by default
+// +kubebuilder:validation:Optional
+DefaultForwarderZonePath *string `json:"defaultForwarderZonePath,omitempty" tf:"default_forwarder_zone_path,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Policy path for the Gateway
-	// +kubebuilder:validation:Optional
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// IP on which the DNS Forwarder listens
-	// +kubebuilder:validation:Optional
-	ListenerIP *string `json:"listenerIp,omitempty" tf:"listener_ip,omitempty"`
+// Policy path for the Gateway
+// +kubebuilder:validation:Optional
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// Log level
-	// +kubebuilder:validation:Optional
-	LogLevel *string `json:"logLevel,omitempty" tf:"log_level,omitempty"`
+// IP on which the DNS Forwarder listens
+// +kubebuilder:validation:Optional
+ListenerIP *string `json:"listenerIp,omitempty" tf:"listener_ip,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyGatewayDnsForwarderTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Log level
+// +kubebuilder:validation:Optional
+LogLevel *string `json:"logLevel,omitempty" tf:"log_level,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyGatewayDnsForwarderTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayDnsForwarderTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyGatewayDnsForwarderTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyGatewayDnsForwarderSpec defines the desired state of PolicyGatewayDnsForwarder
 type PolicyGatewayDnsForwarderSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyGatewayDnsForwarderParameters `json:"forProvider"`
+	ForProvider       PolicyGatewayDnsForwarderParameters `json:"forProvider"`
 }
 
 // PolicyGatewayDnsForwarderStatus defines the observed state of PolicyGatewayDnsForwarder.
 type PolicyGatewayDnsForwarderStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyGatewayDnsForwarderObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyGatewayDnsForwarderObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -154,12 +170,12 @@ type PolicyGatewayDnsForwarderStatus struct {
 type PolicyGatewayDnsForwarder struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.defaultForwarderZonePath)",message="defaultForwarderZonePath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.listenerIp)",message="listenerIp is a required parameter"
-	Spec   PolicyGatewayDnsForwarderSpec   `json:"spec"`
-	Status PolicyGatewayDnsForwarderStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.defaultForwarderZonePath)",message="defaultForwarderZonePath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.listenerIp)",message="listenerIp is a required parameter"
+	Spec              PolicyGatewayDnsForwarderSpec   `json:"spec"`
+	Status            PolicyGatewayDnsForwarderStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

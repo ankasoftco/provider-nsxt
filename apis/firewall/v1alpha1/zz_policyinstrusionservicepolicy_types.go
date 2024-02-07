@@ -11,280 +11,301 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyInstrusionServicePolicyObservation struct {
 
-	// Comments for security policy lock/unlock
-	Comments *string `json:"comments,omitempty" tf:"comments,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Comments for security policy lock/unlock
+Comments *string `json:"comments,omitempty" tf:"comments,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The domain name to use for resources. If not specified 'default' is used
-	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The domain name to use for resources. If not specified 'default' is used
+Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
-	// Indicates whether a security policy should be locked. If locked by a user, no other user would be able to modify this policy
-	Locked *bool `json:"locked,omitempty" tf:"locked,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Indicates whether a security policy should be locked. If locked by a user, no other user would be able to modify this policy
+Locked *bool `json:"locked,omitempty" tf:"locked,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// List of rules in the section
-	Rule []PolicyInstrusionServicePolicyRuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// This field is used to resolve conflicts between security policies across domains
-	SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
+// List of rules in the section
+Rule []PolicyInstrusionServicePolicyRuleObservation `json:"rule,omitempty" tf:"rule,omitempty"`
 
-	// When it is stateful, the state of the network connects are tracked and a stateful packet inspection is performed
-	Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+// This field is used to resolve conflicts between security policies across domains
+SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyInstrusionServicePolicyTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// When it is stateful, the state of the network connects are tracked and a stateful packet inspection is performed
+Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyInstrusionServicePolicyTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyParameters struct {
 
-	// Comments for security policy lock/unlock
-	// +kubebuilder:validation:Optional
-	Comments *string `json:"comments,omitempty" tf:"comments,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Comments for security policy lock/unlock
+// +kubebuilder:validation:Optional
+Comments *string `json:"comments,omitempty" tf:"comments,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The domain name to use for resources. If not specified 'default' is used
-	// +kubebuilder:validation:Optional
-	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Indicates whether a security policy should be locked. If locked by a user, no other user would be able to modify this policy
-	// +kubebuilder:validation:Optional
-	Locked *bool `json:"locked,omitempty" tf:"locked,omitempty"`
+// The domain name to use for resources. If not specified 'default' is used
+// +kubebuilder:validation:Optional
+Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Indicates whether a security policy should be locked. If locked by a user, no other user would be able to modify this policy
+// +kubebuilder:validation:Optional
+Locked *bool `json:"locked,omitempty" tf:"locked,omitempty"`
 
-	// List of rules in the section
-	// +kubebuilder:validation:Optional
-	Rule []PolicyInstrusionServicePolicyRuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// This field is used to resolve conflicts between security policies across domains
-	// +kubebuilder:validation:Optional
-	SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
+// List of rules in the section
+// +kubebuilder:validation:Optional
+Rule []PolicyInstrusionServicePolicyRuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
 
-	// When it is stateful, the state of the network connects are tracked and a stateful packet inspection is performed
-	// +kubebuilder:validation:Optional
-	Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+// This field is used to resolve conflicts between security policies across domains
+// +kubebuilder:validation:Optional
+SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyInstrusionServicePolicyTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// When it is stateful, the state of the network connects are tracked and a stateful packet inspection is performed
+// +kubebuilder:validation:Optional
+Stateful *bool `json:"stateful,omitempty" tf:"stateful,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyInstrusionServicePolicyTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyRuleObservation struct {
 
-	// Action
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Action
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of destination groups
-	DestinationGroups []*string `json:"destinationGroups,omitempty" tf:"destination_groups,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Negation of destination groups
-	DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
+// List of destination groups
+DestinationGroups []*string `json:"destinationGroups,omitempty" tf:"destination_groups,omitempty"`
 
-	// Traffic direction
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// Negation of destination groups
+DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
 
-	// Flag to disable the rule
-	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
+// Traffic direction
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Flag to disable the rule
+Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
-	// IP version
-	IPVersion *string `json:"ipVersion,omitempty" tf:"ip_version,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// List of policy Paths for IDS Profiles
-	IdsProfiles []*string `json:"idsProfiles,omitempty" tf:"ids_profiles,omitempty"`
+// IP version
+IPVersion *string `json:"ipVersion,omitempty" tf:"ip_version,omitempty"`
 
-	// Additional information (string) which will be propagated to the rule syslog
-	LogLabel *string `json:"logLabel,omitempty" tf:"log_label,omitempty"`
+// List of policy Paths for IDS Profiles
+IdsProfiles []*string `json:"idsProfiles,omitempty" tf:"ids_profiles,omitempty"`
 
-	// Flag to enable packet logging
-	Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
+// Additional information (string) which will be propagated to the rule syslog
+LogLabel *string `json:"logLabel,omitempty" tf:"log_label,omitempty"`
 
-	// Text for additional notes on changes
-	Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
+// Flag to enable packet logging
+Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Text for additional notes on changes
+Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
 
-	// List of profiles
-	Profiles []*string `json:"profiles,omitempty" tf:"profiles,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// List of profiles
+Profiles []*string `json:"profiles,omitempty" tf:"profiles,omitempty"`
 
-	// Unique positive number that is assigned by the system and is useful for debugging
-	RuleID *float64 `json:"ruleId,omitempty" tf:"rule_id,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// List of policy paths where the rule is applied
-	Scope []*string `json:"scope,omitempty" tf:"scope,omitempty"`
+// Unique positive number that is assigned by the system and is useful for debugging
+RuleID *float64 `json:"ruleId,omitempty" tf:"rule_id,omitempty"`
 
-	// Sequence number of the this rule
-	SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
+// List of policy paths where the rule is applied
+Scope []*string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// List of services to match
-	Services []*string `json:"services,omitempty" tf:"services,omitempty"`
+// Sequence number of the this rule
+SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
 
-	// List of source groups
-	SourceGroups []*string `json:"sourceGroups,omitempty" tf:"source_groups,omitempty"`
+// List of services to match
+Services []*string `json:"services,omitempty" tf:"services,omitempty"`
 
-	// Negation of source groups
-	SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
+// List of source groups
+SourceGroups []*string `json:"sourceGroups,omitempty" tf:"source_groups,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyInstrusionServicePolicyRuleTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Negation of source groups
+SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyInstrusionServicePolicyRuleTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyRuleParameters struct {
 
-	// Action
-	// +kubebuilder:validation:Optional
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Action
+// +kubebuilder:validation:Optional
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// List of destination groups
-	// +kubebuilder:validation:Optional
-	DestinationGroups []*string `json:"destinationGroups,omitempty" tf:"destination_groups,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Negation of destination groups
-	// +kubebuilder:validation:Optional
-	DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
+// List of destination groups
+// +kubebuilder:validation:Optional
+DestinationGroups []*string `json:"destinationGroups,omitempty" tf:"destination_groups,omitempty"`
 
-	// Traffic direction
-	// +kubebuilder:validation:Optional
-	Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
+// Negation of destination groups
+// +kubebuilder:validation:Optional
+DestinationsExcluded *bool `json:"destinationsExcluded,omitempty" tf:"destinations_excluded,omitempty"`
 
-	// Flag to disable the rule
-	// +kubebuilder:validation:Optional
-	Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
+// Traffic direction
+// +kubebuilder:validation:Optional
+Direction *string `json:"direction,omitempty" tf:"direction,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Required
-	DisplayName *string `json:"displayName" tf:"display_name,omitempty"`
+// Flag to disable the rule
+// +kubebuilder:validation:Optional
+Disabled *bool `json:"disabled,omitempty" tf:"disabled,omitempty"`
 
-	// IP version
-	// +kubebuilder:validation:Optional
-	IPVersion *string `json:"ipVersion,omitempty" tf:"ip_version,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Required
+DisplayName *string `json:"displayName" tf:"display_name,omitempty"`
 
-	// List of policy Paths for IDS Profiles
-	// +kubebuilder:validation:Required
-	IdsProfiles []*string `json:"idsProfiles" tf:"ids_profiles,omitempty"`
+// IP version
+// +kubebuilder:validation:Optional
+IPVersion *string `json:"ipVersion,omitempty" tf:"ip_version,omitempty"`
 
-	// Additional information (string) which will be propagated to the rule syslog
-	// +kubebuilder:validation:Optional
-	LogLabel *string `json:"logLabel,omitempty" tf:"log_label,omitempty"`
+// List of policy Paths for IDS Profiles
+// +kubebuilder:validation:Required
+IdsProfiles []*string `json:"idsProfiles" tf:"ids_profiles,omitempty"`
 
-	// Flag to enable packet logging
-	// +kubebuilder:validation:Optional
-	Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
+// Additional information (string) which will be propagated to the rule syslog
+// +kubebuilder:validation:Optional
+LogLabel *string `json:"logLabel,omitempty" tf:"log_label,omitempty"`
 
-	// Text for additional notes on changes
-	// +kubebuilder:validation:Optional
-	Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
+// Flag to enable packet logging
+// +kubebuilder:validation:Optional
+Logged *bool `json:"logged,omitempty" tf:"logged,omitempty"`
 
-	// List of profiles
-	// +kubebuilder:validation:Optional
-	Profiles []*string `json:"profiles,omitempty" tf:"profiles,omitempty"`
+// Text for additional notes on changes
+// +kubebuilder:validation:Optional
+Notes *string `json:"notes,omitempty" tf:"notes,omitempty"`
 
-	// List of policy paths where the rule is applied
-	// +kubebuilder:validation:Optional
-	Scope []*string `json:"scope,omitempty" tf:"scope,omitempty"`
+// List of profiles
+// +kubebuilder:validation:Optional
+Profiles []*string `json:"profiles,omitempty" tf:"profiles,omitempty"`
 
-	// Sequence number of the this rule
-	// +kubebuilder:validation:Optional
-	SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
+// List of policy paths where the rule is applied
+// +kubebuilder:validation:Optional
+Scope []*string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// List of services to match
-	// +kubebuilder:validation:Optional
-	Services []*string `json:"services,omitempty" tf:"services,omitempty"`
+// Sequence number of the this rule
+// +kubebuilder:validation:Optional
+SequenceNumber *float64 `json:"sequenceNumber,omitempty" tf:"sequence_number,omitempty"`
 
-	// List of source groups
-	// +kubebuilder:validation:Optional
-	SourceGroups []*string `json:"sourceGroups,omitempty" tf:"source_groups,omitempty"`
+// List of services to match
+// +kubebuilder:validation:Optional
+Services []*string `json:"services,omitempty" tf:"services,omitempty"`
 
-	// Negation of source groups
-	// +kubebuilder:validation:Optional
-	SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
+// List of source groups
+// +kubebuilder:validation:Optional
+SourceGroups []*string `json:"sourceGroups,omitempty" tf:"source_groups,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyInstrusionServicePolicyRuleTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Negation of source groups
+// +kubebuilder:validation:Optional
+SourcesExcluded *bool `json:"sourcesExcluded,omitempty" tf:"sources_excluded,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyInstrusionServicePolicyRuleTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyRuleTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyRuleTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyInstrusionServicePolicyTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyInstrusionServicePolicySpec defines the desired state of PolicyInstrusionServicePolicy
 type PolicyInstrusionServicePolicySpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyInstrusionServicePolicyParameters `json:"forProvider"`
+	ForProvider       PolicyInstrusionServicePolicyParameters `json:"forProvider"`
 }
 
 // PolicyInstrusionServicePolicyStatus defines the observed state of PolicyInstrusionServicePolicy.
 type PolicyInstrusionServicePolicyStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyInstrusionServicePolicyObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyInstrusionServicePolicyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -299,9 +320,9 @@ type PolicyInstrusionServicePolicyStatus struct {
 type PolicyInstrusionServicePolicy struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyInstrusionServicePolicySpec   `json:"spec"`
-	Status PolicyInstrusionServicePolicyStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyInstrusionServicePolicySpec   `json:"spec"`
+	Status            PolicyInstrusionServicePolicyStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

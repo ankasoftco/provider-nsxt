@@ -11,125 +11,141 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyMacDiscoveryProfileContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyMacDiscoveryProfileContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyMacDiscoveryProfileObservation struct {
 
-	// Resource context
-	Context []PolicyMacDiscoveryProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+Context []PolicyMacDiscoveryProfileContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	MacChangeEnabled *bool `json:"macChangeEnabled,omitempty" tf:"mac_change_enabled,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	MacLearningEnabled *bool `json:"macLearningEnabled,omitempty" tf:"mac_learning_enabled,omitempty"`
+MacChangeEnabled *bool `json:"macChangeEnabled,omitempty" tf:"mac_change_enabled,omitempty"`
 
-	MacLimit *float64 `json:"macLimit,omitempty" tf:"mac_limit,omitempty"`
+MacLearningEnabled *bool `json:"macLearningEnabled,omitempty" tf:"mac_learning_enabled,omitempty"`
 
-	MacLimitPolicy *string `json:"macLimitPolicy,omitempty" tf:"mac_limit_policy,omitempty"`
+MacLimit *float64 `json:"macLimit,omitempty" tf:"mac_limit,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+MacLimitPolicy *string `json:"macLimitPolicy,omitempty" tf:"mac_limit_policy,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	RemoteOverlayMacLimit *float64 `json:"remoteOverlayMacLimit,omitempty" tf:"remote_overlay_mac_limit,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+RemoteOverlayMacLimit *float64 `json:"remoteOverlayMacLimit,omitempty" tf:"remote_overlay_mac_limit,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyMacDiscoveryProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	UnknownUnicastFloodingEnabled *bool `json:"unknownUnicastFloodingEnabled,omitempty" tf:"unknown_unicast_flooding_enabled,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyMacDiscoveryProfileTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+UnknownUnicastFloodingEnabled *bool `json:"unknownUnicastFloodingEnabled,omitempty" tf:"unknown_unicast_flooding_enabled,omitempty"`
 }
+
 
 type PolicyMacDiscoveryProfileParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyMacDiscoveryProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyMacDiscoveryProfileContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	MacChangeEnabled *bool `json:"macChangeEnabled,omitempty" tf:"mac_change_enabled,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	MacLearningEnabled *bool `json:"macLearningEnabled,omitempty" tf:"mac_learning_enabled,omitempty"`
+// +kubebuilder:validation:Optional
+MacChangeEnabled *bool `json:"macChangeEnabled,omitempty" tf:"mac_change_enabled,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	MacLimit *float64 `json:"macLimit,omitempty" tf:"mac_limit,omitempty"`
+// +kubebuilder:validation:Optional
+MacLearningEnabled *bool `json:"macLearningEnabled,omitempty" tf:"mac_learning_enabled,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	MacLimitPolicy *string `json:"macLimitPolicy,omitempty" tf:"mac_limit_policy,omitempty"`
+// +kubebuilder:validation:Optional
+MacLimit *float64 `json:"macLimit,omitempty" tf:"mac_limit,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// +kubebuilder:validation:Optional
+MacLimitPolicy *string `json:"macLimitPolicy,omitempty" tf:"mac_limit_policy,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RemoteOverlayMacLimit *float64 `json:"remoteOverlayMacLimit,omitempty" tf:"remote_overlay_mac_limit,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyMacDiscoveryProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+RemoteOverlayMacLimit *float64 `json:"remoteOverlayMacLimit,omitempty" tf:"remote_overlay_mac_limit,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	UnknownUnicastFloodingEnabled *bool `json:"unknownUnicastFloodingEnabled,omitempty" tf:"unknown_unicast_flooding_enabled,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyMacDiscoveryProfileTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// +kubebuilder:validation:Optional
+UnknownUnicastFloodingEnabled *bool `json:"unknownUnicastFloodingEnabled,omitempty" tf:"unknown_unicast_flooding_enabled,omitempty"`
 }
+
 
 type PolicyMacDiscoveryProfileTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyMacDiscoveryProfileTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyMacDiscoveryProfileSpec defines the desired state of PolicyMacDiscoveryProfile
 type PolicyMacDiscoveryProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyMacDiscoveryProfileParameters `json:"forProvider"`
+	ForProvider       PolicyMacDiscoveryProfileParameters `json:"forProvider"`
 }
 
 // PolicyMacDiscoveryProfileStatus defines the observed state of PolicyMacDiscoveryProfile.
 type PolicyMacDiscoveryProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyMacDiscoveryProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyMacDiscoveryProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -144,9 +160,9 @@ type PolicyMacDiscoveryProfileStatus struct {
 type PolicyMacDiscoveryProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyMacDiscoveryProfileSpec   `json:"spec"`
-	Status PolicyMacDiscoveryProfileStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyMacDiscoveryProfileSpec   `json:"spec"`
+	Status            PolicyMacDiscoveryProfileStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

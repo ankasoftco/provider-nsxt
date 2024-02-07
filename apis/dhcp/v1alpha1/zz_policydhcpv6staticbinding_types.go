@@ -11,151 +11,167 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyDhcpV6StaticBindingContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyDhcpV6StaticBindingContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyDhcpV6StaticBindingObservation struct {
 
-	// Resource context
-	Context []PolicyDhcpV6StaticBindingContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// DNS nameservers
-	DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
+// Resource context
+Context []PolicyDhcpV6StaticBindingContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DNS nameservers
+DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Domain names
-	DomainNames []*string `json:"domainNames,omitempty" tf:"domain_names,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Domain names
+DomainNames []*string `json:"domainNames,omitempty" tf:"domain_names,omitempty"`
 
-	// IP addresses
-	IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// DHCP lease time in seconds
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// IP addresses
+IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
 
-	// MAC address of the host
-	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+// DHCP lease time in seconds
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// MAC address of the host
+MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The time interval in seconds, in which the prefix is advertised as preferred
-	PreferredTime *float64 `json:"preferredTime,omitempty" tf:"preferred_time,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// The time interval in seconds, in which the prefix is advertised as preferred
+PreferredTime *float64 `json:"preferredTime,omitempty" tf:"preferred_time,omitempty"`
 
-	// segment path
-	SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// SNTP server IP addresses
-	SntpServers []*string `json:"sntpServers,omitempty" tf:"sntp_servers,omitempty"`
+// segment path
+SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyDhcpV6StaticBindingTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// SNTP server IP addresses
+SntpServers []*string `json:"sntpServers,omitempty" tf:"sntp_servers,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyDhcpV6StaticBindingTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpV6StaticBindingParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyDhcpV6StaticBindingContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// DNS nameservers
-	// +kubebuilder:validation:Optional
-	DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyDhcpV6StaticBindingContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DNS nameservers
+// +kubebuilder:validation:Optional
+DNSNameservers []*string `json:"dnsNameservers,omitempty" tf:"dns_nameservers,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Domain names
-	// +kubebuilder:validation:Optional
-	DomainNames []*string `json:"domainNames,omitempty" tf:"domain_names,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// IP addresses
-	// +kubebuilder:validation:Optional
-	IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
+// Domain names
+// +kubebuilder:validation:Optional
+DomainNames []*string `json:"domainNames,omitempty" tf:"domain_names,omitempty"`
 
-	// DHCP lease time in seconds
-	// +kubebuilder:validation:Optional
-	LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
+// IP addresses
+// +kubebuilder:validation:Optional
+IPAddresses []*string `json:"ipAddresses,omitempty" tf:"ip_addresses,omitempty"`
 
-	// MAC address of the host
-	// +kubebuilder:validation:Optional
-	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
+// DHCP lease time in seconds
+// +kubebuilder:validation:Optional
+LeaseTime *float64 `json:"leaseTime,omitempty" tf:"lease_time,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// MAC address of the host
+// +kubebuilder:validation:Optional
+MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
 
-	// The time interval in seconds, in which the prefix is advertised as preferred
-	// +kubebuilder:validation:Optional
-	PreferredTime *float64 `json:"preferredTime,omitempty" tf:"preferred_time,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// segment path
-	// +kubebuilder:validation:Optional
-	SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+// The time interval in seconds, in which the prefix is advertised as preferred
+// +kubebuilder:validation:Optional
+PreferredTime *float64 `json:"preferredTime,omitempty" tf:"preferred_time,omitempty"`
 
-	// SNTP server IP addresses
-	// +kubebuilder:validation:Optional
-	SntpServers []*string `json:"sntpServers,omitempty" tf:"sntp_servers,omitempty"`
+// segment path
+// +kubebuilder:validation:Optional
+SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyDhcpV6StaticBindingTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// SNTP server IP addresses
+// +kubebuilder:validation:Optional
+SntpServers []*string `json:"sntpServers,omitempty" tf:"sntp_servers,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyDhcpV6StaticBindingTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpV6StaticBindingTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyDhcpV6StaticBindingTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyDhcpV6StaticBindingSpec defines the desired state of PolicyDhcpV6StaticBinding
 type PolicyDhcpV6StaticBindingSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyDhcpV6StaticBindingParameters `json:"forProvider"`
+	ForProvider       PolicyDhcpV6StaticBindingParameters `json:"forProvider"`
 }
 
 // PolicyDhcpV6StaticBindingStatus defines the observed state of PolicyDhcpV6StaticBinding.
 type PolicyDhcpV6StaticBindingStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyDhcpV6StaticBindingObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyDhcpV6StaticBindingObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -170,11 +186,11 @@ type PolicyDhcpV6StaticBindingStatus struct {
 type PolicyDhcpV6StaticBinding struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.macAddress)",message="macAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.segmentPath)",message="segmentPath is a required parameter"
-	Spec   PolicyDhcpV6StaticBindingSpec   `json:"spec"`
-	Status PolicyDhcpV6StaticBindingStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.macAddress)",message="macAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.segmentPath)",message="segmentPath is a required parameter"
+	Spec              PolicyDhcpV6StaticBindingSpec   `json:"spec"`
+	Status            PolicyDhcpV6StaticBindingStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

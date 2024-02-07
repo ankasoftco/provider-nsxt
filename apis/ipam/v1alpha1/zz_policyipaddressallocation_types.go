@@ -11,109 +11,125 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type ContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type ContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyIpAddressAllocationObservation struct {
 
-	// The IP allocated. If unspecified any free IP will be allocated.
-	AllocationIP *string `json:"allocationIp,omitempty" tf:"allocation_ip,omitempty"`
 
-	// Resource context
-	Context []ContextObservation `json:"context,omitempty" tf:"context,omitempty"`
+// The IP allocated. If unspecified any free IP will be allocated.
+AllocationIP *string `json:"allocationIp,omitempty" tf:"allocation_ip,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+Context []ContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The path of the IP Pool for this allocation
-	PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// The path of the IP Pool for this allocation
+PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyIpAddressAllocationParameters struct {
 
-	// The IP allocated. If unspecified any free IP will be allocated.
-	// +kubebuilder:validation:Optional
-	AllocationIP *string `json:"allocationIp,omitempty" tf:"allocation_ip,omitempty"`
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []ContextParameters `json:"context,omitempty" tf:"context,omitempty"`
+// The IP allocated. If unspecified any free IP will be allocated.
+// +kubebuilder:validation:Optional
+AllocationIP *string `json:"allocationIp,omitempty" tf:"allocation_ip,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []ContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The path of the IP Pool for this allocation
-	// +kubebuilder:validation:Optional
-	PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// The path of the IP Pool for this allocation
+// +kubebuilder:validation:Optional
+PoolPath *string `json:"poolPath,omitempty" tf:"pool_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyIpAddressAllocationSpec defines the desired state of PolicyIpAddressAllocation
 type PolicyIpAddressAllocationSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyIpAddressAllocationParameters `json:"forProvider"`
+	ForProvider       PolicyIpAddressAllocationParameters `json:"forProvider"`
 }
 
 // PolicyIpAddressAllocationStatus defines the observed state of PolicyIpAddressAllocation.
 type PolicyIpAddressAllocationStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyIpAddressAllocationObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyIpAddressAllocationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -128,10 +144,10 @@ type PolicyIpAddressAllocationStatus struct {
 type PolicyIpAddressAllocation struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.poolPath)",message="poolPath is a required parameter"
-	Spec   PolicyIpAddressAllocationSpec   `json:"spec"`
-	Status PolicyIpAddressAllocationStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.poolPath)",message="poolPath is a required parameter"
+	Spec              PolicyIpAddressAllocationSpec   `json:"spec"`
+	Status            PolicyIpAddressAllocationStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

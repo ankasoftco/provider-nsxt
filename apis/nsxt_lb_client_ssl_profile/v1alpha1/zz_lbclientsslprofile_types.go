@@ -11,103 +11,115 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbClientSslProfileObservation struct {
 
-	// Supported SSL cipher list
-	Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Supported SSL cipher list
+Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// This flag is set to true when all the ciphers and protocols are secure. It is set to false when one of the ciphers or protocols is insecure
-	IsSecure *bool `json:"isSecure,omitempty" tf:"is_secure,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Allow server to override the client's preference
-	PreferServerCiphers *bool `json:"preferServerCiphers,omitempty" tf:"prefer_server_ciphers,omitempty"`
+// This flag is set to true when all the ciphers and protocols are secure. It is set to false when one of the ciphers or protocols is insecure
+IsSecure *bool `json:"isSecure,omitempty" tf:"is_secure,omitempty"`
 
-	// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
-	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
+// Allow server to override the client's preference
+PreferServerCiphers *bool `json:"preferServerCiphers,omitempty" tf:"prefer_server_ciphers,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
+Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
 
-	// Reuse previously negotiated security parameters during handshake
-	SessionCacheEnabled *bool `json:"sessionCacheEnabled,omitempty" tf:"session_cache_enabled,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// For how long the SSL session parameters can be reused
-	SessionCacheTimeout *float64 `json:"sessionCacheTimeout,omitempty" tf:"session_cache_timeout,omitempty"`
+// Reuse previously negotiated security parameters during handshake
+SessionCacheEnabled *bool `json:"sessionCacheEnabled,omitempty" tf:"session_cache_enabled,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// For how long the SSL session parameters can be reused
+SessionCacheTimeout *float64 `json:"sessionCacheTimeout,omitempty" tf:"session_cache_timeout,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LbClientSslProfileParameters struct {
 
-	// Supported SSL cipher list
-	// +kubebuilder:validation:Optional
-	Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Supported SSL cipher list
+// +kubebuilder:validation:Optional
+Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Allow server to override the client's preference
-	// +kubebuilder:validation:Optional
-	PreferServerCiphers *bool `json:"preferServerCiphers,omitempty" tf:"prefer_server_ciphers,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
-	// +kubebuilder:validation:Optional
-	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
+// Allow server to override the client's preference
+// +kubebuilder:validation:Optional
+PreferServerCiphers *bool `json:"preferServerCiphers,omitempty" tf:"prefer_server_ciphers,omitempty"`
 
-	// Reuse previously negotiated security parameters during handshake
-	// +kubebuilder:validation:Optional
-	SessionCacheEnabled *bool `json:"sessionCacheEnabled,omitempty" tf:"session_cache_enabled,omitempty"`
+// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
+// +kubebuilder:validation:Optional
+Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
 
-	// For how long the SSL session parameters can be reused
-	// +kubebuilder:validation:Optional
-	SessionCacheTimeout *float64 `json:"sessionCacheTimeout,omitempty" tf:"session_cache_timeout,omitempty"`
+// Reuse previously negotiated security parameters during handshake
+// +kubebuilder:validation:Optional
+SessionCacheEnabled *bool `json:"sessionCacheEnabled,omitempty" tf:"session_cache_enabled,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// For how long the SSL session parameters can be reused
+// +kubebuilder:validation:Optional
+SessionCacheTimeout *float64 `json:"sessionCacheTimeout,omitempty" tf:"session_cache_timeout,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbClientSslProfileSpec defines the desired state of LbClientSslProfile
 type LbClientSslProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbClientSslProfileParameters `json:"forProvider"`
+	ForProvider       LbClientSslProfileParameters `json:"forProvider"`
 }
 
 // LbClientSslProfileStatus defines the observed state of LbClientSslProfile.
 type LbClientSslProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbClientSslProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          LbClientSslProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

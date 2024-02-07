@@ -11,72 +11,84 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type SpoofguardSwitchingProfileObservation struct {
 
-	// When true, this profile overrides the default system wide settings for Spoof Guard when assigned to ports
-	AddressBindingWhitelistEnabled *bool `json:"addressBindingWhitelistEnabled,omitempty" tf:"address_binding_whitelist_enabled,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// When true, this profile overrides the default system wide settings for Spoof Guard when assigned to ports
+AddressBindingWhitelistEnabled *bool `json:"addressBindingWhitelistEnabled,omitempty" tf:"address_binding_whitelist_enabled,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type SpoofguardSwitchingProfileParameters struct {
 
-	// When true, this profile overrides the default system wide settings for Spoof Guard when assigned to ports
-	// +kubebuilder:validation:Optional
-	AddressBindingWhitelistEnabled *bool `json:"addressBindingWhitelistEnabled,omitempty" tf:"address_binding_whitelist_enabled,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// When true, this profile overrides the default system wide settings for Spoof Guard when assigned to ports
+// +kubebuilder:validation:Optional
+AddressBindingWhitelistEnabled *bool `json:"addressBindingWhitelistEnabled,omitempty" tf:"address_binding_whitelist_enabled,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // SpoofguardSwitchingProfileSpec defines the desired state of SpoofguardSwitchingProfile
 type SpoofguardSwitchingProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     SpoofguardSwitchingProfileParameters `json:"forProvider"`
+	ForProvider       SpoofguardSwitchingProfileParameters `json:"forProvider"`
 }
 
 // SpoofguardSwitchingProfileStatus defines the observed state of SpoofguardSwitchingProfile.
 type SpoofguardSwitchingProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        SpoofguardSwitchingProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          SpoofguardSwitchingProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

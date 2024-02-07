@@ -11,142 +11,154 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbUdpVirtualServerObservation struct {
 
-	// Whether access log is enabled
-	AccessLogEnabled *bool `json:"accessLogEnabled,omitempty" tf:"access_log_enabled,omitempty"`
 
-	// The tcp application profile defines the application protocol characteristics
-	ApplicationProfileID *string `json:"applicationProfileId,omitempty" tf:"application_profile_id,omitempty"`
+// Whether access log is enabled
+AccessLogEnabled *bool `json:"accessLogEnabled,omitempty" tf:"access_log_enabled,omitempty"`
 
-	// Default pool member ports or port range
-	DefaultPoolMemberPorts []*string `json:"defaultPoolMemberPorts,omitempty" tf:"default_pool_member_ports,omitempty"`
+// The tcp application profile defines the application protocol characteristics
+ApplicationProfileID *string `json:"applicationProfileId,omitempty" tf:"application_profile_id,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Default pool member ports or port range
+DefaultPoolMemberPorts []*string `json:"defaultPoolMemberPorts,omitempty" tf:"default_pool_member_ports,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// whether the virtual server is enabled
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// whether the virtual server is enabled
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// virtual server IP address
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// If not specified, connections are unlimited
-	MaxConcurrentConnections *float64 `json:"maxConcurrentConnections,omitempty" tf:"max_concurrent_connections,omitempty"`
+// virtual server IP address
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// If not specified, connection rate is unlimited
-	MaxNewConnectionRate *float64 `json:"maxNewConnectionRate,omitempty" tf:"max_new_connection_rate,omitempty"`
+// If not specified, connections are unlimited
+MaxConcurrentConnections *float64 `json:"maxConcurrentConnections,omitempty" tf:"max_concurrent_connections,omitempty"`
 
-	// Persistence profile is used to allow related client connections to be sent to the same backend server. Source ip persistence is supported.
-	PersistenceProfileID *string `json:"persistenceProfileId,omitempty" tf:"persistence_profile_id,omitempty"`
+// If not specified, connection rate is unlimited
+MaxNewConnectionRate *float64 `json:"maxNewConnectionRate,omitempty" tf:"max_new_connection_rate,omitempty"`
 
-	// Server pool for backend connections
-	PoolID *string `json:"poolId,omitempty" tf:"pool_id,omitempty"`
+// Persistence profile is used to allow related client connections to be sent to the same backend server. Source ip persistence is supported.
+PersistenceProfileID *string `json:"persistenceProfileId,omitempty" tf:"persistence_profile_id,omitempty"`
 
-	// Single port, multiple ports or port ranges
-	Ports []*string `json:"ports,omitempty" tf:"ports,omitempty"`
+// Server pool for backend connections
+PoolID *string `json:"poolId,omitempty" tf:"pool_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Single port, multiple ports or port ranges
+Ports []*string `json:"ports,omitempty" tf:"ports,omitempty"`
 
-	// When load balancer can not select a backend server to serve the request in default pool, the request would be served by sorry server pool
-	SorryPoolID *string `json:"sorryPoolId,omitempty" tf:"sorry_pool_id,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// When load balancer can not select a backend server to serve the request in default pool, the request would be served by sorry server pool
+SorryPoolID *string `json:"sorryPoolId,omitempty" tf:"sorry_pool_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LbUdpVirtualServerParameters struct {
 
-	// Whether access log is enabled
-	// +kubebuilder:validation:Optional
-	AccessLogEnabled *bool `json:"accessLogEnabled,omitempty" tf:"access_log_enabled,omitempty"`
 
-	// The tcp application profile defines the application protocol characteristics
-	// +kubebuilder:validation:Optional
-	ApplicationProfileID *string `json:"applicationProfileId,omitempty" tf:"application_profile_id,omitempty"`
+// Whether access log is enabled
+// +kubebuilder:validation:Optional
+AccessLogEnabled *bool `json:"accessLogEnabled,omitempty" tf:"access_log_enabled,omitempty"`
 
-	// Default pool member ports or port range
-	// +kubebuilder:validation:Optional
-	DefaultPoolMemberPorts []*string `json:"defaultPoolMemberPorts,omitempty" tf:"default_pool_member_ports,omitempty"`
+// The tcp application profile defines the application protocol characteristics
+// +kubebuilder:validation:Optional
+ApplicationProfileID *string `json:"applicationProfileId,omitempty" tf:"application_profile_id,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Default pool member ports or port range
+// +kubebuilder:validation:Optional
+DefaultPoolMemberPorts []*string `json:"defaultPoolMemberPorts,omitempty" tf:"default_pool_member_ports,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// whether the virtual server is enabled
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// virtual server IP address
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// whether the virtual server is enabled
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// If not specified, connections are unlimited
-	// +kubebuilder:validation:Optional
-	MaxConcurrentConnections *float64 `json:"maxConcurrentConnections,omitempty" tf:"max_concurrent_connections,omitempty"`
+// virtual server IP address
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// If not specified, connection rate is unlimited
-	// +kubebuilder:validation:Optional
-	MaxNewConnectionRate *float64 `json:"maxNewConnectionRate,omitempty" tf:"max_new_connection_rate,omitempty"`
+// If not specified, connections are unlimited
+// +kubebuilder:validation:Optional
+MaxConcurrentConnections *float64 `json:"maxConcurrentConnections,omitempty" tf:"max_concurrent_connections,omitempty"`
 
-	// Persistence profile is used to allow related client connections to be sent to the same backend server. Source ip persistence is supported.
-	// +kubebuilder:validation:Optional
-	PersistenceProfileID *string `json:"persistenceProfileId,omitempty" tf:"persistence_profile_id,omitempty"`
+// If not specified, connection rate is unlimited
+// +kubebuilder:validation:Optional
+MaxNewConnectionRate *float64 `json:"maxNewConnectionRate,omitempty" tf:"max_new_connection_rate,omitempty"`
 
-	// Server pool for backend connections
-	// +kubebuilder:validation:Optional
-	PoolID *string `json:"poolId,omitempty" tf:"pool_id,omitempty"`
+// Persistence profile is used to allow related client connections to be sent to the same backend server. Source ip persistence is supported.
+// +kubebuilder:validation:Optional
+PersistenceProfileID *string `json:"persistenceProfileId,omitempty" tf:"persistence_profile_id,omitempty"`
 
-	// Single port, multiple ports or port ranges
-	// +kubebuilder:validation:Optional
-	Ports []*string `json:"ports,omitempty" tf:"ports,omitempty"`
+// Server pool for backend connections
+// +kubebuilder:validation:Optional
+PoolID *string `json:"poolId,omitempty" tf:"pool_id,omitempty"`
 
-	// When load balancer can not select a backend server to serve the request in default pool, the request would be served by sorry server pool
-	// +kubebuilder:validation:Optional
-	SorryPoolID *string `json:"sorryPoolId,omitempty" tf:"sorry_pool_id,omitempty"`
+// Single port, multiple ports or port ranges
+// +kubebuilder:validation:Optional
+Ports []*string `json:"ports,omitempty" tf:"ports,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// When load balancer can not select a backend server to serve the request in default pool, the request would be served by sorry server pool
+// +kubebuilder:validation:Optional
+SorryPoolID *string `json:"sorryPoolId,omitempty" tf:"sorry_pool_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbUdpVirtualServerSpec defines the desired state of LbUdpVirtualServer
 type LbUdpVirtualServerSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbUdpVirtualServerParameters `json:"forProvider"`
+	ForProvider       LbUdpVirtualServerParameters `json:"forProvider"`
 }
 
 // LbUdpVirtualServerStatus defines the observed state of LbUdpVirtualServer.
 type LbUdpVirtualServerStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbUdpVirtualServerObservation `json:"atProvider,omitempty"`
+	AtProvider          LbUdpVirtualServerObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -161,11 +173,11 @@ type LbUdpVirtualServerStatus struct {
 type LbUdpVirtualServer struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.applicationProfileId)",message="applicationProfileId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)",message="ipAddress is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ports)",message="ports is a required parameter"
-	Spec   LbUdpVirtualServerSpec   `json:"spec"`
-	Status LbUdpVirtualServerStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.applicationProfileId)",message="applicationProfileId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ipAddress)",message="ipAddress is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ports)",message="ports is a required parameter"
+	Spec              LbUdpVirtualServerSpec   `json:"spec"`
+	Status            LbUdpVirtualServerStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,66 +11,77 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type ConfigObservation struct {
 
-	// Flag to enable this HA VIP config
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// paths to Tier0 external interfaces which are to be paired to provide redundancy
-	ExternalInterfacePaths []*string `json:"externalInterfacePaths,omitempty" tf:"external_interface_paths,omitempty"`
+// Flag to enable this HA VIP config
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// IP address subnets which will be used as floating IP addresses
-	VipSubnets []*string `json:"vipSubnets,omitempty" tf:"vip_subnets,omitempty"`
+// paths to Tier0 external interfaces which are to be paired to provide redundancy
+ExternalInterfacePaths []*string `json:"externalInterfacePaths,omitempty" tf:"external_interface_paths,omitempty"`
+
+// IP address subnets which will be used as floating IP addresses
+VipSubnets []*string `json:"vipSubnets,omitempty" tf:"vip_subnets,omitempty"`
 }
+
 
 type ConfigParameters struct {
 
-	// Flag to enable this HA VIP config
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// paths to Tier0 external interfaces which are to be paired to provide redundancy
-	// +kubebuilder:validation:Required
-	ExternalInterfacePaths []*string `json:"externalInterfacePaths" tf:"external_interface_paths,omitempty"`
+// Flag to enable this HA VIP config
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// IP address subnets which will be used as floating IP addresses
-	// +kubebuilder:validation:Required
-	VipSubnets []*string `json:"vipSubnets" tf:"vip_subnets,omitempty"`
+// paths to Tier0 external interfaces which are to be paired to provide redundancy
+// +kubebuilder:validation:Required
+ExternalInterfacePaths []*string `json:"externalInterfacePaths" tf:"external_interface_paths,omitempty"`
+
+// IP address subnets which will be used as floating IP addresses
+// +kubebuilder:validation:Required
+VipSubnets []*string `json:"vipSubnets" tf:"vip_subnets,omitempty"`
 }
+
 
 type PolicyTier0GatewayHaVipConfigObservation struct {
 
-	// Tier0 HA VIP Config
-	Config []ConfigObservation `json:"config,omitempty" tf:"config,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Tier0 HA VIP Config
+Config []ConfigObservation `json:"config,omitempty" tf:"config,omitempty"`
 
-	// Id of associated Gateway Locale Service on NSX
-	LocaleServiceID *string `json:"localeServiceId,omitempty" tf:"locale_service_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Id of associated Tier0 Gateway on NSX
-	Tier0ID *string `json:"tier0Id,omitempty" tf:"tier0_id,omitempty"`
+// Id of associated Gateway Locale Service on NSX
+LocaleServiceID *string `json:"localeServiceId,omitempty" tf:"locale_service_id,omitempty"`
+
+// Id of associated Tier0 Gateway on NSX
+Tier0ID *string `json:"tier0Id,omitempty" tf:"tier0_id,omitempty"`
 }
+
 
 type PolicyTier0GatewayHaVipConfigParameters struct {
 
-	// Tier0 HA VIP Config
-	// +kubebuilder:validation:Optional
-	Config []ConfigParameters `json:"config,omitempty" tf:"config,omitempty"`
+
+// Tier0 HA VIP Config
+// +kubebuilder:validation:Optional
+Config []ConfigParameters `json:"config,omitempty" tf:"config,omitempty"`
 }
 
 // PolicyTier0GatewayHaVipConfigSpec defines the desired state of PolicyTier0GatewayHaVipConfig
 type PolicyTier0GatewayHaVipConfigSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyTier0GatewayHaVipConfigParameters `json:"forProvider"`
+	ForProvider       PolicyTier0GatewayHaVipConfigParameters `json:"forProvider"`
 }
 
 // PolicyTier0GatewayHaVipConfigStatus defines the observed state of PolicyTier0GatewayHaVipConfig.
 type PolicyTier0GatewayHaVipConfigStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyTier0GatewayHaVipConfigObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyTier0GatewayHaVipConfigObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -85,9 +96,9 @@ type PolicyTier0GatewayHaVipConfigStatus struct {
 type PolicyTier0GatewayHaVipConfig struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.config)",message="config is a required parameter"
-	Spec   PolicyTier0GatewayHaVipConfigSpec   `json:"spec"`
-	Status PolicyTier0GatewayHaVipConfigStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.config)",message="config is a required parameter"
+	Spec              PolicyTier0GatewayHaVipConfigSpec   `json:"spec"`
+	Status            PolicyTier0GatewayHaVipConfigStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

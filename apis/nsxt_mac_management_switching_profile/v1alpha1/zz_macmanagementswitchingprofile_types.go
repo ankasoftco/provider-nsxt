@@ -11,111 +11,127 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type MacLearningObservation struct {
 
-	// Allowing source MAC address learning
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// The maximum number of MAC addresses that can be learned on this port
-	Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
+// Allowing source MAC address learning
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// The policy after MAC Limit is exceeded
-	LimitPolicy *string `json:"limitPolicy,omitempty" tf:"limit_policy,omitempty"`
+// The maximum number of MAC addresses that can be learned on this port
+Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
 
-	// Allowing flooding for unlearned MAC for ingress traffic
-	UnicastFloodingAllowed *bool `json:"unicastFloodingAllowed,omitempty" tf:"unicast_flooding_allowed,omitempty"`
+// The policy after MAC Limit is exceeded
+LimitPolicy *string `json:"limitPolicy,omitempty" tf:"limit_policy,omitempty"`
+
+// Allowing flooding for unlearned MAC for ingress traffic
+UnicastFloodingAllowed *bool `json:"unicastFloodingAllowed,omitempty" tf:"unicast_flooding_allowed,omitempty"`
 }
+
 
 type MacLearningParameters struct {
 
-	// Allowing source MAC address learning
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// The maximum number of MAC addresses that can be learned on this port
-	// +kubebuilder:validation:Optional
-	Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
+// Allowing source MAC address learning
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// The policy after MAC Limit is exceeded
-	// +kubebuilder:validation:Optional
-	LimitPolicy *string `json:"limitPolicy,omitempty" tf:"limit_policy,omitempty"`
+// The maximum number of MAC addresses that can be learned on this port
+// +kubebuilder:validation:Optional
+Limit *float64 `json:"limit,omitempty" tf:"limit,omitempty"`
 
-	// Allowing flooding for unlearned MAC for ingress traffic
-	// +kubebuilder:validation:Optional
-	UnicastFloodingAllowed *bool `json:"unicastFloodingAllowed,omitempty" tf:"unicast_flooding_allowed,omitempty"`
+// The policy after MAC Limit is exceeded
+// +kubebuilder:validation:Optional
+LimitPolicy *string `json:"limitPolicy,omitempty" tf:"limit_policy,omitempty"`
+
+// Allowing flooding for unlearned MAC for ingress traffic
+// +kubebuilder:validation:Optional
+UnicastFloodingAllowed *bool `json:"unicastFloodingAllowed,omitempty" tf:"unicast_flooding_allowed,omitempty"`
 }
+
 
 type MacManagementSwitchingProfileObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Allowing source MAC address change
-	MacChangeAllowed *bool `json:"macChangeAllowed,omitempty" tf:"mac_change_allowed,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	MacLearning []MacLearningObservation `json:"macLearning,omitempty" tf:"mac_learning,omitempty"`
+// Allowing source MAC address change
+MacChangeAllowed *bool `json:"macChangeAllowed,omitempty" tf:"mac_change_allowed,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+MacLearning []MacLearningObservation `json:"macLearning,omitempty" tf:"mac_learning,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type MacManagementSwitchingProfileParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Allowing source MAC address change
-	// +kubebuilder:validation:Optional
-	MacChangeAllowed *bool `json:"macChangeAllowed,omitempty" tf:"mac_change_allowed,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	MacLearning []MacLearningParameters `json:"macLearning,omitempty" tf:"mac_learning,omitempty"`
+// Allowing source MAC address change
+// +kubebuilder:validation:Optional
+MacChangeAllowed *bool `json:"macChangeAllowed,omitempty" tf:"mac_change_allowed,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+MacLearning []MacLearningParameters `json:"macLearning,omitempty" tf:"mac_learning,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // MacManagementSwitchingProfileSpec defines the desired state of MacManagementSwitchingProfile
 type MacManagementSwitchingProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     MacManagementSwitchingProfileParameters `json:"forProvider"`
+	ForProvider       MacManagementSwitchingProfileParameters `json:"forProvider"`
 }
 
 // MacManagementSwitchingProfileStatus defines the observed state of MacManagementSwitchingProfile.
 type MacManagementSwitchingProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        MacManagementSwitchingProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          MacManagementSwitchingProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

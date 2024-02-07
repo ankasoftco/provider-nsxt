@@ -11,169 +11,185 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbHttpMonitorObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Number of consecutive checks that must fail before marking it down
-	FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Number of consecutive checks that must fail before marking it down
+FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
 
-	// The frequency at which the system issues the monitor check (in seconds)
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
-	MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
+// The frequency at which the system issues the monitor check (in seconds)
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
-	// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
-	RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
+// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
+MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
 
-	// Array of HTTP request headers
-	RequestHeader []RequestHeaderObservation `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
+// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
+RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
 
-	// Health check method for HTTP monitor type
-	RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
+// Array of HTTP request headers
+RequestHeader []RequestHeaderObservation `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
 
-	// URL used for HTTP monitor
-	RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
+// Health check method for HTTP monitor type
+RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
 
-	// HTTP request version
-	RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
+// URL used for HTTP monitor
+RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
 
-	// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
-	ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
+// HTTP request version
+RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
 
-	// The HTTP response status code should be a valid HTTP status code
-	ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
+// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
+ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// The HTTP response status code should be a valid HTTP status code
+ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
 
-	// Number of consecutive checks that must pass before marking it up
-	RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Number of consecutive checks that must pass before marking it up
+RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
 
-	// Number of seconds the target has to respond to the monitor request
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Number of seconds the target has to respond to the monitor request
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type LbHttpMonitorParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Number of consecutive checks that must fail before marking it down
-	// +kubebuilder:validation:Optional
-	FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The frequency at which the system issues the monitor check (in seconds)
-	// +kubebuilder:validation:Optional
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+// Number of consecutive checks that must fail before marking it down
+// +kubebuilder:validation:Optional
+FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
 
-	// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
-	// +kubebuilder:validation:Optional
-	MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
+// The frequency at which the system issues the monitor check (in seconds)
+// +kubebuilder:validation:Optional
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
-	// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
-	// +kubebuilder:validation:Optional
-	RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
+// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
+// +kubebuilder:validation:Optional
+MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
 
-	// Array of HTTP request headers
-	// +kubebuilder:validation:Optional
-	RequestHeader []RequestHeaderParameters `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
+// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
+// +kubebuilder:validation:Optional
+RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
 
-	// Health check method for HTTP monitor type
-	// +kubebuilder:validation:Optional
-	RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
+// Array of HTTP request headers
+// +kubebuilder:validation:Optional
+RequestHeader []RequestHeaderParameters `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
 
-	// URL used for HTTP monitor
-	// +kubebuilder:validation:Optional
-	RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
+// Health check method for HTTP monitor type
+// +kubebuilder:validation:Optional
+RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
 
-	// HTTP request version
-	// +kubebuilder:validation:Optional
-	RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
+// URL used for HTTP monitor
+// +kubebuilder:validation:Optional
+RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
 
-	// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
-	// +kubebuilder:validation:Optional
-	ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
+// HTTP request version
+// +kubebuilder:validation:Optional
+RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
 
-	// The HTTP response status code should be a valid HTTP status code
-	// +kubebuilder:validation:Optional
-	ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
+// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
+// +kubebuilder:validation:Optional
+ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
 
-	// Number of consecutive checks that must pass before marking it up
-	// +kubebuilder:validation:Optional
-	RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
+// The HTTP response status code should be a valid HTTP status code
+// +kubebuilder:validation:Optional
+ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Number of consecutive checks that must pass before marking it up
+// +kubebuilder:validation:Optional
+RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
 
-	// Number of seconds the target has to respond to the monitor request
-	// +kubebuilder:validation:Optional
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Number of seconds the target has to respond to the monitor request
+// +kubebuilder:validation:Optional
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type RequestHeaderObservation struct {
 
-	// Header name
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Header value
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+// Header name
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+// Header value
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type RequestHeaderParameters struct {
 
-	// Header name
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
 
-	// Header value
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value,omitempty"`
+// Header name
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
+
+// Header value
+// +kubebuilder:validation:Required
+Value *string `json:"value" tf:"value,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbHttpMonitorSpec defines the desired state of LbHttpMonitor
 type LbHttpMonitorSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbHttpMonitorParameters `json:"forProvider"`
+	ForProvider       LbHttpMonitorParameters `json:"forProvider"`
 }
 
 // LbHttpMonitorStatus defines the observed state of LbHttpMonitor.
 type LbHttpMonitorStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbHttpMonitorObservation `json:"atProvider,omitempty"`
+	AtProvider          LbHttpMonitorObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

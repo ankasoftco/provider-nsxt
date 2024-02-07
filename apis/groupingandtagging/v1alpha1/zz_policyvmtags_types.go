@@ -11,117 +11,142 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyVmTagsContextObservation struct {
 
-	// Id of the project which the resource belongs to.
-	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 }
+
 
 type PolicyVmTagsContextParameters struct {
 
-	// Id of the project which the resource belongs to.
-	// +kubebuilder:validation:Required
-	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
+
+// Id of the project which the resource belongs to.
+// +kubebuilder:validation:Required
+ProjectID *string `json:"projectId" tf:"project_id,omitempty"`
 }
+
 
 type PolicyVmTagsObservation struct {
 
-	// Resource context
-	Context []PolicyVmTagsContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Resource context
+Context []PolicyVmTagsContextObservation `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Instance id
-	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Tag specificiation for corresponding segment port
-	Port []PortObservation `json:"port,omitempty" tf:"port,omitempty"`
+// Instance id
+InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyVmTagsTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Tag specificiation for corresponding segment port
+Port []PortObservation `json:"port,omitempty" tf:"port,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyVmTagsTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyVmTagsParameters struct {
 
-	// Resource context
-	// +kubebuilder:validation:Optional
-	Context []PolicyVmTagsContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Instance id
-	// +kubebuilder:validation:Optional
-	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
+// Resource context
+// +kubebuilder:validation:Optional
+Context []PolicyVmTagsContextParameters `json:"context,omitempty" tf:"context,omitempty"`
 
-	// Tag specificiation for corresponding segment port
-	// +kubebuilder:validation:Optional
-	Port []PortParameters `json:"port,omitempty" tf:"port,omitempty"`
+// Instance id
+// +kubebuilder:validation:Optional
+InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyVmTagsTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Tag specificiation for corresponding segment port
+// +kubebuilder:validation:Optional
+Port []PortParameters `json:"port,omitempty" tf:"port,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyVmTagsTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyVmTagsTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyVmTagsTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PortObservation struct {
 
-	// Segment path where VM port should be tagged
-	SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PortTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Segment path where VM port should be tagged
+SegmentPath *string `json:"segmentPath,omitempty" tf:"segment_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PortTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PortParameters struct {
 
-	// Segment path where VM port should be tagged
-	// +kubebuilder:validation:Required
-	SegmentPath *string `json:"segmentPath" tf:"segment_path,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PortTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Segment path where VM port should be tagged
+// +kubebuilder:validation:Required
+SegmentPath *string `json:"segmentPath" tf:"segment_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PortTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PortTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PortTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyVmTagsSpec defines the desired state of PolicyVmTags
 type PolicyVmTagsSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyVmTagsParameters `json:"forProvider"`
+	ForProvider       PolicyVmTagsParameters `json:"forProvider"`
 }
 
 // PolicyVmTagsStatus defines the observed state of PolicyVmTags.
 type PolicyVmTagsStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyVmTagsObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyVmTagsObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -136,9 +161,9 @@ type PolicyVmTagsStatus struct {
 type PolicyVmTags struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.instanceId)",message="instanceId is a required parameter"
-	Spec   PolicyVmTagsSpec   `json:"spec"`
-	Status PolicyVmTagsStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.instanceId)",message="instanceId is a required parameter"
+	Spec              PolicyVmTagsSpec   `json:"spec"`
+	Status            PolicyVmTagsStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

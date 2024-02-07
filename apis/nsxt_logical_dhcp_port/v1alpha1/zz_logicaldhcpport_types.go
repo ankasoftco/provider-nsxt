@@ -11,86 +11,98 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LogicalDhcpPortObservation struct {
 
-	// Represents Desired state of the object
-	AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
 
-	// Id of the Logical DHCP server this port belongs to
-	DHCPServerID *string `json:"dhcpServerId,omitempty" tf:"dhcp_server_id,omitempty"`
+// Represents Desired state of the object
+AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Id of the Logical DHCP server this port belongs to
+DHCPServerID *string `json:"dhcpServerId,omitempty" tf:"dhcp_server_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Id of the Logical switch that this port belongs to
-	LogicalSwitchID *string `json:"logicalSwitchId,omitempty" tf:"logical_switch_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Id of the Logical switch that this port belongs to
+LogicalSwitchID *string `json:"logicalSwitchId,omitempty" tf:"logical_switch_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LogicalDhcpPortParameters struct {
 
-	// Represents Desired state of the object
-	// +kubebuilder:validation:Optional
-	AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
 
-	// Id of the Logical DHCP server this port belongs to
-	// +kubebuilder:validation:Optional
-	DHCPServerID *string `json:"dhcpServerId,omitempty" tf:"dhcp_server_id,omitempty"`
+// Represents Desired state of the object
+// +kubebuilder:validation:Optional
+AdminState *string `json:"adminState,omitempty" tf:"admin_state,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Id of the Logical DHCP server this port belongs to
+// +kubebuilder:validation:Optional
+DHCPServerID *string `json:"dhcpServerId,omitempty" tf:"dhcp_server_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Id of the Logical switch that this port belongs to
-	// +kubebuilder:validation:Optional
-	LogicalSwitchID *string `json:"logicalSwitchId,omitempty" tf:"logical_switch_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Id of the Logical switch that this port belongs to
+// +kubebuilder:validation:Optional
+LogicalSwitchID *string `json:"logicalSwitchId,omitempty" tf:"logical_switch_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LogicalDhcpPortSpec defines the desired state of LogicalDhcpPort
 type LogicalDhcpPortSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LogicalDhcpPortParameters `json:"forProvider"`
+	ForProvider       LogicalDhcpPortParameters `json:"forProvider"`
 }
 
 // LogicalDhcpPortStatus defines the observed state of LogicalDhcpPort.
 type LogicalDhcpPortStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LogicalDhcpPortObservation `json:"atProvider,omitempty"`
+	AtProvider          LogicalDhcpPortObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -105,10 +117,10 @@ type LogicalDhcpPortStatus struct {
 type LogicalDhcpPort struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpServerId)",message="dhcpServerId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalSwitchId)",message="logicalSwitchId is a required parameter"
-	Spec   LogicalDhcpPortSpec   `json:"spec"`
-	Status LogicalDhcpPortStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpServerId)",message="dhcpServerId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalSwitchId)",message="logicalSwitchId is a required parameter"
+	Spec              LogicalDhcpPortSpec   `json:"spec"`
+	Status            LogicalDhcpPortStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

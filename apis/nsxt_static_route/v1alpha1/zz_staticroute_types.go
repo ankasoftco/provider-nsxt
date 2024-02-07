@@ -11,117 +11,133 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type NextHopObservation struct {
 
-	// Administrative Distance for the next hop IP
-	AdministrativeDistance *float64 `json:"administrativeDistance,omitempty" tf:"administrative_distance,omitempty"`
 
-	// Status of bfd for this next hop where bfdEnabled = true indicate bfd is enabled for this next hop and bfdEnabled = false indicate bfd peer is disabled or not configured for this next hop.
-	BfdEnabled *bool `json:"bfdEnabled,omitempty" tf:"bfd_enabled,omitempty"`
+// Administrative Distance for the next hop IP
+AdministrativeDistance *float64 `json:"administrativeDistance,omitempty" tf:"administrative_distance,omitempty"`
 
-	// Action to be taken on matching packets for NULL routes
-	BlackholeAction *string `json:"blackholeAction,omitempty" tf:"blackhole_action,omitempty"`
+// Status of bfd for this next hop where bfdEnabled = true indicate bfd is enabled for this next hop and bfdEnabled = false indicate bfd peer is disabled or not configured for this next hop.
+BfdEnabled *bool `json:"bfdEnabled,omitempty" tf:"bfd_enabled,omitempty"`
 
-	// Next Hop IP
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// Action to be taken on matching packets for NULL routes
+BlackholeAction *string `json:"blackholeAction,omitempty" tf:"blackhole_action,omitempty"`
 
-	// Logical router port id
-	LogicalRouterPortID *string `json:"logicalRouterPortId,omitempty" tf:"logical_router_port_id,omitempty"`
+// Next Hop IP
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+
+// Logical router port id
+LogicalRouterPortID *string `json:"logicalRouterPortId,omitempty" tf:"logical_router_port_id,omitempty"`
 }
+
 
 type NextHopParameters struct {
 
-	// Administrative Distance for the next hop IP
-	// +kubebuilder:validation:Optional
-	AdministrativeDistance *float64 `json:"administrativeDistance,omitempty" tf:"administrative_distance,omitempty"`
 
-	// Next Hop IP
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// Administrative Distance for the next hop IP
+// +kubebuilder:validation:Optional
+AdministrativeDistance *float64 `json:"administrativeDistance,omitempty" tf:"administrative_distance,omitempty"`
 
-	// Logical router port id
-	// +kubebuilder:validation:Optional
-	LogicalRouterPortID *string `json:"logicalRouterPortId,omitempty" tf:"logical_router_port_id,omitempty"`
+// Next Hop IP
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+
+// Logical router port id
+// +kubebuilder:validation:Optional
+LogicalRouterPortID *string `json:"logicalRouterPortId,omitempty" tf:"logical_router_port_id,omitempty"`
 }
+
 
 type StaticRouteObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Logical router id
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// CIDR
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
+// Logical router id
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	NextHop []NextHopObservation `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// CIDR
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+NextHop []NextHopObservation `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type StaticRouteParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Logical router id
-	// +kubebuilder:validation:Optional
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+// Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// CIDR
-	// +kubebuilder:validation:Optional
-	Network *string `json:"network,omitempty" tf:"network,omitempty"`
+// Logical router id
+// +kubebuilder:validation:Optional
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	NextHop []NextHopParameters `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+// CIDR
+// +kubebuilder:validation:Optional
+Network *string `json:"network,omitempty" tf:"network,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+NextHop []NextHopParameters `json:"nextHop,omitempty" tf:"next_hop,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // StaticRouteSpec defines the desired state of StaticRoute
 type StaticRouteSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     StaticRouteParameters `json:"forProvider"`
+	ForProvider       StaticRouteParameters `json:"forProvider"`
 }
 
 // StaticRouteStatus defines the observed state of StaticRoute.
 type StaticRouteStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        StaticRouteObservation `json:"atProvider,omitempty"`
+	AtProvider          StaticRouteObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -136,11 +152,11 @@ type StaticRouteStatus struct {
 type StaticRoute struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.network)",message="network is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.nextHop)",message="nextHop is a required parameter"
-	Spec   StaticRouteSpec   `json:"spec"`
-	Status StaticRouteStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.network)",message="network is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.nextHop)",message="nextHop is a required parameter"
+	Spec              StaticRouteSpec   `json:"spec"`
+	Status            StaticRouteStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

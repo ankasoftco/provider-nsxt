@@ -11,221 +11,237 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type LbHttpsMonitorObservation struct {
 
-	// Verification depth in the server certificate chain
-	CertificateChainDepth *float64 `json:"certificateChainDepth,omitempty" tf:"certificate_chain_depth,omitempty"`
 
-	// Supported SSL cipher list
-	Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
+// Verification depth in the server certificate chain
+CertificateChainDepth *float64 `json:"certificateChainDepth,omitempty" tf:"certificate_chain_depth,omitempty"`
 
-	// client certificate can be specified to support client authentication
-	ClientCertificateID *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id,omitempty"`
+// Supported SSL cipher list
+Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// client certificate can be specified to support client authentication
+ClientCertificateID *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Number of consecutive checks that must fail before marking it down
-	FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Number of consecutive checks that must fail before marking it down
+FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
 
-	// The frequency at which the system issues the monitor check (in seconds)
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// This flag is set to true when all the ciphers and protocols are secure. It is set to false when one of the ciphers or protocols is insecure
-	IsSecure *bool `json:"isSecure,omitempty" tf:"is_secure,omitempty"`
+// The frequency at which the system issues the monitor check (in seconds)
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
-	// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
-	MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
+// This flag is set to true when all the ciphers and protocols are secure. It is set to false when one of the ciphers or protocols is insecure
+IsSecure *bool `json:"isSecure,omitempty" tf:"is_secure,omitempty"`
 
-	// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
-	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
+// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
+MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
 
-	// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
-	RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
+// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
+Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
 
-	// Array of HTTP request headers
-	RequestHeader []RequestHeaderObservation `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
+// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
+RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
 
-	// Health check method for HTTP monitor type
-	RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
+// Array of HTTP request headers
+RequestHeader []RequestHeaderObservation `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
 
-	// URL used for HTTP monitor
-	RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
+// Health check method for HTTP monitor type
+RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
 
-	// HTTP request version
-	RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
+// URL used for HTTP monitor
+RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
 
-	// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
-	ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
+// HTTP request version
+RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
 
-	// The HTTP response status code should be a valid HTTP status code
-	ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
+// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
+ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// The HTTP response status code should be a valid HTTP status code
+ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
 
-	// Number of consecutive checks that must pass before marking it up
-	RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Server authentication mode
-	ServerAuth *string `json:"serverAuth,omitempty" tf:"server_auth,omitempty"`
+// Number of consecutive checks that must pass before marking it up
+RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
 
-	// If server auth type is REQUIRED, server certificate must be signed by one of the CAs
-	ServerAuthCAIds []*string `json:"serverAuthCaIds,omitempty" tf:"server_auth_ca_ids,omitempty"`
+// Server authentication mode
+ServerAuth *string `json:"serverAuth,omitempty" tf:"server_auth,omitempty"`
 
-	// Certificate Revocation List (CRL) to disallow compromised server certificates
-	ServerAuthCrlIds []*string `json:"serverAuthCrlIds,omitempty" tf:"server_auth_crl_ids,omitempty"`
+// If server auth type is REQUIRED, server certificate must be signed by one of the CAs
+ServerAuthCAIds []*string `json:"serverAuthCaIds,omitempty" tf:"server_auth_ca_ids,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Certificate Revocation List (CRL) to disallow compromised server certificates
+ServerAuthCrlIds []*string `json:"serverAuthCrlIds,omitempty" tf:"server_auth_crl_ids,omitempty"`
 
-	// Number of seconds the target has to respond to the monitor request
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Number of seconds the target has to respond to the monitor request
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type LbHttpsMonitorParameters struct {
 
-	// Verification depth in the server certificate chain
-	// +kubebuilder:validation:Optional
-	CertificateChainDepth *float64 `json:"certificateChainDepth,omitempty" tf:"certificate_chain_depth,omitempty"`
 
-	// Supported SSL cipher list
-	// +kubebuilder:validation:Optional
-	Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
+// Verification depth in the server certificate chain
+// +kubebuilder:validation:Optional
+CertificateChainDepth *float64 `json:"certificateChainDepth,omitempty" tf:"certificate_chain_depth,omitempty"`
 
-	// client certificate can be specified to support client authentication
-	// +kubebuilder:validation:Optional
-	ClientCertificateID *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id,omitempty"`
+// Supported SSL cipher list
+// +kubebuilder:validation:Optional
+Ciphers []*string `json:"ciphers,omitempty" tf:"ciphers,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// client certificate can be specified to support client authentication
+// +kubebuilder:validation:Optional
+ClientCertificateID *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Number of consecutive checks that must fail before marking it down
-	// +kubebuilder:validation:Optional
-	FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The frequency at which the system issues the monitor check (in seconds)
-	// +kubebuilder:validation:Optional
-	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
+// Number of consecutive checks that must fail before marking it down
+// +kubebuilder:validation:Optional
+FallCount *float64 `json:"fallCount,omitempty" tf:"fall_count,omitempty"`
 
-	// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
-	// +kubebuilder:validation:Optional
-	MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
+// The frequency at which the system issues the monitor check (in seconds)
+// +kubebuilder:validation:Optional
+Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
-	// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
-	// +kubebuilder:validation:Optional
-	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
+// If the monitor port is specified, it would override pool member port setting for healthcheck. A port range is not supported
+// +kubebuilder:validation:Optional
+MonitorPort *string `json:"monitorPort,omitempty" tf:"monitor_port,omitempty"`
 
-	// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
-	// +kubebuilder:validation:Optional
-	RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
+// SSL versions TLS1.1 and TLS1.2 are supported and enabled by default. SSLv2, SSLv3, and TLS1.0 are supported, but disabled by default
+// +kubebuilder:validation:Optional
+Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
 
-	// Array of HTTP request headers
-	// +kubebuilder:validation:Optional
-	RequestHeader []RequestHeaderParameters `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
+// String to send as HTTP health check request body. Valid only for certain HTTP methods like POST
+// +kubebuilder:validation:Optional
+RequestBody *string `json:"requestBody,omitempty" tf:"request_body,omitempty"`
 
-	// Health check method for HTTP monitor type
-	// +kubebuilder:validation:Optional
-	RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
+// Array of HTTP request headers
+// +kubebuilder:validation:Optional
+RequestHeader []RequestHeaderParameters `json:"requestHeader,omitempty" tf:"request_header,omitempty"`
 
-	// URL used for HTTP monitor
-	// +kubebuilder:validation:Optional
-	RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
+// Health check method for HTTP monitor type
+// +kubebuilder:validation:Optional
+RequestMethod *string `json:"requestMethod,omitempty" tf:"request_method,omitempty"`
 
-	// HTTP request version
-	// +kubebuilder:validation:Optional
-	RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
+// URL used for HTTP monitor
+// +kubebuilder:validation:Optional
+RequestURL *string `json:"requestUrl,omitempty" tf:"request_url,omitempty"`
 
-	// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
-	// +kubebuilder:validation:Optional
-	ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
+// HTTP request version
+// +kubebuilder:validation:Optional
+RequestVersion *string `json:"requestVersion,omitempty" tf:"request_version,omitempty"`
 
-	// The HTTP response status code should be a valid HTTP status code
-	// +kubebuilder:validation:Optional
-	ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
+// If HTTP specified, healthcheck HTTP response body is matched against the specified string (regular expressions not supported), and succeeds only if there is a match
+// +kubebuilder:validation:Optional
+ResponseBody *string `json:"responseBody,omitempty" tf:"response_body,omitempty"`
 
-	// Number of consecutive checks that must pass before marking it up
-	// +kubebuilder:validation:Optional
-	RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
+// The HTTP response status code should be a valid HTTP status code
+// +kubebuilder:validation:Optional
+ResponseStatusCodes []*float64 `json:"responseStatusCodes,omitempty" tf:"response_status_codes,omitempty"`
 
-	// Server authentication mode
-	// +kubebuilder:validation:Optional
-	ServerAuth *string `json:"serverAuth,omitempty" tf:"server_auth,omitempty"`
+// Number of consecutive checks that must pass before marking it up
+// +kubebuilder:validation:Optional
+RiseCount *float64 `json:"riseCount,omitempty" tf:"rise_count,omitempty"`
 
-	// If server auth type is REQUIRED, server certificate must be signed by one of the CAs
-	// +kubebuilder:validation:Optional
-	ServerAuthCAIds []*string `json:"serverAuthCaIds,omitempty" tf:"server_auth_ca_ids,omitempty"`
+// Server authentication mode
+// +kubebuilder:validation:Optional
+ServerAuth *string `json:"serverAuth,omitempty" tf:"server_auth,omitempty"`
 
-	// Certificate Revocation List (CRL) to disallow compromised server certificates
-	// +kubebuilder:validation:Optional
-	ServerAuthCrlIds []*string `json:"serverAuthCrlIds,omitempty" tf:"server_auth_crl_ids,omitempty"`
+// If server auth type is REQUIRED, server certificate must be signed by one of the CAs
+// +kubebuilder:validation:Optional
+ServerAuthCAIds []*string `json:"serverAuthCaIds,omitempty" tf:"server_auth_ca_ids,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Certificate Revocation List (CRL) to disallow compromised server certificates
+// +kubebuilder:validation:Optional
+ServerAuthCrlIds []*string `json:"serverAuthCrlIds,omitempty" tf:"server_auth_crl_ids,omitempty"`
 
-	// Number of seconds the target has to respond to the monitor request
-	// +kubebuilder:validation:Optional
-	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+
+// Number of seconds the target has to respond to the monitor request
+// +kubebuilder:validation:Optional
+Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 }
+
 
 type RequestHeaderObservation struct {
 
-	// Header name
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Header value
-	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+// Header name
+Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+// Header value
+Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
+
 
 type RequestHeaderParameters struct {
 
-	// Header name
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
 
-	// Header value
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value,omitempty"`
+// Header name
+// +kubebuilder:validation:Required
+Name *string `json:"name" tf:"name,omitempty"`
+
+// Header value
+// +kubebuilder:validation:Required
+Value *string `json:"value" tf:"value,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LbHttpsMonitorSpec defines the desired state of LbHttpsMonitor
 type LbHttpsMonitorSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LbHttpsMonitorParameters `json:"forProvider"`
+	ForProvider       LbHttpsMonitorParameters `json:"forProvider"`
 }
 
 // LbHttpsMonitorStatus defines the observed state of LbHttpsMonitor.
 type LbHttpsMonitorStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LbHttpsMonitorObservation `json:"atProvider,omitempty"`
+	AtProvider          LbHttpsMonitorObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

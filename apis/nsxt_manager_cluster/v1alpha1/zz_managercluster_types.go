@@ -11,68 +11,80 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
 
+
+
+
 type ManagerClusterObservation struct {
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Nodes in the cluster
-	Node []NodeObservation `json:"node,omitempty" tf:"node,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+// Nodes in the cluster
+Node []NodeObservation `json:"node,omitempty" tf:"node,omitempty"`
+
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 }
+
 
 type ManagerClusterParameters struct {
 
-	// Nodes in the cluster
-	// +kubebuilder:validation:Optional
-	Node []NodeParameters `json:"node,omitempty" tf:"node,omitempty"`
+
+// Nodes in the cluster
+// +kubebuilder:validation:Optional
+Node []NodeParameters `json:"node,omitempty" tf:"node,omitempty"`
 }
+
 
 type NodeObservation struct {
 
-	// FQDN for the cluster node
-	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn,omitempty"`
 
-	// ID of the cluster node
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// FQDN for the cluster node
+Fqdn *string `json:"fqdn,omitempty" tf:"fqdn,omitempty"`
 
-	// IP address of the cluster node that will join the cluster
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// ID of the cluster node
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Status of the cluster node
-	Status *string `json:"status,omitempty" tf:"status,omitempty"`
+// IP address of the cluster node that will join the cluster
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
 
-	// The username for login
-	Username *string `json:"username,omitempty" tf:"username,omitempty"`
+// Status of the cluster node
+Status *string `json:"status,omitempty" tf:"status,omitempty"`
+
+// The username for login
+Username *string `json:"username,omitempty" tf:"username,omitempty"`
 }
+
 
 type NodeParameters struct {
 
-	// IP address of the cluster node that will join the cluster
-	// +kubebuilder:validation:Required
-	IPAddress *string `json:"ipAddress" tf:"ip_address,omitempty"`
 
-	// The password for login
-	// +kubebuilder:validation:Required
-	PasswordSecretRef v1.SecretKeySelector `json:"passwordSecretRef" tf:"-"`
+// IP address of the cluster node that will join the cluster
+// +kubebuilder:validation:Required
+IPAddress *string `json:"ipAddress" tf:"ip_address,omitempty"`
 
-	// The username for login
-	// +kubebuilder:validation:Required
-	Username *string `json:"username" tf:"username,omitempty"`
+// The password for login
+// +kubebuilder:validation:Required
+PasswordSecretRef v1.SecretKeySelector `json:"passwordSecretRef" tf:"-"`
+
+// The username for login
+// +kubebuilder:validation:Required
+Username *string `json:"username" tf:"username,omitempty"`
 }
 
 // ManagerClusterSpec defines the desired state of ManagerCluster
 type ManagerClusterSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     ManagerClusterParameters `json:"forProvider"`
+	ForProvider       ManagerClusterParameters `json:"forProvider"`
 }
 
 // ManagerClusterStatus defines the observed state of ManagerCluster.
 type ManagerClusterStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        ManagerClusterObservation `json:"atProvider,omitempty"`
+	AtProvider          ManagerClusterObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -87,9 +99,9 @@ type ManagerClusterStatus struct {
 type ManagerCluster struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.node)",message="node is a required parameter"
-	Spec   ManagerClusterSpec   `json:"spec"`
-	Status ManagerClusterStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.node)",message="node is a required parameter"
+	Spec              ManagerClusterSpec   `json:"spec"`
+	Status            ManagerClusterStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

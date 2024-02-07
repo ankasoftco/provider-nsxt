@@ -11,135 +11,147 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type NatRuleObservation struct {
 
-	// The action for the NAT Rule
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// The action for the NAT Rule
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// enable/disable the rule
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// enable/disable the rule
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// enable/disable the logging of rule
-	Logging *bool `json:"logging,omitempty" tf:"logging,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Logical router id
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+// enable/disable the logging of rule
+Logging *bool `json:"logging,omitempty" tf:"logging,omitempty"`
 
-	// IP Address | CIDR
-	MatchDestinationNetwork *string `json:"matchDestinationNetwork,omitempty" tf:"match_destination_network,omitempty"`
+// Logical router id
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// IP Address | CIDR
-	MatchSourceNetwork *string `json:"matchSourceNetwork,omitempty" tf:"match_source_network,omitempty"`
+// IP Address | CIDR
+MatchDestinationNetwork *string `json:"matchDestinationNetwork,omitempty" tf:"match_destination_network,omitempty"`
 
-	// A boolean flag which reflects whether the following firewall stage will be skipped
-	NATPass *bool `json:"natPass,omitempty" tf:"nat_pass,omitempty"`
+// IP Address | CIDR
+MatchSourceNetwork *string `json:"matchSourceNetwork,omitempty" tf:"match_source_network,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// A boolean flag which reflects whether the following firewall stage will be skipped
+NATPass *bool `json:"natPass,omitempty" tf:"nat_pass,omitempty"`
 
-	// The priority of the rule (ascending). Valid range [0-2147483647]
-	RulePriority *float64 `json:"rulePriority,omitempty" tf:"rule_priority,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The priority of the rule (ascending). Valid range [0-2147483647]
+RulePriority *float64 `json:"rulePriority,omitempty" tf:"rule_priority,omitempty"`
 
-	// IP Address | IP Range | CIDR
-	TranslatedNetwork *string `json:"translatedNetwork,omitempty" tf:"translated_network,omitempty"`
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// port number or port range. DNAT only
-	TranslatedPorts *string `json:"translatedPorts,omitempty" tf:"translated_ports,omitempty"`
+// IP Address | IP Range | CIDR
+TranslatedNetwork *string `json:"translatedNetwork,omitempty" tf:"translated_network,omitempty"`
+
+// port number or port range. DNAT only
+TranslatedPorts *string `json:"translatedPorts,omitempty" tf:"translated_ports,omitempty"`
 }
+
 
 type NatRuleParameters struct {
 
-	// The action for the NAT Rule
-	// +kubebuilder:validation:Optional
-	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// The action for the NAT Rule
+// +kubebuilder:validation:Optional
+Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// enable/disable the rule
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// enable/disable the logging of rule
-	// +kubebuilder:validation:Optional
-	Logging *bool `json:"logging,omitempty" tf:"logging,omitempty"`
+// enable/disable the rule
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Logical router id
-	// +kubebuilder:validation:Optional
-	LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
+// enable/disable the logging of rule
+// +kubebuilder:validation:Optional
+Logging *bool `json:"logging,omitempty" tf:"logging,omitempty"`
 
-	// IP Address | CIDR
-	// +kubebuilder:validation:Optional
-	MatchDestinationNetwork *string `json:"matchDestinationNetwork,omitempty" tf:"match_destination_network,omitempty"`
+// Logical router id
+// +kubebuilder:validation:Optional
+LogicalRouterID *string `json:"logicalRouterId,omitempty" tf:"logical_router_id,omitempty"`
 
-	// IP Address | CIDR
-	// +kubebuilder:validation:Optional
-	MatchSourceNetwork *string `json:"matchSourceNetwork,omitempty" tf:"match_source_network,omitempty"`
+// IP Address | CIDR
+// +kubebuilder:validation:Optional
+MatchDestinationNetwork *string `json:"matchDestinationNetwork,omitempty" tf:"match_destination_network,omitempty"`
 
-	// A boolean flag which reflects whether the following firewall stage will be skipped
-	// +kubebuilder:validation:Optional
-	NATPass *bool `json:"natPass,omitempty" tf:"nat_pass,omitempty"`
+// IP Address | CIDR
+// +kubebuilder:validation:Optional
+MatchSourceNetwork *string `json:"matchSourceNetwork,omitempty" tf:"match_source_network,omitempty"`
 
-	// The priority of the rule (ascending). Valid range [0-2147483647]
-	// +kubebuilder:validation:Optional
-	RulePriority *float64 `json:"rulePriority,omitempty" tf:"rule_priority,omitempty"`
+// A boolean flag which reflects whether the following firewall stage will be skipped
+// +kubebuilder:validation:Optional
+NATPass *bool `json:"natPass,omitempty" tf:"nat_pass,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// The priority of the rule (ascending). Valid range [0-2147483647]
+// +kubebuilder:validation:Optional
+RulePriority *float64 `json:"rulePriority,omitempty" tf:"rule_priority,omitempty"`
 
-	// IP Address | IP Range | CIDR
-	// +kubebuilder:validation:Optional
-	TranslatedNetwork *string `json:"translatedNetwork,omitempty" tf:"translated_network,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 
-	// port number or port range. DNAT only
-	// +kubebuilder:validation:Optional
-	TranslatedPorts *string `json:"translatedPorts,omitempty" tf:"translated_ports,omitempty"`
+// IP Address | IP Range | CIDR
+// +kubebuilder:validation:Optional
+TranslatedNetwork *string `json:"translatedNetwork,omitempty" tf:"translated_network,omitempty"`
+
+// port number or port range. DNAT only
+// +kubebuilder:validation:Optional
+TranslatedPorts *string `json:"translatedPorts,omitempty" tf:"translated_ports,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // NatRuleSpec defines the desired state of NatRule
 type NatRuleSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     NatRuleParameters `json:"forProvider"`
+	ForProvider       NatRuleParameters `json:"forProvider"`
 }
 
 // NatRuleStatus defines the observed state of NatRule.
 type NatRuleStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        NatRuleObservation `json:"atProvider,omitempty"`
+	AtProvider          NatRuleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -154,10 +166,10 @@ type NatRuleStatus struct {
 type NatRule struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.action)",message="action is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
-	Spec   NatRuleSpec   `json:"spec"`
-	Status NatRuleStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.action)",message="action is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.logicalRouterId)",message="logicalRouterId is a required parameter"
+	Spec              NatRuleSpec   `json:"spec"`
+	Status            NatRuleStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

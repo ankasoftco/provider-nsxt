@@ -11,146 +11,162 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type RateLimitsObservation struct {
 
-	// Whether rate limiting is enabled
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Incoming broadcast traffic limit in packets per second
-	RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
+// Whether rate limiting is enabled
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Incoming multicast traffic limit in packets per second
-	RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
+// Incoming broadcast traffic limit in packets per second
+RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
 
-	// Outgoing broadcast traffic limit in packets per second
-	TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+// Incoming multicast traffic limit in packets per second
+RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
 
-	// Outgoing multicast traffic limit in packets per second
-	TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
+// Outgoing broadcast traffic limit in packets per second
+TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+
+// Outgoing multicast traffic limit in packets per second
+TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
 }
+
 
 type RateLimitsParameters struct {
 
-	// Whether rate limiting is enabled
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Incoming broadcast traffic limit in packets per second
-	// +kubebuilder:validation:Optional
-	RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
+// Whether rate limiting is enabled
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Incoming multicast traffic limit in packets per second
-	// +kubebuilder:validation:Optional
-	RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
+// Incoming broadcast traffic limit in packets per second
+// +kubebuilder:validation:Optional
+RxBroadcast *float64 `json:"rxBroadcast,omitempty" tf:"rx_broadcast,omitempty"`
 
-	// Outgoing broadcast traffic limit in packets per second
-	// +kubebuilder:validation:Optional
-	TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+// Incoming multicast traffic limit in packets per second
+// +kubebuilder:validation:Optional
+RxMulticast *float64 `json:"rxMulticast,omitempty" tf:"rx_multicast,omitempty"`
 
-	// Outgoing multicast traffic limit in packets per second
-	// +kubebuilder:validation:Optional
-	TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
+// Outgoing broadcast traffic limit in packets per second
+// +kubebuilder:validation:Optional
+TxBroadcast *float64 `json:"txBroadcast,omitempty" tf:"tx_broadcast,omitempty"`
+
+// Outgoing multicast traffic limit in packets per second
+// +kubebuilder:validation:Optional
+TxMulticast *float64 `json:"txMulticast,omitempty" tf:"tx_multicast,omitempty"`
 }
+
 
 type SwitchSecuritySwitchingProfileObservation struct {
 
-	// Indicates whether DHCP client blocking is enabled
-	BlockClientDHCP *bool `json:"blockClientDhcp,omitempty" tf:"block_client_dhcp,omitempty"`
 
-	// Block all traffic except IP/(G)ARP/BPDU
-	BlockNonIP *bool `json:"blockNonIp,omitempty" tf:"block_non_ip,omitempty"`
+// Indicates whether DHCP client blocking is enabled
+BlockClientDHCP *bool `json:"blockClientDhcp,omitempty" tf:"block_client_dhcp,omitempty"`
 
-	// Indicates whether DHCP server blocking is enabled
-	BlockServerDHCP *bool `json:"blockServerDhcp,omitempty" tf:"block_server_dhcp,omitempty"`
+// Block all traffic except IP/(G)ARP/BPDU
+BlockNonIP *bool `json:"blockNonIp,omitempty" tf:"block_non_ip,omitempty"`
 
-	// Indicates whether BPDU filter is enabled
-	BpduFilterEnabled *bool `json:"bpduFilterEnabled,omitempty" tf:"bpdu_filter_enabled,omitempty"`
+// Indicates whether DHCP server blocking is enabled
+BlockServerDHCP *bool `json:"blockServerDhcp,omitempty" tf:"block_server_dhcp,omitempty"`
 
-	// Set of allowed MAC addresses to be excluded from BPDU filtering
-	BpduFilterWhitelist []*string `json:"bpduFilterWhitelist,omitempty" tf:"bpdu_filter_whitelist,omitempty"`
+// Indicates whether BPDU filter is enabled
+BpduFilterEnabled *bool `json:"bpduFilterEnabled,omitempty" tf:"bpdu_filter_enabled,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Set of allowed MAC addresses to be excluded from BPDU filtering
+BpduFilterWhitelist []*string `json:"bpduFilterWhitelist,omitempty" tf:"bpdu_filter_whitelist,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	RateLimits []RateLimitsObservation `json:"rateLimits,omitempty" tf:"rate_limits,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+RateLimits []RateLimitsObservation `json:"rateLimits,omitempty" tf:"rate_limits,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type SwitchSecuritySwitchingProfileParameters struct {
 
-	// Indicates whether DHCP client blocking is enabled
-	// +kubebuilder:validation:Optional
-	BlockClientDHCP *bool `json:"blockClientDhcp,omitempty" tf:"block_client_dhcp,omitempty"`
 
-	// Block all traffic except IP/(G)ARP/BPDU
-	// +kubebuilder:validation:Optional
-	BlockNonIP *bool `json:"blockNonIp,omitempty" tf:"block_non_ip,omitempty"`
+// Indicates whether DHCP client blocking is enabled
+// +kubebuilder:validation:Optional
+BlockClientDHCP *bool `json:"blockClientDhcp,omitempty" tf:"block_client_dhcp,omitempty"`
 
-	// Indicates whether DHCP server blocking is enabled
-	// +kubebuilder:validation:Optional
-	BlockServerDHCP *bool `json:"blockServerDhcp,omitempty" tf:"block_server_dhcp,omitempty"`
+// Block all traffic except IP/(G)ARP/BPDU
+// +kubebuilder:validation:Optional
+BlockNonIP *bool `json:"blockNonIp,omitempty" tf:"block_non_ip,omitempty"`
 
-	// Indicates whether BPDU filter is enabled
-	// +kubebuilder:validation:Optional
-	BpduFilterEnabled *bool `json:"bpduFilterEnabled,omitempty" tf:"bpdu_filter_enabled,omitempty"`
+// Indicates whether DHCP server blocking is enabled
+// +kubebuilder:validation:Optional
+BlockServerDHCP *bool `json:"blockServerDhcp,omitempty" tf:"block_server_dhcp,omitempty"`
 
-	// Set of allowed MAC addresses to be excluded from BPDU filtering
-	// +kubebuilder:validation:Optional
-	BpduFilterWhitelist []*string `json:"bpduFilterWhitelist,omitempty" tf:"bpdu_filter_whitelist,omitempty"`
+// Indicates whether BPDU filter is enabled
+// +kubebuilder:validation:Optional
+BpduFilterEnabled *bool `json:"bpduFilterEnabled,omitempty" tf:"bpdu_filter_enabled,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Set of allowed MAC addresses to be excluded from BPDU filtering
+// +kubebuilder:validation:Optional
+BpduFilterWhitelist []*string `json:"bpduFilterWhitelist,omitempty" tf:"bpdu_filter_whitelist,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	RateLimits []RateLimitsParameters `json:"rateLimits,omitempty" tf:"rate_limits,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+RateLimits []RateLimitsParameters `json:"rateLimits,omitempty" tf:"rate_limits,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // SwitchSecuritySwitchingProfileSpec defines the desired state of SwitchSecuritySwitchingProfile
 type SwitchSecuritySwitchingProfileSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     SwitchSecuritySwitchingProfileParameters `json:"forProvider"`
+	ForProvider       SwitchSecuritySwitchingProfileParameters `json:"forProvider"`
 }
 
 // SwitchSecuritySwitchingProfileStatus defines the observed state of SwitchSecuritySwitchingProfile.
 type SwitchSecuritySwitchingProfileStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        SwitchSecuritySwitchingProfileObservation `json:"atProvider,omitempty"`
+	AtProvider          SwitchSecuritySwitchingProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

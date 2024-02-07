@@ -11,103 +11,115 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyLbServiceObservation struct {
 
-	// Policy path for connected policy object
-	ConnectivityPath *string `json:"connectivityPath,omitempty" tf:"connectivity_path,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Policy path for connected policy object
+ConnectivityPath *string `json:"connectivityPath,omitempty" tf:"connectivity_path,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Flag to enable the Service
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Log level for Load Balancer Service messages
-	ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
+// Flag to enable the Service
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Log level for Load Balancer Service messages
+ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
 
-	// NSX ID for this resource
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// NSX ID for this resource
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// Load Balancer Service size
-	Size *string `json:"size,omitempty" tf:"size,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []PolicyLbServiceTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Load Balancer Service size
+Size *string `json:"size,omitempty" tf:"size,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []PolicyLbServiceTagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyLbServiceParameters struct {
 
-	// Policy path for connected policy object
-	// +kubebuilder:validation:Optional
-	ConnectivityPath *string `json:"connectivityPath,omitempty" tf:"connectivity_path,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Policy path for connected policy object
+// +kubebuilder:validation:Optional
+ConnectivityPath *string `json:"connectivityPath,omitempty" tf:"connectivity_path,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Flag to enable the Service
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Log level for Load Balancer Service messages
-	// +kubebuilder:validation:Optional
-	ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
+// Flag to enable the Service
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// NSX ID for this resource
-	// +kubebuilder:validation:Optional
-	NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
+// Log level for Load Balancer Service messages
+// +kubebuilder:validation:Optional
+ErrorLogLevel *string `json:"errorLogLevel,omitempty" tf:"error_log_level,omitempty"`
 
-	// Load Balancer Service size
-	// +kubebuilder:validation:Optional
-	Size *string `json:"size,omitempty" tf:"size,omitempty"`
+// NSX ID for this resource
+// +kubebuilder:validation:Optional
+NsxID *string `json:"nsxId,omitempty" tf:"nsx_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []PolicyLbServiceTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Load Balancer Service size
+// +kubebuilder:validation:Optional
+Size *string `json:"size,omitempty" tf:"size,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []PolicyLbServiceTagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyLbServiceTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyLbServiceTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyLbServiceSpec defines the desired state of PolicyLbService
 type PolicyLbServiceSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyLbServiceParameters `json:"forProvider"`
+	ForProvider       PolicyLbServiceParameters `json:"forProvider"`
 }
 
 // PolicyLbServiceStatus defines the observed state of PolicyLbService.
 type PolicyLbServiceStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyLbServiceObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyLbServiceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -122,9 +134,9 @@ type PolicyLbServiceStatus struct {
 type PolicyLbService struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	Spec   PolicyLbServiceSpec   `json:"spec"`
-	Status PolicyLbServiceStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+	Spec              PolicyLbServiceSpec   `json:"spec"`
+	Status            PolicyLbServiceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

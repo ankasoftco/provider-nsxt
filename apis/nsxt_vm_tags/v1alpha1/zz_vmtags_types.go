@@ -11,76 +11,94 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
 
-type LogicalPortTagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+
+type LogicalPortTagObservation struct {
+
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LogicalPortTagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type VmTagsObservation struct {
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Instance id
-	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	LogicalPortTag []LogicalPortTagObservation `json:"logicalPortTag,omitempty" tf:"logical_port_tag,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Instance id
+InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+LogicalPortTag []LogicalPortTagObservation `json:"logicalPortTag,omitempty" tf:"logical_port_tag,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type VmTagsParameters struct {
 
-	// Instance id
-	// +kubebuilder:validation:Optional
-	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	LogicalPortTag []LogicalPortTagParameters `json:"logicalPortTag,omitempty" tf:"logical_port_tag,omitempty"`
+// Instance id
+// +kubebuilder:validation:Optional
+InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+LogicalPortTag []LogicalPortTagParameters `json:"logicalPortTag,omitempty" tf:"logical_port_tag,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // VmTagsSpec defines the desired state of VmTags
 type VmTagsSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VmTagsParameters `json:"forProvider"`
+	ForProvider       VmTagsParameters `json:"forProvider"`
 }
 
 // VmTagsStatus defines the observed state of VmTags.
 type VmTagsStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VmTagsObservation `json:"atProvider,omitempty"`
+	AtProvider          VmTagsObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -95,9 +113,9 @@ type VmTagsStatus struct {
 type VmTags struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.instanceId)",message="instanceId is a required parameter"
-	Spec   VmTagsSpec   `json:"spec"`
-	Status VmTagsStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.instanceId)",message="instanceId is a required parameter"
+	Spec              VmTagsSpec   `json:"spec"`
+	Status            VmTagsStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

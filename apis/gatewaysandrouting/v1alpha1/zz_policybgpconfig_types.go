@@ -11,157 +11,173 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type PolicyBgpConfigObservation struct {
 
-	// Flag to enable ECMP
-	Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// Flag to enable BGP configuration
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Flag to enable ECMP
+Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// NSX ID of associated Tier0 Gateway
-	GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id,omitempty"`
+// Flag to enable BGP configuration
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// Gateway for this BGP config
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// NSX ID of associated Tier0 Gateway
+GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id,omitempty"`
 
-	// BGP Graceful Restart Configuration Mode
-	GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
+// Gateway for this BGP config
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// BGP Stale Route Timer
-	GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
+// BGP Graceful Restart Configuration Mode
+GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
 
-	// BGP Graceful Restart Timer
-	GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
+// BGP Stale Route Timer
+GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// BGP Graceful Restart Timer
+GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
 
-	// Enable inter SR IBGP configuration
-	InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// BGP AS number in ASPLAIN/ASDOT Format
-	LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
+// Enable inter SR IBGP configuration
+InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
 
-	// NSX ID of associated Gateway Locale Service
-	LocaleServiceID *string `json:"localeServiceId,omitempty" tf:"locale_service_id,omitempty"`
+// BGP AS number in ASPLAIN/ASDOT Format
+LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
 
-	// Flag to enable BGP multipath relax option
-	MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
+// NSX ID of associated Gateway Locale Service
+LocaleServiceID *string `json:"localeServiceId,omitempty" tf:"locale_service_id,omitempty"`
 
-	// Policy path for this resource
-	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+// Flag to enable BGP multipath relax option
+MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Policy path for this resource
+Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
-	// List of routes to be aggregated
-	RouteAggregation []RouteAggregationObservation `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Site Path for this BGP config
-	SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+// List of routes to be aggregated
+RouteAggregation []RouteAggregationObservation `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Site Path for this BGP config
+SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type PolicyBgpConfigParameters struct {
 
-	// Flag to enable ECMP
-	// +kubebuilder:validation:Optional
-	Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// Flag to enable BGP configuration
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+// Flag to enable ECMP
+// +kubebuilder:validation:Optional
+Ecmp *bool `json:"ecmp,omitempty" tf:"ecmp,omitempty"`
 
-	// Gateway for this BGP config
-	// +kubebuilder:validation:Optional
-	GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
+// Flag to enable BGP configuration
+// +kubebuilder:validation:Optional
+Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
-	// BGP Graceful Restart Configuration Mode
-	// +kubebuilder:validation:Optional
-	GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
+// Gateway for this BGP config
+// +kubebuilder:validation:Optional
+GatewayPath *string `json:"gatewayPath,omitempty" tf:"gateway_path,omitempty"`
 
-	// BGP Stale Route Timer
-	// +kubebuilder:validation:Optional
-	GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
+// BGP Graceful Restart Configuration Mode
+// +kubebuilder:validation:Optional
+GracefulRestartMode *string `json:"gracefulRestartMode,omitempty" tf:"graceful_restart_mode,omitempty"`
 
-	// BGP Graceful Restart Timer
-	// +kubebuilder:validation:Optional
-	GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
+// BGP Stale Route Timer
+// +kubebuilder:validation:Optional
+GracefulRestartStaleRouteTimer *float64 `json:"gracefulRestartStaleRouteTimer,omitempty" tf:"graceful_restart_stale_route_timer,omitempty"`
 
-	// Enable inter SR IBGP configuration
-	// +kubebuilder:validation:Optional
-	InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
+// BGP Graceful Restart Timer
+// +kubebuilder:validation:Optional
+GracefulRestartTimer *float64 `json:"gracefulRestartTimer,omitempty" tf:"graceful_restart_timer,omitempty"`
 
-	// BGP AS number in ASPLAIN/ASDOT Format
-	// +kubebuilder:validation:Optional
-	LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
+// Enable inter SR IBGP configuration
+// +kubebuilder:validation:Optional
+InterSrIbgp *bool `json:"interSrIbgp,omitempty" tf:"inter_sr_ibgp,omitempty"`
 
-	// Flag to enable BGP multipath relax option
-	// +kubebuilder:validation:Optional
-	MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
+// BGP AS number in ASPLAIN/ASDOT Format
+// +kubebuilder:validation:Optional
+LocalAsNum *string `json:"localAsNum,omitempty" tf:"local_as_num,omitempty"`
 
-	// List of routes to be aggregated
-	// +kubebuilder:validation:Optional
-	RouteAggregation []RouteAggregationParameters `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
+// Flag to enable BGP multipath relax option
+// +kubebuilder:validation:Optional
+MultipathRelax *bool `json:"multipathRelax,omitempty" tf:"multipath_relax,omitempty"`
 
-	// Site Path for this BGP config
-	// +kubebuilder:validation:Optional
-	SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+// List of routes to be aggregated
+// +kubebuilder:validation:Optional
+RouteAggregation []RouteAggregationParameters `json:"routeAggregation,omitempty" tf:"route_aggregation,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Site Path for this BGP config
+// +kubebuilder:validation:Optional
+SitePath *string `json:"sitePath,omitempty" tf:"site_path,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type RouteAggregationObservation struct {
 
-	// CIDR of aggregate address
-	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
-	// Send only summarized route
-	SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
+// CIDR of aggregate address
+Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
+
+// Send only summarized route
+SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
 }
+
 
 type RouteAggregationParameters struct {
 
-	// CIDR of aggregate address
-	// +kubebuilder:validation:Optional
-	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
-	// Send only summarized route
-	// +kubebuilder:validation:Optional
-	SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
+// CIDR of aggregate address
+// +kubebuilder:validation:Optional
+Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
+
+// Send only summarized route
+// +kubebuilder:validation:Optional
+SummaryOnly *bool `json:"summaryOnly,omitempty" tf:"summary_only,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // PolicyBgpConfigSpec defines the desired state of PolicyBgpConfig
 type PolicyBgpConfigSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     PolicyBgpConfigParameters `json:"forProvider"`
+	ForProvider       PolicyBgpConfigParameters `json:"forProvider"`
 }
 
 // PolicyBgpConfigStatus defines the observed state of PolicyBgpConfig.
 type PolicyBgpConfigStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        PolicyBgpConfigObservation `json:"atProvider,omitempty"`
+	AtProvider          PolicyBgpConfigObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -176,9 +192,9 @@ type PolicyBgpConfigStatus struct {
 type PolicyBgpConfig struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
-	Spec   PolicyBgpConfigSpec   `json:"spec"`
-	Status PolicyBgpConfigStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.gatewayPath)",message="gatewayPath is a required parameter"
+	Spec              PolicyBgpConfigSpec   `json:"spec"`
+	Status            PolicyBgpConfigStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

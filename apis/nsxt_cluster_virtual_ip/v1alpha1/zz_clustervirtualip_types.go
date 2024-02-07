@@ -11,47 +11,54 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type ClusterVirtualIpObservation struct {
 
-	// On enable it ignores duplicate address detection and DNS lookup validation check
-	Force *bool `json:"force,omitempty" tf:"force,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// On enable it ignores duplicate address detection and DNS lookup validation check
+Force *bool `json:"force,omitempty" tf:"force,omitempty"`
 
-	// Virtual IPv4 address
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Virtual IPv6 address
-	IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address,omitempty"`
+// Virtual IPv4 address
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+
+// Virtual IPv6 address
+IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address,omitempty"`
 }
+
 
 type ClusterVirtualIpParameters struct {
 
-	// On enable it ignores duplicate address detection and DNS lookup validation check
-	// +kubebuilder:validation:Optional
-	Force *bool `json:"force,omitempty" tf:"force,omitempty"`
 
-	// Virtual IPv4 address
-	// +kubebuilder:validation:Optional
-	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+// On enable it ignores duplicate address detection and DNS lookup validation check
+// +kubebuilder:validation:Optional
+Force *bool `json:"force,omitempty" tf:"force,omitempty"`
 
-	// Virtual IPv6 address
-	// +kubebuilder:validation:Optional
-	IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address,omitempty"`
+// Virtual IPv4 address
+// +kubebuilder:validation:Optional
+IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address,omitempty"`
+
+// Virtual IPv6 address
+// +kubebuilder:validation:Optional
+IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address,omitempty"`
 }
 
 // ClusterVirtualIpSpec defines the desired state of ClusterVirtualIp
 type ClusterVirtualIpSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     ClusterVirtualIpParameters `json:"forProvider"`
+	ForProvider       ClusterVirtualIpParameters `json:"forProvider"`
 }
 
 // ClusterVirtualIpStatus defines the observed state of ClusterVirtualIp.
 type ClusterVirtualIpStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        ClusterVirtualIpObservation `json:"atProvider,omitempty"`
+	AtProvider          ClusterVirtualIpObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

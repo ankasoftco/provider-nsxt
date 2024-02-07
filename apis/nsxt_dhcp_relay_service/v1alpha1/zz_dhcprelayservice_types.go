@@ -11,72 +11,84 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type DhcpRelayServiceObservation struct {
 
-	// DHCP relay profile referenced by the dhcp relay service
-	DHCPRelayProfileID *string `json:"dhcpRelayProfileId,omitempty" tf:"dhcp_relay_profile_id,omitempty"`
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DHCP relay profile referenced by the dhcp relay service
+DHCPRelayProfileID *string `json:"dhcpRelayProfileId,omitempty" tf:"dhcp_relay_profile_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type DhcpRelayServiceParameters struct {
 
-	// DHCP relay profile referenced by the dhcp relay service
-	// +kubebuilder:validation:Optional
-	DHCPRelayProfileID *string `json:"dhcpRelayProfileId,omitempty" tf:"dhcp_relay_profile_id,omitempty"`
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// DHCP relay profile referenced by the dhcp relay service
+// +kubebuilder:validation:Optional
+DHCPRelayProfileID *string `json:"dhcpRelayProfileId,omitempty" tf:"dhcp_relay_profile_id,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // DhcpRelayServiceSpec defines the desired state of DhcpRelayService
 type DhcpRelayServiceSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     DhcpRelayServiceParameters `json:"forProvider"`
+	ForProvider       DhcpRelayServiceParameters `json:"forProvider"`
 }
 
 // DhcpRelayServiceStatus defines the observed state of DhcpRelayService.
 type DhcpRelayServiceStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        DhcpRelayServiceObservation `json:"atProvider,omitempty"`
+	AtProvider          DhcpRelayServiceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -91,9 +103,9 @@ type DhcpRelayServiceStatus struct {
 type DhcpRelayService struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpRelayProfileId)",message="dhcpRelayProfileId is a required parameter"
-	Spec   DhcpRelayServiceSpec   `json:"spec"`
-	Status DhcpRelayServiceStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.dhcpRelayProfileId)",message="dhcpRelayProfileId is a required parameter"
+	Spec              DhcpRelayServiceSpec   `json:"spec"`
+	Status            DhcpRelayServiceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

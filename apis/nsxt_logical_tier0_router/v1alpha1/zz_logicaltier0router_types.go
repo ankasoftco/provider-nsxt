@@ -11,119 +11,135 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type FirewallSectionsObservation struct {
 
-	// A boolean flag which will be set to false if the referenced NSX resource has been deleted
-	IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Display name of the NSX resource
-	TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
+// A boolean flag which will be set to false if the referenced NSX resource has been deleted
+IsValid *bool `json:"isValid,omitempty" tf:"is_valid,omitempty"`
 
-	// Identifier of the NSX resource
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+// Display name of the NSX resource
+TargetDisplayName *string `json:"targetDisplayName,omitempty" tf:"target_display_name,omitempty"`
 
-	// Type of the NSX resource
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type FirewallSectionsParameters struct {
 
-	// Identifier of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
 
-	// Type of the NSX resource
-	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
+// Identifier of the NSX resource
+// +kubebuilder:validation:Optional
+TargetID *string `json:"targetId,omitempty" tf:"target_id,omitempty"`
+
+// Type of the NSX resource
+// +kubebuilder:validation:Optional
+TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 }
+
 
 type LogicalTier0RouterObservation struct {
 
-	// Description of this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge Cluster Id
-	EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Failover mode which determines whether the preferred service router instance for given logical router will preempt the peer
-	FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
+// Edge Cluster Id
+EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
 
-	// List of Firewall sections related to the logical router
-	FirewallSections []FirewallSectionsObservation `json:"firewallSections,omitempty" tf:"firewall_sections,omitempty"`
+// Failover mode which determines whether the preferred service router instance for given logical router will preempt the peer
+FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
 
-	// High availability mode
-	HighAvailabilityMode *string `json:"highAvailabilityMode,omitempty" tf:"high_availability_mode,omitempty"`
+// List of Firewall sections related to the logical router
+FirewallSections []FirewallSectionsObservation `json:"firewallSections,omitempty" tf:"firewall_sections,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// High availability mode
+HighAvailabilityMode *string `json:"highAvailabilityMode,omitempty" tf:"high_availability_mode,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type LogicalTier0RouterParameters struct {
 
-	// Description of this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// The display name of this resource. Defaults to ID if not set
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description of this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Edge Cluster Id
-	// +kubebuilder:validation:Optional
-	EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
+// The display name of this resource. Defaults to ID if not set
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Failover mode which determines whether the preferred service router instance for given logical router will preempt the peer
-	// +kubebuilder:validation:Optional
-	FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
+// Edge Cluster Id
+// +kubebuilder:validation:Optional
+EdgeClusterID *string `json:"edgeClusterId,omitempty" tf:"edge_cluster_id,omitempty"`
 
-	// List of Firewall sections related to the logical router
-	// +kubebuilder:validation:Optional
-	FirewallSections []FirewallSectionsParameters `json:"firewallSections,omitempty" tf:"firewall_sections,omitempty"`
+// Failover mode which determines whether the preferred service router instance for given logical router will preempt the peer
+// +kubebuilder:validation:Optional
+FailoverMode *string `json:"failoverMode,omitempty" tf:"failover_mode,omitempty"`
 
-	// High availability mode
-	// +kubebuilder:validation:Optional
-	HighAvailabilityMode *string `json:"highAvailabilityMode,omitempty" tf:"high_availability_mode,omitempty"`
+// List of Firewall sections related to the logical router
+// +kubebuilder:validation:Optional
+FirewallSections []FirewallSectionsParameters `json:"firewallSections,omitempty" tf:"firewall_sections,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// High availability mode
+// +kubebuilder:validation:Optional
+HighAvailabilityMode *string `json:"highAvailabilityMode,omitempty" tf:"high_availability_mode,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
 
 // LogicalTier0RouterSpec defines the desired state of LogicalTier0Router
 type LogicalTier0RouterSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     LogicalTier0RouterParameters `json:"forProvider"`
+	ForProvider       LogicalTier0RouterParameters `json:"forProvider"`
 }
 
 // LogicalTier0RouterStatus defines the observed state of LogicalTier0Router.
 type LogicalTier0RouterStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        LogicalTier0RouterObservation `json:"atProvider,omitempty"`
+	AtProvider          LogicalTier0RouterObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -138,9 +154,9 @@ type LogicalTier0RouterStatus struct {
 type LogicalTier0Router struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeClusterId)",message="edgeClusterId is a required parameter"
-	Spec   LogicalTier0RouterSpec   `json:"spec"`
-	Status LogicalTier0RouterStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeClusterId)",message="edgeClusterId is a required parameter"
+	Spec              LogicalTier0RouterSpec   `json:"spec"`
+	Status            LogicalTier0RouterStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -11,255 +11,291 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+
 )
+
+
+
 
 type ComputeManagerObservation struct {
 
-	// Specifies access level to NSX from the compute manager
-	AccessLevelForOidc *string `json:"accessLevelForOidc,omitempty" tf:"access_level_for_oidc,omitempty"`
 
-	// Specifies whether service account is created or not on compute manager
-	CreateServiceAccount *bool `json:"createServiceAccount,omitempty" tf:"create_service_account,omitempty"`
+// Specifies access level to NSX from the compute manager
+AccessLevelForOidc *string `json:"accessLevelForOidc,omitempty" tf:"access_level_for_oidc,omitempty"`
 
-	// Login credentials for the compute manager
-	Credential []CredentialObservation `json:"credential,omitempty" tf:"credential,omitempty"`
+// Specifies whether service account is created or not on compute manager
+CreateServiceAccount *bool `json:"createServiceAccount,omitempty" tf:"create_service_account,omitempty"`
 
-	// Description for this resource
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Login credentials for the compute manager
+Credential []CredentialObservation `json:"credential,omitempty" tf:"credential,omitempty"`
 
-	// Display name for this resource
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Specifies certificate for compute manager extension
-	ExtensionCertificate []ExtensionCertificateObservation `json:"extensionCertificate,omitempty" tf:"extension_certificate,omitempty"`
+// Display name for this resource
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+// Specifies certificate for compute manager extension
+ExtensionCertificate []ExtensionCertificateObservation `json:"extensionCertificate,omitempty" tf:"extension_certificate,omitempty"`
 
-	// Specifies whether multi nsx feature is enabled for compute manager
-	MultiNsx *bool `json:"multiNsx,omitempty" tf:"multi_nsx,omitempty"`
+ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Compute manager type like vCenter
-	OriginType *string `json:"originType,omitempty" tf:"origin_type,omitempty"`
+// Specifies whether multi nsx feature is enabled for compute manager
+MultiNsx *bool `json:"multiNsx,omitempty" tf:"multi_nsx,omitempty"`
 
-	// Proxy https port of compute manager
-	ReverseProxyHTTPSPort *float64 `json:"reverseProxyHttpsPort,omitempty" tf:"reverse_proxy_https_port,omitempty"`
+// Compute manager type like vCenter
+OriginType *string `json:"originType,omitempty" tf:"origin_type,omitempty"`
 
-	// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
-	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
+// Proxy https port of compute manager
+ReverseProxyHTTPSPort *float64 `json:"reverseProxyHttpsPort,omitempty" tf:"reverse_proxy_https_port,omitempty"`
 
-	// IP address or hostname of compute manager
-	Server *string `json:"server,omitempty" tf:"server,omitempty"`
+// The _revision property describes the current revision of the resource. To prevent clients from overwriting each other's changes, PUT operations must include the current _revision of the resource, which clients should obtain by issuing a GET operation. If the _revision provided in a PUT request is missing or stale, the operation will be rejected
+Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
-	// Specifies whether compute manager has been set as OIDC provider
-	SetAsOidcProvider *bool `json:"setAsOidcProvider,omitempty" tf:"set_as_oidc_provider,omitempty"`
+// IP address or hostname of compute manager
+Server *string `json:"server,omitempty" tf:"server,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
+// Specifies whether compute manager has been set as OIDC provider
+SetAsOidcProvider *bool `json:"setAsOidcProvider,omitempty" tf:"set_as_oidc_provider,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+Tag []TagObservation `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type ComputeManagerParameters struct {
 
-	// Specifies access level to NSX from the compute manager
-	// +kubebuilder:validation:Optional
-	AccessLevelForOidc *string `json:"accessLevelForOidc,omitempty" tf:"access_level_for_oidc,omitempty"`
 
-	// Specifies whether service account is created or not on compute manager
-	// +kubebuilder:validation:Optional
-	CreateServiceAccount *bool `json:"createServiceAccount,omitempty" tf:"create_service_account,omitempty"`
+// Specifies access level to NSX from the compute manager
+// +kubebuilder:validation:Optional
+AccessLevelForOidc *string `json:"accessLevelForOidc,omitempty" tf:"access_level_for_oidc,omitempty"`
 
-	// Login credentials for the compute manager
-	// +kubebuilder:validation:Optional
-	Credential []CredentialParameters `json:"credential,omitempty" tf:"credential,omitempty"`
+// Specifies whether service account is created or not on compute manager
+// +kubebuilder:validation:Optional
+CreateServiceAccount *bool `json:"createServiceAccount,omitempty" tf:"create_service_account,omitempty"`
 
-	// Description for this resource
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+// Login credentials for the compute manager
+// +kubebuilder:validation:Optional
+Credential []CredentialParameters `json:"credential,omitempty" tf:"credential,omitempty"`
 
-	// Display name for this resource
-	// +kubebuilder:validation:Optional
-	DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
+// Description for this resource
+// +kubebuilder:validation:Optional
+Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Specifies certificate for compute manager extension
-	// +kubebuilder:validation:Optional
-	ExtensionCertificate []ExtensionCertificateParameters `json:"extensionCertificate,omitempty" tf:"extension_certificate,omitempty"`
+// Display name for this resource
+// +kubebuilder:validation:Optional
+DisplayName *string `json:"displayName,omitempty" tf:"display_name,omitempty"`
 
-	// Specifies whether multi nsx feature is enabled for compute manager
-	// +kubebuilder:validation:Optional
-	MultiNsx *bool `json:"multiNsx,omitempty" tf:"multi_nsx,omitempty"`
+// Specifies certificate for compute manager extension
+// +kubebuilder:validation:Optional
+ExtensionCertificate []ExtensionCertificateParameters `json:"extensionCertificate,omitempty" tf:"extension_certificate,omitempty"`
 
-	// Compute manager type like vCenter
-	// +kubebuilder:validation:Optional
-	OriginType *string `json:"originType,omitempty" tf:"origin_type,omitempty"`
+// Specifies whether multi nsx feature is enabled for compute manager
+// +kubebuilder:validation:Optional
+MultiNsx *bool `json:"multiNsx,omitempty" tf:"multi_nsx,omitempty"`
 
-	// Proxy https port of compute manager
-	// +kubebuilder:validation:Optional
-	ReverseProxyHTTPSPort *float64 `json:"reverseProxyHttpsPort,omitempty" tf:"reverse_proxy_https_port,omitempty"`
+// Compute manager type like vCenter
+// +kubebuilder:validation:Optional
+OriginType *string `json:"originType,omitempty" tf:"origin_type,omitempty"`
 
-	// IP address or hostname of compute manager
-	// +kubebuilder:validation:Optional
-	Server *string `json:"server,omitempty" tf:"server,omitempty"`
+// Proxy https port of compute manager
+// +kubebuilder:validation:Optional
+ReverseProxyHTTPSPort *float64 `json:"reverseProxyHttpsPort,omitempty" tf:"reverse_proxy_https_port,omitempty"`
 
-	// Specifies whether compute manager has been set as OIDC provider
-	// +kubebuilder:validation:Optional
-	SetAsOidcProvider *bool `json:"setAsOidcProvider,omitempty" tf:"set_as_oidc_provider,omitempty"`
+// IP address or hostname of compute manager
+// +kubebuilder:validation:Optional
+Server *string `json:"server,omitempty" tf:"server,omitempty"`
 
-	// Set of opaque identifiers meaningful to the user
-	// +kubebuilder:validation:Optional
-	Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
+// Specifies whether compute manager has been set as OIDC provider
+// +kubebuilder:validation:Optional
+SetAsOidcProvider *bool `json:"setAsOidcProvider,omitempty" tf:"set_as_oidc_provider,omitempty"`
+
+// Set of opaque identifiers meaningful to the user
+// +kubebuilder:validation:Optional
+Tag []TagParameters `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type CredentialObservation struct {
 
-	// A login credential specifying saml token
-	SAMLLogin []SAMLLoginObservation `json:"samlLogin,omitempty" tf:"saml_login,omitempty"`
 
-	// A login credential specifying session_id
-	SessionLogin []SessionLoginObservation `json:"sessionLogin,omitempty" tf:"session_login,omitempty"`
+// A login credential specifying saml token
+SAMLLogin []SAMLLoginObservation `json:"samlLogin,omitempty" tf:"saml_login,omitempty"`
 
-	// A login credential specifying a username and password
-	UsernamePasswordLogin []UsernamePasswordLoginObservation `json:"usernamePasswordLogin,omitempty" tf:"username_password_login,omitempty"`
+// A login credential specifying session_id
+SessionLogin []SessionLoginObservation `json:"sessionLogin,omitempty" tf:"session_login,omitempty"`
 
-	// A verifiable asymmetric login credential
-	VerifiableAsymmetricLogin []VerifiableAsymmetricLoginParameters `json:"verifiableAsymmetricLogin,omitempty" tf:"verifiable_asymmetric_login,omitempty"`
+// A login credential specifying a username and password
+UsernamePasswordLogin []UsernamePasswordLoginObservation `json:"usernamePasswordLogin,omitempty" tf:"username_password_login,omitempty"`
+
+// A verifiable asymmetric login credential
+VerifiableAsymmetricLogin []VerifiableAsymmetricLoginParameters `json:"verifiableAsymmetricLogin,omitempty" tf:"verifiable_asymmetric_login,omitempty"`
 }
+
 
 type CredentialParameters struct {
 
-	// A login credential specifying saml token
-	// +kubebuilder:validation:Optional
-	SAMLLogin []SAMLLoginParameters `json:"samlLogin,omitempty" tf:"saml_login,omitempty"`
 
-	// A login credential specifying session_id
-	// +kubebuilder:validation:Optional
-	SessionLogin []SessionLoginParameters `json:"sessionLogin,omitempty" tf:"session_login,omitempty"`
+// A login credential specifying saml token
+// +kubebuilder:validation:Optional
+SAMLLogin []SAMLLoginParameters `json:"samlLogin,omitempty" tf:"saml_login,omitempty"`
 
-	// A login credential specifying a username and password
-	// +kubebuilder:validation:Optional
-	UsernamePasswordLogin []UsernamePasswordLoginParameters `json:"usernamePasswordLogin,omitempty" tf:"username_password_login,omitempty"`
+// A login credential specifying session_id
+// +kubebuilder:validation:Optional
+SessionLogin []SessionLoginParameters `json:"sessionLogin,omitempty" tf:"session_login,omitempty"`
 
-	// A verifiable asymmetric login credential
-	// +kubebuilder:validation:Optional
-	VerifiableAsymmetricLogin []VerifiableAsymmetricLoginParameters `json:"verifiableAsymmetricLogin,omitempty" tf:"verifiable_asymmetric_login,omitempty"`
+// A login credential specifying a username and password
+// +kubebuilder:validation:Optional
+UsernamePasswordLogin []UsernamePasswordLoginParameters `json:"usernamePasswordLogin,omitempty" tf:"username_password_login,omitempty"`
+
+// A verifiable asymmetric login credential
+// +kubebuilder:validation:Optional
+VerifiableAsymmetricLogin []VerifiableAsymmetricLoginParameters `json:"verifiableAsymmetricLogin,omitempty" tf:"verifiable_asymmetric_login,omitempty"`
 }
+
 
 type ExtensionCertificateObservation struct {
 
-	// PEM encoded certificate data
-	PemEncoded *string `json:"pemEncoded,omitempty" tf:"pem_encoded,omitempty"`
+
+// PEM encoded certificate data
+PemEncoded *string `json:"pemEncoded,omitempty" tf:"pem_encoded,omitempty"`
 }
+
 
 type ExtensionCertificateParameters struct {
 
-	// PEM encoded certificate data
-	// +kubebuilder:validation:Required
-	PemEncoded *string `json:"pemEncoded" tf:"pem_encoded,omitempty"`
 
-	// Private key of certificate
-	// +kubebuilder:validation:Required
-	PrivateKeySecretRef v1.SecretKeySelector `json:"privateKeySecretRef" tf:"-"`
+// PEM encoded certificate data
+// +kubebuilder:validation:Required
+PemEncoded *string `json:"pemEncoded" tf:"pem_encoded,omitempty"`
+
+// Private key of certificate
+// +kubebuilder:validation:Required
+PrivateKeySecretRef v1.SecretKeySelector `json:"privateKeySecretRef" tf:"-"`
 }
+
 
 type SAMLLoginObservation struct {
 
-	// Thumbprint of the server
-	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
+
+// Thumbprint of the server
+Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
 }
+
 
 type SAMLLoginParameters struct {
 
-	// Thumbprint of the server
-	// +kubebuilder:validation:Required
-	Thumbprint *string `json:"thumbprint" tf:"thumbprint,omitempty"`
 
-	// The saml token to login to server
-	// +kubebuilder:validation:Required
-	TokenSecretRef v1.SecretKeySelector `json:"tokenSecretRef" tf:"-"`
+// Thumbprint of the server
+// +kubebuilder:validation:Required
+Thumbprint *string `json:"thumbprint" tf:"thumbprint,omitempty"`
+
+// The saml token to login to server
+// +kubebuilder:validation:Required
+TokenSecretRef v1.SecretKeySelector `json:"tokenSecretRef" tf:"-"`
 }
+
 
 type SessionLoginObservation struct {
 
-	// Thumbprint of the login server
-	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
+
+// Thumbprint of the login server
+Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
 }
+
 
 type SessionLoginParameters struct {
 
-	// The session_id to login to server
-	// +kubebuilder:validation:Required
-	SessionIDSecretRef v1.SecretKeySelector `json:"sessionIdSecretRef" tf:"-"`
 
-	// Thumbprint of the login server
-	// +kubebuilder:validation:Required
-	Thumbprint *string `json:"thumbprint" tf:"thumbprint,omitempty"`
+// The session_id to login to server
+// +kubebuilder:validation:Required
+SessionIDSecretRef v1.SecretKeySelector `json:"sessionIdSecretRef" tf:"-"`
+
+// Thumbprint of the login server
+// +kubebuilder:validation:Required
+Thumbprint *string `json:"thumbprint" tf:"thumbprint,omitempty"`
 }
+
 
 type TagObservation struct {
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type TagParameters struct {
 
-	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
+// +kubebuilder:validation:Optional
+Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
+
+// +kubebuilder:validation:Optional
+Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 }
+
 
 type UsernamePasswordLoginObservation struct {
 
-	// Thumbprint of the login server
-	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
 
-	// The username for login
-	Username *string `json:"username,omitempty" tf:"username,omitempty"`
+// Thumbprint of the login server
+Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
+
+// The username for login
+Username *string `json:"username,omitempty" tf:"username,omitempty"`
 }
+
 
 type UsernamePasswordLoginParameters struct {
 
-	// The authentication password for login
-	// +kubebuilder:validation:Required
-	PasswordSecretRef v1.SecretKeySelector `json:"passwordSecretRef" tf:"-"`
 
-	// Thumbprint of the login server
-	// +kubebuilder:validation:Required
-	Thumbprint *string `json:"thumbprint" tf:"thumbprint,omitempty"`
+// The authentication password for login
+// +kubebuilder:validation:Required
+PasswordSecretRef v1.SecretKeySelector `json:"passwordSecretRef" tf:"-"`
 
-	// The username for login
-	// +kubebuilder:validation:Required
-	Username *string `json:"username" tf:"username,omitempty"`
+// Thumbprint of the login server
+// +kubebuilder:validation:Required
+Thumbprint *string `json:"thumbprint" tf:"thumbprint,omitempty"`
+
+// The username for login
+// +kubebuilder:validation:Required
+Username *string `json:"username" tf:"username,omitempty"`
 }
+
 
 type VerifiableAsymmetricLoginObservation struct {
+
 }
+
 
 type VerifiableAsymmetricLoginParameters struct {
 
-	// Asymmetric login credential
-	// +kubebuilder:validation:Required
-	AsymmetricCredentialSecretRef v1.SecretKeySelector `json:"asymmetricCredentialSecretRef" tf:"-"`
 
-	// Credential key
-	// +kubebuilder:validation:Required
-	CredentialKeySecretRef v1.SecretKeySelector `json:"credentialKeySecretRef" tf:"-"`
+// Asymmetric login credential
+// +kubebuilder:validation:Required
+AsymmetricCredentialSecretRef v1.SecretKeySelector `json:"asymmetricCredentialSecretRef" tf:"-"`
 
-	// Credential verifier
-	// +kubebuilder:validation:Required
-	CredentialVerifierSecretRef v1.SecretKeySelector `json:"credentialVerifierSecretRef" tf:"-"`
+// Credential key
+// +kubebuilder:validation:Required
+CredentialKeySecretRef v1.SecretKeySelector `json:"credentialKeySecretRef" tf:"-"`
+
+// Credential verifier
+// +kubebuilder:validation:Required
+CredentialVerifierSecretRef v1.SecretKeySelector `json:"credentialVerifierSecretRef" tf:"-"`
 }
 
 // ComputeManagerSpec defines the desired state of ComputeManager
 type ComputeManagerSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     ComputeManagerParameters `json:"forProvider"`
+	ForProvider       ComputeManagerParameters `json:"forProvider"`
 }
 
 // ComputeManagerStatus defines the observed state of ComputeManager.
 type ComputeManagerStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        ComputeManagerObservation `json:"atProvider,omitempty"`
+	AtProvider          ComputeManagerObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -274,11 +310,11 @@ type ComputeManagerStatus struct {
 type ComputeManager struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.credential)",message="credential is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.server)",message="server is a required parameter"
-	Spec   ComputeManagerSpec   `json:"spec"`
-	Status ComputeManagerStatus `json:"status,omitempty"`
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.credential)",message="credential is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.displayName)",message="displayName is a required parameter"
+// +kubebuilder:validation:XValidation:rule="self.managementPolicy == 'ObserveOnly' || has(self.forProvider.server)",message="server is a required parameter"
+	Spec              ComputeManagerSpec   `json:"spec"`
+	Status            ComputeManagerStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
