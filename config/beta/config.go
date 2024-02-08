@@ -8,7 +8,7 @@ const version string = "v1alpha1"
 
 // ExternalNameConfigured returns a list of all external name resources
 // configured for this provider.
-func Configure ...(p *config.Provider) {
+func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("nsxt_cluster_virtual_ip", func(r *config.Resource) {
 		r.ShortGroup = "nsxt_cluster_virtual_ip"
 		r.Kind = "ClusterVirtualIp"
