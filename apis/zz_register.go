@@ -19,79 +19,79 @@ import (
 	v1alpha1ipam "github.com/ankasoftco/provider-nsxt/apis/ipam/v1alpha1"
 	v1alpha1loadbalancer "github.com/ankasoftco/provider-nsxt/apis/loadbalancer/v1alpha1"
 	v1alpha1multitenancy "github.com/ankasoftco/provider-nsxt/apis/multitenancy/v1alpha1"
-	v1alpha1nsxt_algorithm_type_ns_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_algorithm_type_ns_service/v1alpha1"
-	v1alpha1nsxt_cluster_virtual_ip "github.com/ankasoftco/provider-nsxt/apis/nsxt_cluster_virtual_ip/v1alpha1"
-	v1alpha1nsxt_compute_manager "github.com/ankasoftco/provider-nsxt/apis/nsxt_compute_manager/v1alpha1"
-	v1alpha1nsxt_dhcp_relay_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_dhcp_relay_profile/v1alpha1"
-	v1alpha1nsxt_dhcp_relay_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_dhcp_relay_service/v1alpha1"
-	v1alpha1nsxt_dhcp_server_ip_pool "github.com/ankasoftco/provider-nsxt/apis/nsxt_dhcp_server_ip_pool/v1alpha1"
-	v1alpha1nsxt_dhcp_server_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_dhcp_server_profile/v1alpha1"
-	v1alpha1nsxt_edge_cluster "github.com/ankasoftco/provider-nsxt/apis/nsxt_edge_cluster/v1alpha1"
-	v1alpha1nsxt_ether_type_ns_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_ether_type_ns_service/v1alpha1"
-	v1alpha1nsxt_failure_domain "github.com/ankasoftco/provider-nsxt/apis/nsxt_failure_domain/v1alpha1"
-	v1alpha1nsxt_firewall_section "github.com/ankasoftco/provider-nsxt/apis/nsxt_firewall_section/v1alpha1"
-	v1alpha1nsxt_icmp_type_ns_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_icmp_type_ns_service/v1alpha1"
-	v1alpha1nsxt_igmp_type_ns_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_igmp_type_ns_service/v1alpha1"
-	v1alpha1nsxt_ip_block "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_block/v1alpha1"
-	v1alpha1nsxt_ip_block_subnet "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_block_subnet/v1alpha1"
-	v1alpha1nsxt_ip_discovery_switching_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_discovery_switching_profile/v1alpha1"
-	v1alpha1nsxt_ip_pool "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_pool/v1alpha1"
-	v1alpha1nsxt_ip_pool_allocation_ip_address "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_pool_allocation_ip_address/v1alpha1"
-	v1alpha1nsxt_ip_protocol_ns_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_protocol_ns_service/v1alpha1"
-	v1alpha1nsxt_ip_set "github.com/ankasoftco/provider-nsxt/apis/nsxt_ip_set/v1alpha1"
-	v1alpha1nsxt_l4_port_set_ns_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_l4_port_set_ns_service/v1alpha1"
-	v1alpha1nsxt_lb_client_ssl_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_client_ssl_profile/v1alpha1"
-	v1alpha1nsxt_lb_cookie_persistence_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_cookie_persistence_profile/v1alpha1"
-	v1alpha1nsxt_lb_fast_tcp_application_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_fast_tcp_application_profile/v1alpha1"
-	v1alpha1nsxt_lb_fast_udp_application_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_fast_udp_application_profile/v1alpha1"
-	v1alpha1nsxt_lb_http_application_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_http_application_profile/v1alpha1"
-	v1alpha1nsxt_lb_http_forwarding_rule "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_http_forwarding_rule/v1alpha1"
-	v1alpha1nsxt_lb_http_monitor "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_http_monitor/v1alpha1"
-	v1alpha1nsxt_lb_http_request_rewrite_rule "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_http_request_rewrite_rule/v1alpha1"
-	v1alpha1nsxt_lb_http_response_rewrite_rule "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_http_response_rewrite_rule/v1alpha1"
-	v1alpha1nsxt_lb_http_virtual_server "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_http_virtual_server/v1alpha1"
-	v1alpha1nsxt_lb_https_monitor "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_https_monitor/v1alpha1"
-	v1alpha1nsxt_lb_icmp_monitor "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_icmp_monitor/v1alpha1"
-	v1alpha1nsxt_lb_passive_monitor "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_passive_monitor/v1alpha1"
-	v1alpha1nsxt_lb_pool "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_pool/v1alpha1"
-	v1alpha1nsxt_lb_server_ssl_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_server_ssl_profile/v1alpha1"
-	v1alpha1nsxt_lb_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_service/v1alpha1"
-	v1alpha1nsxt_lb_source_ip_persistence_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_source_ip_persistence_profile/v1alpha1"
-	v1alpha1nsxt_lb_tcp_monitor "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_tcp_monitor/v1alpha1"
-	v1alpha1nsxt_lb_tcp_virtual_server "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_tcp_virtual_server/v1alpha1"
-	v1alpha1nsxt_lb_udp_monitor "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_udp_monitor/v1alpha1"
-	v1alpha1nsxt_lb_udp_virtual_server "github.com/ankasoftco/provider-nsxt/apis/nsxt_lb_udp_virtual_server/v1alpha1"
-	v1alpha1nsxt_logical_dhcp_port "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_dhcp_port/v1alpha1"
-	v1alpha1nsxt_logical_dhcp_server "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_dhcp_server/v1alpha1"
-	v1alpha1nsxt_logical_port "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_port/v1alpha1"
-	v1alpha1nsxt_logical_router_centralized_service_port "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_router_centralized_service_port/v1alpha1"
-	v1alpha1nsxt_logical_router_downlink_port "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_router_downlink_port/v1alpha1"
-	v1alpha1nsxt_logical_router_link_port_on_tier0 "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_router_link_port_on_tier0/v1alpha1"
-	v1alpha1nsxt_logical_router_link_port_on_tier1 "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_router_link_port_on_tier1/v1alpha1"
-	v1alpha1nsxt_logical_switch "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_switch/v1alpha1"
-	v1alpha1nsxt_logical_tier0_router "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_tier0_router/v1alpha1"
-	v1alpha1nsxt_logical_tier1_router "github.com/ankasoftco/provider-nsxt/apis/nsxt_logical_tier1_router/v1alpha1"
-	v1alpha1nsxt_mac_management_switching_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_mac_management_switching_profile/v1alpha1"
-	v1alpha1nsxt_manager_cluster "github.com/ankasoftco/provider-nsxt/apis/nsxt_manager_cluster/v1alpha1"
-	v1alpha1nsxt_nat_rule "github.com/ankasoftco/provider-nsxt/apis/nsxt_nat_rule/v1alpha1"
-	v1alpha1nsxt_ns_group "github.com/ankasoftco/provider-nsxt/apis/nsxt_ns_group/v1alpha1"
-	v1alpha1nsxt_ns_service_group "github.com/ankasoftco/provider-nsxt/apis/nsxt_ns_service_group/v1alpha1"
-	v1alpha1nsxt_policy_host_transport_node_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_host_transport_node_profile/v1alpha1"
-	v1alpha1nsxt_policy_ipsec_vpn_dpd_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_ipsec_vpn_dpd_profile/v1alpha1"
-	v1alpha1nsxt_policy_ipsec_vpn_ike_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_ipsec_vpn_ike_profile/v1alpha1"
-	v1alpha1nsxt_policy_ipsec_vpn_local_endpoint "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_ipsec_vpn_local_endpoint/v1alpha1"
-	v1alpha1nsxt_policy_ipsec_vpn_service "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_ipsec_vpn_service/v1alpha1"
-	v1alpha1nsxt_policy_ipsec_vpn_session "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_ipsec_vpn_session/v1alpha1"
-	v1alpha1nsxt_policy_l2_vpn_session "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_l2_vpn_session/v1alpha1"
-	v1alpha1nsxt_policy_transport_zone "github.com/ankasoftco/provider-nsxt/apis/nsxt_policy_transport_zone/v1alpha1"
-	v1alpha1nsxt_qos_switching_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_qos_switching_profile/v1alpha1"
-	v1alpha1nsxt_spoofguard_switching_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_spoofguard_switching_profile/v1alpha1"
-	v1alpha1nsxt_static_route "github.com/ankasoftco/provider-nsxt/apis/nsxt_static_route/v1alpha1"
-	v1alpha1nsxt_switch_security_switching_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_switch_security_switching_profile/v1alpha1"
-	v1alpha1nsxt_transport_node "github.com/ankasoftco/provider-nsxt/apis/nsxt_transport_node/v1alpha1"
-	v1alpha1nsxt_uplink_host_switch_profile "github.com/ankasoftco/provider-nsxt/apis/nsxt_uplink_host_switch_profile/v1alpha1"
-	v1alpha1nsxt_vlan_logical_switch "github.com/ankasoftco/provider-nsxt/apis/nsxt_vlan_logical_switch/v1alpha1"
-	v1alpha1nsxt_vm_tags "github.com/ankasoftco/provider-nsxt/apis/nsxt_vm_tags/v1alpha1"
+	v1alpha1nsxtalgorithmtypensservice "github.com/ankasoftco/provider-nsxt/apis/nsxtalgorithmtypensservice/v1alpha1"
+	v1alpha1nsxtclustervirtualip "github.com/ankasoftco/provider-nsxt/apis/nsxtclustervirtualip/v1alpha1"
+	v1alpha1nsxtcomputemanager "github.com/ankasoftco/provider-nsxt/apis/nsxtcomputemanager/v1alpha1"
+	v1alpha1nsxtdhcprelayprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtdhcprelayprofile/v1alpha1"
+	v1alpha1nsxtdhcprelayservice "github.com/ankasoftco/provider-nsxt/apis/nsxtdhcprelayservice/v1alpha1"
+	v1alpha1nsxtdhcpserverippool "github.com/ankasoftco/provider-nsxt/apis/nsxtdhcpserverippool/v1alpha1"
+	v1alpha1nsxtdhcpserverprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtdhcpserverprofile/v1alpha1"
+	v1alpha1nsxtedgecluster "github.com/ankasoftco/provider-nsxt/apis/nsxtedgecluster/v1alpha1"
+	v1alpha1nsxtethertypensservice "github.com/ankasoftco/provider-nsxt/apis/nsxtethertypensservice/v1alpha1"
+	v1alpha1nsxtfailuredomain "github.com/ankasoftco/provider-nsxt/apis/nsxtfailuredomain/v1alpha1"
+	v1alpha1nsxtfirewallsection "github.com/ankasoftco/provider-nsxt/apis/nsxtfirewallsection/v1alpha1"
+	v1alpha1nsxticmptypensservice "github.com/ankasoftco/provider-nsxt/apis/nsxticmptypensservice/v1alpha1"
+	v1alpha1nsxtigmptypensservice "github.com/ankasoftco/provider-nsxt/apis/nsxtigmptypensservice/v1alpha1"
+	v1alpha1nsxtipblock "github.com/ankasoftco/provider-nsxt/apis/nsxtipblock/v1alpha1"
+	v1alpha1nsxtipblocksubnet "github.com/ankasoftco/provider-nsxt/apis/nsxtipblocksubnet/v1alpha1"
+	v1alpha1nsxtipdiscoveryswitchingprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtipdiscoveryswitchingprofile/v1alpha1"
+	v1alpha1nsxtippool "github.com/ankasoftco/provider-nsxt/apis/nsxtippool/v1alpha1"
+	v1alpha1nsxtippoolallocationipaddress "github.com/ankasoftco/provider-nsxt/apis/nsxtippoolallocationipaddress/v1alpha1"
+	v1alpha1nsxtipprotocolnsservice "github.com/ankasoftco/provider-nsxt/apis/nsxtipprotocolnsservice/v1alpha1"
+	v1alpha1nsxtipset "github.com/ankasoftco/provider-nsxt/apis/nsxtipset/v1alpha1"
+	v1alpha1nsxtl4portsetnsservice "github.com/ankasoftco/provider-nsxt/apis/nsxtl4portsetnsservice/v1alpha1"
+	v1alpha1nsxtlbclientsslprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbclientsslprofile/v1alpha1"
+	v1alpha1nsxtlbcookiepersistenceprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbcookiepersistenceprofile/v1alpha1"
+	v1alpha1nsxtlbfasttcpapplicationprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbfasttcpapplicationprofile/v1alpha1"
+	v1alpha1nsxtlbfastudpapplicationprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbfastudpapplicationprofile/v1alpha1"
+	v1alpha1nsxtlbhttpapplicationprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttpapplicationprofile/v1alpha1"
+	v1alpha1nsxtlbhttpforwardingrule "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttpforwardingrule/v1alpha1"
+	v1alpha1nsxtlbhttpmonitor "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttpmonitor/v1alpha1"
+	v1alpha1nsxtlbhttprequestrewriterule "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttprequestrewriterule/v1alpha1"
+	v1alpha1nsxtlbhttpresponserewriterule "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttpresponserewriterule/v1alpha1"
+	v1alpha1nsxtlbhttpsmonitor "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttpsmonitor/v1alpha1"
+	v1alpha1nsxtlbhttpvirtualserver "github.com/ankasoftco/provider-nsxt/apis/nsxtlbhttpvirtualserver/v1alpha1"
+	v1alpha1nsxtlbicmpmonitor "github.com/ankasoftco/provider-nsxt/apis/nsxtlbicmpmonitor/v1alpha1"
+	v1alpha1nsxtlbpassivemonitor "github.com/ankasoftco/provider-nsxt/apis/nsxtlbpassivemonitor/v1alpha1"
+	v1alpha1nsxtlbpool "github.com/ankasoftco/provider-nsxt/apis/nsxtlbpool/v1alpha1"
+	v1alpha1nsxtlbserversslprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbserversslprofile/v1alpha1"
+	v1alpha1nsxtlbservice "github.com/ankasoftco/provider-nsxt/apis/nsxtlbservice/v1alpha1"
+	v1alpha1nsxtlbsourceippersistenceprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtlbsourceippersistenceprofile/v1alpha1"
+	v1alpha1nsxtlbtcpmonitor "github.com/ankasoftco/provider-nsxt/apis/nsxtlbtcpmonitor/v1alpha1"
+	v1alpha1nsxtlbtcpvirtualserver "github.com/ankasoftco/provider-nsxt/apis/nsxtlbtcpvirtualserver/v1alpha1"
+	v1alpha1nsxtlbudpmonitor "github.com/ankasoftco/provider-nsxt/apis/nsxtlbudpmonitor/v1alpha1"
+	v1alpha1nsxtlbudpvirtualserver "github.com/ankasoftco/provider-nsxt/apis/nsxtlbudpvirtualserver/v1alpha1"
+	v1alpha1nsxtlogicaldhcpport "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicaldhcpport/v1alpha1"
+	v1alpha1nsxtlogicaldhcpserver "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicaldhcpserver/v1alpha1"
+	v1alpha1nsxtlogicalport "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicalport/v1alpha1"
+	v1alpha1nsxtlogicalroutercentralizedserviceport "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicalroutercentralizedserviceport/v1alpha1"
+	v1alpha1nsxtlogicalrouterdownlinkport "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicalrouterdownlinkport/v1alpha1"
+	v1alpha1nsxtlogicalrouterlinkportontier0 "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicalrouterlinkportontier0/v1alpha1"
+	v1alpha1nsxtlogicalrouterlinkportontier1 "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicalrouterlinkportontier1/v1alpha1"
+	v1alpha1nsxtlogicalswitch "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicalswitch/v1alpha1"
+	v1alpha1nsxtlogicaltier0router "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicaltier0router/v1alpha1"
+	v1alpha1nsxtlogicaltier1router "github.com/ankasoftco/provider-nsxt/apis/nsxtlogicaltier1router/v1alpha1"
+	v1alpha1nsxtmacmanagementswitchingprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtmacmanagementswitchingprofile/v1alpha1"
+	v1alpha1nsxtmanagercluster "github.com/ankasoftco/provider-nsxt/apis/nsxtmanagercluster/v1alpha1"
+	v1alpha1nsxtnatrule "github.com/ankasoftco/provider-nsxt/apis/nsxtnatrule/v1alpha1"
+	v1alpha1nsxtnsgroup "github.com/ankasoftco/provider-nsxt/apis/nsxtnsgroup/v1alpha1"
+	v1alpha1nsxtnsservicegroup "github.com/ankasoftco/provider-nsxt/apis/nsxtnsservicegroup/v1alpha1"
+	v1alpha1nsxtpolicyhosttransportnodeprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyhosttransportnodeprofile/v1alpha1"
+	v1alpha1nsxtpolicyipsecvpndpdprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyipsecvpndpdprofile/v1alpha1"
+	v1alpha1nsxtpolicyipsecvpnikeprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyipsecvpnikeprofile/v1alpha1"
+	v1alpha1nsxtpolicyipsecvpnlocalendpoint "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyipsecvpnlocalendpoint/v1alpha1"
+	v1alpha1nsxtpolicyipsecvpnservice "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyipsecvpnservice/v1alpha1"
+	v1alpha1nsxtpolicyipsecvpnsession "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyipsecvpnsession/v1alpha1"
+	v1alpha1nsxtpolicyl2vpnsession "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicyl2vpnsession/v1alpha1"
+	v1alpha1nsxtpolicytransportzone "github.com/ankasoftco/provider-nsxt/apis/nsxtpolicytransportzone/v1alpha1"
+	v1alpha1nsxtqosswitchingprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtqosswitchingprofile/v1alpha1"
+	v1alpha1nsxtspoofguardswitchingprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtspoofguardswitchingprofile/v1alpha1"
+	v1alpha1nsxtstaticroute "github.com/ankasoftco/provider-nsxt/apis/nsxtstaticroute/v1alpha1"
+	v1alpha1nsxtswitchsecurityswitchingprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtswitchsecurityswitchingprofile/v1alpha1"
+	v1alpha1nsxttransportnode "github.com/ankasoftco/provider-nsxt/apis/nsxttransportnode/v1alpha1"
+	v1alpha1nsxtuplinkhostswitchprofile "github.com/ankasoftco/provider-nsxt/apis/nsxtuplinkhostswitchprofile/v1alpha1"
+	v1alpha1nsxtvlanlogicalswitch "github.com/ankasoftco/provider-nsxt/apis/nsxtvlanlogicalswitch/v1alpha1"
+	v1alpha1nsxtvmtags "github.com/ankasoftco/provider-nsxt/apis/nsxtvmtags/v1alpha1"
 	v1alpha1segments "github.com/ankasoftco/provider-nsxt/apis/segments/v1alpha1"
 	v1alpha1apis "github.com/ankasoftco/provider-nsxt/apis/v1alpha1"
 	v1beta1 "github.com/ankasoftco/provider-nsxt/apis/v1beta1"
@@ -109,79 +109,79 @@ func init() {
 		v1alpha1ipam.SchemeBuilder.AddToScheme,
 		v1alpha1loadbalancer.SchemeBuilder.AddToScheme,
 		v1alpha1multitenancy.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_algorithm_type_ns_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_cluster_virtual_ip.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_compute_manager.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_dhcp_relay_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_dhcp_relay_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_dhcp_server_ip_pool.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_dhcp_server_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_edge_cluster.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ether_type_ns_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_failure_domain.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_firewall_section.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_icmp_type_ns_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_igmp_type_ns_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_block.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_block_subnet.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_discovery_switching_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_pool.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_pool_allocation_ip_address.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_protocol_ns_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ip_set.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_l4_port_set_ns_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_client_ssl_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_cookie_persistence_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_fast_tcp_application_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_fast_udp_application_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_http_application_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_http_forwarding_rule.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_http_monitor.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_http_request_rewrite_rule.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_http_response_rewrite_rule.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_http_virtual_server.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_https_monitor.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_icmp_monitor.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_passive_monitor.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_pool.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_server_ssl_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_source_ip_persistence_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_tcp_monitor.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_tcp_virtual_server.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_udp_monitor.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_lb_udp_virtual_server.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_dhcp_port.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_dhcp_server.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_port.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_router_centralized_service_port.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_router_downlink_port.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_router_link_port_on_tier0.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_router_link_port_on_tier1.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_switch.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_tier0_router.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_logical_tier1_router.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_mac_management_switching_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_manager_cluster.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_nat_rule.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ns_group.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_ns_service_group.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_host_transport_node_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_ipsec_vpn_dpd_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_ipsec_vpn_ike_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_ipsec_vpn_local_endpoint.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_ipsec_vpn_service.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_ipsec_vpn_session.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_l2_vpn_session.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_policy_transport_zone.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_qos_switching_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_spoofguard_switching_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_static_route.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_switch_security_switching_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_transport_node.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_uplink_host_switch_profile.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_vlan_logical_switch.SchemeBuilder.AddToScheme,
-		v1alpha1nsxt_vm_tags.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtalgorithmtypensservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtclustervirtualip.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtcomputemanager.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtdhcprelayprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtdhcprelayservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtdhcpserverippool.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtdhcpserverprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtedgecluster.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtethertypensservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtfailuredomain.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtfirewallsection.SchemeBuilder.AddToScheme,
+		v1alpha1nsxticmptypensservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtigmptypensservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtipblock.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtipblocksubnet.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtipdiscoveryswitchingprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtippool.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtippoolallocationipaddress.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtipprotocolnsservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtipset.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtl4portsetnsservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbclientsslprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbcookiepersistenceprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbfasttcpapplicationprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbfastudpapplicationprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttpapplicationprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttpforwardingrule.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttpmonitor.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttprequestrewriterule.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttpresponserewriterule.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttpsmonitor.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbhttpvirtualserver.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbicmpmonitor.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbpassivemonitor.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbpool.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbserversslprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbsourceippersistenceprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbtcpmonitor.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbtcpvirtualserver.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbudpmonitor.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlbudpvirtualserver.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicaldhcpport.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicaldhcpserver.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicalport.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicalroutercentralizedserviceport.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicalrouterdownlinkport.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicalrouterlinkportontier0.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicalrouterlinkportontier1.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicalswitch.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicaltier0router.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtlogicaltier1router.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtmacmanagementswitchingprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtmanagercluster.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtnatrule.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtnsgroup.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtnsservicegroup.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyhosttransportnodeprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyipsecvpndpdprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyipsecvpnikeprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyipsecvpnlocalendpoint.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyipsecvpnservice.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyipsecvpnsession.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicyl2vpnsession.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtpolicytransportzone.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtqosswitchingprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtspoofguardswitchingprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtstaticroute.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtswitchsecurityswitchingprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxttransportnode.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtuplinkhostswitchprofile.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtvlanlogicalswitch.SchemeBuilder.AddToScheme,
+		v1alpha1nsxtvmtags.SchemeBuilder.AddToScheme,
 		v1alpha1segments.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,

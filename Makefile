@@ -51,7 +51,7 @@ GO_SUBDIRS += cmd internal apis
 # Setup Kubernetes tools
 
 KIND_VERSION = v0.15.0
-UP_VERSION = v0.18.0
+UP_VERSION = v0.28.0
 UP_CHANNEL = stable
 UPTEST_VERSION = v0.5.0
 -include build/makelib/k8s_tools.mk
@@ -59,17 +59,17 @@ UPTEST_VERSION = v0.5.0
 # ====================================================================================
 # Setup Images
 
-REGISTRY_ORGS ?= xpkg.upbound.io/upbound
+REGISTRY_ORGS ?= xpkg.upbound.io/ankasoftco
 IMAGES = $(PROJECT_NAME)
 -include build/makelib/imagelight.mk
 
 # ====================================================================================
 # Setup XPKG
 
-XPKG_REG_ORGS ?= xpkg.upbound.io/upbound
+XPKG_REG_ORGS ?= xpkg.upbound.io/ankasoftco
 # NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
 # inferred.
-XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/upbound
+XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/ankasoftco
 XPKGS = $(PROJECT_NAME)
 -include build/makelib/xpkg.mk
 
