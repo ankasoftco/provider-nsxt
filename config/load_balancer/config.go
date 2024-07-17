@@ -21,5 +21,5 @@ func Configure(p *config.Provider) {
 		r.Kind = "PolicyLbVirtualServer"
 		r.Version = "v1alpha1"
 	})
-	
+
 }

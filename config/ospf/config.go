@@ -9,5 +9,5 @@ func Configure(p *config.Provider) {
 		r.Kind = "PolicyOspfArea"
 		r.Version = "v1alpha1"
 	})
-	
+
 }

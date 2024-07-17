@@ -21,7 +21,7 @@ func Configure(p *config.Provider) {
 		r.Kind = "PolicyEvpnTunnelEndPoint"
 		r.Version = "v1alpha1"
 	})
-	
+
 	p.AddResourceConfigurator("nsxt_policy_vni_pool", func(r *config.Resource) {
 		r.ShortGroup = "evpn"
 		r.Kind = "PolicyVniPool"

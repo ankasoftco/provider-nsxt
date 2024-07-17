@@ -9,5 +9,5 @@ func Configure(p *config.Provider) {
 		r.Kind = "PolicyProject"
 		r.Version = "v1alpha1"
 	})
-	
+
 }
